@@ -33,7 +33,7 @@ const ProjectsSection: React.FC = () => {
           Mes Projets
         </h2>
         <p className="text-xl text-sage-600">
-          Découvrez les projets sur lesquels j'ai travaillé, chacun développé avec passion et précision.
+          Section en développement...
         </p>
       </div>
 
