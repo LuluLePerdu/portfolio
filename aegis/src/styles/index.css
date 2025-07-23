@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* Fusion: Minimalisme + Outdoor + Tech + Mythologie + Voyage */
+:root {
+  /* Palette inspirée des voyages et nature */
+  --sage-50: #f8faf6;
+  --sage-100: #e8f0e0;
+  --sage-600: #6b7c5c;
+  --sage-800: #445238;
+  
+  --stone-100: #f5f5f4;
+  --stone-200: #e7e5e4;
+  --stone-600: #78716c;
+  --stone-800: #292524;
+  
+  /* Accents tech mythologiques */
+  --bronze-400: #cd8c3d;
+  --bronze-600: #a67c2e;
+  
+  /* Dégradés naturels */
+  --forest-gradient: linear-gradient(135deg, #2d5a27 0%, #1a3e1a 100%);
+  --sky-gradient: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
+  --earth-gradient: linear-gradient(135deg, #d7ccc8 0%, #a1887f 100%);
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, #f8faf6 0%, #e8f0e0 100%);
+  color: #292524;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+/* Effets uniques */
+.tech-glow {
+  box-shadow: 0 0 20px rgba(205, 140, 61, 0.1);
+  border: 1px solid rgba(205, 140, 61, 0.2);
+}
+
+.forest-card {
+  background: rgba(248, 250, 246, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(107, 124, 92, 0.1);
+  border-radius: 16px;
+}
+
+.travel-accent {
+  position: relative;
+  overflow: hidden;
+}
+
+.travel-accent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: var(--forest-gradient);
+  transition: left 0.5s ease;
+}
+
+.travel-accent:hover::before {
+  left: 0;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
