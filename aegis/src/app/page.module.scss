@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+$sage-green: #9CAF88;
+$olive: #8B956D;
+$cream: #F7F5F3;
+$stone: #E8E6E3;
+$charcoal: #2F3E46;
+$gold: #D4AF37;
+
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, $cream 0%, $stone 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem 2rem; /* Ajout d'un padding-top pour le header fixe */
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 40%;
+    height: 200%;
+    background: radial-gradient(ellipse, rgba($sage-green, 0.1) 0%, transparent 70%);
+    transform: rotate(-15deg);
+  }
+}
+
+.hero {
+  max-width: 800px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.content {
+  background: rgba(white, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 4rem 3rem;
+  border-radius: 20px;
+  border: 1px solid rgba($sage-green, 0.2);
+  box-shadow: 
+    0 20px 40px rgba($charcoal, 0.1),
+    0 1px 3px rgba($charcoal, 0.05);
+}
+
+.title {
+  margin-bottom: 1.5rem;
+  
+  .greeting {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: $olive;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+  
+  .brand {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 4rem;
+    font-weight: 600;
+    color: $charcoal;
+    letter-spacing: 0.05em;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, $gold, transparent);
+    }
+  }
+}
+
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $charcoal;
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.divider {
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, $sage-green, transparent);
+  margin: 0 auto;
+}
+
+.decoration {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  pointer-events: none;
+}
+
+.leaf {
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  background: $sage-green;
+  border-radius: 0 100% 0 100%;
+  opacity: 0.6;
+  
+  &:nth-child(1) {
+    top: 0;
+    right: 0;
+    transform: rotate(15deg);
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  &:nth-child(2) {
+    top: 60px;
+    right: 40px;
+    transform: rotate(-20deg) scale(0.8);
+    animation: float 6s ease-in-out infinite 2s;
+  }
+  
+  &:nth-child(3) {
+    top: 30px;
+    right: 80px;
+    transform: rotate(45deg) scale(0.6);
+    animation: float 6s ease-in-out infinite 4s;
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(var(--rotation, 0deg)); 
+  }
+  50% { 
+    transform: translateY(-10px) rotate(var(--rotation, 0deg)); 
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .content {
+    padding: 3rem 2rem;
+  }
+  
+  .title .brand {
+    font-size: 3rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .decoration {
+    display: none;
+  }
+}

@@ -5,13 +5,13 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.headerContainer}>
         <div className={styles.headerContent}>
-          {/* Logo/Name */}
+          {/* Logo/Name avec style mythologique */}
           <div className={styles.logo}>
-            <h1 className={styles.logoTitle}>Ludwig-E. Dufour</h1>
-            <span className={styles.logoSubtitle}>Developer</span>
+            <h1 className={styles.logoTitle}>Aegis</h1>
+            <span className={styles.logoSubtitle}>Digital Sanctuary</span>
           </div>
 
-          {/* Navigation */}
+          {/* Navigation épurée */}
           <nav className={styles.nav}>
             <a href="#about" className={styles.navLink}>About</a>
             <a href="#projects" className={styles.navLink}>Projects</a>
@@ -21,8 +21,8 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <button className={styles.mobileMenuBtn}>
-            <svg className={styles.hamburger} fill="none" viewBox="0 0 24 24">
-              <path d="M4 6h16M4 12h16M4 18h16" />
+            <svg className={styles.hamburger} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
