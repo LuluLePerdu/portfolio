@@ -20,7 +20,7 @@ export default function Footer() {
             </div>
             
             <div className={styles.quote}>
-              <p>"Crafting digital experiences with the precision of a master artisan"</p>
+              <p>&ldquo;Crafting digital experiences with the precision of a master artisan&rdquo;</p>
             </div>
           </div>
 
