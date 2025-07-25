@@ -6,14 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pages:build": "npx @cloudflare/next-on-pages"
   },
   "dependencies": {
     "next": "15.4.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "sass": "^1.89.2",
-    "pages:build": "npx @cloudflare/next-on-pages"
+    "sass": "^1.89.2"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.13",
