@@ -9,15 +9,24 @@ export default function Home() {
         <div className={styles.content}>
           <h1 className={styles.title}>
             <span className={styles.greeting}>Welcome to</span>
-            <span className={styles.brand}>Aegis</span>
+            <span className={styles.greeting}>Project</span>
+            <span className={`${styles.brand} ${styles.aegis}`}>Aegis</span>
           </h1>
           <p className={styles.subtitle}>
-            A digital sanctuary showcasing the craft of a Full-Stack Developer, 
-            DevOps Engineer, and Cloud Enthusiast.
+            A digital sanctuary where code meets creativity. 
+            Full-Stack Developer, DevOps Engineer, and Visual Storyteller 
+            crafting experiences through technology and lens.
           </p>
           <div className={styles.divider}></div>
         </div>
         <div className={styles.decoration}>
+          <div className={styles.leaf}></div>
+          <div className={styles.leaf}></div>
+          <div className={styles.leaf}></div>
+          <div className={styles.leaf}></div>
+          <div className={styles.leaf}></div>
+          <div className={styles.leaf}></div>
+          <div className={styles.leaf}></div>
           <div className={styles.leaf}></div>
           <div className={styles.leaf}></div>
           <div className={styles.leaf}></div>

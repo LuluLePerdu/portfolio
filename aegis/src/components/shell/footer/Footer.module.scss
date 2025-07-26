@@ -6,10 +6,11 @@ $cream: #F7F5F3;
 $stone: #E8E6E3;
 $charcoal: #2F3E46;
 $gold: #D4AF37;
+$dark-red: #6B2737;
 
 .footer {
   background: linear-gradient(135deg, $stone 0%, $cream 100%);
-  border-top: 1px solid rgba($sage-green, 0.2);
+  border-top: 1px solid rgba($dark-red, 0.2);
   margin-top: auto;
 }
 
@@ -111,7 +112,7 @@ $gold: #D4AF37;
   gap: 0.5rem;
   padding: 0.75rem 1.25rem;
   background: rgba(white, 0.7);
-  border: 1px solid rgba($sage-green, 0.2);
+  border: 1px solid rgba($dark-red, 0.2);
   border-radius: 12px;
   color: $charcoal;
   text-decoration: none;
@@ -128,10 +129,10 @@ $gold: #D4AF37;
   }
   
   &:hover {
-    background: rgba($sage-green, 0.1);
-    border-color: rgba($sage-green, 0.4);
+    background: rgba($dark-red, 0.1);
+    border-color: rgba($dark-red, 0.4);
     transform: translateY(-2px);
-    color: $olive;
+    color: $dark-red;
     
     svg {
       transform: scale(1.1);
@@ -154,7 +155,7 @@ $gold: #D4AF37;
 .divider {
   width: 100px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, $sage-green, transparent);
+  background: linear-gradient(90deg, transparent, $dark-red, transparent);
 }
 
 .copyright {
@@ -167,15 +168,15 @@ $gold: #D4AF37;
 }
 
 .scrollTop {
-  background: rgba($sage-green, 0.1);
-  border: 1px solid rgba($sage-green, 0.3);
+  background: rgba($dark-red, 0.1);
+  border: 1px solid rgba($dark-red, 0.3);
   border-radius: 50%;
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $olive;
+  color: $dark-red;
   cursor: pointer;
   transition: all 0.3s ease;
   
@@ -185,8 +186,8 @@ $gold: #D4AF37;
   }
   
   &:hover {
-    background: rgba($sage-green, 0.2);
-    border-color: rgba($sage-green, 0.5);
+    background: rgba($dark-red, 0.2);
+    border-color: rgba($dark-red, 0.5);
     transform: translateY(-2px);
     color: $charcoal;
   }

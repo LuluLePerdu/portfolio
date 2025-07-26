@@ -6,6 +6,9 @@ $cream: #F7F5F3;
 $stone: #E8E6E3;
 $charcoal: #2F3E46;
 $gold: #D4AF37;
+$forest-green: #5D7C47;
+$mint: #A8D5BA;
+$bordeaux: #8B3A3A;
 
 .header {
   position: fixed;
@@ -14,59 +17,91 @@ $gold: #D4AF37;
   right: 0;
   z-index: 1000;
   background: rgba($cream, 0.95);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba($sage-green, 0.1);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba($bordeaux, 0.1);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  will-change: background-color, border-color;
+  
+  &.scrolled {
+    background: rgba($cream, 0.98);
+    border-bottom-color: rgba($bordeaux, 0.2);
+    box-shadow: 0 1px 10px rgba($bordeaux, 0.05);
+  }
 }
 
 .headerContainer {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
 }
 
 .headerContent {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: 85px;
 }
 
 .logo {
   display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  will-change: transform;
+  
+  &:hover {
+    transform: translateY(-1px);
+    
+    .logoIcon {
+      transform: scale(1.02);
+    }
+  }
+}
+
+.logoIcon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, $bordeaux, $charcoal);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
+  will-change: transform;
+  box-shadow: 0 2px 8px rgba($bordeaux, 0.15);
+}
+
+.initials {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.05em;
+}
+
+.logoText {
+  display: flex;
   flex-direction: column;
-  align-items: flex-start;
 }
 
 .logoTitle {
-  font-family: 'Cinzel', serif;
-  font-size: 1.8rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.3rem;
   font-weight: 600;
   color: $charcoal;
   margin: 0;
-  letter-spacing: 0.05em;
-  position: relative;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 30px;
-    height: 1px;
-    background: $gold;
-    opacity: 0.7;
-  }
+  letter-spacing: -0.02em;
 }
 
 .logoSubtitle {
   font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 300;
+  font-size: 0.8rem;
+  font-weight: 400;
   color: $olive;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
   margin-top: 2px;
+  letter-spacing: 0.02em;
 }
 
 .nav {
@@ -81,44 +116,86 @@ $gold: #D4AF37;
 
 .navLink {
   font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 400;
+  font-size: 0.9rem;
+  font-weight: 500;
   color: $charcoal;
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
   position: relative;
+  will-change: color;
   
-  &:hover {
-    color: $olive;
-    background: rgba($sage-green, 0.1);
+  .navText {
+    position: relative;
+    z-index: 2;
   }
   
-  &::before {
-    content: '';
+  .navIndicator {
     position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
     width: 0;
     height: 2px;
-    background: $gold;
-    transition: width 0.3s ease;
+    background: linear-gradient(90deg, $bordeaux, $gold);
+    transition: width 0.2s ease;
+    will-change: width;
   }
   
-  &:hover::before {
-    width: 60%;
+  &:hover {
+    color: $bordeaux;
+    
+    .navIndicator {
+      width: 100%;
+    }
+  }
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.ctaButton {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, $bordeaux, $charcoal);
+  border-radius: 25px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  will-change: transform;
+  box-shadow: 0 2px 8px rgba($bordeaux, 0.2);
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba($bordeaux, 0.3);
+  }
+  
+  &:active {
+    transform: translateY(0);
   }
 }
 
 .mobileMenuBtn {
   display: none;
-  background: none;
-  border: none;
-  padding: 0.5rem;
+  background: rgba($bordeaux, 0.1);
+  border: 1px solid rgba($bordeaux, 0.2);
+  border-radius: 8px;
+  padding: 0.75rem;
   cursor: pointer;
   color: $charcoal;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  
+  &:hover {
+    background: rgba($bordeaux, 0.15);
+    border-color: rgba($bordeaux, 0.3);
+  }
   
   @media (max-width: 768px) {
     display: block;
@@ -126,12 +203,90 @@ $gold: #D4AF37;
 }
 
 .hamburger {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.3s ease;
+  width: 20px;
+  height: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  span {
+    width: 100%;
+    height: 2px;
+    background: $charcoal;
+    border-radius: 1px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  
+  &.hamburgerOpen {
+    span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+  }
+}
+
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba($cream, 0.98);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba($bordeaux, 0.2);
+  padding: 2rem;
+  animation: slideDown 0.2s ease-out;
+  
+  @media (min-width: 769px) {
+    display: none;
+  }
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.mobileNavLink {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: $charcoal;
+  text-decoration: none;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+  background: rgba($bordeaux, 0.05);
+  border: 1px solid rgba($bordeaux, 0.1);
+  text-align: center;
+  will-change: transform;
   
   &:hover {
-    transform: scale(1.1);
+    color: $bordeaux;
+    background: rgba($bordeaux, 0.15);
+    border-color: rgba($bordeaux, 0.3);
+    transform: translateX(3px);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

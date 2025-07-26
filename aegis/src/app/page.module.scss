@@ -6,26 +6,57 @@ $cream: #F7F5F3;
 $stone: #E8E6E3;
 $charcoal: #2F3E46;
 $gold: #D4AF37;
+$forest-green: #5D7C47;
+$mint: #A8D5BA;
+$bordeaux: #8B3A3A;
+$dark-red: #6B2737;
+$taupe: #B8A08A;
+$rose-gold: #E8C5A0;
 
 .container {
   min-height: 100vh;
-  background: linear-gradient(135deg, $cream 0%, $stone 100%);
+  background: linear-gradient(135deg, 
+    $cream 0%, 
+    rgba($stone, 0.7) 25%,
+    rgba($dark-red, 0.1) 50%,
+    $stone 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6rem 2rem 2rem; /* Ajout d'un padding-top pour le header fixe */
+  padding: 6rem 2rem 2rem;
   position: relative;
   overflow: hidden;
 
   &::before {
     content: '';
     position: absolute;
-    top: -50%;
-    right: -20%;
+    top: -30%;
+    right: -15%;
+    width: 50%;
+    height: 150%;
+    background: radial-gradient(ellipse, 
+      rgba($dark-red, 0.12) 0%, 
+      rgba($taupe, 0.1) 30%,
+      rgba($rose-gold, 0.05) 60%,
+      transparent 80%
+    );
+    transform: rotate(-20deg);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -10%;
     width: 40%;
-    height: 200%;
-    background: radial-gradient(ellipse, rgba($sage-green, 0.1) 0%, transparent 70%);
-    transform: rotate(-15deg);
+    height: 120%;
+    background: radial-gradient(ellipse, 
+      rgba($dark-red, 0.08) 0%, 
+      rgba($taupe, 0.05) 50%,
+      transparent 70%
+    );
+    transform: rotate(15deg);
   }
 }
 
@@ -37,49 +68,174 @@ $gold: #D4AF37;
 }
 
 .content {
-  background: rgba(white, 0.7);
-  backdrop-filter: blur(10px);
-  padding: 4rem 3rem;
-  border-radius: 20px;
-  border: 1px solid rgba($sage-green, 0.2);
+  background: rgba(white, 0.85);
+  backdrop-filter: blur(15px);
+  padding: 4.5rem 3.5rem;
+  border-radius: 25px;
+  border: 2px solid rgba($stone, 0.25);
   box-shadow: 
-    0 20px 40px rgba($charcoal, 0.1),
-    0 1px 3px rgba($charcoal, 0.05);
+    0 25px 50px rgba($charcoal, 0.12),
+    0 10px 20px rgba($stone, 0.08),
+    inset 0 1px 0 rgba(white, 0.8);
+  position: relative;
+  animation: contentFadeIn 1s ease-out 0.8s both;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, 
+      rgba($stone, 0.3), 
+      rgba($dark-red, 0.15), 
+      rgba($charcoal, 0.1)
+    );
+    border-radius: 25px;
+    z-index: -1;
+    opacity: 0.6;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, rgba($gold, 0.6), transparent);
+    border-radius: 50%;
+    animation: sparkle 2s ease-in-out 2s infinite;
+  }
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .title {
   margin-bottom: 1.5rem;
+  position: relative;
   
   .greeting {
     display: block;
     font-family: 'Inter', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 300;
     color: $olive;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.5rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.3rem;
     text-transform: uppercase;
+    position: relative;
+    opacity: 0.9;
+    
+    &:first-child {
+      animation: slideInLeft 1s ease-out 0.2s both;
+    }
+    
+    &:nth-child(2) {
+      font-weight: 500;
+      color: $dark-red;
+      letter-spacing: 0.2em;
+      margin-bottom: 0.8rem;
+      animation: slideInLeft 1s ease-out 0.4s both;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background: linear-gradient(90deg, $dark-red, $gold);
+        opacity: 0.8;
+        animation: expandWidth 1s ease-out 1s both;
+      }
+    }
   }
   
   .brand {
     display: block;
     font-family: 'Cinzel', serif;
-    font-size: 4rem;
+    font-size: 4.5rem;
     font-weight: 600;
     color: $charcoal;
     letter-spacing: 0.05em;
     position: relative;
+    background: linear-gradient(135deg, 
+      #1a1a1a 0%, 
+      $charcoal 25%, 
+      #3a3a3a 50%, 
+      $olive 75%, 
+      $dark-red 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: slideInUp 1.2s ease-out 0.6s both, gradientShift 4s ease-in-out 2s infinite;
     
     &::after {
       content: '';
       position: absolute;
-      bottom: -10px;
+      bottom: -15px;
       left: 50%;
       transform: translateX(-50%);
-      width: 60px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, $gold, transparent);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, 
+        transparent, 
+        #1a1a1a 20%, 
+        $charcoal 40%, 
+        $gold 60%, 
+        $dark-red 80%, 
+        transparent
+      );
+      border-radius: 2px;
+      animation: glowPulse 2s ease-in-out 1.5s infinite;
     }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: radial-gradient(ellipse at center, 
+        rgba($charcoal, 0.08) 0%, 
+        rgba($stone, 0.04) 40%,
+        transparent 70%
+      );
+      z-index: -1;
+      animation: breathe 3s ease-in-out 2s infinite;
+    }
+  }
+  
+  .aegis {
+    color: $dark-red !important;
+    background: none !important;
+    -webkit-text-fill-color: $dark-red !important;
+    text-shadow: 0 0 20px rgba($dark-red, 0.3);
   }
 }
 
@@ -95,55 +251,260 @@ $gold: #D4AF37;
 }
 
 .divider {
-  width: 100px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, $sage-green, transparent);
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, $dark-red, $gold, $dark-red, transparent);
   margin: 0 auto;
+  border-radius: 1px;
+  animation: dividerGlow 2s ease-in-out 1.8s both;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 4px;
+    background: radial-gradient(ellipse, rgba($gold, 0.8), transparent);
+    animation: centerGlow 3s ease-in-out 2.5s infinite;
+  }
+}
+
+@keyframes dividerGlow {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes centerGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.2);
+  }
 }
 
 .decoration {
   position: absolute;
-  top: -20px;
-  right: -20px;
+  top: -30px;
+  right: -30px;
+  width: 180px;
+  height: 250px;
   pointer-events: none;
 }
 
 .leaf {
   position: absolute;
-  width: 30px;
-  height: 50px;
-  background: $sage-green;
+  background: linear-gradient(45deg, $dark-red, $taupe, $rose-gold);
   border-radius: 0 100% 0 100%;
-  opacity: 0.6;
+  opacity: 0;
+  box-shadow: 0 4px 8px rgba($dark-red, 0.2);
   
+  // Coin supérieur droit - grandes feuilles
   &:nth-child(1) {
-    top: 0;
-    right: 0;
-    transform: rotate(15deg);
-    animation: float 6s ease-in-out infinite;
+    top: 0px;
+    right: 0px;
+    width: 45px;
+    height: 75px;
+    transform: rotate(-5deg) scale(0.5);
+    background: linear-gradient(45deg, $taupe, $rose-gold);
+    animation: leafEntrance 1.2s ease-out 1.8s both, float 8s ease-in-out 3s infinite;
   }
   
   &:nth-child(2) {
-    top: 60px;
-    right: 40px;
-    transform: rotate(-20deg) scale(0.8);
-    animation: float 6s ease-in-out infinite 2s;
+    top: 15px;
+    right: 35px;
+    width: 35px;
+    height: 60px;
+    transform: rotate(20deg) scale(0.5);
+    background: linear-gradient(45deg, $dark-red, $taupe);
+    animation: leafEntrance 1.2s ease-out 2s both, float 8s ease-in-out 3.2s infinite;
   }
   
+  // Descente le long du bord droit
   &:nth-child(3) {
-    top: 30px;
-    right: 80px;
-    transform: rotate(45deg) scale(0.6);
-    animation: float 6s ease-in-out infinite 4s;
+    top: 70px;
+    right: 10px;
+    width: 30px;
+    height: 50px;
+    transform: rotate(-15deg) scale(0.5);
+    background: linear-gradient(45deg, $olive, $rose-gold);
+    animation: leafEntrance 1.2s ease-out 2.2s both, float 8s ease-in-out 3.4s infinite;
+  }
+  
+  &:nth-child(4) {
+    top: 45px;
+    right: 50px;
+    width: 18px;
+    height: 30px;
+    transform: rotate(35deg) scale(0.3);
+    background: linear-gradient(45deg, $rose-gold, $dark-red);
+    animation: leafEntrance 1.2s ease-out 2.4s both, float 8s ease-in-out 3.6s infinite;
+  }
+  
+  // Expansion vers l'intérieur du coin
+  &:nth-child(5) {
+    top: 25px;
+    right: 75px;
+    width: 25px;
+    height: 42px;
+    transform: rotate(-25deg) scale(0.4);
+    background: linear-gradient(45deg, $taupe, $olive);
+    animation: leafEntrance 1.2s ease-out 2.6s both, float 8s ease-in-out 3.8s infinite;
+  }
+  
+  &:nth-child(6) {
+    top: 100px;
+    right: 25px;
+    width: 28px;
+    height: 48px;
+    transform: rotate(10deg) scale(0.4);
+    background: linear-gradient(45deg, $dark-red, $rose-gold);
+    animation: leafEntrance 1.2s ease-out 2.8s both, float 8s ease-in-out 4s infinite;
+  }
+  
+  // Plus vers l'intérieur - effet de dispersion
+  &:nth-child(7) {
+    top: 60px;
+    right: 90px;
+    width: 22px;
+    height: 38px;
+    transform: rotate(-30deg) scale(0.35);
+    background: linear-gradient(45deg, $rose-gold, $taupe);
+    animation: leafEntrance 1.2s ease-out 3s both, float 8s ease-in-out 4.2s infinite;
+  }
+  
+  &:nth-child(8) {
+    top: 85px;
+    right: 65px;
+    width: 15px;
+    height: 25px;
+    transform: rotate(45deg) scale(0.25);
+    background: linear-gradient(45deg, $olive, $bordeaux);
+    animation: leafEntrance 1.2s ease-out 3.2s both, float 8s ease-in-out 4.4s infinite;
+  }
+  
+  // Continuation de l'effet de coin
+  &:nth-child(9) {
+    top: 130px;
+    right: 15px;
+    width: 32px;
+    height: 55px;
+    transform: rotate(-10deg) scale(0.4);
+    background: linear-gradient(45deg, $taupe, $bordeaux);
+    animation: leafEntrance 1.2s ease-out 3.4s both, float 8s ease-in-out 4.6s infinite;
+  }
+  
+  &:nth-child(10) {
+    top: 110px;
+    right: 110px;
+    width: 12px;
+    height: 20px;
+    transform: rotate(55deg) scale(0.2);
+    background: linear-gradient(45deg, $rose-gold, $olive);
+    animation: leafEntrance 1.2s ease-out 3.6s both, float 8s ease-in-out 4.8s infinite;
+  }
+}
+
+@keyframes leafEntrance {
+  from {
+    opacity: 0;
+    transform: rotate(var(--start-rotation, 0deg)) scale(0.3) translateY(-20px);
+  }
+  to {
+    opacity: 0.7;
+    transform: rotate(var(--end-rotation, 0deg)) scale(var(--end-scale, 1)) translateY(0);
   }
 }
 
 @keyframes float {
   0%, 100% { 
-    transform: translateY(0px) rotate(var(--rotation, 0deg)); 
+    transform: translateY(0px) rotate(var(--rotation, 0deg)) scale(var(--scale, 1));
+    opacity: 0.7;
+  }
+  25% { 
+    transform: translateY(-8px) rotate(var(--rotation, 0deg)) scale(var(--scale, 1));
+    opacity: 0.9;
   }
   50% { 
-    transform: translateY(-10px) rotate(var(--rotation, 0deg)); 
+    transform: translateY(-15px) rotate(var(--rotation, 0deg)) scale(var(--scale, 1));
+    opacity: 0.6;
+  }
+  75% { 
+    transform: translateY(-5px) rotate(var(--rotation, 0deg)) scale(var(--scale, 1));
+    opacity: 0.8;
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 0.9;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes expandWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: 50px;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.8;
+    box-shadow: 0 0 10px rgba($gold, 0.3);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba($gold, 0.6), 0 0 30px rgba($sage-green, 0.3);
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.2;
   }
 }
 
