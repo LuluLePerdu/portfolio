@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import styles from './UnavailablePage.module.scss';
 
@@ -22,9 +23,9 @@ export default function UnavailablePage({ titleKey, messageKey }: UnavailablePag
         <h1 className={styles.title}>{t(titleKey)}</h1>
         <p className={styles.message}>{t(messageKey)}</p>
         <div className={styles.actions}>
-          <a href="/" className={styles.homeButton}>
+          <Link href="/" className={styles.homeButton}>
             {t('common.backToHome')}
-          </a>
+          </Link>
         </div>
       </div>
     </div>

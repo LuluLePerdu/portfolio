@@ -1,11 +1,8 @@
 'use client';
 
 import styles from './Footer.module.scss';
-import { useLanguage } from '@/context/LanguageContext';
 
 export default function Footer() {
-  const { t } = useLanguage();
-  
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
