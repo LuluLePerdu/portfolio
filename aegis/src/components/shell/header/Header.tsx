@@ -66,7 +66,7 @@ export default function Header() {
           {/* Call to action */}
           <div className={styles.headerActions}>
             <a href="#contact" className={styles.ctaButton}>
-              Let's Talk
+              Let&apos;s Talk
             </a>
           </div>
 
