@@ -18,6 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Ludwig-E. Dufour | Portfolio",
   description: "Full-Stack Developer | DevOps Engineer | Cloud Enthusiast",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
 };
 
 export default function RootLayout({
