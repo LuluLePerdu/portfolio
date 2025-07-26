@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './Header.module.scss';
-import ThemeToggle from '@/components/ui/ThemeToggle';
-import LanguageToggle from '@/components/ui/LanguageToggle';
-import { useLanguage } from '@/contexts/LanguageContext';
+import ThemeToggle from '@/components/ui/controls/ThemeToggle';
+import LanguageToggle from '@/components/ui/controls/LanguageToggle';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);

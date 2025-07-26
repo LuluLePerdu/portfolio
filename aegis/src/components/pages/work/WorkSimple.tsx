@@ -3,7 +3,7 @@
 import styles from './Portfolio.module.scss';
 import { useLanguage } from '@/context/LanguageContext';
 
-export default function Portfolio() {
+export default function WorkSimple() {
   const { t } = useLanguage();
 
   return (
