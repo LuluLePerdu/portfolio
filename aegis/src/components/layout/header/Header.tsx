@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './Header.module.scss';
-import ThemeToggle from '@/components/ui/ThemeToggle';
-import LanguageToggle from '@/components/ui/LanguageToggle';
-import { useLanguage } from '@/contexts/LanguageContext';
+import ThemeToggle from '@/components/ui/controls/ThemeToggle';
+import LanguageToggle from '@/components/ui/controls/LanguageToggle';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,11 +32,11 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { href: '/work', label: t('header.work'), disabled: false },
-    { href: '/about', label: t('header.about'), disabled: true },
-    { href: '/photography', label: t('header.photography'), disabled: true },
-    { href: '/experience', label: t('header.experience'), disabled: false },
-    { href: '/contact', label: t('header.contact'), disabled: false }
+    { href: '/work', label: t('header.work') },
+    { href: '/about', label: t('header.about') },
+    { href: '/photography', label: t('header.photography') },
+    { href: '/experience', label: t('header.experience') },
+    { href: '/contact', label: t('header.contact') }
   ];
 
   const isActive = (href: string) => pathname === href;
@@ -61,24 +61,14 @@ export default function Header() {
           {/* Navigation portfolio */}
           <nav className={styles.nav}>
             {navLinks.map((link) => (
-              link.disabled ? (
-                <span
-                  key={link.href}
-                  className={`${styles.navLink} ${styles.disabled}`}
-                >
-                  <span className={styles.navText}>{link.label}</span>
-                  <div className={styles.navIndicator}></div>
-                </span>
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`${styles.navLink} ${isActive(link.href) ? styles.active : ''}`}
-                >
-                  <span className={styles.navText}>{link.label}</span>
-                  <div className={styles.navIndicator}></div>
-                </Link>
-              )
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`${styles.navLink} ${isActive(link.href) ? styles.active : ''}`}
+              >
+                <span className={styles.navText}>{link.label}</span>
+                <div className={styles.navIndicator}></div>
+              </Link>
             ))}
           </nav>
 
@@ -111,23 +101,14 @@ export default function Header() {
         <div className={styles.mobileMenu}>
           <nav className={styles.mobileNav}>
             {navLinks.map((link) => (
-              link.disabled ? (
-                <span
-                  key={link.href}
-                  className={`${styles.mobileNavLink} ${styles.disabled}`}
-                >
-                  {link.label}
-                </span>
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`${styles.mobileNavLink} ${isActive(link.href) ? styles.active : ''}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              )
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`${styles.mobileNavLink} ${isActive(link.href) ? styles.active : ''}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
             ))}
           </nav>
         </div>

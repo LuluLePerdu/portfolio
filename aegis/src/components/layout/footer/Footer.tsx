@@ -1,8 +1,11 @@
 'use client';
 
 import styles from './Footer.module.scss';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
+  
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -20,7 +23,7 @@ export default function Footer() {
             </div>
             
             <div className={styles.quote}>
-              <p>&ldquo;Crafting digital experiences with the precision of a master artisan&rdquo;</p>
+              <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&rdquo;</p>
             </div>
           </div>
 
@@ -60,7 +63,7 @@ export default function Footer() {
           <div className={styles.footerBottom}>
             <div className={styles.divider}></div>
             <p className={styles.copyright}>
-              © 2025 Ludwig-E. Dufour • Built with passion and precision
+              © 2025 Ludwig-E. Dufour • Built with Joyeux Matin!
             </p>
             <button onClick={scrollToTop} className={styles.scrollTop} aria-label="Scroll to top">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">

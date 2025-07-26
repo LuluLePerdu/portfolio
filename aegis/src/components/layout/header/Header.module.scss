@@ -166,24 +166,6 @@ $bordeaux: #8B3A3A;
       background: linear-gradient(90deg, $bordeaux, $gold);
     }
   }
-  
-  &.disabled {
-    color: rgba($charcoal, 0.4);
-    cursor: not-allowed;
-    pointer-events: none;
-    
-    .navIndicator {
-      display: none;
-    }
-    
-    &:hover {
-      color: rgba($charcoal, 0.4);
-      
-      .navIndicator {
-        width: 0;
-      }
-    }
-  }
 }
 
 .headerActions {
@@ -326,21 +308,6 @@ $bordeaux: #8B3A3A;
     background: $bordeaux;
     border-color: $bordeaux;
     font-weight: 500;
-  }
-  
-  &.disabled {
-    color: rgba($charcoal, 0.4);
-    background: rgba($bordeaux, 0.02);
-    border-color: rgba($bordeaux, 0.05);
-    cursor: not-allowed;
-    pointer-events: none;
-    
-    &:hover {
-      color: rgba($charcoal, 0.4);
-      background: rgba($bordeaux, 0.02);
-      border-color: rgba($bordeaux, 0.05);
-      transform: none;
-    }
   }
 }
 

@@ -7,6 +7,10 @@
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --background: #F7F5F3;
   --foreground: #2F3E46;
@@ -16,6 +20,16 @@
   --stone: #E8E6E3;
   --charcoal: #2F3E46;
   --gold: #D4AF37;
+  --dark-red: #6B2737;
+  --bordeaux: #8B3A3A;
+}
+
+[data-theme="dark"] {
+  --background: #1a1a1a;
+  --foreground: #E8E6E3;
+  --cream: #2a2a2a;
+  --stone: #3a3a3a;
+  --charcoal: #E8E6E3;
 }
 
 html {
@@ -33,6 +47,7 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
