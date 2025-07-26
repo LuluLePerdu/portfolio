@@ -143,11 +143,11 @@ const translations = {
     'home.welcome': 'Bienvenue sur',
     'home.project': 'Projet',
     'home.subtitle': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    'home.viewWork': 'Voir Mon Travail',
+    'home.viewWork': 'Voir Mes Projets',
     'home.learnMore': 'En Savoir Plus Sur Moi',
     
     // Work
-    'work.title': 'Mon Travail',
+    'work.title': 'Mes projets',
     'work.subtitle': 'Bientôt Disponible - Une sélection soignée de projets démontrant mon expertise en développement full-stack, automatisation DevOps et solutions créatives.',
     'work.construction': 'Portfolio En Construction',
     'work.constructionText': 'Je suis actuellement en train de créer une vitrine exceptionnelle de mes meilleurs travaux. Chaque projet racontera une histoire d\'innovation, de résolution de problèmes et d\'excellence technique.',

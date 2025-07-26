@@ -344,6 +344,16 @@ $bordeaux: #8B3A3A;
   }
 }
 
+.mobileActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba($bordeaux, 0.1);
+}
+
 @keyframes slideDown {
   from {
     opacity: 0;

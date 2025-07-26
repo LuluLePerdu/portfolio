@@ -129,6 +129,12 @@ export default function Header() {
                 </Link>
               )
             ))}
+            
+            {/* Mobile actions */}
+            <div className={styles.mobileActions}>
+              <LanguageToggle />
+              <ThemeToggle />
+            </div>
           </nav>
         </div>
       )}
