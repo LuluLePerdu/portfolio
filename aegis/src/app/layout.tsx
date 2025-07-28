@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://ludwig-dufour.dev',
+    url: 'https://ludwig-emmanuel.dev',
     siteName: 'Ludwig-E. Dufour Portfolio',
     title: 'Ludwig-E. Dufour | Full-Stack Developer & DevOps Engineer',
     description: 'Experienced Full-Stack Developer & DevOps Engineer specializing in modern web technologies, cloud infrastructure, and scalable solutions.',
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     creator: '@ludwig-emmanuel_dufour',
     images: ['/og-image.jpg'],
   },
-  metadataBase: new URL('https://ludwig-dufour.dev'),
+  metadataBase: new URL('https://ludwig-emmanuel.dev'),
   alternates: {
     canonical: '/',
     languages: {
