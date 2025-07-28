@@ -1,21 +1,10 @@
-import { Metadata } from "next";
+'use client';
+
 import styles from './page.module.scss'
 import { useLanguage } from '@/context/LanguageContext';
 import { PortfolioSimple, Skills } from "@/components/pages";
 
-export const metadata: Metadata = {
-  title: "Home",
-  description: "Welcome to Ludwig-E. Dufour's portfolio. Experienced Full-Stack Developer & DevOps Engineer creating innovative web solutions with modern technologies like React, Next.js, and cloud infrastructure.",
-  openGraph: {
-    title: "Ludwig-E. Dufour | Full-Stack Developer & DevOps Engineer",
-    description: "Welcome to Ludwig-E. Dufour's portfolio. Experienced Full-Stack Developer & DevOps Engineer creating innovative web solutions.",
-    url: '/',
-  },
-};
-
 //export const runtime = 'edge';
-
-'use client';
 
 export default function Home() {
   const { t } = useLanguage();
