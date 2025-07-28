@@ -1,5 +1,5 @@
 import "./globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import { Header, Footer } from '@/components/layout';
@@ -80,11 +80,16 @@ export const metadata: Metadata = {
       'fr-FR': '/fr-FR',
     },
   },
-  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
   verification: {
     google: 'DGp8GwgDzDIzjdZKpHTxNWNV7w4tISny92xLd_bKn3A',
   },
 };
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+}
 
 export default function RootLayout({
   children,
@@ -92,7 +97,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

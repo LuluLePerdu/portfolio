@@ -1,5 +1,5 @@
+@use '../../../styles/globals.scss' as *;
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
-@import '../../../styles/globals.scss';
 
 // Couleurs mode sombre harmonieuses avec le thème naturel
 $dark-bg: #1a1d1a; // Fond naturel très sombre
@@ -122,7 +122,7 @@ $dark-border: #3d453d; // Bordure naturelle sombre
   font-family: 'Inter', sans-serif;
   font-size: 1.3rem;
   font-weight: 600;
-  color: #2F3E46;
+  color: #f7fafc;
   margin: 0;
   letter-spacing: -0.02em;
   

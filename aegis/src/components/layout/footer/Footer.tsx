@@ -20,7 +20,7 @@ export default function Footer() {
             </div>
             
             <div className={styles.quote}>
-              <p>&ldquo;Dans l'art réside la beauté éternelle, et dans le code, l'harmonie des dieux.&rdquo;</p>
+              <p>&ldquo;Dans l&apos;art réside la beauté éternelle, et dans le code, l&apos;harmonie des dieux.&rdquo;</p>
             </div>
           </div>
 

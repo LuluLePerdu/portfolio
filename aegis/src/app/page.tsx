@@ -46,16 +46,7 @@ export default function Home() {
           </div>
         </div>
       </main>
-      
-      {/* Section Skills pour le contenu SEO */}
-      <section style={{ position: 'relative', zIndex: 1 }}>
-        <Skills />
-      </section>
-      
-      {/* Section Portfolio pour le contenu SEO */}
-      <section style={{ position: 'relative', zIndex: 1 }}>
-        <PortfolioSimple />
-      </section>
+    
     </>
   );
 }

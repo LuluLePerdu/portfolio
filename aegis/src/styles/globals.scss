@@ -1,2 +1,2 @@
-// Import global des variables de couleurs
-@import './variables.scss';
+// Export global des variables de couleurs
+@forward './variables.scss';

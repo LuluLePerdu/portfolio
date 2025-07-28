@@ -1,6 +1,6 @@
 @use "sass:color";
+@use '../../styles/globals.scss' as *;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
-@import '../../styles/globals.scss';
 
 // Couleurs mode sombre harmonieuses avec le thème naturel
 $dark-bg: #1a1d1a;
