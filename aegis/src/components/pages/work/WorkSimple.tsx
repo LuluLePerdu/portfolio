@@ -9,13 +9,6 @@ export default function WorkSimple() {
   return (
     <section className={styles.portfolio}>
       <div className={styles.container}>
-        <div className={styles.header}>
-          <h2 className={styles.title}>{t('work.title')}</h2>
-          <p className={styles.subtitle}>
-            {t('work.subtitle')}
-          </p>
-        </div>
-        
         <div className={styles.content}>
           <div className={styles.placeholder}>
             <div className={styles.placeholderIcon}>

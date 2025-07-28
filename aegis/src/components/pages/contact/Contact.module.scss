@@ -1,18 +1,27 @@
-$dark-red: #6B2737;
-$bordeaux: #8B3A3A;
-$cream: #F7F5F3;
-$stone: #E8E6E3;
-$charcoal: #2F3E46;
-$gold: #D4AF37;
-$taupe: #B8A08A;
+// Palette mythologique raffinée
+$bordeaux: #8B3A3A; // Rouge sang des héros
+$red-copper: #B85450; // Bronze patiné 
+$red-accent: #D2603A; // Cuivre brillant
+
+// Couleurs inspirées de l'Antiquité grecque
+$marble: #F8F6F0; // Marbre blanc antique
+$olive: #6B7F59; // Olive sacré
+$terracotta: #C4704F; // Terre cuite des amphores
+$gold-leaf: #D4A574; // Feuille d'or vieilli
+$shadow-grey: #4A4A4A; // Ombre des colonnes
+
+// Couleurs mode sombre - sanctuaire nocturne
+$dark-bg: #1a1d1a; // Nuit du sanctuaire
+$dark-surface: #242824; // Pierre sombre
+$dark-accent: #a87c4a; // Bronze antique
+$dark-accent-hover: #c49660; // Bronze éclairé
+$dark-text: #e8e6e3; // Parchemin ancien
+$dark-text-muted: #a8a096; // Encre fanée
+$dark-border: #3d453d; // Bordure de pierre
+$bordeaux-hover: #c49660;
 
 .contact {
   padding: 6rem 0;
-  background: linear-gradient(135deg, 
-    rgba($cream, 0.9) 0%, 
-    rgba($stone, 0.7) 50%,
-    rgba($taupe, 0.4) 100%
-  );
   position: relative;
   
   &::before {
@@ -21,12 +30,25 @@ $taupe: #B8A08A;
     top: 0;
     left: 0;
     right: 0;
-    height: 1px;
+    height: 2px;
     background: linear-gradient(90deg, 
       transparent 0%, 
-      rgba($dark-red, 0.3) 50%, 
+      rgba($red-copper, 0.4) 30%,
+      rgba($bordeaux, 0.6) 50%, 
+      rgba($red-copper, 0.4) 70%,
       transparent 100%
     );
+    box-shadow: 0 0 6px rgba($bordeaux, 0.3);
+    
+    [data-theme="light"] & {
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba($terracotta, 0.5) 30%,
+        rgba($bordeaux, 0.7) 50%, 
+        rgba($terracotta, 0.5) 70%,
+        transparent 100%
+      );
+    }
   }
 }
 
@@ -43,7 +65,7 @@ $taupe: #B8A08A;
   .title {
     font-family: 'Cinzel', serif;
     font-size: 2.5rem;
-    color: $charcoal;
+    color: $dark-text;
     margin-bottom: 1rem;
     position: relative;
     
@@ -55,14 +77,14 @@ $taupe: #B8A08A;
       transform: translateX(-50%);
       width: 80px;
       height: 3px;
-      background: linear-gradient(90deg, $dark-red, $gold);
+      background: linear-gradient(90deg, $bordeaux, $dark-accent);
       border-radius: 2px;
     }
   }
   
   .subtitle {
     font-size: 1.1rem;
-    color: rgba($charcoal, 0.7);
+    color: rgba($dark-text, 0.7);
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
@@ -87,12 +109,18 @@ $taupe: #B8A08A;
   align-items: center;
   gap: 1.5rem;
   padding: 1.5rem;
-  background: rgba(white, 0.8);
-  backdrop-filter: blur(10px);
+  background: rgba($dark-text, 0.15);
+  backdrop-filter: blur(15px);
   border-radius: 15px;
-  border: 1px solid rgba($dark-red, 0.1);
-  box-shadow: 0 5px 20px rgba($charcoal, 0.08);
+  border: 1px solid rgba($dark-border, 0.3);
+  box-shadow: 0 5px 20px rgba($dark-bg, 0.1);
   transition: transform 0.3s ease;
+  
+  [data-theme="light"] & {
+    background: rgba(white, 0.7);
+    border: 1px solid rgba($bordeaux, 0.2);
+    box-shadow: 0 5px 20px rgba($dark-bg, 0.1);
+  }
   
   &:hover {
     transform: translateY(-3px);
@@ -102,7 +130,7 @@ $taupe: #B8A08A;
 .infoIcon {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, $dark-red, $bordeaux);
+  background: linear-gradient(135deg, $bordeaux, $bordeaux);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -115,14 +143,22 @@ $taupe: #B8A08A;
   .infoTitle {
     font-family: 'Cinzel', serif;
     font-size: 1.1rem;
-    color: $charcoal;
+    color: $dark-text;
     margin: 0 0 0.5rem 0;
+    
+    [data-theme="light"] & {
+      color: $dark-bg;
+    }
   }
   
   .infoText {
-    color: rgba($charcoal, 0.8);
+    color: rgba($dark-text, 0.8);
     margin: 0;
     font-size: 1rem;
+    
+    [data-theme="light"] & {
+      color: rgba($dark-bg, 0.8);
+    }
   }
 }
 
@@ -132,8 +168,12 @@ $taupe: #B8A08A;
   .socialTitle {
     font-family: 'Cinzel', serif;
     font-size: 1.2rem;
-    color: $charcoal;
+    color: $dark-text;
     margin-bottom: 1rem;
+    
+    [data-theme="light"] & {
+      color: $dark-bg;
+    }
   }
 }
 
@@ -148,16 +188,22 @@ $taupe: #B8A08A;
   align-items: center;
   gap: 1rem;
   padding: 0.75rem 1rem;
-  background: rgba($dark-red, 0.05);
-  color: $dark-red;
+  background: rgba($bordeaux, 0.05);
+  color: $bordeaux;
   text-decoration: none;
   border-radius: 10px;
-  border: 1px solid rgba($dark-red, 0.15);
+  border: 1px solid rgba($bordeaux, 0.15);
   transition: all 0.3s ease;
   font-weight: 500;
   
+  [data-theme="light"] & {
+    background: rgba($bordeaux, 0.08);
+    color: $bordeaux;
+    border: 1px solid rgba($bordeaux, 0.2);
+  }
+  
   &:hover {
-    background: $dark-red;
+    background: $bordeaux;
     color: white;
     transform: translateX(5px);
   }
@@ -168,12 +214,19 @@ $taupe: #B8A08A;
 }
 
 .contactForm {
-  background: rgba(white, 0.9);
+  background: rgba($dark-text, 0.2);
   backdrop-filter: blur(15px);
   padding: 2.5rem;
   border-radius: 20px;
-  border: 1px solid rgba($dark-red, 0.1);
-  box-shadow: 0 15px 40px rgba($charcoal, 0.1);
+  border: 1px solid rgba($bordeaux, 0.1);
+  box-shadow: 0 15px 40px rgba($dark-text, 0.1);
+  
+  // Mode clair - formulaire plus clair
+  [data-theme="light"] & {
+    background: rgba(white, 0.7);
+    border: 1px solid rgba($bordeaux, 0.15);
+    box-shadow: 0 15px 40px rgba($dark-bg, 0.08);
+  }
 }
 
 .formGroup {
@@ -183,31 +236,46 @@ $taupe: #B8A08A;
 .label {
   display: block;
   font-weight: 600;
-  color: $charcoal;
+  color: $dark-text;
   margin-bottom: 0.5rem;
   font-size: 0.95rem;
+  
+  [data-theme="light"] & {
+    color: $dark-bg;
+  }
 }
 
 .input,
 .textarea {
   width: 100%;
   padding: 0.875rem 1.25rem;
-  border: 2px solid rgba($stone, 0.5);
+  border: 2px solid rgba($dark-border, 0.5);
   border-radius: 10px;
   font-size: 1rem;
   transition: all 0.3s ease;
-  background: rgba(white, 0.8);
-  color: $charcoal;
+  background: rgba($dark-text, 0.15);
+  color: $dark-text;
+  
+  // Mode clair - inputs plus clairs
+  [data-theme="light"] & {
+    background: rgba(white, 0.65);
+    color: $dark-bg;
+    border: 2px solid rgba($dark-border, 0.2);
+    
+    &::placeholder {
+      color: rgba($dark-bg, 0.5);
+    }
+  }
   
   &:focus {
     outline: none;
-    border-color: $dark-red;
-    box-shadow: 0 0 0 3px rgba($dark-red, 0.1);
+    border-color: $bordeaux;
+    box-shadow: 0 0 0 3px rgba($bordeaux, 0.1);
     background: white;
   }
   
   &::placeholder {
-    color: rgba($charcoal, 0.5);
+    color: rgba($dark-text, 0.5);
   }
 }
 
@@ -220,7 +288,7 @@ $taupe: #B8A08A;
 .submitBtn {
   width: 100%;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, $dark-red, $bordeaux);
+  background: linear-gradient(135deg, $bordeaux, $bordeaux);
   color: white;
   border: none;
   border-radius: 12px;
@@ -235,7 +303,7 @@ $taupe: #B8A08A;
   
   &:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba($dark-red, 0.4);
+    box-shadow: 0 8px 25px rgba($bordeaux, 0.4);
   }
   
   &:disabled {
@@ -244,7 +312,7 @@ $taupe: #B8A08A;
   }
   
   &.submitting {
-    background: linear-gradient(135deg, rgba($dark-red, 0.8), rgba($bordeaux, 0.8));
+    background: linear-gradient(135deg, rgba($bordeaux, 0.8), rgba($bordeaux, 0.8));
   }
 }
 

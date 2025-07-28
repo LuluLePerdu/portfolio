@@ -1,18 +1,21 @@
-$dark-red: #6B2737;
-$bordeaux: #8B3A3A;
-$cream: #F7F5F3;
-$stone: #E8E6E3;
-$charcoal: #2F3E46;
-$gold: #D4AF37;
-$taupe: #B8A08A;
+@import '../../../styles/globals.scss';
+
+// Variables supplémentaires nécessaires
+$taupe: $terracotta;        // Taupe -> Terracotta
+$dark-red: #a87c4a;         // Rouge sombre
+
+// Couleurs mode sombre harmonieuses avec le thème naturel
+$dark-bg: #1a1d1a;
+$dark-surface: #242824;
+$dark-accent: #a87c4a;
+$dark-accent-hover: #c49660;
+$dark-text: #e8e6e3;
+$dark-text-muted: #a8a096;
+$dark-border: #3d453d;
+$dark-red: #a87c4a;
 
 .portfolio {
   padding: 6rem 0;
-  background: linear-gradient(135deg, 
-    rgba($cream, 0.9) 0%, 
-    rgba($stone, 0.6) 50%,
-    rgba($dark-red, 0.05) 100%
-  );
 }
 
 .container {
@@ -40,7 +43,7 @@ $taupe: #B8A08A;
       transform: translateX(-50%);
       width: 80px;
       height: 3px;
-      background: linear-gradient(90deg, $dark-red, $gold);
+      background: linear-gradient(90deg, $dark-red, $gold-leaf);
       border-radius: 2px;
     }
   }
@@ -106,7 +109,7 @@ $taupe: #B8A08A;
   }
   
   &.featured {
-    border-color: rgba($gold, 0.4);
+    border-color: rgba($gold-leaf, 0.4);
     
     &::before {
       content: '';
@@ -115,7 +118,7 @@ $taupe: #B8A08A;
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, $dark-red, $gold, $dark-red);
+      background: linear-gradient(90deg, $dark-red, $gold-leaf, $dark-red);
       z-index: 1;
     }
   }
@@ -238,14 +241,14 @@ $taupe: #B8A08A;
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: linear-gradient(135deg, $gold, #F4D03F);
+  background: linear-gradient(135deg, $gold-leaf, #F4D03F);
   color: $charcoal;
   padding: 0.5rem 1rem;
   border-radius: 15px;
   font-size: 0.8rem;
   font-weight: 600;
   z-index: 2;
-  box-shadow: 0 4px 15px rgba($gold, 0.3);
+  box-shadow: 0 4px 15px rgba($gold-leaf, 0.3);
 }
 
 /* Responsive */
@@ -395,7 +398,7 @@ $taupe: #B8A08A;
   
   [data-theme="dark"] & {
     background: rgba($charcoal, 0.2);
-    border-color: rgba($gold, 0.2);
+    border-color: rgba($gold-leaf, 0.2);
   }
 }
 
@@ -408,7 +411,7 @@ $taupe: #B8A08A;
   margin-bottom: 0.5rem;
   
   [data-theme="dark"] & {
-    color: $gold;
+    color: $gold-leaf;
   }
 }
 

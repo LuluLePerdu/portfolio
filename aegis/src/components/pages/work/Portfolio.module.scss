@@ -1,18 +1,63 @@
-$dark-red: #6B2737;
-$bordeaux: #8B3A3A;
-$cream: #F7F5F3;
-$stone: #E8E6E3;
-$charcoal: #2F3E46;
-$gold: #D4AF37;
-$taupe: #B8A08A;
+// Palette mythologique globale - Couleurs inspirées de la Grèce antique
+$bordeaux: #8B3A3A;        // Rouge bordeaux profond
+$red-copper: #B85450;       // Rouge cuivré chaleureux
+$red-accent: #D2603A;       // Rouge accent vibrant
+$marble: #F8F6F0;           // Marbre blanc antique
+$olive: #6B7F59;            // Vert olive méditerranéen
+$terracotta: #C4704F;       // Terracotta terre cuite
+$gold-leaf: #D4A574;        // Or feuille délicat
+$shadow-grey: #4A4A4A;      // Gris ombre profond
+
+// Variables de compatibilité (mappées sur la palette mythologique)
+$cream: $marble;            // Crème -> Marbre
+$stone: $terracotta;        // Pierre -> Terracotta
+$charcoal: $shadow-grey;    // Charbon -> Gris ombre
+$taupe: $terracotta;        // Taupe -> Terracotta
+
+// Couleurs mode sombre - sanctuaire nocturne
+$dark-bg: #1a1d1a; // Nuit du sanctuaire
+$dark-surface: #242824; // Pierre sombre
+$dark-accent: #a87c4a; // Bronze antique
+$dark-accent-hover: #c49660; // Bronze éclairé
+$dark-text: #e8e6e3; // Parchemin ancien
+$dark-text-muted: #a8a096; // Encre fanée
+$dark-border: #3d453d; // Bordure de pierre
 
 .portfolio {
   padding: 6rem 0;
-  background: linear-gradient(135deg, 
-    rgba($cream, 0.9) 0%, 
-    rgba($stone, 0.6) 50%,
-    rgba($dark-red, 0.05) 100%
-  );
+  position: relative;
+  
+  // Frise décorative pour la galerie
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba($red-copper, 0.3) 20%,
+      rgba($bordeaux, 0.5) 40%,
+      rgba($red-accent, 0.6) 50%,
+      rgba($bordeaux, 0.5) 60%,
+      rgba($red-copper, 0.3) 80%,
+      transparent 100%
+    );
+    box-shadow: 0 0 10px rgba($red-accent, 0.3);
+    
+    [data-theme="light"] & {
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba($terracotta, 0.4) 20%,
+        rgba($bordeaux, 0.6) 40%,
+        rgba($red-copper, 0.7) 50%,
+        rgba($bordeaux, 0.6) 60%,
+        rgba($terracotta, 0.4) 80%,
+        transparent 100%
+      );
+    }
+  }
 }
 
 .container {
@@ -28,9 +73,13 @@ $taupe: #B8A08A;
   .title {
     font-family: 'Cinzel', serif;
     font-size: 2.5rem;
-    color: $charcoal;
+    color: $dark-text;
     margin-bottom: 1rem;
     position: relative;
+    
+    [data-theme="light"] & {
+      color: #1a1a1a; // Couleur encore plus foncée
+    }
     
     &::after {
       content: '';
@@ -40,17 +89,21 @@ $taupe: #B8A08A;
       transform: translateX(-50%);
       width: 80px;
       height: 3px;
-      background: linear-gradient(90deg, $dark-red, $gold);
+      background: linear-gradient(90deg, $bordeaux, $dark-accent);
       border-radius: 2px;
     }
   }
   
   .subtitle {
     font-size: 1.1rem;
-    color: rgba($charcoal, 0.7);
+    color: rgba($dark-text, 0.7);
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
+    
+    [data-theme="light"] & {
+      color: #1a1a1a; // Couleur encore plus foncée
+    }
   }
 }
 
@@ -65,22 +118,38 @@ $taupe: #B8A08A;
 .filterBtn {
   padding: 0.75rem 1.5rem;
   background: transparent;
-  border: 2px solid rgba($dark-red, 0.2);
-  color: $dark-red;
+  border: 2px solid rgba($bordeaux, 0.2);
+  color: $bordeaux;
   border-radius: 25px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
   
+  [data-theme="light"] & {
+    color: #1a1a1a; // Couleur encore plus foncée
+    border: 2px solid rgba(#1a1a1a, 0.5);
+    
+    &:hover {
+      background: rgba(#1a1a1a, 0.1);
+      border-color: rgba(#1a1a1a, 0.7);
+    }
+    
+    &.active {
+      background: $bordeaux;
+      color: white;
+      border-color: $bordeaux;
+    }
+  }
+  
   &:hover {
-    background: rgba($dark-red, 0.1);
-    border-color: rgba($dark-red, 0.4);
+    background: rgba($bordeaux, 0.1);
+    border-color: rgba($bordeaux, 0.4);
   }
   
   &.active {
-    background: $dark-red;
+    background: $bordeaux;
     color: white;
-    border-color: $dark-red;
+    border-color: $bordeaux;
   }
 }
 
@@ -91,22 +160,34 @@ $taupe: #B8A08A;
 }
 
 .projectCard {
-  background: rgba(white, 0.9);
+  background: rgba($dark-surface, 0.8);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba($dark-red, 0.1);
-  box-shadow: 0 10px 30px rgba($charcoal, 0.08);
+  border: 1px solid rgba($bordeaux, 0.3);
+  box-shadow: 0 10px 30px rgba($dark-bg, 0.3);
   transition: all 0.3s ease;
   position: relative;
   
+  // Mode clair - card plus douce
+  [data-theme="light"] & {
+    background: rgba(white, 0.95);
+    border: 1px solid rgba($bordeaux, 0.3);
+    box-shadow: 0 10px 30px rgba($dark-bg, 0.15);
+    
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba($dark-bg, 0.2);
+    }
+  }
+  
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba($charcoal, 0.15);
+    box-shadow: 0 20px 50px rgba($bordeaux, 0.4);
   }
   
   &.featured {
-    border-color: rgba($gold, 0.4);
+    border-color: rgba($bordeaux, 0.4);
     
     &::before {
       content: '';
@@ -115,7 +196,7 @@ $taupe: #B8A08A;
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, $dark-red, $gold, $dark-red);
+      background: linear-gradient(90deg, $bordeaux, $dark-accent, $bordeaux);
       z-index: 1;
     }
   }
@@ -137,7 +218,11 @@ $taupe: #B8A08A;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba($charcoal, 0.3);
+  color: rgba($dark-text, 0.3);
+  
+  [data-theme="light"] & {
+    color: #1a1a1a; // Couleur encore plus foncée
+  }
 }
 
 .overlay {
@@ -146,7 +231,7 @@ $taupe: #B8A08A;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba($charcoal, 0.8);
+  background: rgba($dark-text, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,7 +252,7 @@ $taupe: #B8A08A;
   width: 50px;
   height: 50px;
   background: rgba(white, 0.9);
-  color: $dark-red;
+  color: $bordeaux;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -196,14 +281,18 @@ $taupe: #B8A08A;
 .projectTitle {
   font-family: 'Cinzel', serif;
   font-size: 1.3rem;
-  color: $charcoal;
+  color: $dark-text;
   margin: 0;
   flex: 1;
+  
+  [data-theme="light"] & {
+    color: #1a1a1a; // Couleur encore plus foncée
+  }
 }
 
 .projectCategory {
-  background: rgba($dark-red, 0.1);
-  color: $dark-red;
+  background: rgba($bordeaux, 0.1);
+  color: $bordeaux;
   padding: 0.25rem 0.75rem;
   border-radius: 12px;
   font-size: 0.8rem;
@@ -212,10 +301,14 @@ $taupe: #B8A08A;
 }
 
 .projectDescription {
-  color: rgba($charcoal, 0.8);
+  color: rgba($dark-text, 0.8);
   line-height: 1.6;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
+  
+  [data-theme="light"] & {
+    color: #1a1a1a; // Couleur encore plus foncée
+  }
 }
 
 .projectTech {
@@ -226,26 +319,32 @@ $taupe: #B8A08A;
 
 .techTag {
   background: rgba($taupe, 0.2);
-  color: $charcoal;
+  color: $dark-text;
   padding: 0.25rem 0.75rem;
   border-radius: 15px;
   font-size: 0.8rem;
   font-weight: 500;
   border: 1px solid rgba($taupe, 0.3);
+  
+  [data-theme="light"] & {
+    background: rgba($dark-accent, 0.25);
+    color: #1a1a1a; // Couleur encore plus foncée
+    border: 1px solid rgba($dark-accent, 0.5);
+  }
 }
 
 .featuredBadge {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: linear-gradient(135deg, $gold, #F4D03F);
-  color: $charcoal;
+  background: linear-gradient(135deg, $dark-accent, #F4D03F);
+  color: $dark-text;
   padding: 0.5rem 1rem;
   border-radius: 15px;
   font-size: 0.8rem;
   font-weight: 600;
   z-index: 2;
-  box-shadow: 0 4px 15px rgba($gold, 0.3);
+  box-shadow: 0 4px 15px rgba($dark-accent, 0.3);
 }
 
 /* Responsive */
@@ -353,7 +452,7 @@ $taupe: #B8A08A;
 .placeholderTitle {
   font-family: 'Cinzel', serif;
   font-size: 2rem;
-  color: $charcoal;
+  color: $dark-text;
   margin-bottom: 1.5rem;
   
   [data-theme="dark"] & {
@@ -363,7 +462,7 @@ $taupe: #B8A08A;
 
 .placeholderText {
   font-size: 1.1rem;
-  color: rgba($charcoal, 0.8);
+  color: rgba($dark-text, 0.8);
   line-height: 1.6;
   margin-bottom: 3rem;
   
@@ -394,8 +493,8 @@ $taupe: #B8A08A;
   }
   
   [data-theme="dark"] & {
-    background: rgba($charcoal, 0.2);
-    border-color: rgba($gold, 0.2);
+    background: rgba($dark-text, 0.2);
+    border-color: rgba($dark-accent, 0.2);
   }
 }
 
@@ -408,13 +507,13 @@ $taupe: #B8A08A;
   margin-bottom: 0.5rem;
   
   [data-theme="dark"] & {
-    color: $gold;
+    color: $dark-accent;
   }
 }
 
 .statLabel {
   font-size: 0.9rem;
-  color: rgba($charcoal, 0.7);
+  color: rgba($dark-text, 0.7);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;

@@ -1,14 +1,27 @@
-$sage-green: #9CAF88;
-$olive: #8B956D;
-$cream: #F7F5F3;
-$stone: #E8E6E3;
-$charcoal: #2F3E46;
-$gold: #D4AF37;
-$bordeaux: #8B3A3A;
+// Palette mythologique raffinée
+$bordeaux: #8B3A3A; // Rouge sang des héros
+$red-copper: #B85450; // Bronze patiné 
+$red-accent: #D2603A; // Cuivre brillant
+$gold-leaf: #D4A574; // Feuille d'or vieilli
+
+// Couleurs inspirées de l'Antiquité grecque
+$marble: #F8F6F0; // Marbre blanc antique
+$olive: #6B7F59; // Olive sacré
+$terracotta: #C4704F; // Terre cuite des amphores
+$shadow-grey: #4A4A4A; // Ombre des colonnes
+
+// Couleurs mode sombre harmonieuses avec le thème naturel
+$dark-bg: #1a1d1a;
+$dark-surface: #242824;
+$dark-accent: #a87c4a;
+$dark-accent-hover: #c49660;
+$dark-text: #e8e6e3;
+$dark-text-muted: #a8a096;
+$dark-border: #3d453d;
 
 .languageToggle {
-  background: transparent;
-  border: 1px solid rgba($bordeaux, 0.2);
+  background: rgba($dark-accent, 0.08);
+  border: 2px solid rgba($dark-accent, 0.3);
   cursor: pointer;
   padding: 0.4rem 0.6rem;
   border-radius: 8px;
@@ -17,16 +30,18 @@ $bordeaux: #8B3A3A;
   align-items: center;
   height: 40px;
   min-width: 50px;
+  box-shadow: 0 2px 4px rgba($dark-accent, 0.1);
   
   &:hover {
-    background: rgba($bordeaux, 0.1);
-    border-color: rgba($bordeaux, 0.3);
+    background: rgba($dark-accent, 0.15);
+    border-color: rgba($dark-accent, 0.5);
     transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba($bordeaux, 0.15);
+    box-shadow: 0 4px 8px rgba($dark-accent, 0.2);
   }
   
   &:active {
     transform: translateY(0);
+    box-shadow: 0 1px 2px rgba($dark-accent, 0.2);
   }
 }
 
@@ -42,13 +57,13 @@ $bordeaux: #8B3A3A;
   font-family: 'Inter', sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
-  color: $charcoal;
+  color: $dark-accent;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   line-height: 1;
   
   [data-theme="dark"] & {
-    color: $cream;
+    color: $dark-accent-hover;
   }
 }
 
@@ -61,26 +76,26 @@ $bordeaux: #8B3A3A;
 // Dark mode support
 [data-theme="dark"] {
   .languageToggle {
-    background: rgba($cream, 0.12);
-    border: 2px solid rgba($cream, 0.6);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba($cream, 0.2);
+    background: rgba($dark-accent, 0.15);
+    border: 2px solid rgba($dark-accent, 0.5);
+    box-shadow: 0 2px 6px rgba($dark-accent, 0.2);
     
     &:hover {
-      background: rgba($cream, 0.25);
-      border-color: rgba($cream, 0.8);
-      box-shadow: 0 4px 12px rgba($cream, 0.3), 0 2px 6px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba($cream, 0.4);
+      background: rgba($dark-accent, 0.25);
+      border-color: rgba($dark-accent, 0.7);
+      box-shadow: 0 4px 12px rgba($dark-accent, 0.3);
       transform: translateY(-2px);
     }
     
     &:active {
-      background: rgba($cream, 0.35);
+      background: rgba($dark-accent, 0.35);
       transform: translateY(0);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba($cream, 0.5);
+      box-shadow: 0 1px 3px rgba($dark-accent, 0.4);
     }
   }
   
   .currentLanguage {
-    color: $cream;
+    color: $dark-accent-hover;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
     font-weight: 700;
   }
@@ -113,14 +128,14 @@ $bordeaux: #8B3A3A;
   // Enhanced visibility for mobile dark mode
   [data-theme="dark"] {
     .languageToggle {
-      background: rgba($cream, 0.15);
-      border: 2px solid rgba($cream, 0.7);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba($cream, 0.3);
+      background: rgba($marble, 0.15);
+      border: 2px solid rgba($marble, 0.7);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba($marble, 0.3);
       
       &:hover {
-        background: rgba($cream, 0.3);
-        border-color: $cream;
-        box-shadow: 0 4px 16px rgba($cream, 0.4), 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba($cream, 0.5);
+        background: rgba($marble, 0.3);
+        border-color: $marble;
+        box-shadow: 0 4px 16px rgba($marble, 0.4), 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba($marble, 0.5);
       }
     }
     

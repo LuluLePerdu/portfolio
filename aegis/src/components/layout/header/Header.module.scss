@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+@import '../../../styles/globals.scss';
 
-$sage-green: #9CAF88;
-$olive: #8B956D;
-$cream: #F7F5F3;
-$stone: #E8E6E3;
-$charcoal: #2F3E46;
-$gold: #D4AF37;
-$forest-green: #5D7C47;
-$mint: #A8D5BA;
-$bordeaux: #8B3A3A;
+// Couleurs mode sombre harmonieuses avec le thème naturel
+$dark-bg: #1a1d1a; // Fond naturel très sombre
+$dark-surface: #242824; // Surface naturelle sombre
+$dark-accent: #a87c4a; // Bronze naturel
+$dark-accent-hover: #c49660; // Bronze plus clair
+$dark-text: #e8e6e3; // Crème légèrement grisée
+$dark-text-muted: #a8a096; // Taupe clair
+$dark-border: #3d453d; // Bordure naturelle sombre
 
 .header {
   position: fixed;
@@ -16,16 +16,34 @@ $bordeaux: #8B3A3A;
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba($cream, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba($bordeaux, 0.1);
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  background: rgba($dark-text, 0.15);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba($dark-border, 0.3);
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.3s ease;
   will-change: background-color, border-color;
   
   &.scrolled {
-    background: rgba($cream, 0.98);
-    border-bottom-color: rgba($bordeaux, 0.2);
-    box-shadow: 0 1px 10px rgba($bordeaux, 0.05);
+    background: rgba($dark-text, 0.25);
+    border-bottom-color: rgba($dark-border, 0.5);
+    box-shadow: 
+      0 1px 20px rgba($dark-bg, 0.2),
+      0 0 0 1px rgba($red-accent, 0.1),
+      inset 0 -1px 0 rgba($red-accent, 0.2);
+  }
+  
+  // Mode sombre avec les belles couleurs naturelles
+  [data-theme="dark"] & {
+    background: rgba($dark-bg, 0.95);
+    border-bottom-color: rgba($dark-border, 0.8);
+    
+    &.scrolled {
+      background: rgba($dark-surface, 0.98);
+      border-bottom-color: $dark-border;
+      box-shadow: 
+        0 1px 20px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba($bordeaux, 0.15),
+        inset 0 -1px 0 rgba($bordeaux, 0.25);
+    }
   }
 }
 
@@ -63,14 +81,19 @@ $bordeaux: #8B3A3A;
 .logoIcon {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, $bordeaux, $charcoal);
+  background: linear-gradient(135deg, #8B3A3A, #2F3E46);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.15s ease;
   will-change: transform;
-  box-shadow: 0 2px 8px rgba($bordeaux, 0.15);
+  box-shadow: 0 4px 12px rgba(#8B3A3A, 0.3);
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(135deg, $dark-accent, $dark-accent-hover);
+    box-shadow: 0 4px 12px rgba($dark-accent, 0.3);
+  }
 }
 
 .initials {
@@ -99,18 +122,26 @@ $bordeaux: #8B3A3A;
   font-family: 'Inter', sans-serif;
   font-size: 1.3rem;
   font-weight: 600;
-  color: $charcoal;
+  color: #2F3E46;
   margin: 0;
   letter-spacing: -0.02em;
+  
+  [data-theme="dark"] & {
+    color: $dark-text;
+  }
 }
 
 .logoSubtitle {
   font-family: 'Inter', sans-serif;
   font-size: 0.8rem;
   font-weight: 400;
-  color: $olive;
+  color: $dark-accent;
   margin-top: 2px;
   letter-spacing: 0.02em;
+  
+  [data-theme="dark"] & {
+    color: $dark-text-muted;
+  }
 }
 
 .nav {
@@ -127,12 +158,16 @@ $bordeaux: #8B3A3A;
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
-  color: $charcoal;
+  color: #2F3E46;
   text-decoration: none;
   padding: 0.5rem 0;
   transition: color 0.2s ease;
   position: relative;
   will-change: color;
+  
+  [data-theme="dark"] & {
+    color: $dark-text;
+  }
   
   .navText {
     position: relative;
@@ -145,25 +180,44 @@ $bordeaux: #8B3A3A;
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, $bordeaux, $gold);
+    background: linear-gradient(90deg, $bordeaux, $red-copper);
     transition: width 0.2s ease;
     will-change: width;
+    
+    [data-theme="dark"] & {
+      background: linear-gradient(90deg, $dark-accent, $dark-accent-hover);
+    }
   }
   
   &:hover {
-    color: $bordeaux;
+    color: $red-copper;
+    text-shadow: 0 0 8px rgba($red-accent, 0.3);
+    
+    [data-theme="dark"] & {
+      color: $dark-accent-hover;
+      text-shadow: 0 0 8px rgba($bordeaux, 0.4);
+    }
     
     .navIndicator {
       width: 100%;
+      box-shadow: 0 0 6px rgba($red-accent, 0.4);
     }
   }
   
   &.active {
     color: $bordeaux;
     
+    [data-theme="dark"] & {
+      color: $dark-accent;
+    }
+    
     .navIndicator {
       width: 100%;
-      background: linear-gradient(90deg, $bordeaux, $gold);
+      background: linear-gradient(90deg, $bordeaux, $red-copper);
+      
+      [data-theme="dark"] & {
+        background: linear-gradient(90deg, $dark-accent, $dark-accent-hover);
+      }
     }
   }
 }
@@ -186,20 +240,29 @@ $bordeaux: #8B3A3A;
   color: white;
   text-decoration: none;
   padding: 0.625rem 1.25rem;
-  background: linear-gradient(135deg, $bordeaux, $charcoal);
+  background: linear-gradient(135deg, #8B3A3A, #2F3E46);
   border-radius: 20px;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   will-change: transform;
-  box-shadow: 0 2px 6px rgba($bordeaux, 0.2);
+  box-shadow: 0 4px 12px rgba(#8B3A3A, 0.3);
   height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
   
+  [data-theme="dark"] & {
+    background: linear-gradient(135deg, $dark-accent, $dark-accent-hover);
+    box-shadow: 0 4px 12px rgba($dark-accent, 0.3);
+  }
+  
   &:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba($bordeaux, 0.3);
+    box-shadow: 0 6px 20px rgba(#8B3A3A, 0.4);
+    
+    [data-theme="dark"] & {
+      box-shadow: 0 6px 20px rgba($dark-accent, 0.4);
+    }
   }
   
   &:active {
@@ -209,17 +272,28 @@ $bordeaux: #8B3A3A;
 
 .mobileMenuBtn {
   display: none;
-  background: rgba($bordeaux, 0.1);
-  border: 1px solid rgba($bordeaux, 0.2);
+  background: rgba(#F7F5F3, 0.8);
+  border: 1px solid #8B3A3A;
   border-radius: 8px;
   padding: 0.75rem;
   cursor: pointer;
-  color: $charcoal;
+  color: #2F3E46;
   transition: background-color 0.2s ease, border-color 0.2s ease;
   
+  [data-theme="dark"] & {
+    background: rgba($dark-surface, 0.8);
+    border-color: $dark-border;
+    color: $dark-text;
+  }
+  
   &:hover {
-    background: rgba($bordeaux, 0.15);
-    border-color: rgba($bordeaux, 0.3);
+    background: rgba(#8B3A3A, 0.1);
+    border-color: rgba(#8B3A3A, 0.3);
+    
+    [data-theme="dark"] & {
+      background: rgba($dark-accent, 0.1);
+      border-color: rgba($dark-accent, 0.3);
+    }
   }
   
   @media (max-width: 768px) {
@@ -238,9 +312,13 @@ $bordeaux: #8B3A3A;
   span {
     width: 100%;
     height: 2px;
-    background: $charcoal;
+    background: #2F3E46;
     border-radius: 1px;
     transition: transform 0.2s ease, opacity 0.2s ease;
+    
+    [data-theme="dark"] & {
+      background: $dark-text;
+    }
   }
   
   &.hamburgerOpen {
@@ -263,11 +341,16 @@ $bordeaux: #8B3A3A;
   top: 100%;
   left: 0;
   right: 0;
-  background: rgba($cream, 0.98);
+  background: rgba(#F7F5F3, 0.98);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba($bordeaux, 0.2);
+  border-bottom: 1px solid #8B3A3A;
   padding: 2rem;
   animation: slideDown 0.2s ease-out;
+  
+  [data-theme="dark"] & {
+    background: rgba($dark-surface, 0.98);
+    border-bottom-color: $dark-border;
+  }
   
   @media (min-width: 769px) {
     display: none;
@@ -286,28 +369,46 @@ $bordeaux: #8B3A3A;
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
   font-weight: 400;
-  color: $charcoal;
+  color: #2F3E46;
   text-decoration: none;
   padding: 1rem 1.5rem;
   border-radius: 10px;
   transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
-  background: rgba($bordeaux, 0.05);
-  border: 1px solid rgba($bordeaux, 0.1);
+  background: rgba(#E8E6E3, 0.5);
+  border: 1px solid #8B3A3A;
   text-align: center;
   will-change: transform;
   
+  [data-theme="dark"] & {
+    color: $dark-text;
+    background: rgba($dark-surface, 0.5);
+    border-color: $dark-border;
+  }
+  
   &:hover {
-    color: $bordeaux;
-    background: rgba($bordeaux, 0.15);
-    border-color: rgba($bordeaux, 0.3);
+    color: #D4AF37;
+    background: rgba(#8B3A3A, 0.1);
+    border-color: rgba(#8B3A3A, 0.3);
     transform: translateX(3px);
+    
+    [data-theme="dark"] & {
+      color: $dark-accent-hover;
+      background: rgba($dark-accent, 0.1);
+      border-color: rgba($dark-accent, 0.3);
+    }
   }
   
   &.active {
     color: white;
-    background: $bordeaux;
-    border-color: $bordeaux;
+    background: #8B3A3A;
+    border-color: #8B3A3A;
     font-weight: 500;
+    
+    [data-theme="dark"] & {
+      color: white;
+      background: $dark-accent;
+      border-color: $dark-accent;
+    }
   }
 }
 

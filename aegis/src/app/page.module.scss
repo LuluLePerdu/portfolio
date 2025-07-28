@@ -1,25 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
 
-$sage-green: #9CAF88;
-$olive: #8B956D;
-$cream: #F7F5F3;
-$stone: #E8E6E3;
-$charcoal: #2F3E46;
-$gold: #D4AF37;
-$forest-green: #5D7C47;
-$mint: #A8D5BA;
-$bordeaux: #8B3A3A;
-$dark-red: #6B2737;
-$taupe: #B8A08A;
-$rose-gold: #E8C5A0;
+// Couleurs mode sombre harmonieuses avec le thème naturel
+$dark-bg: #1a1d1a;
+$dark-surface: #242824;
+$dark-accent: #a87c4a;
+$dark-accent-hover: #c49660;
+$dark-text: #e8e6e3;
+$dark-text-muted: #a8a096;
+$dark-border: #3d453d;
+$bordeaux: #8B3A3A; // Rouge bordeaux original pour le bouton principal
+$bordeaux-hover: #a04545;
+$red-copper: #B85450; // Rouge cuivre pour remplacer le gold
+$red-accent: #D2603A; // Rouge accent pour les détails
 
 .container {
   min-height: 100vh;
   background: linear-gradient(135deg, 
-    $cream 0%, 
-    rgba($stone, 0.7) 25%,
-    rgba($dark-red, 0.1) 50%,
-    $stone 100%
+    $dark-bg 0%, 
+    rgba($dark-surface, 0.8) 25%,
+    rgba($dark-accent, 0.2) 50%,
+    $dark-surface 100%
   );
   display: flex;
   align-items: center;
@@ -36,12 +36,40 @@ $rose-gold: #E8C5A0;
     width: 50%;
     height: 150%;
     background: radial-gradient(ellipse, 
-      rgba($dark-red, 0.12) 0%, 
-      rgba($taupe, 0.1) 30%,
-      rgba($rose-gold, 0.05) 60%,
+      rgba($dark-accent, 0.12) 0%, 
+      rgba($dark-text-muted, 0.1) 30%,
+      rgba($dark-accent-hover, 0.05) 60%,
       transparent 80%
     );
     transform: rotate(-20deg);
+    
+    // Mode clair - effet plus subtil
+    [data-theme="light"] & {
+      background: radial-gradient(ellipse, 
+        rgba($dark-accent, 0.04) 0%, 
+        rgba($dark-text-muted, 0.02) 30%,
+        rgba($dark-accent-hover, 0.01) 60%,
+        transparent 80%
+      );
+    }
+  }
+
+  [data-theme="dark"] & {
+    background: linear-gradient(135deg, 
+      $dark-bg 0%, 
+      rgba($dark-surface, 0.7) 25%,
+      rgba($dark-accent, 0.1) 50%,
+      $dark-surface 100%
+    );
+    
+    &::before {
+      background: radial-gradient(ellipse, 
+        rgba($dark-accent, 0.12) 0%, 
+        rgba($dark-text-muted, 0.1) 30%,
+        rgba($dark-accent-hover, 0.05) 60%,
+        transparent 80%
+      );
+    }
   }
 
   &::after {
@@ -52,11 +80,19 @@ $rose-gold: #E8C5A0;
     width: 40%;
     height: 120%;
     background: radial-gradient(ellipse, 
-      rgba($dark-red, 0.08) 0%, 
-      rgba($taupe, 0.05) 50%,
+      rgba($dark-accent, 0.08) 0%, 
+      rgba($dark-text-muted, 0.05) 50%,
       transparent 70%
     );
     transform: rotate(15deg);
+    
+    [data-theme="dark"] & {
+      background: radial-gradient(ellipse, 
+        rgba($dark-accent, 0.08) 0%, 
+        rgba($dark-text-muted, 0.05) 50%,
+        transparent 70%
+      );
+    }
   }
 }
 
@@ -68,17 +104,35 @@ $rose-gold: #E8C5A0;
 }
 
 .content {
-  background: rgba(white, 0.85);
+  background: rgba($dark-text, 0.15);
   backdrop-filter: blur(15px);
   padding: 4.5rem 3.5rem;
   border-radius: 25px;
-  border: 2px solid rgba($stone, 0.25);
+  border: 2px solid rgba($dark-text, 0.2);
   box-shadow: 
-    0 25px 50px rgba($charcoal, 0.12),
-    0 10px 20px rgba($stone, 0.08),
-    inset 0 1px 0 rgba(white, 0.8);
+    0 25px 50px rgba($dark-bg, 0.15),
+    0 10px 20px rgba($dark-border, 0.1),
+    inset 0 1px 0 rgba($dark-text, 0.3);
   position: relative;
   animation: contentFadeIn 1s ease-out 0.8s both;
+  
+  // Mode clair - card plus douce
+  [data-theme="light"] & {
+    background: rgba(white, 0.65);
+    border: 2px solid rgba($dark-border, 0.15);
+    box-shadow: 
+      0 25px 50px rgba($dark-bg, 0.08),
+      0 10px 20px rgba($dark-border, 0.05),
+      inset 0 1px 0 rgba($dark-accent, 0.2);
+      
+    &::before {
+      background: linear-gradient(135deg, 
+        rgba($dark-border, 0.15), 
+        rgba($dark-accent, 0.1), 
+        rgba($dark-bg, 0.05)
+      );
+    }
+  }
   
   &::before {
     content: '';
@@ -88,9 +142,9 @@ $rose-gold: #E8C5A0;
     right: -2px;
     bottom: -2px;
     background: linear-gradient(135deg, 
-      rgba($stone, 0.3), 
-      rgba($dark-red, 0.15), 
-      rgba($charcoal, 0.1)
+      rgba($dark-border, 0.4), 
+      rgba($dark-accent, 0.2), 
+      rgba($dark-bg, 0.15)
     );
     border-radius: 25px;
     z-index: -1;
@@ -104,9 +158,30 @@ $rose-gold: #E8C5A0;
     left: 20px;
     width: 6px;
     height: 6px;
-    background: radial-gradient(circle, rgba($gold, 0.6), transparent);
+    background: radial-gradient(circle, rgba($dark-accent-hover, 0.6), transparent);
     border-radius: 50%;
     animation: sparkle 2s ease-in-out 2s infinite;
+  }
+  
+  [data-theme="dark"] & {
+    background: rgba($dark-text, 0.12);
+    border: 2px solid rgba($dark-text, 0.15);
+    box-shadow: 
+      0 25px 50px rgba($dark-bg, 0.12),
+      0 10px 20px rgba($dark-border, 0.08),
+      inset 0 1px 0 rgba($dark-text, 0.2);
+    
+    &::before {
+      background: linear-gradient(135deg, 
+        rgba($dark-border, 0.3), 
+        rgba($dark-accent, 0.15), 
+        rgba($dark-bg, 0.1)
+      );
+    }
+    
+    &::after {
+      background: radial-gradient(circle, rgba($dark-accent-hover, 0.6), transparent);
+    }
   }
 }
 
@@ -141,7 +216,7 @@ $rose-gold: #E8C5A0;
     font-family: 'Inter', sans-serif;
     font-size: 1.3rem;
     font-weight: 300;
-    color: $olive;
+    color: $dark-border;
     letter-spacing: 0.15em;
     margin-bottom: 0.3rem;
     text-transform: uppercase;
@@ -154,7 +229,7 @@ $rose-gold: #E8C5A0;
     
     &:nth-child(2) {
       font-weight: 500;
-      color: $dark-red;
+      color: $dark-accent;
       letter-spacing: 0.2em;
       margin-bottom: 0.8rem;
       animation: slideInLeft 1s ease-out 0.4s both;
@@ -166,9 +241,21 @@ $rose-gold: #E8C5A0;
         left: 0;
         width: 50px;
         height: 2px;
-        background: linear-gradient(90deg, $dark-red, $gold);
+        background: linear-gradient(90deg, $dark-accent, $dark-accent-hover);
         opacity: 0.8;
         animation: expandWidth 1s ease-out 1s both;
+      }
+    }
+    
+    [data-theme="dark"] & {
+      color: $dark-text-muted;
+      
+      &:nth-child(2) {
+        color: $dark-accent;
+        
+        &::after {
+          background: linear-gradient(90deg, $dark-accent, $dark-accent-hover);
+        }
       }
     }
   }
@@ -178,15 +265,15 @@ $rose-gold: #E8C5A0;
     font-family: 'Cinzel', serif;
     font-size: 4.5rem;
     font-weight: 600;
-    color: $charcoal;
+    color: $dark-bg;
     letter-spacing: 0.05em;
     position: relative;
     background: linear-gradient(135deg, 
       #1a1a1a 0%, 
-      $charcoal 25%, 
+      $dark-bg 25%, 
       #3a3a3a 50%, 
-      $olive 75%, 
-      $dark-red 100%
+      $dark-border 75%, 
+      $dark-accent 100%
     );
     background-clip: text;
     -webkit-background-clip: text;
@@ -205,9 +292,9 @@ $rose-gold: #E8C5A0;
       background: linear-gradient(90deg, 
         transparent, 
         #1a1a1a 20%, 
-        $charcoal 40%, 
-        $gold 60%, 
-        $dark-red 80%, 
+        $dark-bg 40%, 
+        $dark-accent-hover 60%, 
+        $dark-accent 80%, 
         transparent
       );
       border-radius: 2px;
@@ -222,20 +309,56 @@ $rose-gold: #E8C5A0;
       right: -10px;
       bottom: -10px;
       background: radial-gradient(ellipse at center, 
-        rgba($charcoal, 0.08) 0%, 
-        rgba($stone, 0.04) 40%,
+        rgba($dark-bg, 0.08) 0%, 
+        rgba($dark-border, 0.04) 40%,
         transparent 70%
       );
       z-index: -1;
       animation: breathe 3s ease-in-out 2s infinite;
     }
+    
+    [data-theme="dark"] & {
+      color: $dark-text;
+      background: linear-gradient(135deg, 
+        #1a1d1a 0%, 
+        $dark-text 25%, 
+        #3a3a3a 50%, 
+        $dark-text-muted 75%, 
+        $dark-accent 100%
+      );
+      
+      &::after {
+        background: linear-gradient(90deg, 
+          transparent, 
+          #1a1d1a 20%, 
+          $dark-text 40%, 
+          $dark-accent-hover 60%, 
+          $dark-accent 80%, 
+          transparent
+        );
+      }
+      
+      &::before {
+        background: radial-gradient(ellipse at center, 
+          rgba($dark-text, 0.08) 0%, 
+          rgba($dark-border, 0.04) 40%,
+          transparent 70%
+        );
+      }
+    }
   }
   
   .aegis {
-    color: $dark-red !important;
+    color: $dark-accent !important;
     background: none !important;
-    -webkit-text-fill-color: $dark-red !important;
-    text-shadow: 0 0 20px rgba($dark-red, 0.3);
+    -webkit-text-fill-color: $dark-accent !important;
+    text-shadow: 0 0 20px rgba($dark-accent, 0.3);
+    
+    [data-theme="dark"] & {
+      color: $dark-accent !important;
+      -webkit-text-fill-color: $dark-accent !important;
+      text-shadow: 0 0 20px rgba($dark-accent, 0.3);
+    }
   }
 }
 
@@ -244,10 +367,15 @@ $rose-gold: #E8C5A0;
   font-size: 1.1rem;
   font-weight: 400;
   line-height: 1.6;
-  color: $charcoal;
+  color: $dark-bg;
   opacity: 0.8;
   max-width: 600px;
   margin: 0 auto 2rem;
+  
+  [data-theme="dark"] & {
+    color: $dark-text-muted;
+    opacity: 0.9;
+  }
 }
 
 .cta {
@@ -263,8 +391,8 @@ $rose-gold: #E8C5A0;
   display: inline-flex;
   align-items: center;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, $dark-red, $bordeaux);
-  color: $cream;
+  background: linear-gradient(135deg, $bordeaux, $bordeaux-hover);
+  color: white;
   text-decoration: none;
   border-radius: 50px;
   font-family: 'Inter', sans-serif;
@@ -273,7 +401,8 @@ $rose-gold: #E8C5A0;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba($dark-red, 0.3);
+  box-shadow: 0 4px 15px rgba($bordeaux, 0.3);
+  animation: subtlePulse 3s ease-in-out infinite;
   
   &::before {
     content: '';
@@ -286,12 +415,44 @@ $rose-gold: #E8C5A0;
     transition: left 0.6s ease;
   }
   
+  // Aura rouge subtile
+  &::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, $red-accent, $bordeaux, $red-copper);
+    border-radius: 52px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba($dark-red, 0.4);
+    box-shadow: 0 8px 25px rgba($bordeaux, 0.4);
+    background: linear-gradient(135deg, $bordeaux-hover, #b85555);
+    animation: none;
     
     &::before {
       left: 100%;
+    }
+    
+    &::after {
+      opacity: 0.3;
+    }
+  }
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(135deg, $bordeaux, $bordeaux-hover);
+    color: white;
+    box-shadow: 0 4px 15px rgba($bordeaux, 0.3);
+    
+    &:hover {
+      background: linear-gradient(135deg, $bordeaux-hover, #b85555);
+      box-shadow: 0 8px 25px rgba($bordeaux, 0.4);
     }
   }
 }
@@ -301,9 +462,9 @@ $rose-gold: #E8C5A0;
   align-items: center;
   padding: 1rem 2rem;
   background: transparent;
-  color: $charcoal;
+  color: $dark-bg;
   text-decoration: none;
-  border: 2px solid $charcoal;
+  border: 2px solid $dark-bg;
   border-radius: 50px;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
@@ -312,17 +473,28 @@ $rose-gold: #E8C5A0;
   position: relative;
   
   &:hover {
-    background: $charcoal;
-    color: $cream;
+    background: $dark-bg;
+    color: $dark-text;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba($charcoal, 0.3);
+    box-shadow: 0 8px 25px rgba($dark-bg, 0.3);
+  }
+  
+  [data-theme="dark"] & {
+    color: $dark-text;
+    border-color: $dark-text;
+    
+    &:hover {
+      background: $dark-text;
+      color: $dark-bg;
+      box-shadow: 0 8px 25px rgba($dark-text, 0.3);
+    }
   }
 }
 
 .divider {
   width: 120px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, $dark-red, $gold, $dark-red, transparent);
+  background: linear-gradient(90deg, transparent, $dark-accent, $dark-accent-hover, $dark-accent, transparent);
   margin: 0 auto;
   border-radius: 1px;
   animation: dividerGlow 2s ease-in-out 1.8s both;
@@ -336,8 +508,16 @@ $rose-gold: #E8C5A0;
     transform: translateX(-50%);
     width: 8px;
     height: 4px;
-    background: radial-gradient(ellipse, rgba($gold, 0.8), transparent);
+    background: radial-gradient(ellipse, rgba($dark-accent-hover, 0.8), transparent);
     animation: centerGlow 3s ease-in-out 2.5s infinite;
+  }
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(90deg, transparent, $dark-accent, $dark-accent-hover, $dark-accent, transparent);
+    
+    &::before {
+      background: radial-gradient(ellipse, rgba($dark-accent-hover, 0.8), transparent);
+    }
   }
 }
 
@@ -374,19 +554,18 @@ $rose-gold: #E8C5A0;
 
 .leaf {
   position: absolute;
-  background: linear-gradient(45deg, $dark-red, $taupe, $rose-gold);
   border-radius: 0 100% 0 100%;
   opacity: 0;
-  box-shadow: 0 4px 8px rgba($dark-red, 0.2);
   
-  // Coin supérieur droit - grandes feuilles
+  // Coin supérieur droit - grandes feuilles avec variété de couleurs
   &:nth-child(1) {
     top: 0px;
     right: 0px;
     width: 45px;
     height: 75px;
     transform: rotate(-5deg) scale(0.5);
-    background: linear-gradient(45deg, $taupe, $rose-gold);
+    background: linear-gradient(135deg, $bordeaux 0%, $red-copper 40%, $dark-accent 100%);
+    box-shadow: 0 4px 12px rgba($bordeaux, 0.4);
     animation: leafEntrance 1.2s ease-out 1.8s both, float 8s ease-in-out 3s infinite;
   }
   
@@ -396,7 +575,8 @@ $rose-gold: #E8C5A0;
     width: 35px;
     height: 60px;
     transform: rotate(20deg) scale(0.5);
-    background: linear-gradient(45deg, $dark-red, $taupe);
+    background: radial-gradient(ellipse at 30% 30%, $red-accent, $bordeaux, $dark-accent);
+    box-shadow: 0 3px 8px rgba($red-accent, 0.3);
     animation: leafEntrance 1.2s ease-out 2s both, float 8s ease-in-out 3.2s infinite;
   }
   
@@ -407,7 +587,8 @@ $rose-gold: #E8C5A0;
     width: 30px;
     height: 50px;
     transform: rotate(-15deg) scale(0.5);
-    background: linear-gradient(45deg, $olive, $rose-gold);
+    background: linear-gradient(45deg, $red-copper 0%, $bordeaux 60%, $dark-border 100%);
+    box-shadow: 0 3px 6px rgba($red-copper, 0.35);
     animation: leafEntrance 1.2s ease-out 2.2s both, float 8s ease-in-out 3.4s infinite;
   }
   
@@ -417,7 +598,8 @@ $rose-gold: #E8C5A0;
     width: 18px;
     height: 30px;
     transform: rotate(35deg) scale(0.3);
-    background: linear-gradient(45deg, $rose-gold, $dark-red);
+    background: linear-gradient(60deg, $dark-accent, $red-accent, $bordeaux);
+    box-shadow: 0 2px 4px rgba($dark-accent, 0.4);
     animation: leafEntrance 1.2s ease-out 2.4s both, float 8s ease-in-out 3.6s infinite;
   }
   
@@ -428,7 +610,8 @@ $rose-gold: #E8C5A0;
     width: 25px;
     height: 42px;
     transform: rotate(-25deg) scale(0.4);
-    background: linear-gradient(45deg, $taupe, $olive);
+    background: conic-gradient(from 45deg, $bordeaux, $dark-accent, $red-copper, $bordeaux);
+    box-shadow: 0 3px 8px rgba($bordeaux, 0.3);
     animation: leafEntrance 1.2s ease-out 2.6s both, float 8s ease-in-out 3.8s infinite;
   }
   
@@ -438,18 +621,20 @@ $rose-gold: #E8C5A0;
     width: 28px;
     height: 48px;
     transform: rotate(10deg) scale(0.4);
-    background: linear-gradient(45deg, $dark-red, $rose-gold);
+    background: linear-gradient(120deg, $red-accent 0%, $red-copper 50%, $dark-accent 100%);
+    box-shadow: 0 4px 10px rgba($red-accent, 0.25);
     animation: leafEntrance 1.2s ease-out 2.8s both, float 8s ease-in-out 4s infinite;
   }
   
-  // Plus vers l'intérieur - effet de dispersion
+  // Plus vers l'intérieur - effet de dispersion avec variété de rouges
   &:nth-child(7) {
     top: 60px;
     right: 90px;
     width: 22px;
     height: 38px;
     transform: rotate(-30deg) scale(0.35);
-    background: linear-gradient(45deg, $rose-gold, $taupe);
+    background: linear-gradient(200deg, $red-copper 0%, $bordeaux 60%, $dark-border 100%);
+    box-shadow: 0 3px 7px rgba($red-copper, 0.35);
     animation: leafEntrance 1.2s ease-out 3s both, float 8s ease-in-out 4.2s infinite;
   }
   
@@ -459,18 +644,20 @@ $rose-gold: #E8C5A0;
     width: 15px;
     height: 25px;
     transform: rotate(45deg) scale(0.25);
-    background: linear-gradient(45deg, $olive, $bordeaux);
+    background: radial-gradient(ellipse at 60% 30%, $red-accent, $bordeaux, $dark-accent);
+    box-shadow: 0 2px 5px rgba($red-accent, 0.4);
     animation: leafEntrance 1.2s ease-out 3.2s both, float 8s ease-in-out 4.4s infinite;
   }
   
-  // Continuation de l'effet de coin
+  // Continuation de l'effet de coin avec touches cuivrées
   &:nth-child(9) {
     top: 130px;
     right: 15px;
     width: 32px;
     height: 55px;
     transform: rotate(-10deg) scale(0.4);
-    background: linear-gradient(45deg, $taupe, $bordeaux);
+    background: linear-gradient(160deg, $bordeaux 0%, $red-copper 40%, $dark-accent 100%);
+    box-shadow: 0 4px 10px rgba($bordeaux, 0.3);
     animation: leafEntrance 1.2s ease-out 3.4s both, float 8s ease-in-out 4.6s infinite;
   }
   
@@ -480,7 +667,8 @@ $rose-gold: #E8C5A0;
     width: 12px;
     height: 20px;
     transform: rotate(55deg) scale(0.2);
-    background: linear-gradient(45deg, $rose-gold, $olive);
+    background: conic-gradient(from 270deg, $dark-accent, $red-accent, $red-copper, $dark-accent);
+    box-shadow: 0 2px 4px rgba($dark-accent, 0.45);
     animation: leafEntrance 1.2s ease-out 3.6s both, float 8s ease-in-out 4.8s infinite;
   }
 }
@@ -558,11 +746,11 @@ $rose-gold: #E8C5A0;
 @keyframes glowPulse {
   0%, 100% {
     opacity: 0.8;
-    box-shadow: 0 0 10px rgba($gold, 0.3);
+    box-shadow: 0 0 10px rgba($dark-accent-hover, 0.3);
   }
   50% {
     opacity: 1;
-    box-shadow: 0 0 20px rgba($gold, 0.6), 0 0 30px rgba($sage-green, 0.3);
+    box-shadow: 0 0 20px rgba($dark-accent-hover, 0.6), 0 0 30px rgba($dark-accent, 0.3);
   }
 }
 
@@ -696,5 +884,15 @@ $rose-gold: #E8C5A0;
   .subtitle {
     font-size: 0.85rem;
     margin-top: 1rem;
+  }
+}
+
+// Animation pulse subtile pour le bouton principal
+@keyframes subtlePulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba($bordeaux, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 15px rgba($bordeaux, 0.4), 0 0 20px rgba($red-accent, 0.2);
   }
 }

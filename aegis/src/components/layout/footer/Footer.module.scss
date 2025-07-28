@@ -1,29 +1,122 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+@import '../../../styles/globals.scss';
 
-$sage-green: #9CAF88;
-$olive: #8B956D;
-$cream: #F7F5F3;
-$stone: #E8E6E3;
-$charcoal: #2F3E46;
-$gold: #D4AF37;
-$dark-red: #6B2737;
+// Palette mythologique raffinée
+$dark-red: #a87c4a;
+
+// Couleurs inspirées de l'Antiquité grecque
+$marble: #F8F6F0; // Marbre blanc antique
+$olive: #6B7F59; // Olive sacré
+$terracotta: #C4704F; // Terre cuite des amphores
+$gold-leaf: #D4A574; // Feuille d'or vieilli
+$shadow-grey: #4A4A4A; // Ombre des colonnes
+
+// Couleurs mode sombre - sanctuaire nocturne
+$dark-bg: #1a1d1a; // Nuit du sanctuaire
+$dark-surface: #242824; // Pierre sombre
+$dark-accent: #a87c4a; // Bronze antique
+$dark-accent-hover: #c49660; // Bronze éclairé
+$dark-text: #e8e6e3; // Parchemin ancien
+$dark-text-muted: #a8a096; // Encre fanée
+$dark-border: #3d453d; // Bordure de pierre
 
 .footer {
-  background: linear-gradient(135deg, $stone 0%, $cream 100%);
-  border-top: 1px solid rgba($dark-red, 0.2);
+  background: linear-gradient(135deg, 
+    rgba(26, 29, 26, 0.95) 0%, 
+    rgba(36, 40, 36, 0.9) 50%, 
+    rgba(29, 32, 29, 0.95) 100%
+  );
+  border-top: 1px solid rgba(168, 124, 74, 0.2);
   margin-top: auto;
+  position: relative;
+  backdrop-filter: blur(10px);
+  
+  // Frise décorative supérieure inspirée des temples grecs
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 2px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(139, 58, 58, 0.3) 15%,
+      rgba(184, 84, 80, 0.6) 35%, 
+      rgba(212, 165, 116, 0.7) 50%, 
+      rgba(184, 84, 80, 0.6) 65%,
+      rgba(139, 58, 58, 0.3) 85%,
+      transparent 100%
+    );
+    box-shadow: 0 0 8px rgba(212, 165, 116, 0.2);
+  }
+  
+  // Motifs géométriques antiques subtils
+  &::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, rgba(212, 165, 116, 0.8), rgba(184, 84, 80, 0.6));
+    border-radius: 50%;
+    box-shadow: 
+      -40px 0 0 -2px rgba(196, 112, 79, 0.4),
+      -20px 0 0 -1px rgba(139, 58, 58, 0.5),
+      20px 0 0 -1px rgba(139, 58, 58, 0.5),
+      40px 0 0 -2px rgba(196, 112, 79, 0.4),
+      -80px 0 0 -3px rgba(210, 96, 58, 0.3),
+      80px 0 0 -3px rgba(210, 96, 58, 0.3);
+  }
+  
+  // Mode clair - s'harmonise avec le background grisé
+  [data-theme="light"] & {
+    background: linear-gradient(135deg, 
+      rgba(230, 228, 225, 0.95) 0%, 
+      rgba(220, 218, 215, 0.9) 50%, 
+      rgba(210, 208, 205, 0.95) 100%
+    );
+    border-top: 1px solid rgba(139, 58, 58, 0.15);
+    
+    &::before {
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(139, 58, 58, 0.2) 15%,
+        rgba(184, 84, 80, 0.3) 35%, 
+        rgba(212, 165, 116, 0.4) 50%, 
+        rgba(184, 84, 80, 0.3) 65%,
+        rgba(139, 58, 58, 0.2) 85%,
+        transparent 100%
+      );
+      box-shadow: 0 0 6px rgba(212, 165, 116, 0.2);
+    }
+    
+    &::after {
+      background: radial-gradient(circle, rgba(212, 165, 116, 0.8), rgba(196, 112, 79, 0.6));
+      box-shadow: 
+        -40px 0 0 -2px rgba(107, 127, 89, 0.3),
+        -20px 0 0 -1px rgba(139, 58, 58, 0.4),
+        20px 0 0 -1px rgba(139, 58, 58, 0.4),
+        40px 0 0 -2px rgba(107, 127, 89, 0.3),
+        -80px 0 0 -3px rgba(196, 112, 79, 0.2),
+        80px 0 0 -3px rgba(196, 112, 79, 0.2);
+    }
+  }
 }
 
 .footerContainer {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem 2rem 2rem;
+  padding: 2rem 2rem 1.5rem; // Réduit la taille générale du footer
 }
 
 .footerContent {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem; // Réduit l'espacement entre les sections
 }
 
 .footerMain {
@@ -31,7 +124,7 @@ $dark-red: #6B2737;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 1.5rem;
+  gap: 1rem; // Réduit l'espacement interne
 }
 
 .brand {
@@ -42,45 +135,98 @@ $dark-red: #6B2737;
 
 .brandTitle {
   font-family: 'Cinzel', serif;
-  font-size: 2rem;
+  font-size: 1.5rem; // Réduit la taille du titre
   font-weight: 600;
-  color: $charcoal;
+  color: rgba(212, 165, 116, 0.9);
+  text-shadow: 
+    0 1px 3px rgba(139, 58, 58, 0.4),
+    0 0 12px rgba(212, 165, 116, 0.2);
   margin: 0;
   letter-spacing: 0.05em;
   position: relative;
   
+  // Mode clair - couleurs avec meilleur contraste
+  [data-theme="light"] & {
+    color: rgba(74, 74, 74, 0.9);
+    text-shadow: 
+      0 1px 2px rgba(139, 58, 58, 0.3),
+      0 0 8px rgba(184, 84, 80, 0.15);
+  }
+  
+  // Décorations mythologiques
+  &::before {
+    content: '◆';
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.7em;
+    color: $red-copper;
+    opacity: 0.8;
+  }
+  
   &::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: -8px;
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;
+    width: 60px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, $gold, transparent);
+    background: linear-gradient(90deg, transparent, $red-copper, $gold-leaf, $red-copper, transparent);
+    border-radius: 1px;
+    box-shadow: 0 0 4px rgba($gold-leaf, 0.3);
+  }
+  
+  [data-theme="light"] & {
+    color: rgba(139, 58, 58, 0.9);
+    text-shadow: 
+      0 1px 2px rgba(212, 165, 116, 0.2),
+      0 0 6px rgba(196, 112, 79, 0.1);
+      
+    &::before {
+      color: rgba(196, 112, 79, 0.8);
+    }
+    
+    &::after {
+      background: linear-gradient(90deg, transparent, rgba(196, 112, 79, 0.6), rgba(139, 58, 58, 0.7), rgba(196, 112, 79, 0.6), transparent);
+    }
   }
 }
 
 .brandSubtitle {
   font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.8rem; // Réduit la taille du sous-titre
   font-weight: 300;
-  color: $olive;
-  letter-spacing: 0.1em;
+  color: rgba(168, 124, 74, 0.8);
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  margin-top: 0.5rem;
+  margin-top: 0.3rem; // Réduit l'espacement
+  opacity: 0.8; // Légèrement plus transparent
+  
+  [data-theme="light"] & {
+    color: rgba(74, 74, 74, 0.8); // Couleur plus contrastée
+  }
 }
 
 .quote {
-  max-width: 500px;
+  max-width: 500px; // Réduit la largeur
+  margin: 0.5rem auto; // Réduit l'espacement
   
   p {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
+    font-family: 'Inter', sans-serif; // Change la police pour plus de simplicité
+    font-size: 0.95rem; // Réduit la taille
+    font-weight: 400;
     font-style: italic;
-    color: $charcoal;
-    opacity: 0.8;
+    color: rgba(168, 160, 150, 0.9);
     line-height: 1.5;
+    text-align: center;
+    margin: 0;
+    position: relative;
+    
+    [data-theme="light"] & {
+      color: rgba(74, 74, 74, 0.8); // Couleur plus contrastée
+    }
   }
 }
 
@@ -92,12 +238,43 @@ $dark-red: #6B2737;
 }
 
 .socialLabel {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: $olive;
+  font-family: 'Inter', sans-serif; // Police plus simple
+  font-size: 0.9rem; // Taille réduite
+  font-weight: 500;
+  color: rgba(212, 165, 116, 0.9);
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(139, 58, 58, 0.3);
+  position: relative;
+  
+  // Ornements décoratifs plus subtils
+  &::before,
+  &::after {
+    content: '―';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(184, 84, 80, 0.6);
+    opacity: 0.4; // Plus transparent
+  }
+  
+  &::before {
+    left: -20px; // Plus proche
+  }
+  
+  &::after {
+    right: -20px; // Plus proche
+  }
+  
+  [data-theme="light"] & {
+    color: rgba(74, 74, 74, 0.9); // Couleur plus contrastée
+    text-shadow: 0 1px 1px rgba(139, 58, 58, 0.2);
+    
+    &::before,
+    &::after {
+      color: rgba(139, 58, 58, 0.6); // Plus visible
+    }
+  }
 }
 
 .socialLinks {
@@ -111,36 +288,113 @@ $dark-red: #6B2737;
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.25rem;
-  background: rgba(white, 0.7);
-  border: 1px solid rgba($dark-red, 0.2);
+  background: linear-gradient(135deg, 
+    rgba(168, 124, 74, 0.1) 0%, 
+    rgba(184, 84, 80, 0.05) 100%
+  );
+  border: 1px solid rgba(212, 165, 116, 0.2);
   border-radius: 12px;
-  color: $charcoal;
+  color: rgba(168, 124, 74, 0.9);
   text-decoration: none;
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
-  font-weight: 400;
+  font-weight: 500;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  
+  // Mode clair - couleurs ajustées
+  [data-theme="light"] & {
+    background: linear-gradient(135deg, 
+      rgba(139, 58, 58, 0.08) 0%, 
+      rgba(184, 84, 80, 0.04) 100%
+    );
+    border: 1px solid rgba(139, 58, 58, 0.2);
+    color: rgba(74, 74, 74, 0.9);
+  }
+  
+  // Effet de brillance antique
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(212, 165, 116, 0.1), 
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
   
   svg {
     width: 20px;
     height: 20px;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 1px 2px rgba(139, 58, 58, 0.2));
   }
   
   &:hover {
-    background: rgba($dark-red, 0.1);
-    border-color: rgba($dark-red, 0.4);
+    background: linear-gradient(135deg, 
+      rgba(212, 165, 116, 0.15) 0%, 
+      rgba(184, 84, 80, 0.1) 100%
+    );
+    border-color: rgba(212, 165, 116, 0.4);
     transform: translateY(-2px);
-    color: $dark-red;
+    color: rgba(212, 165, 116, 1);
+    box-shadow: 
+      0 6px 20px rgba(212, 165, 116, 0.15),
+      0 0 15px rgba(184, 84, 80, 0.1);
+    
+    // Mode clair - hover states
+    [data-theme="light"] & {
+      background: linear-gradient(135deg, 
+        rgba(139, 58, 58, 0.12) 0%, 
+        rgba(184, 84, 80, 0.08) 100%
+      );
+      border-color: rgba(139, 58, 58, 0.3);
+      color: rgba(139, 58, 58, 0.9);
+      box-shadow: 
+        0 6px 20px rgba(139, 58, 58, 0.1),
+        0 0 15px rgba(184, 84, 80, 0.05);
+    }
+    
+    &::before {
+      left: 100%;
+    }
     
     svg {
       transform: scale(1.1);
+      filter: drop-shadow(0 2px 4px rgba(139, 58, 58, 0.3));
     }
   }
   
   &:active {
     transform: translateY(0);
+  }
+  
+  [data-theme="light"] & {
+    background: linear-gradient(135deg, 
+      rgba($marble, 0.7) 0%, 
+      rgba($terracotta, 0.1) 100%
+    );
+    border-color: rgba($olive, 0.3);
+    color: $shadow-grey;
+    
+    &:hover {
+      background: linear-gradient(135deg, 
+        rgba($terracotta, 0.2) 0%, 
+        rgba($bordeaux, 0.1) 100%
+      );
+      border-color: rgba($terracotta, 0.5);
+      color: $bordeaux;
+      box-shadow: 
+        0 6px 20px rgba($terracotta, 0.2),
+        0 0 15px rgba($olive, 0.1);
+    }
   }
 }
 
@@ -168,32 +422,37 @@ $dark-red: #6B2737;
 }
 
 .scrollTop {
-  background: rgba($dark-red, 0.1);
-  border: 1px solid rgba($dark-red, 0.3);
+  background: rgba($dark-accent, 0.1);
+  border: 2px solid rgba($dark-accent, 0.4);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $dark-red;
+  color: $dark-accent;
   cursor: pointer;
   transition: all 0.3s ease;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 100;
   
   svg {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
   }
   
   &:hover {
-    background: rgba($dark-red, 0.2);
-    border-color: rgba($dark-red, 0.5);
-    transform: translateY(-2px);
-    color: $charcoal;
+    background: rgba($dark-accent, 0.2);
+    border-color: rgba($dark-accent, 0.6);
+    transform: translateY(-3px);
+    color: $dark-accent-hover;
+    box-shadow: 0 6px 16px rgba($dark-accent, 0.25);
   }
   
   &:active {
-    transform: translateY(0);
+    transform: translateY(-1px);
   }
 }
 

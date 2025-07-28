@@ -14,22 +14,22 @@ html {
 :root {
   --background: #F7F5F3;
   --foreground: #2F3E46;
-  --sage-green: #9CAF88;
-  --olive: #8B956D;
+  --bronze: #a87c4a;
+  --bronze-light: #c49660;
   --cream: #F7F5F3;
   --stone: #E8E6E3;
   --charcoal: #2F3E46;
   --gold: #D4AF37;
   --dark-red: #6B2737;
-  --bordeaux: #8B3A3A;
+  --bordeaux: #a87c4a;
 }
 
 [data-theme="dark"] {
-  --background: #1a1a1a;
-  --foreground: #E8E6E3;
-  --cream: #2a2a2a;
-  --stone: #3a3a3a;
-  --charcoal: #E8E6E3;
+  --background: #1a1d1a;
+  --foreground: #e8e6e3;
+  --cream: #242824;
+  --stone: #3d453d;
+  --charcoal: #e8e6e3;
 }
 
 html {
@@ -78,10 +78,10 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--sage-green);
+  background: #a87c4a;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--olive);
+  background: #c49660;
 }

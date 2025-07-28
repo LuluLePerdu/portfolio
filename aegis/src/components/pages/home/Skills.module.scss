@@ -1,18 +1,21 @@
-$dark-red: #6B2737;
-$bordeaux: #8B3A3A;
-$cream: #F7F5F3;
-$stone: #E8E6E3;
-$charcoal: #2F3E46;
-$gold: #D4AF37;
-$taupe: #B8A08A;
+@import '../../../styles/globals.scss';
+
+// Variables supplémentaires nécessaires
+$taupe: $terracotta;        // Taupe -> Terracotta
+$dark-red: #a87c4a;         // Rouge sombre
+
+// Couleurs mode sombre - sanctuaire nocturne
+$dark-bg: #1a1d1a; // Nuit du sanctuaire
+$dark-surface: #242824; // Pierre sombre
+$dark-accent: #a87c4a; // Bronze antique
+$dark-accent-hover: #c49660; // Bronze éclairé
+$dark-text: #e8e6e3; // Parchemin ancien
+$dark-text-muted: #a8a096; // Encre fanée
+$dark-border: #3d453d;
+$dark-red: #a87c4a;
 
 .skills {
   padding: 6rem 0;
-  background: linear-gradient(135deg, 
-    rgba($stone, 0.4) 0%, 
-    rgba($cream, 0.8) 50%,
-    rgba($taupe, 0.3) 100%
-  );
   position: relative;
 }
 
@@ -41,7 +44,7 @@ $taupe: #B8A08A;
       transform: translateX(-50%);
       width: 80px;
       height: 3px;
-      background: linear-gradient(90deg, $dark-red, $gold);
+      background: linear-gradient(90deg, $dark-red, $gold-leaf);
       border-radius: 2px;
     }
   }
@@ -97,7 +100,7 @@ $taupe: #B8A08A;
     transform: translateX(-50%);
     width: 40px;
     height: 2px;
-    background: $gold;
+    background: $gold-leaf;
     border-radius: 1px;
   }
 }
@@ -145,7 +148,7 @@ $taupe: #B8A08A;
 
 .skillProgress {
   height: 100%;
-  background: linear-gradient(90deg, $dark-red, $bordeaux, $gold);
+  background: linear-gradient(90deg, $dark-red, $bordeaux, $gold-leaf);
   border-radius: 4px;
   transition: width 1s ease-in-out;
   position: relative;

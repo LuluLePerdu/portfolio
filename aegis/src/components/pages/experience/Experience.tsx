@@ -80,13 +80,6 @@ export default function Experience() {
   return (
     <section id="experience" className={styles.experience}>
       <div className={styles.container}>
-        <div className={styles.header}>
-          <h2 className={styles.title}>{t('experience.title')}</h2>
-          <p className={styles.subtitle}>
-            {t('experience.subtitle')}
-          </p>
-        </div>
-
         <div className={styles.timeline}>
           {sortedExperiences.map((exp, index) => (
             <div key={exp.id} className={styles.timelineItem}>

@@ -48,13 +48,6 @@ export default function Contact() {
   return (
     <section id="contact" className={styles.contact}>
       <div className={styles.container}>
-        <div className={styles.header}>
-          <h2 className={styles.title}>Get In Touch</h2>
-          <p className={styles.subtitle}>
-            Contact me if you have any questions or want to discuss about an internship. I look forward to hearing from you!
-          </p>
-        </div>
-
         <div className={styles.contactContent}>
           <div className={styles.contactInfo}>
             <div className={styles.infoCard}>

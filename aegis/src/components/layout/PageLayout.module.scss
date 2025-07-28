@@ -1,25 +1,128 @@
-$sage-green: #9CAF88;
-$olive: #8B956D;
-$cream: #F7F5F3;
-$stone: #E8E6E3;
-$charcoal: #2F3E46;
-$gold: #D4AF37;
-$forest-green: #5D7C47;
-$mint: #A8D5BA;
-$bordeaux: #8B3A3A;
-$dark-red: #6B2737;
-$taupe: #B8A08A;
-$rose-gold: #E8C5A0;
+// Palette mythologique raffinée
+$bordeaux: #8B3A3A; // Rouge sang des héros
+$red-copper: #B85450; // Bronze patiné 
+$red-accent: #D2603A; // Cuivre brillant
+
+// Couleurs inspirées de l'Antiquité grecque
+$marble: #F8F6F0; // Marbre blanc antique
+$olive: #6B7F59; // Olive sacré
+$terracotta: #C4704F; // Terre cuite des amphores
+$gold-leaf: #D4A574; // Feuille d'or vieilli
+$shadow-grey: #4A4A4A; // Ombre des colonnes
+
+// Couleurs mode sombre - sanctuaire nocturne
+$dark-bg: #1a1d1a; // Nuit du sanctuaire
+$dark-surface: #242824; // Pierre sombre
+$dark-accent: #a87c4a; // Bronze antique
+$dark-accent-hover: #c49660; // Bronze éclairé
+$dark-text: #e8e6e3; // Parchemin ancien
+$dark-text-muted: #a8a096; // Encre fanée
+$dark-border: #3d453d; // Bordure de pierre
+$bordeaux-hover: #c49660;
 
 .pageContainer {
   min-height: 100vh;
   padding-top: 85px; // Hauteur du header
+  position: relative;
+  overflow: hidden;
+  
+  // Background identique à la page principale - gradient grisé pour tous les modes
   background: linear-gradient(135deg, 
-    $cream 0%, 
-    rgba($stone, 0.7) 25%,
-    rgba($dark-red, 0.1) 50%,
-    $stone 100%
+    #1a1d1a 0%, 
+    rgba(36, 40, 36, 0.8) 25%,
+    rgba(168, 124, 74, 0.2) 50%,
+    #242824 100%
   );
+  
+  // Background mode sombre - identique à page.module.scss
+  [data-theme="dark"] & {
+    background: linear-gradient(135deg, 
+      #1a1d1a 0%, 
+      rgba(36, 40, 36, 0.7) 25%,
+      rgba(168, 124, 74, 0.1) 50%,
+      #242824 100%
+    );
+  }
+
+  // Effets décoratifs identiques à la page principale
+  &::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -15%;
+    width: 50%;
+    height: 150%;
+    background: radial-gradient(ellipse, 
+      rgba($dark-accent, 0.12) 0%, 
+      rgba($dark-text-muted, 0.1) 30%,
+      rgba($dark-accent-hover, 0.05) 60%,
+      transparent 80%
+    );
+    transform: rotate(-20deg);
+    z-index: 0;
+    
+    // Mode clair - effet plus subtil
+    [data-theme="light"] & {
+      background: radial-gradient(ellipse, 
+        rgba($dark-accent, 0.04) 0%, 
+        rgba($dark-text-muted, 0.02) 30%,
+        rgba($dark-accent-hover, 0.01) 60%,
+        transparent 80%
+      );
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -10%;
+    width: 40%;
+    height: 120%;
+    background: radial-gradient(ellipse, 
+      rgba($dark-accent, 0.08) 0%, 
+      rgba($dark-text-muted, 0.05) 50%,
+      transparent 70%
+    );
+    transform: rotate(15deg);
+    z-index: 0;
+    
+    // Mode clair - effet gauche plus subtil
+    [data-theme="light"] & {
+      background: radial-gradient(ellipse, 
+        rgba($dark-accent, 0.04) 0%, 
+        rgba($dark-text-muted, 0.02) 50%,
+        transparent 70%
+      );
+    }
+  }
+
+  // Mode sombre - ajoute un background sombre
+  [data-theme="dark"] & {
+    background: linear-gradient(135deg, 
+      $dark-bg 0%, 
+      rgba($dark-surface, 0.7) 25%,
+      rgba($dark-accent, 0.1) 50%,
+      $dark-surface 100%
+    );
+    
+    &::before {
+      background: radial-gradient(ellipse, 
+        rgba($dark-accent, 0.12) 0%, 
+        rgba($dark-text-muted, 0.1) 30%,
+        rgba($dark-accent-hover, 0.05) 60%,
+        transparent 80%
+      );
+    }
+
+    &::after {
+      background: radial-gradient(ellipse, 
+        rgba($dark-accent, 0.08) 0%, 
+        rgba($dark-text-muted, 0.05) 50%,
+        transparent 70%
+      );
+    }
+  }
 }
 
 .pageHeader {
@@ -27,6 +130,8 @@ $rose-gold: #E8C5A0;
   text-align: center;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
   
   [data-theme="dark"] & {
     color: var(--foreground);
@@ -37,25 +142,64 @@ $rose-gold: #E8C5A0;
   font-family: 'Cinzel', serif;
   font-size: clamp(2.5rem, 4vw, 4rem);
   font-weight: 600;
-  color: $charcoal;
+  color: $bordeaux;
   margin: 0 0 1rem;
   text-align: center;
   position: relative;
+  text-shadow: 0 2px 4px rgba($terracotta, 0.3);
+  
+  [data-theme="light"] & {
+    color: $bordeaux;
+    text-shadow: 0 2px 4px rgba($terracotta, 0.2);
+  }
+  
+  [data-theme="dark"] & {
+    color: $gold-leaf;
+    text-shadow: 0 2px 4px rgba($bordeaux, 0.4);
+  }
+  
+  &::before {
+    content: '◆';
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.6em;
+    color: $red-copper;
+    opacity: 0.7;
+    
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
   
   &::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: linear-gradient(90deg, $dark-red, $gold, $dark-red);
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      $red-copper 25%,
+      $bordeaux 50%, 
+      $red-copper 75%,
+      transparent 100%
+    );
     border-radius: 2px;
-  }
-  
-  [data-theme="dark"] & {
-    color: var(--foreground);
+    box-shadow: 0 0 8px rgba($bordeaux, 0.3);
+    
+    [data-theme="light"] & {
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        $terracotta 25%,
+        $bordeaux 50%, 
+        $terracotta 75%,
+        transparent 100%
+      );
+    }
   }
 }
 
@@ -63,14 +207,18 @@ $rose-gold: #E8C5A0;
   font-family: 'Inter', sans-serif;
   font-size: 1.1rem;
   font-weight: 400;
-  color: $charcoal;
+  color: $shadow-grey;
   opacity: 0.8;
   max-width: 600px;
   margin: 2rem auto 0;
   line-height: 1.6;
   
+  [data-theme="light"] & {
+    color: $shadow-grey;
+  }
+  
   [data-theme="dark"] & {
-    color: var(--foreground);
+    color: $dark-text-muted;
   }
 }
 
@@ -78,6 +226,8 @@ $rose-gold: #E8C5A0;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem 4rem;
+  position: relative;
+  z-index: 2;
 }
 
 @media (max-width: 768px) {

@@ -1,38 +1,52 @@
-$dark-red: #6B2737;
-$bordeaux: #8B3A3A;
-$cream: #F7F5F3;
-$charcoal: #2F3E46;
-$stone: #E8E6E3;
+@import '../../../styles/globals.scss';
+
+// Couleurs mode sombre harmonieuses avec le thème naturel
+$dark-bg: #1a1d1a;
+$dark-surface: #242824;
+$dark-accent: #a87c4a;
+$dark-accent-hover: #c49660;
+$dark-text: #e8e6e3;
+$dark-text-muted: #a8a096;
+$dark-border: #3d453d;
 
 .themeToggle {
-  background: none;
-  border: none;
+  background: rgba($dark-accent, 0.08);
+  border: 2px solid rgba($dark-accent, 0.3);
   cursor: pointer;
   padding: 0.5rem;
   border-radius: 8px;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 2px 4px rgba($dark-accent, 0.1);
   
   &:hover {
-    background: rgba($bordeaux, 0.1);
+    background: rgba($dark-accent, 0.15);
+    border-color: rgba($dark-accent, 0.5);
+    box-shadow: 0 4px 8px rgba($dark-accent, 0.2);
+    transform: translateY(-1px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba($dark-accent, 0.2);
   }
 }
 
 .toggleTrack {
   width: 50px;
   height: 24px;
-  background: rgba($stone, 0.3);
+  background: rgba($dark-accent, 0.2);
   border-radius: 12px;
   position: relative;
   transition: background-color 0.3s ease;
-  border: 1px solid rgba($bordeaux, 0.2);
+  border: 1px solid rgba($dark-accent, 0.4);
   
   &.dark {
-    background: rgba($charcoal, 0.8);
-    border-color: rgba($dark-red, 0.3);
+    background: rgba($dark-accent, 0.3);
+    border-color: rgba($dark-accent, 0.5);
   }
 }
 
@@ -48,13 +62,15 @@ $stone: #E8E6E3;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $charcoal;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: $dark-accent;
+  box-shadow: 0 2px 6px rgba($dark-accent, 0.3);
+  border: 1px solid rgba($dark-accent, 0.2);
   
   .dark & {
     transform: translateX(24px);
-    background: $charcoal;
-    color: $cream;
+    background: $dark-accent;
+    color: white;
+    box-shadow: 0 2px 6px rgba($dark-accent, 0.4);
   }
   
   svg {
@@ -68,5 +84,20 @@ $stone: #E8E6E3;
   .themeToggle {
     height: 36px;
     padding: 0.4rem;
+  }
+}
+
+// Dark mode support
+[data-theme="dark"] {
+  .themeToggle {
+    background: rgba($dark-accent, 0.15);
+    border-color: rgba($dark-accent, 0.5);
+    box-shadow: 0 2px 6px rgba($dark-accent, 0.2);
+    
+    &:hover {
+      background: rgba($dark-accent, 0.25);
+      border-color: rgba($dark-accent, 0.7);
+      box-shadow: 0 4px 12px rgba($dark-accent, 0.3);
+    }
   }
 }

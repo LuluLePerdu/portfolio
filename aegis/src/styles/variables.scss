@@ -1,0 +1,25 @@
+// Palette mythologique globale - Couleurs inspirées de la Grèce antique
+$bordeaux: #8B3A3A;        // Rouge bordeaux profond
+$red-copper: #B85450;       // Rouge cuivré chaleureux
+$red-accent: #D2603A;       // Rouge accent vibrant
+$marble: #F8F6F0;           // Marbre blanc antique
+$olive: #6B7F59;            // Vert olive méditerranéen
+$terracotta: #C4704F;       // Terracotta terre cuite
+$gold-leaf: #D4A574;        // Or feuille délicat
+$shadow-grey: #4A4A4A;      // Gris ombre profond
+
+// Variables de compatibilité (mappées sur la palette mythologique)
+$cream: $marble;            // Crème -> Marbre
+$stone: $terracotta;        // Pierre -> Terracotta
+$charcoal: $shadow-grey;    // Charbon -> Gris ombre
+$taupe: $terracotta;        // Taupe -> Terracotta
+$dark-red: #a87c4a;         // Rouge sombre -> Bronze
+
+// Variables thématiques
+$primary-bg-light: $marble;
+$primary-bg-dark: $shadow-grey;
+$accent-color: $red-accent;
+$text-primary-light: $shadow-grey;
+$text-primary-dark: $marble;
+$border-light: rgba($terracotta, 0.3);
+$border-dark: rgba($marble, 0.2);
