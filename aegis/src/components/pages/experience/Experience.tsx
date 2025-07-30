@@ -1,7 +1,6 @@
 'use client';
 
 import styles from './Experience.module.scss';
-import '../../../styles/experience-test.css';
 import { useLanguage } from '@/context/LanguageContext';
 
 const experiences = [
@@ -88,7 +87,7 @@ export default function Experience() {
                 <div className={styles.markerDot}></div>
                 {index < sortedExperiences.length - 1 && <div className={styles.timelineLine}></div>}
               </div>
-              
+
               <div className={styles.experienceCard}>
                 <div className={styles.cardHeader}>
                   <div className={styles.titleSection}>

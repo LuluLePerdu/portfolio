@@ -23,7 +23,10 @@ export const metadata: Metadata = {
 
 export default function ExperiencePage() {
   return (
-    <PageLayout>
+    <PageLayout
+      titleKey="experience.title"
+      descriptionKey="experience.subtitle"
+    >
       <Experience />
     </PageLayout>
   );
