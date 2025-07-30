@@ -1,9 +1,5 @@
 // Page components barrel exports
 
-// Home page components
-export { default as Skills } from './home/Skills';
-export { default as PortfolioSimple } from './home/PortfolioSimple';
-
 // About page components
 export { default as About } from './about/About';
 

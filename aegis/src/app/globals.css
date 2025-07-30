@@ -16,20 +16,13 @@ html {
   --foreground: #2F3E46;
   --bronze: #a87c4a;
   --bronze-light: #c49660;
-  --cream: #F7F5F3;
   --stone: #E8E6E3;
-  --charcoal: #2F3E46;
-  --gold: #D4AF37;
-  --dark-red: #6B2737;
-  --bordeaux: #a87c4a;
 }
 
 [data-theme="dark"] {
   --background: #1a1d1a;
   --foreground: #e8e6e3;
-  --cream: #242824;
   --stone: #3d453d;
-  --charcoal: #e8e6e3;
 }
 
 html {

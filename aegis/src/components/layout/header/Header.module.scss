@@ -386,7 +386,7 @@ $dark-border: #3d453d; // Bordure naturelle sombre
   }
   
   &:hover {
-    color: #D4AF37;
+    color: $gold-leaf;
     background: rgba(#8B3A3A, 0.1);
     border-color: rgba(#8B3A3A, 0.3);
     transform: translateX(3px);

@@ -2,7 +2,6 @@
 
 import styles from './page.module.scss'
 import { useLanguage } from '@/context/LanguageContext';
-import { PortfolioSimple, Skills } from "@/components/pages";
 
 //export const runtime = 'edge';
 

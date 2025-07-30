@@ -1,6 +1,7 @@
 'use client';
 
 import styles from './Experience.module.scss';
+import '../../../styles/experience-test.css';
 import { useLanguage } from '@/context/LanguageContext';
 
 const experiences = [

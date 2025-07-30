@@ -66,15 +66,6 @@ const translations = {
     'about.actions.contact': 'Get In Touch',
     'about.actions.downloadCV': 'Download CV',
     
-    // Skills
-    'skills.title': 'Skills & Technologies',
-    'skills.subtitle': 'Expertise across the full development stack with a focus on modern technologies and best practices.',
-    'skills.frontend': 'Frontend',
-    'skills.backend': 'Backend', 
-    'skills.devops': 'DevOps & Cloud',
-    'skills.other': 'Other Technologies',
-    'skills.additional': 'Additional Expertise',
-    
     // Photography
     'photography.title': 'Photography',
     'photography.subtitle': 'A visual journey through my lens, capturing moments and stories in light and shadow.',
@@ -175,15 +166,6 @@ const translations = {
     'about.stats.technologies': 'Technologies',
     'about.actions.contact': 'Prendre Contact',
     'about.actions.downloadCV': 'Télécharger CV',
-    
-    // Skills
-    'skills.title': 'Compétences & Technologies',
-    'skills.subtitle': 'Expertise sur l\'ensemble de la pile de développement avec un focus sur les technologies modernes et les meilleures pratiques.',
-    'skills.frontend': 'Frontend',
-    'skills.backend': 'Backend',
-    'skills.devops': 'DevOps & Cloud',
-    'skills.other': 'Autres Technologies',
-    'skills.additional': 'Expertise Supplémentaire',
     
     // Photography
     'photography.title': 'Photographie',
