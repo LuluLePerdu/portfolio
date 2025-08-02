@@ -1,24 +1,4 @@
-// Palette mythologique raffinée
-$bordeaux: #8B3A3A; // Rouge sang des héros
-$red-copper: #B85450; // Bronze patiné 
-$red-accent: #D2603A; // Cuivre brillant
-
-// Couleurs inspirées de l'Antiquité grecque
-$marble: #F8F6F0; // Marbre blanc antique
-$olive: #6B7F59; // Olive sacré
-$terracotta: #C4704F; // Terre cuite des amphores
-$gold-leaf: #D4A574; // Feuille d'or vieilli
-$shadow-grey: #4A4A4A; // Ombre des colonnes
-
-// Couleurs mode sombre - sanctuaire nocturne
-$dark-bg: #1a1d1a; // Nuit du sanctuaire
-$dark-surface: #242824; // Pierre sombre
-$dark-accent: #a87c4a; // Bronze antique
-$dark-accent-hover: #c49660; // Bronze éclairé
-$dark-text: #e8e6e3; // Parchemin ancien
-$dark-text-muted: #a8a096; // Encre fanée
-$dark-border: #3d453d; // Bordure de pierre
-$bordeaux-hover: #c49660;
+@import '../../styles/variables.scss';
 
 .pageContainer {
   min-height: 100vh;
@@ -26,100 +6,68 @@ $bordeaux-hover: #c49660;
   position: relative;
   overflow: hidden;
   
-  // Background identique à la page principale - gradient grisé pour tous les modes
+  // Background unifié avec nouvelles couleurs chaudes
   background: linear-gradient(135deg, 
-    #1a1d1a 0%, 
-    rgba(36, 40, 36, 0.8) 25%,
-    rgba(168, 124, 74, 0.2) 50%,
-    #242824 100%
+    #F7F5F3 0%, 
+    #F0EDE9 50%,
+    #E8E3DD 100%
   );
   
-  // Background mode sombre - identique à page.module.scss
-  [data-theme="dark"] & {
-    background: linear-gradient(135deg, 
-      #1a1d1a 0%, 
-      rgba(36, 40, 36, 0.7) 25%,
-      rgba(168, 124, 74, 0.1) 50%,
-      #242824 100%
-    );
-  }
-
-  // Effets décoratifs identiques à la page principale
+  // Overlay subtil pour adoucir encore plus
   &::before {
     content: '';
     position: absolute;
-    top: -30%;
-    right: -15%;
-    width: 50%;
-    height: 150%;
-    background: radial-gradient(ellipse, 
-      rgba($dark-accent, 0.12) 0%, 
-      rgba($dark-text-muted, 0.1) 30%,
-      rgba($dark-accent-hover, 0.05) 60%,
-      transparent 80%
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, 
+      transparent 0%,
+      rgba(242, 237, 231, 0.1) 60%,
+      rgba(232, 227, 221, 0.2) 100%
     );
-    transform: rotate(-20deg);
-    z-index: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  // Background mode sombre - utilise les variables centralisées
+  [data-theme="dark"] & {
+    background: $gradient-page-dark;
     
-    // Mode clair - effet plus subtil
-    [data-theme="light"] & {
-      background: radial-gradient(ellipse, 
-        rgba($dark-accent, 0.04) 0%, 
-        rgba($dark-text-muted, 0.02) 30%,
-        rgba($dark-accent-hover, 0.01) 60%,
-        transparent 80%
+    &::before {
+      background: radial-gradient(ellipse at center, 
+        transparent 0%,
+        rgba($dark-accent, 0.03) 60%,
+        rgba($dark-surface, 0.1) 100%
       );
     }
   }
 
+  // Effets décoratifs doux et subtils
   &::after {
     content: '';
     position: absolute;
-    bottom: -20%;
-    left: -10%;
+    top: -20%;
+    right: -10%;
     width: 40%;
-    height: 120%;
+    height: 140%;
     background: radial-gradient(ellipse, 
-      rgba($dark-accent, 0.08) 0%, 
-      rgba($dark-text-muted, 0.05) 50%,
-      transparent 70%
+      rgba($gold-leaf, 0.03) 0%, 
+      rgba($terracotta, 0.02) 30%,
+      rgba($dark-accent, 0.01) 60%,
+      transparent 80%
     );
-    transform: rotate(15deg);
-    z-index: 0;
+    transform: rotate(-15deg);
+    z-index: 1;
+    pointer-events: none;
     
-    // Mode clair - effet gauche plus subtil
-    [data-theme="light"] & {
-      background: radial-gradient(ellipse, 
-        rgba($dark-accent, 0.04) 0%, 
-        rgba($dark-text-muted, 0.02) 50%,
-        transparent 70%
-      );
-    }
-  }
-
-  // Mode sombre - ajoute un background sombre
-  [data-theme="dark"] & {
-    background: linear-gradient(135deg, 
-      $dark-bg 0%, 
-      rgba($dark-surface, 0.7) 25%,
-      rgba($dark-accent, 0.1) 50%,
-      $dark-surface 100%
-    );
-    
-    &::before {
-      background: radial-gradient(ellipse, 
-        rgba($dark-accent, 0.12) 0%, 
-        rgba($dark-text-muted, 0.1) 30%,
-        rgba($dark-accent-hover, 0.05) 60%,
-        transparent 80%
-      );
-    }
-
-    &::after {
+    // Mode sombre - effets plus visibles mais toujours subtils
+    [data-theme="dark"] & {
       background: radial-gradient(ellipse, 
         rgba($dark-accent, 0.08) 0%, 
-        rgba($dark-text-muted, 0.05) 50%,
-        transparent 70%
+        rgba($dark-accent-hover, 0.04) 30%,
+        rgba($gold-leaf, 0.02) 60%,
+        transparent 80%
       );
     }
   }
@@ -142,20 +90,45 @@ $bordeaux-hover: #c49660;
   font-family: 'Cinzel', serif;
   font-size: clamp(2.5rem, 4vw, 4rem);
   font-weight: 600;
-  color: $bordeaux;
+  color: #8B7D6B; // Couleur terre chaude pour différencier du titre principal or
   margin: 0 0 1rem;
   text-align: center;
   position: relative;
-  text-shadow: 0 2px 4px rgba($terracotta, 0.3);
+  
+  // Effet dégradé terre plus neutre pour le titre de page
+  background: linear-gradient(135deg, 
+    #8B7D6B 0%, 
+    #A89B8C 50%,
+    #C4B5A0 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease-in-out infinite;
   
   [data-theme="light"] & {
-    color: $bordeaux;
-    text-shadow: 0 2px 4px rgba($terracotta, 0.2);
+    // En mode clair, couleurs terre chaudes pour les titres de page
+    background: linear-gradient(135deg, 
+      #8B7D6B 0%, 
+      #A89B8C 50%, 
+      #C4B5A0 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
   [data-theme="dark"] & {
-    color: $gold-leaf;
-    text-shadow: 0 2px 4px rgba($bordeaux, 0.4);
+    // En mode sombre, on utilise le dégradé complet
+    background: linear-gradient(135deg, 
+      $dark-accent 0%, 
+      $dark-accent-hover 50%, 
+      $gold-leaf 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
   &::before {
@@ -165,7 +138,7 @@ $bordeaux-hover: #c49660;
     top: 50%;
     transform: translateY(-50%);
     font-size: 0.6em;
-    color: $red-copper;
+    color: $dark-accent; // Cohérence avec la couleur or du titre
     opacity: 0.7;
     
     @media (max-width: 768px) {
@@ -183,22 +156,23 @@ $bordeaux-hover: #c49660;
     height: 3px;
     background: linear-gradient(90deg, 
       transparent 0%, 
-      $red-copper 25%,
-      $bordeaux 50%, 
-      $red-copper 75%,
+      $dark-accent 25%,
+      $dark-accent-hover 50%, 
+      $gold-leaf 75%,
       transparent 100%
     );
     border-radius: 2px;
-    box-shadow: 0 0 8px rgba($bordeaux, 0.3);
+    box-shadow: 0 0 8px rgba($dark-accent, 0.3);
     
     [data-theme="light"] & {
       background: linear-gradient(90deg, 
         transparent 0%, 
-        $terracotta 25%,
-        $bordeaux 50%, 
-        $terracotta 75%,
+        $dark-accent 25%,
+        $dark-accent-hover 50%, 
+        $gold-leaf 75%,
         transparent 100%
       );
+      box-shadow: 0 0 8px rgba($dark-accent, 0.2);
     }
   }
 }
@@ -208,17 +182,19 @@ $bordeaux-hover: #c49660;
   font-size: 1.1rem;
   font-weight: 400;
   color: $shadow-grey;
-  opacity: 0.8;
+  opacity: 0.9; // Augmentation de l'opacité pour une meilleure lisibilité
   max-width: 600px;
   margin: 2rem auto 0;
   line-height: 1.6;
   
   [data-theme="light"] & {
-    color: $shadow-grey;
+    color: darken($shadow-grey, 10%); // Texte plus foncé en mode clair
+    opacity: 0.95;
   }
   
   [data-theme="dark"] & {
     color: $dark-text-muted;
+    opacity: 0.9;
   }
 }
 
@@ -237,5 +213,15 @@ $bordeaux-hover: #c49660;
   
   .pageContent {
     padding: 0 1rem 2rem;
+  }
+}
+
+// Animation pour le dégradé des titres (cohérence avec page.module.scss)
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }

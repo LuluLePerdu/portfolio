@@ -1,14 +1,22 @@
 @use "../../../styles/variables.scss" as *;
 
 .footer {
-  background: rgba($marble, 0.9);
+  background: linear-gradient(135deg,
+    rgba($marble, 0.95) 0%,
+    rgba($stone-beige, 0.92) 50%,
+    rgba($stone-sand, 0.90) 100%
+  );
   border-top: 1px solid rgba($shadow-grey, 0.15);
   margin-top: auto;
   position: relative;
   
   [data-theme="dark"] & {
-    background: rgba(#242824, 0.9);
-    border-top-color: rgba(#e8e6e3, 0.2);
+    background: linear-gradient(135deg,
+      rgba($dark-bg, 0.98) 0%,
+      rgba($dark-surface, 0.96) 50%,
+      rgba($dark-bg, 0.94) 100%
+    );
+    border-top-color: rgba($dark-accent, 0.25);
   }
 }
 

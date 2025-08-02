@@ -10,6 +10,34 @@ interface FormData {
   message: string;
 }
 
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  type: 'success' | 'error';
+  message: string;
+}
+
+const Modal = ({ isOpen, onClose, type, message }: ModalProps) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className={styles.modalOverlay} onClick={onClose}>
+      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+        <div className={`${styles.modalIcon} ${styles[type]}`}>
+          {type === 'success' ? '✅' : '❌'}
+        </div>
+        <h3 className={styles.modalTitle}>
+          {type === 'success' ? 'Message Envoyé !' : 'Erreur'}
+        </h3>
+        <p className={styles.modalMessage}>{message}</p>
+        <button className={styles.modalButton} onClick={onClose}>
+          Fermer
+        </button>
+      </div>
+    </div>
+  );
+};
+
 export default function Contact() {
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -18,7 +46,7 @@ export default function Contact() {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [modal, setModal] = useState({ isOpen: false, type: 'success' as 'success' | 'error', message: '' });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -32,21 +60,47 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch {
-      setSubmitStatus('error');
+      // Envoi vers une API de contact (exemple avec Formspree, EmailJS, etc.)
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setModal({
+          isOpen: true,
+          type: 'success',
+          message: 'Votre message a été envoyé avec succès ! Je vous répondrai dans les plus brefs délais. Merci de m\'avoir contacté !'
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error('Erreur serveur');
+      }
+    } catch (error) {
+      setModal({
+        isOpen: true,
+        type: 'error',
+        message: 'Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer ou me contacter directement à ludwig.dufour@email.com'
+      });
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus('idle'), 5000);
     }
+  };
+
+  const closeModal = () => {
+    setModal({ ...modal, isOpen: false });
   };
 
   return (
     <section id="contact" className={styles.contact}>
+      {/* Couches de texture décorative */}
+      <div className={styles.textureLayer}></div>
+      <div className={styles.accentLayer}></div>
+      
       <div className={styles.container}>
         <div className={styles.contactContent}>
           <div className={styles.contactInfo}>
@@ -176,27 +230,22 @@ export default function Contact() {
               {isSubmitting ? (
                 <>
                   <div className={styles.spinner}></div>
-                  Sending...
+                  Envoi en cours...
                 </>
               ) : (
-                'Send Message'
+                'Envoyer le Message'
               )}
             </button>
-
-            {submitStatus === 'success' && (
-              <div className={styles.successMessage}>
-                ✅ Message sent successfully! I&apos;ll get back to you soon.
-              </div>
-            )}
-
-            {submitStatus === 'error' && (
-              <div className={styles.errorMessage}>
-                ❌ Something went wrong. Please try again or contact me directly.
-              </div>
-            )}
           </form>
         </div>
       </div>
+      
+      <Modal 
+        isOpen={modal.isOpen}
+        onClose={closeModal}
+        type={modal.type}
+        message={modal.message}
+      />
     </section>
   );
 }

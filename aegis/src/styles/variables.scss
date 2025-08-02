@@ -1,35 +1,134 @@
-// Palette mythologique globale - Couleurs inspirées de la Grèce antique
-$bordeaux: #8B3A3A;        // Rouge bordeaux profond
-$red-copper: #B85450;       // Rouge cuivré chaleureux
-$red-accent: #D2603A;       // Rouge accent vibrant
+// =============================================================================
+// SYSTÈME DE COULEURS AEGIS - PALETTE NATURELLE
+// Inspiré de la nature méditerranéenne sans tons dorés
+// =============================================================================
+
+// --- COULEURS PRIMAIRES ---
+$bordeaux: #8B7D6B;        // Terre sombre chaude - nouvelle couleur signature
+$red-copper: #A89B8C;       // Terre cuivrée chaude (remplace rouge cuivré)
+$red-accent: #C4B5A0;       // Accent terre claire (remplace rouge accent)
 $marble: #F8F6F0;           // Marbre blanc antique
 $olive: #6B7F59;            // Vert olive méditerranéen
 $terracotta: #C4704F;       // Terracotta terre cuite
-$gold-leaf: #D4A574;        // Or feuille délicat
+$gold-leaf: #D4A574;        // Or feuille pour UI (titres, boutons)
+$sage: #87A96B;             // Vert sauge délicat
 $shadow-grey: #4A4A4A;      // Gris ombre profond
 
-// Couleurs mode sombre - sanctuaire nocturne
+// --- COULEURS MODE SOMBRE ---
 $dark-bg: #1a1d1a;         // Nuit du sanctuaire
 $dark-surface: #242824;     // Pierre sombre
-$dark-accent: #a87c4a;      // Bronze antique
-$dark-accent-hover: #c49660; // Bronze éclairé
+$dark-accent: #D4A574;      // Or parchemin pour mode sombre
+$dark-accent-hover: #E5B885; // Or parchemin éclairé
 $dark-text: #e8e6e3;       // Parchemin ancien
 $dark-text-muted: #a8a096;  // Encre fanée
 $dark-border: #3d453d;      // Bordure de pierre
-$bordeaux-hover: #c49660;   // Bordeaux éclairé
 
-// Variables de compatibilité (mappées sur la palette mythologique)
+// --- COULEURS SÉMANTIQUES ---
+$success: #28a745;
+$warning: #ffc107;
+$error: #dc3545;
+$info: #17a2b8;
+
+// --- COULEURS FONCTIONNELLES ---
+$primary-bg-light: $marble;
+$primary-bg-dark: $dark-bg;
+$text-primary-light: $shadow-grey;
+$text-primary-dark: $dark-text;
+$border-light: rgba($terracotta, 0.3);
+$border-dark: rgba($dark-border, 0.3);
+
+// --- DÉGRADÉS NATURELS SANS DORÉ ---
+// Palette inspirée de la pierre et de la terre - plus neutre
+$stone-cream: #f6f4f0;      // Crème pierre naturelle
+$stone-beige: #efe9de;      // Beige pierre douce
+$stone-sand: #e7ddd0;       // Sable pierre naturel
+$stone-clay: #ddd1c0;       // Argile naturelle
+$stone-earth: #d3c5b0;      // Terre naturelle
+$stone-deep: #c8b7a0;       // Pierre profonde
+
+// Dégradé principal unifié - effet pierre naturelle
+$gradient-page-light: linear-gradient(135deg, 
+  #{$stone-cream} 0%,
+  #{$stone-beige} 15%,
+  #{$stone-sand} 35%,
+  rgba(195, 183, 160, 0.15) 50%,
+  #{$stone-clay} 70%,
+  #{$stone-earth} 90%,
+  #{$stone-deep} 100%
+);
+
+$gradient-page-dark: linear-gradient(135deg, 
+  #{$dark-bg} 0%,
+  rgba(30, 34, 30, 0.95) 20%,
+  rgba(36, 40, 36, 0.9) 40%,
+  rgba(160, 134, 122, 0.12) 60%,
+  rgba(42, 47, 42, 0.85) 80%,
+  #{$dark-surface} 100%
+);
+
+// Alias pour compatibilité (même dégradé partout)
+$gradient-hero: $gradient-page-light;
+$gradient-hero-dark: $gradient-page-dark;
+
+// Dégradés pour composants - tons pierre naturelle
+$gradient-card-light: linear-gradient(135deg,
+  rgba(239, 233, 222, 0.96) 0%,
+  rgba(231, 221, 208, 0.92) 40%,
+  rgba(221, 209, 192, 0.88) 80%,
+  rgba(211, 197, 176, 0.85) 100%
+);
+
+$gradient-card-dark: linear-gradient(135deg,
+  rgba(42, 47, 42, 0.85) 0%,
+  rgba(36, 40, 36, 0.8) 50%,
+  rgba(30, 34, 30, 0.75) 100%
+);
+
+// Dégradés pour header/footer - pierre naturelle
+$gradient-header-light: linear-gradient(135deg,
+  rgba(246, 244, 240, 0.98) 0%,
+  rgba(239, 233, 222, 0.96) 30%,
+  rgba(231, 221, 208, 0.95) 60%,
+  rgba(221, 209, 192, 0.94) 100%
+);
+
+$gradient-header-dark: linear-gradient(135deg,
+  rgba(22, 25, 22, 0.96) 0%,
+  rgba(30, 34, 30, 0.94) 50%,
+  rgba(36, 40, 36, 0.92) 100%
+);
+
+// Dégradés pour sections - overlay pierre neutre
+$gradient-section-light: linear-gradient(135deg,
+  rgba(200, 183, 160, 0.5) 0%,
+  rgba(195, 183, 160, 0.35) 40%,
+  rgba(185, 173, 150, 0.25) 70%,
+  transparent 100%
+);
+
+$gradient-section-dark: linear-gradient(135deg,
+  rgba(42, 47, 42, 0.4) 0%,
+  rgba(36, 40, 36, 0.3) 40%,
+  rgba(30, 34, 30, 0.2) 70%,
+  transparent 100%
+);
+
+// Dégradés pour boutons - bordeaux/terracotta
+$gradient-button-light: linear-gradient(135deg,
+  #{$bordeaux} 0%,
+  #{$terracotta} 100%
+);
+
+$gradient-button-dark: linear-gradient(135deg,
+  #{$dark-accent} 0%,
+  #{$dark-accent-hover} 100%
+);
+
+// --- VARIABLES DE COMPATIBILITÉ ---
 $cream: $marble;            // Crème -> Marbre
 $stone: $terracotta;        // Pierre -> Terracotta
 $charcoal: $shadow-grey;    // Charbon -> Gris ombre
-$taupe: $terracotta;        // Taupe -> Terracotta
-$dark-red: #a87c4a;         // Rouge sombre -> Bronze
-
-// Variables thématiques
-$primary-bg-light: $marble;
-$primary-bg-dark: $shadow-grey;
-$accent-color: $red-accent;
-$text-primary-light: $shadow-grey;
-$text-primary-dark: $marble;
-$border-light: rgba($terracotta, 0.3);
-$border-dark: rgba($marble, 0.2);
+$taupe: $sage;              // Taupe -> Vert sauge
+$dark-red: $dark-accent;    // Rouge sombre -> Or parchemin
+$bordeaux-hover: $dark-accent-hover; // Bordeaux hover -> Or éclairé
+// $gold-leaf: $sage;       // Supprimé - on garde le vrai gold-leaf

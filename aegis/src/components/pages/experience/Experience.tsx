@@ -79,6 +79,10 @@ export default function Experience() {
   });
   return (
     <section id="experience" className={styles.experience}>
+      {/* Couches de texture décorative */}
+      <div className={styles.textureLayer}></div>
+      <div className={styles.accentLayer}></div>
+      
       <div className={styles.container}>
         <div className={styles.timeline}>
           {sortedExperiences.map((exp, index) => (

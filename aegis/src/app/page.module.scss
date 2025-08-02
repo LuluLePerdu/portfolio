@@ -1,55 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
 @import '../styles/variables.scss';
 
-// Couleurs mode sombre harmonieuses avec le thème naturel
-$dark-bg: #1a1d1a;
-$dark-surface: #242824;
-$dark-accent: #a87c4a;
-$dark-accent-hover: #c49660;
-$dark-text: #e8e6e3;
-$dark-text-muted: #a8a096;
-$dark-border: #3d453d;
-$bordeaux: #8B3A3A; // Rouge bordeaux original pour le bouton principal
-$bordeaux-hover: #a04545;
-$red-copper: #B85450; // Rouge cuivre pour remplacer le gold
-$red-accent: #D2603A; // Rouge accent pour les détails
-
 .container {
   min-height: 100vh;
-  background: linear-gradient(135deg, 
-    $dark-bg 0%, 
-    rgba($dark-surface, 0.8) 25%,
-    rgba($dark-accent, 0.2) 50%,
-    $dark-surface 100%
-  );
+  background: $gradient-page-light; // Mode clair par défaut
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 6rem 2rem 2rem;
   position: relative;
   overflow: hidden;
+  
+  // Mode sombre
+  [data-theme="dark"] & {
+    background: $gradient-page-dark;
+  }
 
   &::before {
     content: '';
     position: absolute;
-    top: -30%;
-    right: -15%;
-    width: 50%;
-    height: 150%;
+    top: -20%;
+    right: -10%;
+    width: 40%;
+    height: 140%;
     background: radial-gradient(ellipse, 
-      rgba($dark-accent, 0.12) 0%, 
-      rgba($dark-text-muted, 0.1) 30%,
-      rgba($dark-accent-hover, 0.05) 60%,
+      rgba(212, 165, 116, 0.03) 0%, 
+      rgba(139, 125, 107, 0.02) 50%,
       transparent 80%
     );
     transform: rotate(-20deg);
+    pointer-events: none;
+    z-index: 1;
     
-    // Mode clair - effet plus subtil
-    [data-theme="light"] & {
+    [data-theme="dark"] & {
       background: radial-gradient(ellipse, 
-        rgba($dark-accent, 0.04) 0%, 
-        rgba($dark-text-muted, 0.02) 30%,
-        rgba($dark-accent-hover, 0.01) 60%,
+        rgba($dark-accent, 0.08) 0%, 
+        rgba($dark-surface, 0.05) 50%,
         transparent 80%
       );
     }
@@ -105,32 +91,32 @@ $red-accent: #D2603A; // Rouge accent pour les détails
 }
 
 .content {
-  background: rgba($dark-text, 0.15);
+  background: rgba(247, 245, 243, 0.85); // Beige crème clair pour plus de luminosité
   backdrop-filter: blur(15px);
   padding: 4.5rem 3.5rem;
   border-radius: 25px;
-  border: 2px solid rgba($dark-text, 0.2);
+  border: 2px solid rgba(139, 125, 107, 0.15);
   box-shadow: 
-    0 25px 50px rgba($dark-bg, 0.15),
-    0 10px 20px rgba($dark-border, 0.1),
-    inset 0 1px 0 rgba($dark-text, 0.3);
+    0 25px 50px rgba(0, 0, 0, 0.08),
+    0 10px 20px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   position: relative;
   animation: contentFadeIn 1s ease-out 0.8s both;
   
-  // Mode clair - card plus douce
+  // Mode clair - plus lumineux et harmonisé
   [data-theme="light"] & {
-    background: rgba(white, 0.65);
-    border: 2px solid rgba($dark-border, 0.15);
+    background: rgba(247, 245, 243, 0.9); // Plus opaque pour plus de visibilité
+    border: 2px solid rgba(139, 125, 107, 0.2);
     box-shadow: 
-      0 25px 50px rgba($dark-bg, 0.08),
-      0 10px 20px rgba($dark-border, 0.05),
-      inset 0 1px 0 rgba($dark-accent, 0.2);
+      0 25px 50px rgba(139, 125, 107, 0.15), // Ombres terre au lieu de noir
+      0 10px 20px rgba(168, 155, 140, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
       
     &::before {
       background: linear-gradient(135deg, 
-        rgba($dark-border, 0.15), 
-        rgba($dark-accent, 0.1), 
-        rgba($dark-bg, 0.05)
+        rgba(139, 125, 107, 0.05), 
+        rgba(168, 155, 140, 0.03), 
+        rgba(196, 181, 160, 0.02)
       );
     }
   }
@@ -217,7 +203,7 @@ $red-accent: #D2603A; // Rouge accent pour les détails
     font-family: 'Inter', sans-serif;
     font-size: 1.3rem;
     font-weight: 300;
-    color: $dark-border;
+    color: #4a3728; // Brun encre de parchemin
     letter-spacing: 0.15em;
     margin-bottom: 0.3rem;
     text-transform: uppercase;
@@ -266,15 +252,16 @@ $red-accent: #D2603A; // Rouge accent pour les détails
     font-family: 'Cinzel', serif;
     font-size: 4.5rem;
     font-weight: 600;
-    color: $dark-bg;
+    color: #2d1810; // Brun encre parchemin foncé
     letter-spacing: 0.05em;
     position: relative;
     background: linear-gradient(135deg, 
-      #1a1a1a 0%, 
-      $dark-bg 25%, 
-      #3a3a3a 50%, 
-      $dark-border 75%, 
-      $dark-accent 100%
+      #2d1810 0%,    // Encre parchemin foncé
+      #4a3728 20%,   // Brun parchemin 
+      #6b4e37 40%,   // Sépia parchemin
+      #8b6914 60%,   // Or parchemin ancien
+      #a87c4a 80%,   // Bronze parchemin
+      #d4a574 100%   // Or pâle parchemin
     );
     background-clip: text;
     -webkit-background-clip: text;
@@ -292,10 +279,11 @@ $red-accent: #D2603A; // Rouge accent pour les détails
       height: 3px;
       background: linear-gradient(90deg, 
         transparent, 
-        #1a1a1a 20%, 
-        $dark-bg 40%, 
-        $dark-accent-hover 60%, 
-        $dark-accent 80%, 
+        #2d1810 15%, 
+        #4a3728 30%, 
+        #6b4e37 45%, 
+        #a87c4a 65%, 
+        #d4a574 85%, 
         transparent
       );
       border-radius: 2px;
@@ -310,8 +298,8 @@ $red-accent: #D2603A; // Rouge accent pour les détails
       right: -10px;
       bottom: -10px;
       background: radial-gradient(ellipse at center, 
-        rgba($dark-bg, 0.08) 0%, 
-        rgba($dark-border, 0.04) 40%,
+        rgba(168, 124, 74, 0.08) 0%, 
+        rgba(212, 165, 116, 0.05) 40%,
         transparent 70%
       );
       z-index: -1;
@@ -368,8 +356,8 @@ $red-accent: #D2603A; // Rouge accent pour les détails
   font-size: 1.1rem;
   font-weight: 400;
   line-height: 1.6;
-  color: $dark-bg;
-  opacity: 0.8;
+  color: #4a3728; // Encre parchemin authentique
+  opacity: 0.9;
   max-width: 600px;
   margin: 0 auto 2rem;
   
@@ -463,9 +451,9 @@ $red-accent: #D2603A; // Rouge accent pour les détails
   align-items: center;
   padding: 1rem 2rem;
   background: transparent;
-  color: $dark-bg;
+  color: #4a3728; // Encre parchemin
   text-decoration: none;
-  border: 2px solid $dark-bg;
+  border: 2px solid #8b6914; // Bordure or parchemin ancien
   border-radius: 50px;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
@@ -474,10 +462,10 @@ $red-accent: #D2603A; // Rouge accent pour les détails
   position: relative;
   
   &:hover {
-    background: $dark-bg;
-    color: $dark-text;
+    background: linear-gradient(135deg, #8b6914, #a87c4a); // Dégradé or parchemin
+    color: #f7f5f0; // Texte crème parchemin
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba($dark-bg, 0.3);
+    box-shadow: 0 8px 25px rgba(139, 105, 20, 0.4);
   }
   
   [data-theme="dark"] & {
@@ -557,7 +545,7 @@ $red-accent: #D2603A; // Rouge accent pour les détails
   position: absolute;
   border-radius: 0 100% 0 100%;
   opacity: 0;
-  
+
   // Coin supérieur droit - grandes feuilles avec variété de couleurs
   &:nth-child(1) {
     top: 0px;
@@ -569,7 +557,7 @@ $red-accent: #D2603A; // Rouge accent pour les détails
     box-shadow: 0 4px 12px rgba($bordeaux, 0.4);
     animation: leafEntrance 1.2s ease-out 1.8s both, float 8s ease-in-out 3s infinite;
   }
-  
+
   &:nth-child(2) {
     top: 15px;
     right: 35px;
@@ -580,7 +568,7 @@ $red-accent: #D2603A; // Rouge accent pour les détails
     box-shadow: 0 3px 8px rgba($red-accent, 0.3);
     animation: leafEntrance 1.2s ease-out 2s both, float 8s ease-in-out 3.2s infinite;
   }
-  
+
   // Descente le long du bord droit
   &:nth-child(3) {
     top: 70px;
@@ -588,11 +576,11 @@ $red-accent: #D2603A; // Rouge accent pour les détails
     width: 30px;
     height: 50px;
     transform: rotate(-15deg) scale(0.5);
-    background: linear-gradient(45deg, $red-copper 0%, $bordeaux 60%, $dark-border 100%);
+    background: linear-gradient(45deg, $red-copper 0%, $bordeaux 60%, $dark-accent 100%);
     box-shadow: 0 3px 6px rgba($red-copper, 0.35);
     animation: leafEntrance 1.2s ease-out 2.2s both, float 8s ease-in-out 3.4s infinite;
   }
-  
+
   &:nth-child(4) {
     top: 45px;
     right: 50px;
@@ -603,7 +591,7 @@ $red-accent: #D2603A; // Rouge accent pour les détails
     box-shadow: 0 2px 4px rgba($dark-accent, 0.4);
     animation: leafEntrance 1.2s ease-out 2.4s both, float 8s ease-in-out 3.6s infinite;
   }
-  
+
   // Expansion vers l'intérieur du coin
   &:nth-child(5) {
     top: 25px;
@@ -615,7 +603,7 @@ $red-accent: #D2603A; // Rouge accent pour les détails
     box-shadow: 0 3px 8px rgba($bordeaux, 0.3);
     animation: leafEntrance 1.2s ease-out 2.6s both, float 8s ease-in-out 3.8s infinite;
   }
-  
+
   &:nth-child(6) {
     top: 100px;
     right: 25px;
@@ -626,7 +614,7 @@ $red-accent: #D2603A; // Rouge accent pour les détails
     box-shadow: 0 4px 10px rgba($red-accent, 0.25);
     animation: leafEntrance 1.2s ease-out 2.8s both, float 8s ease-in-out 4s infinite;
   }
-  
+
   // Plus vers l'intérieur - effet de dispersion avec variété de rouges
   &:nth-child(7) {
     top: 60px;
@@ -634,11 +622,11 @@ $red-accent: #D2603A; // Rouge accent pour les détails
     width: 22px;
     height: 38px;
     transform: rotate(-30deg) scale(0.35);
-    background: linear-gradient(200deg, $red-copper 0%, $bordeaux 60%, $dark-border 100%);
+    background: linear-gradient(200deg, $red-copper 0%, $bordeaux 60%, $dark-accent 100%);
     box-shadow: 0 3px 7px rgba($red-copper, 0.35);
     animation: leafEntrance 1.2s ease-out 3s both, float 8s ease-in-out 4.2s infinite;
   }
-  
+
   &:nth-child(8) {
     top: 85px;
     right: 65px;
@@ -649,7 +637,7 @@ $red-accent: #D2603A; // Rouge accent pour les détails
     box-shadow: 0 2px 5px rgba($red-accent, 0.4);
     animation: leafEntrance 1.2s ease-out 3.2s both, float 8s ease-in-out 4.4s infinite;
   }
-  
+
   // Continuation de l'effet de coin avec touches cuivrées
   &:nth-child(9) {
     top: 130px;
@@ -661,7 +649,7 @@ $red-accent: #D2603A; // Rouge accent pour les détails
     box-shadow: 0 4px 10px rgba($bordeaux, 0.3);
     animation: leafEntrance 1.2s ease-out 3.4s both, float 8s ease-in-out 4.6s infinite;
   }
-  
+
   &:nth-child(10) {
     top: 110px;
     right: 110px;
@@ -686,19 +674,19 @@ $red-accent: #D2603A; // Rouge accent pour les détails
 }
 
 @keyframes float {
-  0%, 100% { 
+  0%, 100% {
     transform: translateY(0px) rotate(var(--rotation, 0deg)) scale(var(--scale, 1));
     opacity: 0.7;
   }
-  25% { 
+  25% {
     transform: translateY(-8px) rotate(var(--rotation, 0deg)) scale(var(--scale, 1));
     opacity: 0.9;
   }
-  50% { 
+  50% {
     transform: translateY(-15px) rotate(var(--rotation, 0deg)) scale(var(--scale, 1));
     opacity: 0.6;
   }
-  75% { 
+  75% {
     transform: translateY(-5px) rotate(var(--rotation, 0deg)) scale(var(--scale, 1));
     opacity: 0.8;
   }

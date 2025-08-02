@@ -1,0 +1,63 @@
+@import './constants.scss';
+
+// Mixin pour les transitions fluides
+@mixin smooth-transition($properties...) {
+  transition: $transition-base;
+  @if length($properties) > 0 {
+    transition-property: #{$properties};
+  }
+}
+
+// Mixin pour les effets de hover
+@mixin hover-lift($distance: 5px) {
+  transition: transform $transition-base, box-shadow $transition-base;
+  
+  &:hover {
+    transform: translateY(-#{$distance});
+    box-shadow: 0 #{$distance * 2} #{$distance * 6} rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Mixin pour les cartes avec backdrop
+@mixin glass-card($opacity: 0.8) {
+  background: rgba(white, $opacity);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(white, 0.2);
+  border-radius: $border-radius-large;
+  
+  [data-theme="dark"] & {
+    background: rgba($dark-surface, $opacity);
+    border-color: rgba($dark-border, 0.3);
+  }
+}
+
+// Mixin pour le responsive
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: $breakpoint-mobile) { @content; }
+  }
+  @if $breakpoint == tablet {
+    @media (max-width: $breakpoint-tablet) { @content; }
+  }
+  @if $breakpoint == desktop {
+    @media (max-width: $breakpoint-desktop) { @content; }
+  }
+}
+
+// Mixin pour le texte élégant
+@mixin elegant-text($size: 1rem, $weight: 400) {
+  font-family: 'Inter', sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+// Mixin pour les titres avec Cinzel
+@mixin title-text($size: 2rem, $weight: 600) {
+  font-family: 'Cinzel', serif;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}

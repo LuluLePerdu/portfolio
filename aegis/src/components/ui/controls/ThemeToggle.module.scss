@@ -1,16 +1,11 @@
-@use '../../../styles/globals.scss' as *;
-
-// Couleurs mode sombre harmonieuses avec le thème naturel
-$dark-bg: #1a1d1a;
-$dark-surface: #242824;
-$dark-accent: #a87c4a;
-$dark-accent-hover: #c49660;
-$dark-text: #e8e6e3;
-$dark-text-muted: #a8a096;
-$dark-border: #3d453d;
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
 
 .themeToggle {
-  background: rgba($dark-accent, 0.08);
+  background: linear-gradient(135deg,
+    rgba($dark-accent, 0.08) 0%,
+    rgba($dark-accent, 0.12) 100%
+  );
   border: 2px solid rgba($dark-accent, 0.3);
   cursor: pointer;
   padding: 0.5rem;
@@ -23,7 +18,10 @@ $dark-border: #3d453d;
   box-shadow: 0 2px 4px rgba($dark-accent, 0.1);
   
   &:hover {
-    background: rgba($dark-accent, 0.15);
+    background: linear-gradient(135deg,
+      rgba($dark-accent, 0.15) 0%,
+      rgba($dark-accent, 0.2) 100%
+    );
     border-color: rgba($dark-accent, 0.5);
     box-shadow: 0 4px 8px rgba($dark-accent, 0.2);
     transform: translateY(-1px);

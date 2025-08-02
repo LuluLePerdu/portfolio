@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+/* Les fonts Google sont maintenant gérées par next/font dans layout.tsx */
 
 * {
   box-sizing: border-box;
@@ -12,15 +12,15 @@ html {
 }
 
 :root {
-  --background: #F7F5F3;
+  --background: linear-gradient(135deg, #f6f4f0 0%, #efe9de 25%, rgba(200, 183, 160, 0.05) 50%, #e7ddd0 100%);
   --foreground: #2F3E46;
-  --bronze: #a87c4a;
-  --bronze-light: #c49660;
+  --taupe-bronze: #A0867A;
+  --taupe-light: #B5A094;
   --stone: #E8E6E3;
 }
 
 [data-theme="dark"] {
-  --background: #1a1d1a;
+  --background: linear-gradient(135deg, #1a1d1a 0%, rgba(36, 40, 36, 0.9) 25%, rgba(160, 134, 122, 0.1) 50%, #242824 100%);
   --foreground: #e8e6e3;
   --stone: #3d453d;
 }
@@ -41,6 +41,27 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.3s ease, color 0.3s ease;
+  
+  /* Fond dégradé doux pour éviter l'agression visuelle */
+  [data-theme="light"] & {
+    background: linear-gradient(135deg, 
+      #f6f4f0 0%, 
+      #efe9de 25%, 
+      #e7ddd0 50%, 
+      #ddd1c0 75%, 
+      #d3c5b0 100%
+    );
+  }
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(135deg, 
+      #1a1d1a 0%, 
+      #1c1f1c 25%, 
+      #1e211e 50%, 
+      #1a1d1a 75%, 
+      #181b18 100%
+    );
+  }
 }
 
 a {
@@ -71,10 +92,10 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #a87c4a;
+  background: #A0867A;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #c49660;
+  background: #B5A094;
 }

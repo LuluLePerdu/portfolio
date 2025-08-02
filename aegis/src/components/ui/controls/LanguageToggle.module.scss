@@ -1,26 +1,11 @@
-// Palette mythologique raffinée
-$bordeaux: #8B3A3A; // Rouge sang des héros
-$red-copper: #B85450; // Bronze patiné 
-$red-accent: #D2603A; // Cuivre brillant
-$gold-leaf: #D4A574; // Feuille d'or vieilli
-
-// Couleurs inspirées de l'Antiquité grecque
-$marble: #F8F6F0; // Marbre blanc antique
-$olive: #6B7F59; // Olive sacré
-$terracotta: #C4704F; // Terre cuite des amphores
-$shadow-grey: #4A4A4A; // Ombre des colonnes
-
-// Couleurs mode sombre harmonieuses avec le thème naturel
-$dark-bg: #1a1d1a;
-$dark-surface: #242824;
-$dark-accent: #a87c4a;
-$dark-accent-hover: #c49660;
-$dark-text: #e8e6e3;
-$dark-text-muted: #a8a096;
-$dark-border: #3d453d;
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
 
 .languageToggle {
-  background: rgba($dark-accent, 0.08);
+  background: linear-gradient(135deg,
+    rgba($dark-accent, 0.08) 0%,
+    rgba($dark-accent, 0.12) 100%
+  );
   border: 2px solid rgba($dark-accent, 0.3);
   cursor: pointer;
   padding: 0.4rem 0.6rem;

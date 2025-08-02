@@ -42,6 +42,8 @@ export default function Home() {
             <div className={styles.leaf}></div>
             <div className={styles.leaf}></div>
             <div className={styles.leaf}></div>
+            <div className={styles.leaf}></div>
+            <div className={styles.leaf}></div>
           </div>
         </div>
       </main>

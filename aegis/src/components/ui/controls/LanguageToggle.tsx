@@ -21,7 +21,7 @@ export default function LanguageToggle() {
           {language.toUpperCase()}
         </span>
         <span className={styles.languageIcon}>
-          {language === 'en' ? '🇺🇸' : '🇫🇷'}
+          {language === 'en' ? '🇫🇷' : 'en'}
         </span>
       </div>
     </button>

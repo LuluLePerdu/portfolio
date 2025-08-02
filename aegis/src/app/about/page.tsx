@@ -1,21 +1,24 @@
 import { Metadata } from "next";
 import { PageLayout } from "@/components/layout";
-import UnavailablePage from "@/components/ui/UnavailablePage";
+import About from "@/components/pages/about/About";
 
 export const metadata: Metadata = {
   title: "About Me",
-  description: "Learn about Ludwig-E. Dufour, an experienced Full-Stack Developer and DevOps Engineer passionate about creating scalable web solutions and cloud infrastructure.",
+  description: "Learn about Ludwig-E. Dufour, Full-Stack Developer and Computer Engineering student passionate about web development, DevOps, and innovative digital solutions.",
   keywords: [
     "Ludwig Dufour about",
     "Full-Stack Developer bio",
+    "Computer Engineering student",
     "DevOps Engineer background",
     "Software developer story",
     "Web development experience",
+    "Cégep de Joliette",
+    "Université de Sherbrooke",
     "Professional background"
   ],
   openGraph: {
     title: "About Me | Ludwig-E. Dufour",
-    description: "Learn about Ludwig-E. Dufour, an experienced Full-Stack Developer and DevOps Engineer passionate about creating scalable web solutions.",
+    description: "Learn about Ludwig-E. Dufour, Full-Stack Developer and Computer Engineering student passionate about creating scalable web solutions.",
     url: '/about',
   },
 };
@@ -26,10 +29,7 @@ export default function AboutPage() {
       titleKey="about.title"
       descriptionKey="about.subtitle"
     >
-      <UnavailablePage 
-        titleKey="unavailable.about.title"
-        messageKey="unavailable.about.message"
-      />
+      <About />
     </PageLayout>
   );
 }
