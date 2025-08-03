@@ -105,10 +105,35 @@ export default function Header() {
             </Link>
           </div>
 
+          {/* TEST - Bouton de diagnostic */}
+          <button 
+            onClick={() => {
+              alert('Bouton de test fonctionne !');
+              console.log('Bouton de test cliqué');
+            }}
+            style={{
+              background: 'red',
+              color: 'white',
+              padding: '10px',
+              border: 'none',
+              cursor: 'pointer',
+              position: 'fixed',
+              top: '100px',
+              right: '10px',
+              zIndex: 9999
+            }}
+          >
+            TEST
+          </button>
+
           {/* Mobile menu button */}
           <button 
             className={styles.mobileMenuBtn}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() => {
+              alert('Menu mobile cliqué !');
+              console.log('Menu mobile cliqué');
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+            }}
             type="button"
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}
