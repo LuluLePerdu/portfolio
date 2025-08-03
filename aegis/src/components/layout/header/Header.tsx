@@ -111,6 +111,12 @@ export default function Header() {
               </Link>
             ))}
           </nav>
+          
+          {/* Contrôles mobiles pour langue et thème */}
+          <div className={styles.mobileControls}>
+            <LanguageToggle />
+            <ThemeToggle />
+          </div>
         </div>
       )}
     </header>

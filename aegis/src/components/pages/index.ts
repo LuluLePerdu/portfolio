@@ -5,7 +5,6 @@ export { default as About } from './about/About';
 
 // Work page components  
 export { default as Portfolio } from './work/Portfolio';
-export { default as PortfolioNew } from './work/PortfolioNew';
 export { default as WorkSimple } from './work/WorkSimple';
 
 // Photography page components

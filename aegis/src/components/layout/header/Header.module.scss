@@ -424,6 +424,20 @@
   }
 }
 
+.mobileControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(#8B3A3A, 0.2);
+  
+  [data-theme="dark"] & {
+    border-top-color: rgba($dark-border, 0.3);
+  }
+}
+
 @keyframes slideDown {
   from {
     opacity: 0;
