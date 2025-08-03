@@ -1,5 +1,5 @@
-@import '../../../styles/variables.scss';
-@import '../../../styles/mixins.scss';
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
 
 .languageToggle {
   background: linear-gradient(135deg,

@@ -1,4 +1,5 @@
-@import './constants.scss';
+@use './constants' as *;
+@forward './constants';
 
 // Mixin pour les transitions fluides
 @mixin smooth-transition($properties...) {
