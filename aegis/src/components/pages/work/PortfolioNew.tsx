@@ -18,17 +18,6 @@ const categories: { key: ProjectCategory | 'all'; labelKey: string }[] = [
 export default function PortfolioNew() {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<ProjectCategory | 'all'>('all');
-  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
-
-  const toggleCategoryExpansion = (projectId: string) => {
-    const newExpanded = new Set(expandedCategories);
-    if (newExpanded.has(projectId)) {
-      newExpanded.delete(projectId);
-    } else {
-      newExpanded.add(projectId);
-    }
-    setExpandedCategories(newExpanded);
-  };
 
   const getCategoryLabel = (category: ProjectCategory) => {
     const categoryItem = categories.find(cat => cat.key === category);
@@ -135,8 +124,8 @@ export default function PortfolioNew() {
         </div>
 
         <div className={styles.projectsGrid}>
-          {filteredProjects.map((project, index) => (
-              <div className={styles.projectCard}>
+          {filteredProjects.map((project) => (
+              <div key={project.id} className={styles.projectCard}>
                 {/* Badges en coin */}
                 {project.featured && (
                   <div className={styles.featuredBadge}>
