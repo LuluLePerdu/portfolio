@@ -7,6 +7,7 @@ export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
 
   const handleToggle = () => {
+    console.log('Theme toggle clicked');
     toggleTheme();
   };
 
@@ -14,14 +15,7 @@ export default function ThemeToggle() {
     <button
       className={styles.themeToggle}
       onClick={handleToggle}
-      onTouchStart={(e) => {
-        // Améliorer la réactivité sur mobile
-        e.currentTarget.style.transform = 'scale(0.95)';
-      }}
-      onTouchEnd={(e) => {
-        // Remettre l'échelle normale après le touch
-        e.currentTarget.style.transform = '';
-      }}
+      type="button"
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >
       <div className={`${styles.toggleTrack} ${theme === 'dark' ? styles.dark : ''}`}>

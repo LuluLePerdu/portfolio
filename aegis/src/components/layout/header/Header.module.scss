@@ -27,15 +27,18 @@
     backdrop-filter: blur(25px) saturate(200%);
     border-bottom: 1px solid rgba(168, 155, 140, 0.3);
     
-    // Réduire l'interactivité sans la désactiver complètement
+    // Réduire visuellement l'interactivité mais garder la fonctionnalité
     .themeToggle, .languageToggle, .ctaButton {
       opacity: 0.5;
+      // IMPORTANT: Ne jamais utiliser pointer-events: none ici
     }
     
-    // Le bouton menu mobile doit rester fonctionnel
+    // Le bouton menu mobile reste prioritaire 
     .mobileMenuBtn {
-      opacity: 1;
-      filter: none;
+      opacity: 1 !important;
+      filter: none !important;
+      pointer-events: auto !important;
+      z-index: 1002; // Au-dessus de tout dans le header
     }
 
     // Mode sombre quand modal ouvert
@@ -327,6 +330,8 @@
   -webkit-tap-highlight-color: rgba(139, 125, 107, 0.3);
   min-height: 44px; // Taille minimale recommandée pour les éléments tactiles
   min-width: 44px;
+  position: relative;
+  z-index: 1001; // S'assurer qu'il est au-dessus d'autres éléments
   
   [data-theme="dark"] & {
     background: rgba($dark-surface, 0.8);
@@ -391,6 +396,10 @@
         outline-color: rgba($dark-accent, 0.5);
       }
     }
+    
+    // Forcer l'affichage sur mobile même en cas de conflits
+    display: block !important;
+    pointer-events: auto !important;
   }
 }
 

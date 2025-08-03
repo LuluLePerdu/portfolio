@@ -34,18 +34,23 @@ export default function Header() {
 
   // Surveiller l'ouverture/fermeture des modals
   useEffect(() => {
-    const observer = new MutationObserver(() => {
+    const checkModalState = () => {
       const hasModalOpen = document.body.classList.contains('modal-open');
+      console.log('Modal state changed:', hasModalOpen, 'Body classes:', document.body.className); // Debug
       setIsModalOpen(hasModalOpen);
-    });
+    };
+
+    const observer = new MutationObserver(checkModalState);
 
     observer.observe(document.body, { 
       attributes: true, 
       attributeFilter: ['class'] 
     });
 
-    // Vérification initiale
-    setIsModalOpen(document.body.classList.contains('modal-open'));
+    // Vérification initiale avec un délai pour s'assurer que la page est chargée
+    setTimeout(() => {
+      checkModalState();
+    }, 100);
 
     return () => observer.disconnect();
   }, []);
@@ -103,19 +108,10 @@ export default function Header() {
           {/* Mobile menu button */}
           <button 
             className={styles.mobileMenuBtn}
-            onClick={() => {
-              console.log('Mobile menu button clicked', { isMobileMenuOpen, isModalOpen });
-              setIsMobileMenuOpen(!isMobileMenuOpen);
-            }}
-            onTouchStart={(e) => {
-              // Améliorer la réactivité sur mobile
-              e.currentTarget.style.transform = 'scale(0.95)';
-            }}
-            onTouchEnd={(e) => {
-              // Remettre l'échelle normale après le touch
-              e.currentTarget.style.transform = '';
-            }}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            type="button"
             aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
           >
             <div className={`${styles.hamburger} ${isMobileMenuOpen ? styles.hamburgerOpen : ''}`}>
               <span></span>
@@ -136,14 +132,6 @@ export default function Header() {
                 href={link.href}
                 className={`${styles.mobileNavLink} ${isActive(link.href) ? styles.active : ''}`}
                 onClick={() => setIsMobileMenuOpen(false)}
-                onTouchStart={(e) => {
-                  // Améliorer la réactivité sur mobile
-                  e.currentTarget.style.transform = 'translateX(3px) scale(0.98)';
-                }}
-                onTouchEnd={(e) => {
-                  // Remettre la position normale après le touch
-                  e.currentTarget.style.transform = '';
-                }}
               >
                 {link.label}
               </Link>
