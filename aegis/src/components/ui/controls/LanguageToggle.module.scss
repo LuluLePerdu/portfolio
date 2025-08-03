@@ -16,12 +16,19 @@
   height: 40px;
   min-width: 50px;
   box-shadow: 0 2px 4px rgba($dark-accent, 0.1);
+  // Améliorer les interactions tactiles
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba($dark-accent, 0.3);
+  min-height: 44px;
   
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     background: rgba($dark-accent, 0.15);
     border-color: rgba($dark-accent, 0.5);
     transform: translateY(-1px);
     box-shadow: 0 4px 8px rgba($dark-accent, 0.2);
+    outline: none;
   }
   
   &:active {
@@ -93,9 +100,12 @@
 // Mobile styles
 @media (max-width: 768px) {
   .languageToggle {
-    height: 36px;
-    padding: 0.3rem 0.5rem;
-    min-width: 45px;
+    height: 44px;
+    padding: 0.5rem 0.7rem;
+    min-width: 56px;
+    min-height: 48px;
+    // Meilleure visibilité sur mobile
+    border-width: 3px;
   }
   
   .currentLanguage {

@@ -35,7 +35,8 @@ export default function Header() {
   // Surveiller l'ouverture/fermeture des modals
   useEffect(() => {
     const observer = new MutationObserver(() => {
-      setIsModalOpen(document.body.classList.contains('modal-open'));
+      const hasModalOpen = document.body.classList.contains('modal-open');
+      setIsModalOpen(hasModalOpen);
     });
 
     observer.observe(document.body, { 

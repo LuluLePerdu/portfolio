@@ -16,8 +16,15 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 4px rgba($dark-accent, 0.1);
+  // Améliorer les interactions tactiles
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba($dark-accent, 0.3);
+  min-height: 44px;
+  min-width: 44px;
   
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     background: linear-gradient(135deg,
       rgba($dark-accent, 0.15) 0%,
       rgba($dark-accent, 0.2) 100%
@@ -25,6 +32,7 @@
     border-color: rgba($dark-accent, 0.5);
     box-shadow: 0 4px 8px rgba($dark-accent, 0.2);
     transform: translateY(-1px);
+    outline: none;
   }
   
   &:active {
@@ -80,8 +88,12 @@
 // Mobile styles
 @media (max-width: 768px) {
   .themeToggle {
-    height: 36px;
-    padding: 0.4rem;
+    height: 44px;
+    padding: 0.6rem;
+    min-height: 48px;
+    min-width: 48px;
+    // Meilleure visibilité sur mobile
+    border-width: 3px;
   }
 }
 
