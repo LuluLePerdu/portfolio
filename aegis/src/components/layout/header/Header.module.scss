@@ -21,12 +21,17 @@
 
   // Styles pour quand un modal est ouvert
   &.modalOpen {
-    z-index: 100 !important; // Bien plus bas que le modal (z-index: 2000) pour empêcher les clics
-    pointer-events: none !important; // Empêche complètement toutes les interactions avec le header
+    z-index: 100 !important; // Bien plus bas que le modal (z-index: 2000)
     opacity: 0.3; // Grise le header pour attirer l'attention sur le modal
     filter: grayscale(0.7) brightness(0.5); // Effet grisé et assombri
     backdrop-filter: blur(25px) saturate(200%);
     border-bottom: 1px solid rgba(168, 155, 140, 0.3);
+    
+    // Au lieu de désactiver complètement, réduire l'interactivité
+    .mobileMenuBtn, .themeToggle, .languageToggle, .ctaButton {
+      opacity: 0.5;
+      pointer-events: none;
+    }
 
     // Mode sombre quand modal ouvert
     [data-theme="dark"] & {

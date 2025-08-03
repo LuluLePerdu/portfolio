@@ -6,10 +6,14 @@ import styles from './ThemeToggle.module.scss';
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
 
+  const handleToggle = () => {
+    toggleTheme();
+  };
+
   return (
     <button
       className={styles.themeToggle}
-      onClick={toggleTheme}
+      onClick={handleToggle}
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >
       <div className={`${styles.toggleTrack} ${theme === 'dark' ? styles.dark : ''}`}>

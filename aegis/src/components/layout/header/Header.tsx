@@ -103,7 +103,10 @@ export default function Header() {
           {/* Mobile menu button */}
           <button 
             className={styles.mobileMenuBtn}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() => {
+              console.log('Mobile menu button clicked', { isMobileMenuOpen, isModalOpen });
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+            }}
             aria-label="Toggle menu"
           >
             <div className={`${styles.hamburger} ${isMobileMenuOpen ? styles.hamburgerOpen : ''}`}>
