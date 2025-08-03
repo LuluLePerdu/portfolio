@@ -1,8 +1,11 @@
 'use client';
 
 import styles from './Footer.module.scss';
+import { useLanguage } from '../../../context/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
+  
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -16,17 +19,17 @@ export default function Footer() {
           <div className={styles.footerMain}>
             <div className={styles.brand}>
               <h3 className={styles.brandTitle}>Aegis</h3>
-              <p className={styles.brandSubtitle}>Digital Sanctuary</p>
+              <p className={styles.brandSubtitle}>{t('footer.brand.subtitle')}</p>
             </div>
             
             <div className={styles.quote}>
-              <p>&ldquo;Dans l&apos;art réside la beauté éternelle, et dans le code, l&apos;harmonie des dieux.&rdquo;</p>
+              <p>{t('footer.quote')}</p>
             </div>
           </div>
 
           {/* Liens sociaux avec style naturel */}
           <div className={styles.socialSection}>
-            <span className={styles.socialLabel}>Connect</span>
+            <span className={styles.socialLabel}>{t('footer.connect')}</span>
             <div className={styles.socialLinks}>
               <a 
                 href="https://github.com/LuluLePerdu" 
@@ -60,9 +63,9 @@ export default function Footer() {
           <div className={styles.footerBottom}>
             <div className={styles.divider}></div>
             <p className={styles.copyright}>
-              © 2025 Ludwig-E. Dufour • Built with Joyeux Matin!
+              © 2025 Ludwig-E. Dufour • {t('footer.copyright')}
             </p>
-            <button onClick={scrollToTop} className={styles.scrollTop} aria-label="Scroll to top">
+            <button onClick={scrollToTop} className={styles.scrollTop} aria-label={t('footer.scrollTop')}>
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
               </svg>

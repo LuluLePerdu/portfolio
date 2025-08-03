@@ -1,10 +1,14 @@
 'use client';
 
 import { useLanguage } from '@/context/LanguageContext';
+import { useLeafEcosystem } from '@/hooks/useLeafEcosystem';
 import styles from './About.module.scss';
 
 const About = () => {
   const { language } = useLanguage();
+  
+  // Hook pour l'écosystème de feuilles interactives
+  useLeafEcosystem();
 
   const content = {
     fr: {
@@ -199,12 +203,32 @@ const About = () => {
 
   return (
     <div className={styles.about}>
-      {/* Animation de feuilles */}
-      <div className={styles.leaf}></div>
-      <div className={styles.leaf}></div>
-      <div className={styles.leaf}></div>
-      <div className={styles.leaf}></div>
-      <div className={styles.leaf}></div>
+      {/* Feuilles d'arrière-plan subtiles dans les coins */}
+      <div className={styles.leafEcosystem}>
+        {/* Coin supérieur gauche */}
+        <div className={`${styles.leafCluster} ${styles.cornerTopLeft}`}>
+          <div className={`${styles.leafMicro} ${styles.small}`}></div>
+          <div className={`${styles.leafMicro} ${styles.medium}`}></div>
+        </div>
+        
+        {/* Coin supérieur droit */}
+        <div className={`${styles.leafCluster} ${styles.cornerTopRight}`}>
+          <div className={`${styles.leafMicro} ${styles.medium}`}></div>
+          <div className={`${styles.leafMicro} ${styles.small}`}></div>
+        </div>
+        
+        {/* Coin inférieur gauche */}
+        <div className={`${styles.leafCluster} ${styles.cornerBottomLeft}`}>
+          <div className={`${styles.leafMicro} ${styles.large}`}></div>
+          <div className={`${styles.leafMicro} ${styles.medium}`}></div>
+        </div>
+        
+        {/* Coin inférieur droit */}
+        <div className={`${styles.leafCluster} ${styles.cornerBottomRight}`}>
+          <div className={`${styles.leafMicro} ${styles.medium}`}></div>
+          <div className={`${styles.leafMicro} ${styles.small}`}></div>
+        </div>
+      </div>
       
       <div className={styles.container}>
         <div className={styles.bentoGrid}>

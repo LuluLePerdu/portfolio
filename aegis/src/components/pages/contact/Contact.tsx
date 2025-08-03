@@ -61,7 +61,6 @@ export default function Contact() {
     setIsSubmitting(true);
     
     try {
-      // Envoi vers une API de contact (exemple avec Formspree, EmailJS, etc.)
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -69,6 +68,8 @@ export default function Contact() {
         },
         body: JSON.stringify(formData),
       });
+
+      const result = await response.json();
 
       if (response.ok) {
         setModal({
@@ -78,13 +79,15 @@ export default function Contact() {
         });
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        throw new Error('Erreur serveur');
+        throw new Error(result.error || 'Erreur serveur');
       }
-    } catch (error) {
+    } catch (error: unknown) {
+      console.error('Erreur lors de l\'envoi:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Une erreur inconnue est survenue';
       setModal({
         isOpen: true,
         type: 'error',
-        message: 'Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer ou me contacter directement à ludwig.dufour@email.com'
+        message: errorMessage || 'Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer ou me contacter directement à ludwig.dufour@usherbrooke.ca'
       });
     } finally {
       setIsSubmitting(false);

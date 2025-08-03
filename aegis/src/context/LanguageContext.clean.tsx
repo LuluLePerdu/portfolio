@@ -67,8 +67,6 @@ const translations = {
     'work.comingSoon': 'Coming Soon',
     'work.featured': 'Featured',
     'work.inProgress': 'Work in Progress',
-    'work.showMore': 'Show More',
-    'work.showLess': 'Show Less',
     
     // Project Details
     'work.challenge': 'Challenge',
@@ -228,11 +226,6 @@ const translations = {
     'footer.madeWith': 'Made with',
     'footer.heart': '♥',
     'footer.by': 'by',
-    'footer.brand.subtitle': 'Digital Sanctuary',
-    'footer.quote': '"In art lies eternal beauty, and in code, the harmony of the gods."',
-    'footer.connect': 'Connect',
-    'footer.copyright': 'Built with Joyeux Matin!',
-    'footer.scrollTop': 'Scroll to top',
   },
   fr: {
     // Header
@@ -290,8 +283,6 @@ const translations = {
     'work.comingSoon': 'Bientôt Disponible',
     'work.featured': 'À la Une',
     'work.inProgress': 'En Cours de Développement',
-    'work.showMore': 'Voir Plus',
-    'work.showLess': 'Voir Moins',
     
     // Project Details
     'work.challenge': 'Défi',
@@ -451,11 +442,6 @@ const translations = {
     'footer.madeWith': 'Fait avec',
     'footer.heart': '♥',
     'footer.by': 'par',
-    'footer.brand.subtitle': 'Sanctuaire Numérique',
-    'footer.quote': '"Dans l\'art réside la beauté éternelle, et dans le code, l\'harmonie des dieux."',
-    'footer.connect': 'Connecter',
-    'footer.copyright': 'Construit avec Joyeux Matin !',
-    'footer.scrollTop': 'Retour en haut',
   }
 };
 

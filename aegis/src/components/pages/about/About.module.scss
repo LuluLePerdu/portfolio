@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
 @import '../../../styles/variables.scss';
 
-// Page About - Design Moderne
+// Page About - Design Moderne avec Écosystème de Feuilles Interactif
 .about {
   background: linear-gradient(135deg, 
     #F7F5F3 0%, 
@@ -10,6 +11,7 @@
   min-height: 100vh;
   padding: 100px 0 60px;
   position: relative;
+  overflow-x: hidden;
   
   [data-theme="dark"] & {
     background: linear-gradient(135deg, 
@@ -19,157 +21,215 @@
     );
   }
   
-  // Animation de feuilles
-  &::before {
+  // Créer des zones de feuilles flottantes
+  &::before,
+  &::after {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 200px;
-    height: 300px;
     pointer-events: none;
     z-index: 1;
   }
+  
+  // Zone gauche - rivière de feuilles
+  &::before {
+    top: 0;
+    left: -5%;
+    width: 15%;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(196, 112, 79, 0.02) 0%,
+      rgba(196, 112, 79, 0.05) 30%,
+      rgba(196, 112, 79, 0.03) 70%,
+      rgba(196, 112, 79, 0.01) 100%
+    );
+    transform: skew(-2deg);
+  }
+  
+  // Zone droite - cascade de feuilles
+  &::after {
+    top: 0;
+    right: -3%;
+    width: 12%;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(196, 112, 79, 0.01) 0%,
+      rgba(196, 112, 79, 0.04) 40%,
+      rgba(196, 112, 79, 0.06) 80%,
+      rgba(196, 112, 79, 0.02) 100%
+    );
+    transform: skew(3deg);
+  }
 }
 
-.leaf {
+// Système d'Arrière-plan Subtil de Feuilles
+.leafEcosystem {
   position: absolute;
-  border-radius: 0 100% 0 100%;
-  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0; // Derrière le contenu
+  overflow: hidden;
+  opacity: 0.3; // Plus subtil
+}
 
-  &:nth-child(1) {
-    top: 20px;
-    right: 20px;
-    width: 35px;
-    height: 60px;
-    transform: rotate(-10deg) scale(0.5);
-    background: linear-gradient(135deg, #C4704F 0%, #A85A3E 50%, #8B4A32 100%);
-    box-shadow: 0 4px 12px rgba(196, 112, 79, 0.4);
-    animation: leafEntrance 1.2s ease-out 0.5s both, leafFloat 8s ease-in-out 2s infinite;
+.leafCluster {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+  
+  // Cluster 1 - Coin supérieur gauche (statique)
+  &.cornerTopLeft {
+    top: 5%;
+    left: 1%;
+    animation: gentleBreathing 8s ease-in-out infinite;
+    
+    .leafMicro {
+      &:nth-child(1) {
+        top: 10%;
+        left: 20%;
+        animation-delay: 0s;
+      }
+      &:nth-child(2) {
+        top: 60%;
+        left: 70%;
+        animation-delay: 2s;
+      }
+    }
   }
-
-  &:nth-child(2) {
-    top: 60px;
-    right: 40px;
-    width: 25px;
-    height: 45px;
-    transform: rotate(15deg) scale(0.4);
-    background: linear-gradient(135deg, #C4704F 0%, #A85A3E 50%, #8B4A32 100%);
-    box-shadow: 0 3px 8px rgba(196, 112, 79, 0.35);
-    animation: leafEntrance 1.2s ease-out 0.8s both, leafFloat 8s ease-in-out 2.3s infinite;
+  
+  // Cluster 2 - Coin supérieur droit (statique)
+  &.cornerTopRight {
+    top: 8%;
+    right: 2%;
+    animation: gentleBreathing 10s ease-in-out infinite;
+    
+    .leafMicro {
+      &:nth-child(1) {
+        top: 30%;
+        right: 40%;
+        animation-delay: 1s;
+      }
+      &:nth-child(2) {
+        top: 80%;
+        right: 10%;
+        animation-delay: 3s;
+      }
+    }
   }
-
-  &:nth-child(3) {
-    top: 100px;
-    right: 15px;
-    width: 30px;
-    height: 50px;
-    transform: rotate(-25deg) scale(0.45);
-    background: linear-gradient(135deg, #C4704F 0%, #A85A3E 50%, #8B4A32 100%);
-    box-shadow: 0 3px 6px rgba(196, 112, 79, 0.4);
-    animation: leafEntrance 1.2s ease-out 1.1s both, leafFloat 8s ease-in-out 2.6s infinite;
+  
+  // Cluster 3 - Coin inférieur gauche (statique)
+  &.cornerBottomLeft {
+    bottom: 8%;
+    left: 3%;
+    animation: gentleBreathing 9s ease-in-out infinite;
+    
+    .leafMicro {
+      &:nth-child(1) {
+        bottom: 20%;
+        left: 30%;
+        animation-delay: 4s;
+      }
+      &:nth-child(2) {
+        bottom: 70%;
+        left: 80%;
+        animation-delay: 6s;
+      }
+    }
   }
-
-  &:nth-child(4) {
-    top: 80px;
-    right: 70px;
-    width: 18px;
-    height: 32px;
-    transform: rotate(30deg) scale(0.3);
-    background: linear-gradient(135deg, #C4704F 0%, #A85A3E 50%, #8B4A32 100%);
-    box-shadow: 0 2px 4px rgba(196, 112, 79, 0.35);
-    animation: leafEntrance 1.2s ease-out 1.4s both, leafFloat 8s ease-in-out 2.9s infinite;
-  }
-
-  &:nth-child(5) {
-    top: 140px;
-    right: 35px;
-    width: 22px;
-    height: 38px;
-    transform: rotate(-5deg) scale(0.35);
-    background: linear-gradient(135deg, #C4704F 0%, #A85A3E 50%, #8B4A32 100%);
-    box-shadow: 0 3px 7px rgba(196, 112, 79, 0.3);
-    animation: leafEntrance 1.2s ease-out 1.7s both, leafFloat 8s ease-in-out 3.2s infinite;
+  
+  // Cluster 4 - Coin inférieur droit (statique)
+  &.cornerBottomRight {
+    bottom: 5%;
+    right: 1%;
+    animation: gentleBreathing 7s ease-in-out infinite;
+    
+    .leafMicro {
+      &:nth-child(1) {
+        bottom: 40%;
+        right: 20%;
+        animation-delay: 5s;
+      }
+      &:nth-child(2) {
+        bottom: 10%;
+        right: 60%;
+        animation-delay: 7s;
+      }
+    }
   }
 }
 
-@keyframes leafEntrance {
-  from {
-    opacity: 0;
-    transform: rotate(var(--start-rotation, 0deg)) scale(0.2) translateY(-30px);
+.leafMicro {
+  position: absolute;
+  width: 12px;
+  height: 20px;
+  border-radius: 0 100% 0 100%;
+  background: linear-gradient(135deg, 
+    rgba(196, 112, 79, 0.15) 0%, 
+    rgba(168, 90, 62, 0.25) 50%, 
+    rgba(139, 74, 50, 0.2) 100%
+  );
+  box-shadow: 
+    0 1px 4px rgba(196, 112, 79, 0.1),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+  animation: subtleFloat 15s ease-in-out infinite;
+  opacity: 0.6;
+  
+  [data-theme="dark"] & {
+    background: linear-gradient(135deg, 
+      rgba(212, 131, 90, 0.15) 0%, 
+      rgba(180, 110, 70, 0.25) 50%, 
+      rgba(150, 90, 60, 0.2) 100%
+    );
+    box-shadow: 
+      0 1px 4px rgba(212, 131, 90, 0.1),
+      inset 0 1px 2px rgba(255, 255, 255, 0.05);
   }
-  to {
-    opacity: 0.6;
-    transform: rotate(var(--end-rotation, 0deg)) scale(var(--end-scale, 1)) translateY(0);
-  }
-}
-
-@keyframes leafFloat {
-  0%, 100% {
-    transform: translateY(0px) rotate(var(--rotation, 0deg)) scale(var(--scale, 1));
-    opacity: 0.6;
-  }
-  25% {
-    transform: translateY(-10px) rotate(var(--rotation, 0deg)) scale(var(--scale, 1));
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateY(-18px) rotate(var(--rotation, 0deg)) scale(var(--scale, 1));
+  
+  // Variantes de tailles plus petites
+  &.small {
+    width: 8px;
+    height: 14px;
     opacity: 0.4;
   }
-  75% {
-    transform: translateY(-6px) rotate(var(--rotation, 0deg)) scale(var(--scale, 1));
+  
+  &.medium {
+    width: 12px;
+    height: 20px;
+    opacity: 0.6;
+  }
+  
+  &.large {
+    width: 16px;
+    height: 26px;
+    opacity: 0.5;
+  }
+}
+
+// Animations Subtiles et Statiques
+@keyframes subtleFloat {
+  0%, 100% { 
+    opacity: 0.4;
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% { 
     opacity: 0.7;
+    transform: translateY(-3px) rotate(2deg) scale(1.05);
   }
 }
 
-.container {
-  max-width: 1800px;
-  margin: 0 auto;
-  padding: 0 3.5rem;
-  
-  @media (max-width: 768px) {
-    padding: 0 1.5rem;
+@keyframes gentleBreathing {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg);
+    opacity: 0.3;
   }
-}
-
-// Layout en Bento Box - Plus Large
-.bentoGrid {
-  display: grid;
-  grid-template-columns: 2.8fr 1fr 1fr;
-  grid-template-rows: auto auto auto auto auto;
-  gap: 2.5rem;
-  grid-template-areas: 
-    "intro intro profile"
-    "skills expertise expertise"
-    "journey journey journey"
-    "interests interests interests"
-    "contact contact contact";
-    
-  @media (max-width: 1024px) {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-      "intro intro"
-      "profile skills"
-      "expertise expertise"
-      "journey journey"
-      "interests interests"
-      "contact contact";
-  }
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    grid-template-areas: 
-      "intro"
-      "profile"
-      "skills"
-      "expertise"
-      "journey"
-      "interests"
-      "contact";
-    gap: 1.5rem;
+  50% { 
+    transform: scale(1.1) rotate(1deg);
+    opacity: 0.6;
   }
 }
 
@@ -185,6 +245,7 @@
     0 10px 40px rgba(#8B7D6B, 0.08),
     0 4px 12px rgba(#A89B8C, 0.05);
   position: relative;
+  z-index: 2; // Au-dessus des feuilles
   
   &::before {
     content: '';
@@ -225,6 +286,54 @@
   }
 }
 
+.container {
+  max-width: 6000px;
+  margin: 0 auto;
+  padding: 0 15rem;
+  
+  @media (max-width: 768px) {
+    padding: 0 1.5rem;
+  }
+}
+
+// Layout en Bento Box - Plus Large
+.bentoGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr 2fr;
+  grid-template-rows: auto auto auto auto auto;
+  gap: 4rem;
+  grid-template-areas: 
+    "intro intro profile"
+    "skills expertise expertise"
+    "journey journey journey"
+    "interests interests interests"
+    "contact contact contact";
+    
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "intro intro"
+      "profile skills"
+      "expertise expertise"
+      "journey journey"
+      "interests interests"
+      "contact contact";
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "intro"
+      "profile"
+      "skills"
+      "expertise"
+      "journey"
+      "interests"
+      "contact";
+    gap: 1.5rem;
+  }
+}
+
 // Intro principale - Plus de contenu
 .intro {
   grid-area: intro;
@@ -235,6 +344,7 @@
   }
   
   .greeting {
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
     color: #8B7D6B;
     font-weight: 600;
@@ -248,18 +358,20 @@
   }
   
   .name {
+    font-family: 'Cinzel', serif;
     font-size: clamp(2.8rem, 5vw, 4rem);
-    font-weight: 300;
+    font-weight: 500;
     line-height: 1.1;
     color: #3D3530;
     margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
     
     [data-theme="dark"] & {
       color: #F8F9FA;
     }
     
     .highlight {
-      font-weight: 700;
+      font-weight: 600;
       color: #6B5D4F;
       
       [data-theme="dark"] & {
@@ -269,6 +381,7 @@
   }
   
   .role {
+    font-family: 'Inter', sans-serif;
     font-size: 1.4rem;
     color: #6B5D4F;
     font-weight: 500;
@@ -281,6 +394,7 @@
   }
   
   .description {
+    font-family: 'Inter', sans-serif;
     font-size: 1.1rem;
     color: #8B7D6B;
     line-height: 1.7;
@@ -374,6 +488,7 @@
       }
       
       .title {
+        font-family: 'Inter', sans-serif;
         font-size: 0.9rem;
         font-weight: 600;
         color: #6B5D4F;
@@ -385,6 +500,7 @@
       }
       
       .desc {
+        font-family: 'Inter', sans-serif;
         font-size: 0.8rem;
         color: #8B7D6B;
         
@@ -408,10 +524,12 @@
     }
     
     h4 {
+      font-family: 'Cinzel', serif;
       margin: 0 0 1rem;
       font-size: 1.1rem;
-      font-weight: 600;
+      font-weight: 500;
       color: #6B5D4F;
+      letter-spacing: 0.3px;
       
       [data-theme="dark"] & {
         color: lighten($dark-accent, 15%);
@@ -419,6 +537,7 @@
     }
     
     p {
+      font-family: 'Inter', sans-serif;
       margin: 0;
       line-height: 1.6;
       color: #8B7D6B;
@@ -431,6 +550,7 @@
   }
 
   .cta {
+    font-family: 'Inter', sans-serif;
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
@@ -440,6 +560,7 @@
     border-radius: 14px;
     text-decoration: none;
     font-weight: 600;
+    letter-spacing: 0.2px;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border: none;
     box-shadow: 
@@ -575,11 +696,13 @@
       min-width: 0;
       
       .number {
+        font-family: 'Cinzel', serif;
         display: block;
         font-size: 1rem;
         font-weight: 700;
         color: #C4704F;
         margin-bottom: 0.05rem;
+        letter-spacing: 0.3px;
         
         [data-theme="dark"] & {
           color: $dark-accent;
@@ -587,6 +710,7 @@
       }
       
       .label {
+        font-family: 'Inter', sans-serif;
         font-size: 0.6rem;
         color: rgba(#8B7D6B, 0.8);
         text-transform: uppercase;
@@ -644,9 +768,11 @@
         flex: 1;
         
         .achievementText {
+          font-family: 'Cinzel', serif;
           font-size: 0.9rem;
           color: #6B5D4F;
           font-weight: 600;
+          letter-spacing: 0.3px;
           
           [data-theme="dark"] & {
             color: rgba($dark-text, 0.9);
@@ -654,6 +780,7 @@
         }
         
         .achievementDesc {
+          font-family: 'Inter', sans-serif;
           font-size: 0.75rem;
           color: #8B7D6B;
           line-height: 1.4;
@@ -673,10 +800,12 @@
   padding: 2rem;
   
   h3 {
+    font-family: 'Cinzel', serif;
     font-size: 1.2rem;
     font-weight: 500;
     color: #2C2C2C;
     margin: 0 0 1.5rem 0;
+    letter-spacing: 0.5px;
     
     [data-theme="dark"] & {
       color: #D4A574;
@@ -704,6 +833,7 @@
       }
       
       .name {
+        font-family: 'Inter', sans-serif;
         font-size: 0.9rem;
         color: rgba($shadow-grey, 0.8);
         font-weight: 500;
@@ -714,6 +844,7 @@
       }
       
       .level {
+        font-family: 'Inter', sans-serif;
         font-size: 0.8rem;
         color: rgba($shadow-grey, 0.5);
         
@@ -732,10 +863,12 @@
   text-align: center;
   
   h3 {
+    font-family: 'Cinzel', serif;
     font-size: 1.2rem;
     font-weight: 500;
     color: #2C2C2C;
     margin: 0 0 1.5rem 0;
+    letter-spacing: 0.5px;
     
     [data-theme="dark"] & {
       color: #D4A574;
@@ -744,6 +877,7 @@
   
   .redirectMessage {
     p {
+      font-family: 'Inter', sans-serif;
       font-size: 1rem;
       color: #666666;
       line-height: 1.6;
@@ -793,10 +927,12 @@
   padding: 2rem;
   
   h3 {
+    font-family: 'Cinzel', serif;
     font-size: 1.2rem;
     font-weight: 500;
     color: #2C2C2C;
     margin: 0 0 1.5rem 0;
+    letter-spacing: 0.5px;
     
     [data-theme="dark"] & {
       color: #D4A574;
@@ -810,6 +946,7 @@
     
     .category {
       .name {
+        font-family: 'Inter', sans-serif;
         font-size: 0.9rem;
         font-weight: 500;
         color: $shadow-grey;
@@ -826,6 +963,7 @@
         gap: 0.3rem;
         
         .tech {
+          font-family: 'Inter', sans-serif;
           background: rgba($shadow-grey, 0.08);
           color: rgba($shadow-grey, 0.7);
           padding: 0.2rem 0.6rem;
@@ -849,10 +987,12 @@
   padding: 2rem;
   
   h3 {
+    font-family: 'Cinzel', serif;
     font-size: 1.2rem;
     font-weight: 500;
     color: #2C2C2C;
     margin: 0 0 1.5rem 0;
+    letter-spacing: 0.5px;
     
     [data-theme="dark"] & {
       color: #D4A574;
@@ -866,6 +1006,7 @@
     
     .interestCategory {
       .categoryTitle {
+        font-family: 'Inter', sans-serif;
         font-size: 0.9rem;
         font-weight: 600;
         color: #6B5D4F;
@@ -895,6 +1036,7 @@
         gap: 0.4rem;
         
         .interestItem {
+          font-family: 'Inter', sans-serif;
           background: rgba(#F2EDE7, 0.6);
           color: #6B5D4F;
           padding: 0.3rem 0.8rem;
@@ -933,10 +1075,12 @@
   text-align: center;
   
   h3 {
+    font-family: 'Cinzel', serif;
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: 500;
     color: #2C2C2C;
     margin: 0 0 1rem 0;
+    letter-spacing: 0.5px;
     
     [data-theme="dark"] & {
       color: #D4A574;
@@ -944,6 +1088,7 @@
   }
   
   .message {
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
     color: rgba($shadow-grey, 0.7);
     margin: 0 0 2rem 0;

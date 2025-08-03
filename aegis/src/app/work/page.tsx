@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { WorkSimple } from "@/components/pages";
+import { PortfolioNew } from "@/components/pages";
 import { PageLayout } from "@/components/layout";
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ export default function WorkPage() {
       titleKey="work.title"
       descriptionKey="work.subtitle"
     >
-      <WorkSimple />
+      <PortfolioNew />
     </PageLayout>
   );
 }
