@@ -7,7 +7,6 @@ export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
 
   const handleToggle = () => {
-    console.log('Theme toggle clicked');
     toggleTheme();
   };
 

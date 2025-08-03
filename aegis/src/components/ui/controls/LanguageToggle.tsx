@@ -7,7 +7,6 @@ export default function LanguageToggle() {
   const { language, setLanguage } = useLanguage();
 
   const toggleLanguage = () => {
-    console.log('Language toggle clicked');
     setLanguage(language === 'en' ? 'fr' : 'en');
   };
 

@@ -40,6 +40,12 @@ export default function Header() {
       setIsModalOpen(hasModalOpen);
     };
 
+    // Nettoyage initial forcé au cas où
+    if (!document.body.classList.contains('modal-open')) {
+      document.body.style.overflow = 'unset';
+      setIsModalOpen(false);
+    }
+
     const observer = new MutationObserver(checkModalState);
 
     observer.observe(document.body, { 
@@ -105,35 +111,10 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* TEST - Bouton de diagnostic */}
-          <button 
-            onClick={() => {
-              alert('Bouton de test fonctionne !');
-              console.log('Bouton de test cliqué');
-            }}
-            style={{
-              background: 'red',
-              color: 'white',
-              padding: '10px',
-              border: 'none',
-              cursor: 'pointer',
-              position: 'fixed',
-              top: '100px',
-              right: '10px',
-              zIndex: 9999
-            }}
-          >
-            TEST
-          </button>
-
           {/* Mobile menu button */}
           <button 
             className={styles.mobileMenuBtn}
-            onClick={() => {
-              alert('Menu mobile cliqué !');
-              console.log('Menu mobile cliqué');
-              setIsMobileMenuOpen(!isMobileMenuOpen);
-            }}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             type="button"
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}

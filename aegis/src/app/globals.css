@@ -17,10 +17,17 @@ button, a, [role="button"], input[type="button"], input[type="submit"] {
   cursor: pointer;
   min-height: 44px;
   
-  /* Prévenir le zoom sur double-tap sur iOS */
+  /* Prévenir le zoom sur double-tap sur iOS - mais permettre la sélection */
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
+  
+  /* Forcer l'interactivité sur mobile */
+  pointer-events: auto;
+  
+  /* S'assurer que les boutons restent cliquables */
+  position: relative;
+  z-index: 1;
 }
 
 /* Focus visible pour l'accessibilité */
