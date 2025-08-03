@@ -1,4 +1,5 @@
-@import '../../styles/variables.scss';
+@use '../../styles/variables.scss' as *;
+@use 'sass:color';
 
 .pageContainer {
   min-height: 100vh;
@@ -188,7 +189,7 @@
   line-height: 1.6;
   
   [data-theme="light"] & {
-    color: darken($shadow-grey, 10%); // Texte plus foncé en mode clair
+    color: color.adjust($shadow-grey, $lightness: -10%); // Texte plus foncé en mode clair
     opacity: 0.95;
   }
   

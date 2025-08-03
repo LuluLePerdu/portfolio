@@ -1,0 +1,197 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000; // Au-dessus du header (z-index: 1000)
+  padding: 1rem;
+  animation: fadeIn 0.2s ease-out;
+  
+  [data-theme="dark"] & {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.modalContent {
+  background: rgba($marble, 0.98);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  border: 1px solid rgba($gold-leaf, 0.2);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba($gold-leaf, 0.1);
+  max-width: 500px;
+  width: 100%;
+  max-height: 80vh;
+  overflow: hidden;
+  animation: slideUp 0.3s ease-out;
+  
+  [data-theme="dark"] & {
+    background: rgba($dark-surface, 0.98);
+    border-color: rgba($dark-accent, 0.3);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba($dark-accent, 0.2);
+  }
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba($gold-leaf, 0.1);
+  
+  [data-theme="dark"] & {
+    border-bottom-color: rgba($dark-accent, 0.2);
+  }
+}
+
+.modalTitle {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $gold-leaf;
+  margin: 0;
+  
+  [data-theme="dark"] & {
+    color: $dark-accent-hover;
+  }
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: $shadow-grey;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: rgba($gold-leaf, 0.1);
+    color: $gold-leaf;
+    transform: scale(1.1);
+  }
+  
+  [data-theme="dark"] & {
+    color: $dark-text-muted;
+    
+    &:hover {
+      background: rgba($dark-accent, 0.2);
+      color: $dark-accent-hover;
+    }
+  }
+}
+
+.modalBody {
+  padding: 2rem;
+  overflow-y: auto;
+  
+  p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: $shadow-grey;
+    margin: 0 0 1.5rem 0;
+    
+    [data-theme="dark"] & {
+      color: $dark-text;
+    }
+  }
+  
+  .emailInfo {
+    background: rgba($gold-leaf, 0.05);
+    border: 1px solid rgba($gold-leaf, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    
+    [data-theme="dark"] & {
+      background: rgba($dark-accent, 0.1);
+      border-color: rgba($dark-accent, 0.3);
+    }
+    
+    .emailLabel {
+      font-weight: 600;
+      color: $gold-leaf;
+      margin-bottom: 0.5rem;
+      
+      [data-theme="dark"] & {
+        color: $dark-accent-hover;
+      }
+    }
+    
+    .emailAddress {
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 1.1rem;
+      color: $shadow-grey;
+      word-break: break-all;
+      
+      [data-theme="dark"] & {
+        color: $dark-text;
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+
+// Mobile
+@media (max-width: 768px) {
+  .modalOverlay {
+    padding: 1rem 0.5rem;
+  }
+  
+  .modalContent {
+    max-height: 90vh;
+  }
+  
+  .modalHeader {
+    padding: 1rem 1.5rem;
+  }
+  
+  .modalTitle {
+    font-size: 1.25rem;
+  }
+  
+  .modalBody {
+    padding: 1.5rem;
+  }
+}

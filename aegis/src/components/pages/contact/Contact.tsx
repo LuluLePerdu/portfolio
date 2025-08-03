@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
+import { Modal } from '@/components/ui';
 import styles from './Contact.module.scss';
 
 interface FormData {
@@ -10,43 +12,15 @@ interface FormData {
   message: string;
 }
 
-interface ModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  type: 'success' | 'error';
-  message: string;
-}
-
-const Modal = ({ isOpen, onClose, type, message }: ModalProps) => {
-  if (!isOpen) return null;
-
-  return (
-    <div className={styles.modalOverlay} onClick={onClose}>
-      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        <div className={`${styles.modalIcon} ${styles[type]}`}>
-          {type === 'success' ? '✅' : '❌'}
-        </div>
-        <h3 className={styles.modalTitle}>
-          {type === 'success' ? 'Message Envoyé !' : 'Erreur'}
-        </h3>
-        <p className={styles.modalMessage}>{message}</p>
-        <button className={styles.modalButton} onClick={onClose}>
-          Fermer
-        </button>
-      </div>
-    </div>
-  );
-};
-
 export default function Contact() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [modal, setModal] = useState({ isOpen: false, type: 'success' as 'success' | 'error', message: '' });
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -58,44 +32,12 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        setModal({
-          isOpen: true,
-          type: 'success',
-          message: 'Votre message a été envoyé avec succès ! Je vous répondrai dans les plus brefs délais. Merci de m\'avoir contacté !'
-        });
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        throw new Error(result.error || 'Erreur serveur');
-      }
-    } catch (error: unknown) {
-      console.error('Erreur lors de l\'envoi:', error);
-      const errorMessage = error instanceof Error ? error.message : 'Une erreur inconnue est survenue';
-      setModal({
-        isOpen: true,
-        type: 'error',
-        message: errorMessage || 'Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer ou me contacter directement à ludwig.dufour@usherbrooke.ca'
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Afficher le modal d'information au lieu d'envoyer
+    setIsModalOpen(true);
   };
 
   const closeModal = () => {
-    setModal({ ...modal, isOpen: false });
+    setIsModalOpen(false);
   };
 
   return (
@@ -114,20 +56,8 @@ export default function Contact() {
                 </svg>
               </div>
               <div className={styles.infoContent}>
-                <h3 className={styles.infoTitle}>Email</h3>
-                <p className={styles.infoText}>ludwig.dufour@email.com</p>
-              </div>
-            </div>
-
-            <div className={styles.infoCard}>
-              <div className={styles.infoIcon}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                </svg>
-              </div>
-              <div className={styles.infoContent}>
-                <h3 className={styles.infoTitle}>Phone</h3>
-                <p className={styles.infoText}>+1 (234) 567-8900</p>
+                <h3 className={styles.infoTitle}>{t('contact.email')}</h3>
+                <p className={styles.infoText}>ludwig-emmanuel@hotmail.com</p>
               </div>
             </div>
 
@@ -138,13 +68,27 @@ export default function Contact() {
                 </svg>
               </div>
               <div className={styles.infoContent}>
-                <h3 className={styles.infoTitle}>Location</h3>
+                <h3 className={styles.infoTitle}>{t('contact.location')}</h3>
                 <p className={styles.infoText}>Sherbrooke, QC, Canada</p>
               </div>
             </div>
 
+            <div className={styles.infoCard}>
+              <div className={styles.infoIcon}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                </svg>
+              </div>
+              <div className={styles.infoContent}>
+                <h3 className={styles.infoTitle}>{t('contact.cv')}</h3>
+                <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className={styles.cvLink}>
+                  {t('contact.downloadCV')}
+                </a>
+              </div>
+            </div>
+
             <div className={styles.socialLinks}>
-              <h3 className={styles.socialTitle}>Follow Me</h3>
+              <h3 className={styles.socialTitle}>{t('contact.followMe')}</h3>
               <div className={styles.socialGrid}>
                 <a href="https://linkedin.com/in/ludwig-emmanuel-dufour-5642352bb" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -170,7 +114,7 @@ export default function Contact() {
 
           <form className={styles.contactForm} onSubmit={handleSubmit}>
             <div className={styles.formGroup}>
-              <label htmlFor="name" className={styles.label}>Name *</label>
+              <label htmlFor="name" className={styles.label}>{t('contact.name')} *</label>
               <input
                 type="text"
                 id="name"
@@ -179,12 +123,12 @@ export default function Contact() {
                 onChange={handleInputChange}
                 required
                 className={styles.input}
-                placeholder="Your full name"
+                placeholder={t('contact.namePlaceholder')}
               />
             </div>
 
             <div className={styles.formGroup}>
-              <label htmlFor="email" className={styles.label}>Email *</label>
+              <label htmlFor="email" className={styles.label}>{t('contact.email')} *</label>
               <input
                 type="email"
                 id="email"
@@ -193,12 +137,12 @@ export default function Contact() {
                 onChange={handleInputChange}
                 required
                 className={styles.input}
-                placeholder="your.email@example.com"
+                placeholder={t('contact.emailPlaceholder')}
               />
             </div>
 
             <div className={styles.formGroup}>
-              <label htmlFor="subject" className={styles.label}>Subject *</label>
+              <label htmlFor="subject" className={styles.label}>{t('contact.subject')} *</label>
               <input
                 type="text"
                 id="subject"
@@ -207,12 +151,12 @@ export default function Contact() {
                 onChange={handleInputChange}
                 required
                 className={styles.input}
-                placeholder="What's this about?"
+                placeholder={t('contact.subjectPlaceholder')}
               />
             </div>
 
             <div className={styles.formGroup}>
-              <label htmlFor="message" className={styles.label}>Message *</label>
+              <label htmlFor="message" className={styles.label}>{t('contact.message')} *</label>
               <textarea
                 id="message"
                 name="message"
@@ -221,34 +165,31 @@ export default function Contact() {
                 required
                 rows={6}
                 className={styles.textarea}
-                placeholder="Tell me about your project or idea..."
+                placeholder={t('contact.messagePlaceholder')}
               />
             </div>
 
             <button 
               type="submit" 
-              className={`${styles.submitBtn} ${isSubmitting ? styles.submitting : ''}`}
-              disabled={isSubmitting}
+              className={styles.submitBtn}
             >
-              {isSubmitting ? (
-                <>
-                  <div className={styles.spinner}></div>
-                  Envoi en cours...
-                </>
-              ) : (
-                'Envoyer le Message'
-              )}
+              {t('contact.send')}
             </button>
           </form>
         </div>
       </div>
       
       <Modal 
-        isOpen={modal.isOpen}
+        isOpen={isModalOpen}
         onClose={closeModal}
-        type={modal.type}
-        message={modal.message}
-      />
+        title={t('email.modal.title')}
+      >
+        <p>{t('email.modal.message')}</p>
+        <div className={styles.emailInfo}>
+          <div className={styles.emailLabel}>Email:</div>
+          <div className={styles.emailAddress}>{t('email.modal.directEmail')}</div>
+        </div>
+      </Modal>
     </section>
   );
 }

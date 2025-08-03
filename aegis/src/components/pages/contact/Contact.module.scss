@@ -1,5 +1,5 @@
-@import '../../../styles/variables.scss';
-@import '../../../styles/mixins.scss';
+@use '../../../styles/variables.scss' as *;
+@use '../../../styles/mixins.scss' as *;
 $bordeaux-hover: #c49660;
 
 .contact {
@@ -278,6 +278,36 @@ $bordeaux-hover: #c49660;
     
     [data-theme="light"] & {
       color: rgba($dark-bg, 0.8);
+    }
+  }
+  
+  .cvLink {
+    color: #8B7D6B;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    [data-theme="dark"] & {
+      color: $dark-accent;
+    }
+    
+    &:hover {
+      color: #6B5D4F;
+      transform: translateX(2px);
+      
+      [data-theme="dark"] & {
+        color: $dark-accent-hover;
+      }
+    }
+    
+    &::after {
+      content: '↗';
+      font-size: 0.8rem;
+      opacity: 0.7;
     }
   }
 }
@@ -654,5 +684,40 @@ $bordeaux-hover: #c49660;
   to { 
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+// Styles pour le modal d'email
+.emailInfo {
+  background: rgba($gold-leaf, 0.05);
+  border: 1px solid rgba($gold-leaf, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  
+  [data-theme="dark"] & {
+    background: rgba($dark-accent, 0.1);
+    border-color: rgba($dark-accent, 0.3);
+  }
+  
+  .emailLabel {
+    font-weight: 600;
+    color: $gold-leaf;
+    margin-bottom: 0.5rem;
+    
+    [data-theme="dark"] & {
+      color: $dark-accent-hover;
+    }
+  }
+  
+  .emailAddress {
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 1.1rem;
+    color: $shadow-grey;
+    word-break: break-all;
+    
+    [data-theme="dark"] & {
+      color: $dark-text;
+    }
   }
 }

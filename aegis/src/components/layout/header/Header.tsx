@@ -11,6 +11,7 @@ import { useLanguage } from '@/context/LanguageContext';
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const pathname = usePathname();
   const { t } = useLanguage();
 
@@ -31,6 +32,23 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Surveiller l'ouverture/fermeture des modals
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsModalOpen(document.body.classList.contains('modal-open'));
+    });
+
+    observer.observe(document.body, { 
+      attributes: true, 
+      attributeFilter: ['class'] 
+    });
+
+    // Vérification initiale
+    setIsModalOpen(document.body.classList.contains('modal-open'));
+
+    return () => observer.disconnect();
+  }, []);
+
   const navLinks = [
     { href: '/work', label: t('header.work') },
     { href: '/about', label: t('header.about') },
@@ -42,7 +60,7 @@ export default function Header() {
   const isActive = (href: string) => pathname === href;
 
   return (
-    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>      
+    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''} ${isModalOpen ? styles.modalOpen : ''}`}>      
       <div className={styles.headerContainer}>
         <div className={styles.headerContent}>
           {/* Logo portfolio professionnel */}

@@ -1,5 +1,6 @@
 @use "../../../styles/variables" as *;
 @use "../../../styles/mixins" as *;
+@use 'sass:color';
 
 // Portfolio - Design inspiré de About
 .portfolio {
@@ -432,7 +433,7 @@
       color: $dark-bg;
       
       &:hover {
-        background: linear-gradient(135deg, $dark-accent-hover 0%, lighten($dark-accent-hover, 5%) 100%);
+        background: linear-gradient(135deg, $dark-accent-hover 0%, color.adjust($dark-accent-hover, $lightness: 5%) 100%);
       }
     }
   }

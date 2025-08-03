@@ -5,201 +5,93 @@ import { useLeafEcosystem } from '@/hooks/useLeafEcosystem';
 import styles from './About.module.scss';
 
 const About = () => {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   
   // Hook pour l'écosystème de feuilles interactives
   useLeafEcosystem();
 
-  const content = {
-    fr: {
-      greeting: "Je suis",
-      name: "Ludwig-Emmanuel",
-      surname: "Dufour",
-      role: "Étudiant en Génie Informatique & Développeur Full Stack",
-      description: "Passionné par l'infrastructure <span class='highlight-cloud'>cloud</span>, la <span class='highlight-network'>réseautique</span> et les systèmes distribués. J'étudie à l'<span class='highlight-udes'>UdeS</span> et je crée des solutions web innovantes qui allient <span class='highlight-performance'>performance technique</span> et expérience utilisateur exceptionnelle.",
-      ctaText: "Voir mes projets",
-      
-      status: "Étudiant à l'UdeS",
-      
-      skillsTitle: "Expertise",
-      journeyTitle: "Mon Parcours",
-      expertiseTitle: "Technologies",
-      contactTitle: "Collaborons ensemble",
-      contactMessage: "Toujours enthousiaste à l'idée de travailler sur de nouveaux projets et d'explorer des solutions innovantes. Que ce soit du développement full-stack, de l'automatisation DevOps, ou des expériences numériques créatives.",
-      
-      skills: [
-        { name: "React / Next.js", level: "Expert" },
-        { name: "Cloud & DevOps", level: "Avancé" },
-        { name: "Réseautique", level: "Avancé" },
-        { name: "TypeScript", level: "Avancé" }
-      ],
-      
-      timeline: [
-        {
-          year: "2022+",
-          title: "Voir mon expérience complète",
-          desc: "Parcours détaillé et projets"
-        }
-      ],
-      
-      categories: [
-        {
-          name: "Cloud & Infrastructure",
-          techs: ["AWS", "Docker", "Kubernetes", "CI/CD", "Terraform"]
-        },
-        {
-          name: "Frontend",
-          techs: ["React", "Next.js", "TypeScript", "SCSS", "Tailwind"]
-        },
-        {
-          name: "Backend & Réseaux",
-          techs: ["Node.js", "Go", "PostgreSQL", "MongoDB", "Nginx"]
-        }
-      ],
-      
-      interestsTitle: "Ce qui me Passionne",
-      interests: [
-        {
-          category: "Passion Technologique",
-          items: ["Processus de déploiement en production", "Design d'architecture logicielle", "CI/CD et automatisation", "Infrastructure cloud et réseau"]
-        },
-        {
-          category: "Pursuits Créatifs", 
-          items: ["Photographie et arts visuels", "Art numérique et design", "UI/UX et solutions créatives"]
-        },
-        {
-          category: "Activités Extérieures",
-          items: ["Escalade", "Moto", "Exploration de la nature"]
-        }
-      ],
-      
-      // Highlights section
-      highlights: [
-        { icon: "◆", title: "Étudiant UdeS", desc: "Génie informatique" },
-        { icon: "∞", title: "Cloud & DevOps", desc: "AWS, Docker, K8s" },
-        { icon: "※", title: "Réseautique", desc: "Systèmes distribués" }
-      ],
-      
-      visionTitle: "Vision & Approche",
-      
-      // Journey section
-      journeyDescription: "Découvrez mon parcours académique complet, mes expériences professionnelles et les projets qui ont façonné ma carrière en génie informatique.",
-      journeyButtonText: "Voir mon expérience complète →",
-      
-      // Métriques
-      metrics: {
-        years: { number: "4+", label: "Années" },
-        projects: { number: "20+", label: "Projets" },
-        technologies: { number: "12+", label: "Technologies" },
-        certifications: { number: "3", label: "Certifications" }
-      },
-      
-      // Achievements section
-      achievements: [
-        { icon: "◇", text: "Optimisation Performance", desc: "Applications web haute performance" },
-        { icon: "◈", text: "Architecture Cloud", desc: "Solutions AWS & DevOps scalables" },
-        { icon: "◆", text: "Réseaux Modernes", desc: "Infrastructure distribuée & sécurisée" }
-      ],
-      
-      contactButton: "Démarrer un projet",
-      cvButton: "Télécharger CV"
+  // Données dynamiques basées sur les traductions
+  const skills = [
+    { name: t('about.skills.webdev.name'), level: t('about.skills.webdev.level') },
+    { name: t('about.skills.architecture.name'), level: t('about.skills.architecture.level') },
+    { name: t('about.skills.devops.name'), level: t('about.skills.devops.level') },
+    { name: t('about.skills.networking.name'), level: t('about.skills.networking.level') }
+  ];
+
+  // Technologies organisées par type
+  const techByType = [
+    {
+      type: t('about.tech.frontend.title'),
+      techs: ['Angular', 'Next.js', 'TypeScript', 'SCSS',]
     },
-    en: {
-      greeting: "Hey there!",
-      name: "Ludwig-Emmanuel",
-      surname: "Dufour",
-      role: "Computer Engineering Student & Full Stack Developer",
-      description: "Passionate about <span class='highlight-cloud'>cloud infrastructure</span>, <span class='highlight-network'>networking</span>, and distributed systems. Studying at <span class='highlight-udes'>UdeS</span> and creating innovative web solutions that combine <span class='highlight-performance'>technical performance</span> with exceptional user experience.",
-      ctaText: "View my work",
-      
-      status: "Student at UdeS",
-      
-      skillsTitle: "Expertise",
-      journeyTitle: "Experience",
-      expertiseTitle: "Technologies",
-      contactTitle: "Let's collaborate",
-      contactMessage: "Always enthusiastic about working on new projects and exploring innovative solutions. Whether it's full-stack development, DevOps automation, or creative digital experiences.",
-      
-      skills: [
-        { name: "React / Next.js", level: "Expert" },
-        { name: "Cloud & DevOps", level: "Advanced" },
-        { name: "Networking", level: "Advanced" },
-        { name: "TypeScript", level: "Advanced" }
-      ],
-      
-      timeline: [
-        {
-          year: "2022+",
-          title: "View my complete experience",
-          desc: "Detailed background and projects"
-        }
-      ],
-      
-      categories: [
-        {
-          name: "Cloud & Infrastructure",
-          techs: ["AWS", "Docker", "Kubernetes", "CI/CD", "Terraform"]
-        },
-        {
-          name: "Frontend",
-          techs: ["React", "Next.js", "TypeScript", "SCSS", "Tailwind"]
-        },
-        {
-          name: "Backend & Networks",
-          techs: ["Node.js", "Go", "PostgreSQL", "MongoDB", "Nginx"]
-        }
-      ],
-      
-      interestsTitle: "What Drives Me",
-      interests: [
-        {
-          category: "Technology Passion",
-          items: ["Production deployment processes", "Software architecture design", "CI/CD and automation", "Cloud and network infrastructure"]
-        },
-        {
-          category: "Creative Pursuits", 
-          items: ["Photography and visual arts", "Digital art and design", "UI/UX and creative solutions"]
-        },
-        {
-          category: "Outdoor Activities",
-          items: ["Rock climbing", "Motorcycle riding", "Nature exploration"]
-        }
-      ],
-      
-      // Highlights section
-      highlights: [
-        { icon: "◆", title: "UdeS Student", desc: "Computer Engineering" },
-        { icon: "∞", title: "Cloud & DevOps", desc: "AWS, Docker, K8s" },
-        { icon: "※", title: "Networking", desc: "Distributed Systems" }
-      ],
-      
-      visionTitle: "Vision & Approach",
-      
-      // Journey section
-      journeyDescription: "Discover my complete academic background, professional experiences and projects that have shaped my career in computer engineering.",
-      journeyButtonText: "View my complete experience →",
-      
-      // Metrics
-      metrics: {
-        years: { number: "4+", label: "Years" },
-        projects: { number: "20+", label: "Projects" },
-        technologies: { number: "12+", label: "Technologies" },
-        certifications: { number: "3", label: "Certifications" }
-      },
-      
-      // Achievements section
-      achievements: [
-        { icon: "◇", text: "Performance Optimization", desc: "High-performance web applications" },
-        { icon: "◈", text: "Cloud Architecture", desc: "Scalable AWS & DevOps solutions" },
-        { icon: "◆", text: "Modern Networks", desc: "Distributed & secure infrastructure" }
-      ],
-      
-      contactButton: "Start a project",
-      cvButton: "Download Resume"
+    {
+      type: t('about.tech.backend.title'), 
+      techs: ['Java', 'PHP', 'C#', 'C++', 'GoLang', 'Python', 'Node.js']
+    },
+    {
+      type: t('about.tech.frameworks.title'),
+      techs: ['Laravel', 'Spring Boot', 'ASP.NET', 'Express.js']
+    },
+    {
+      type: t('about.tech.cloud.title'),
+      techs: ['Docker', 'Azure', 'AWS', 'Kubernetes', 'GitLab CI/CD', 'Proxmox', 'Terraform']
+    },
+    {
+      type: t('about.tech.databases.title'),
+      techs: ['PostgreSQL', 'MongoDB', 'MySQL', 'SQL Server']
+    },
+    {
+      type: t('about.tech.mobile.title'),
+      techs: ['Flutter', 'Kotlin']
     }
+  ];
+
+  const highlights = [
+    { icon: "◆", title: t('about.highlights.student.title'), desc: t('about.highlights.student.desc') },
+    { icon: "∞", title: t('about.highlights.cloud.title'), desc: t('about.highlights.cloud.desc') },
+    { icon: "※", title: t('about.highlights.network.title'), desc: t('about.highlights.network.desc') }
+  ];
+
+  const metrics = {
+    years: { number: t('about.metrics.years.number'), label: t('about.metrics.years.label') },
+    projects: { number: t('about.metrics.projects.number'), label: t('about.metrics.projects.label') },
+    technologies: { number: t('about.metrics.technologies.number'), label: t('about.metrics.technologies.label') },
+    certifications: { number: t('about.metrics.certifications.number'), label: t('about.metrics.certifications.label') }
   };
 
-  const t = content[language as keyof typeof content];
+  const achievements = [
+    { icon: "◇", text: t('about.achievements.performance.text'), desc: t('about.achievements.performance.desc') },
+    { icon: "◈", text: t('about.achievements.cloud.text'), desc: t('about.achievements.cloud.desc') },
+    { icon: "◆", text: t('about.achievements.network.text'), desc: t('about.achievements.network.desc') }
+  ];
+
+  const interests = [
+    {
+      category: t('about.interests.tech.title'),
+      items: [
+        t('about.interests.tech.production'),
+        t('about.interests.tech.architecture'),
+        t('about.interests.tech.deployment'),
+        t('about.interests.tech.cloud')
+      ]
+    },
+    {
+      category: t('about.interests.creative.title'), 
+      items: [
+        t('about.interests.creative.photography'),
+        t('about.interests.creative.art'),
+        t('about.interests.creative.design')
+      ]
+    },
+    {
+      category: t('about.interests.outdoor.title'),
+      items: [
+        t('about.interests.outdoor.climbing'),
+        t('about.interests.outdoor.motorcycle'),
+        t('about.interests.outdoor.nature')
+      ]
+    }
+  ];
 
   return (
     <div className={styles.about}>
@@ -235,15 +127,17 @@ const About = () => {
           
           {/* Introduction principale */}
           <div className={`${styles.card} ${styles.intro}`}>
-            <div className={styles.greeting}>{t.greeting}</div>
+            <div className={styles.greeting}>{t('about.greeting')}</div>
             <h1 className={styles.name}>
-              {t.name} <span className={styles.highlight}>{t.surname}</span>
+              {t('about.name')}
+              <br />
+              <span className={styles.highlight}>{t('about.surname')}</span>
             </h1>
-            <h2 className={styles.role}>{t.role}</h2>
-            <p className={styles.description} dangerouslySetInnerHTML={{ __html: t.description }}></p>
+            <h2 className={styles.role}>{t('about.role')}</h2>
+            <p className={styles.description} dangerouslySetInnerHTML={{ __html: t('about.description') }}></p>
             
             <div className={styles.highlights}>
-              {t.highlights.map((highlight, index) => (
+              {highlights.map((highlight, index) => (
                 <div key={index} className={styles.highlightItem}>
                   <span className={styles.icon}>{highlight.icon}</span>
                   <div className={styles.title}>{highlight.title}</div>
@@ -253,45 +147,46 @@ const About = () => {
             </div>
             
             <div className={styles.personalStatement}>
-              <h4>{t.visionTitle}</h4>
-              <p>
-                {language === 'fr' 
-                  ? "Passionné par l'innovation technologique, je me spécialise dans l'architecture cloud et les solutions réseau modernes. Mon approche combine expertise technique approfondie et vision stratégique pour créer des systèmes robustes et évolutifs."
-                  : "Passionate about technological innovation, I specialize in cloud architecture and modern network solutions. My approach combines deep technical expertise with strategic vision to create robust and scalable systems."
-                }
-              </p>
+              <h4>{t('about.visionTitle')}</h4>
+              <p>{t('about.visionDescription')}</p>
             </div>
             
             <a href="/experience" className={styles.cta}>
-              {t.ctaText}
+              {language === 'fr' ? 'Voir mes projets' : 'View my work'}
               <span>→</span>
             </a>
           </div>
 
           {/* Profile */}
           <div className={`${styles.card} ${styles.profile}`}>
-            <div className={styles.avatar}>LE</div>
-            <div className={styles.status}>{t.status}</div>
+            <div className={styles.avatar}>
+              <img 
+                src="/images/profile.jpg" 
+                alt={`${t('about.name')} ${t('about.surname')}`}
+                className={styles.profileImage}
+              />
+            </div>
+            <div className={styles.status}>{t('about.status')}</div>
             <div className={styles.metrics}>
               <div className={styles.metric}>
-                <span className={styles.number}>{t.metrics.years.number}</span>
-                <span className={styles.label}>{t.metrics.years.label}</span>
+                <span className={styles.number}>{metrics.years.number}</span>
+                <span className={styles.label}>{metrics.years.label}</span>
               </div>
               <div className={styles.metric}>
-                <span className={styles.number}>{t.metrics.projects.number}</span>
-                <span className={styles.label}>{t.metrics.projects.label}</span>
+                <span className={styles.number}>{metrics.projects.number}</span>
+                <span className={styles.label}>{metrics.projects.label}</span>
               </div>
               <div className={styles.metric}>
-                <span className={styles.number}>{t.metrics.technologies.number}</span>
-                <span className={styles.label}>{t.metrics.technologies.label}</span>
+                <span className={styles.number}>{metrics.technologies.number}</span>
+                <span className={styles.label}>{metrics.technologies.label}</span>
               </div>
               <div className={styles.metric}>
-                <span className={styles.number}>{t.metrics.certifications.number}</span>
-                <span className={styles.label}>{t.metrics.certifications.label}</span>
+                <span className={styles.number}>{metrics.certifications.number}</span>
+                <span className={styles.label}>{metrics.certifications.label}</span>
               </div>
             </div>
             <div className={styles.achievements}>
-              {t.achievements.map((achievement, index) => (
+              {achievements.map((achievement, index) => (
                 <div key={index} className={styles.achievement}>
                   <span className={styles.achievementIcon}>{achievement.icon}</span>
                   <div className={styles.achievementContent}>
@@ -305,9 +200,9 @@ const About = () => {
 
           {/* Compétences principales */}
           <div className={`${styles.card} ${styles.skills}`}>
-            <h3>{t.skillsTitle}</h3>
+            <h3>{t('about.skillsTitle')}</h3>
             <div className={styles.skillsList}>
-              {t.skills.map((skill, index) => (
+              {skills.map((skill, index) => (
                 <div key={index} className={styles.skill}>
                   <span className={styles.name}>{skill.name}</span>
                   <span className={styles.level}>{skill.level}</span>
@@ -316,27 +211,16 @@ const About = () => {
             </div>
           </div>
 
-          {/* Parcours - Redirection vers Expérience */}
-          <div className={`${styles.card} ${styles.journey}`}>
-            <h3>{t.journeyTitle}</h3>
-            <div className={styles.redirectMessage}>
-              <p>{t.journeyDescription}</p>
-              <a href="/experience" className={styles.redirectBtn}>
-                {t.journeyButtonText}
-              </a>
-            </div>
-          </div>
-
-          {/* Technologies */}
-          <div className={`${styles.card} ${styles.expertise}`}>
-            <h3>{t.expertiseTitle}</h3>
-            <div className={styles.categories}>
-              {t.categories.map((category, index) => (
-                <div key={index} className={styles.category}>
-                  <div className={styles.name}>{category.name}</div>
-                  <div className={styles.techs}>
+          {/* Technologies organisées par type */}
+          <div className={`${styles.card} ${styles.technologies}`}>
+            <h3>{language === 'fr' ? 'Technologies' : 'Technologies'}</h3>
+            <div className={styles.techFlow}>
+              {techByType.map((category, categoryIndex) => (
+                <div key={categoryIndex} className={styles.techSection}>
+                  <span className={styles.techType}>{category.type}</span>
+                  <div className={styles.techItems}>
                     {category.techs.map((tech, techIndex) => (
-                      <span key={techIndex} className={styles.tech}>{tech}</span>
+                      <span key={techIndex} className={styles.techBadge}>{tech}</span>
                     ))}
                   </div>
                 </div>
@@ -344,11 +228,22 @@ const About = () => {
             </div>
           </div>
 
+          {/* Parcours - Redirection vers Expérience */}
+          <div className={`${styles.card} ${styles.journey}`}>
+            <h3>{t('about.journeyTitle')}</h3>
+            <div className={styles.redirectMessage}>
+              <p>{t('about.journeyDescription')}</p>
+              <a href="/experience" className={styles.redirectBtn}>
+                {t('about.journeyButtonText')}
+              </a>
+            </div>
+          </div>
+
           {/* Passions */}
           <div className={`${styles.card} ${styles.interests}`}>
-            <h3>{t.interestsTitle}</h3>
+            <h3>{t('about.interests.title')}</h3>
             <div className={styles.interestsList}>
-              {t.interests.map((interestGroup, index) => (
+              {interests.map((interestGroup, index) => (
                 <div key={index} className={styles.interestCategory}>
                   <div className={styles.categoryTitle}>{interestGroup.category}</div>
                   <div className={styles.interestItems}>
@@ -363,14 +258,14 @@ const About = () => {
 
           {/* Contact */}
           <div className={`${styles.card} ${styles.contact}`}>
-            <h3>{t.contactTitle}</h3>
-            <p className={styles.message}>{t.contactMessage}</p>
+            <h3>{t('about.contactTitle')}</h3>
+            <p className={styles.message}>{t('about.contactMessage')}</p>
             <div className={styles.actions}>
               <a href="/contact" className={`${styles.btn} ${styles.primary}`}>
-                {t.contactButton}
+                {t('about.contactButton')}
               </a>
               <a href="/cv.pdf" className={`${styles.btn} ${styles.secondary}`} target="_blank" rel="noopener noreferrer">
-                {t.cvButton}
+                {t('about.cvButton')}
               </a>
             </div>
           </div>
