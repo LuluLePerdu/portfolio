@@ -107,6 +107,14 @@ export default function Header() {
               console.log('Mobile menu button clicked', { isMobileMenuOpen, isModalOpen });
               setIsMobileMenuOpen(!isMobileMenuOpen);
             }}
+            onTouchStart={(e) => {
+              // Améliorer la réactivité sur mobile
+              e.currentTarget.style.transform = 'scale(0.95)';
+            }}
+            onTouchEnd={(e) => {
+              // Remettre l'échelle normale après le touch
+              e.currentTarget.style.transform = '';
+            }}
             aria-label="Toggle menu"
           >
             <div className={`${styles.hamburger} ${isMobileMenuOpen ? styles.hamburgerOpen : ''}`}>
@@ -128,6 +136,14 @@ export default function Header() {
                 href={link.href}
                 className={`${styles.mobileNavLink} ${isActive(link.href) ? styles.active : ''}`}
                 onClick={() => setIsMobileMenuOpen(false)}
+                onTouchStart={(e) => {
+                  // Améliorer la réactivité sur mobile
+                  e.currentTarget.style.transform = 'translateX(3px) scale(0.98)';
+                }}
+                onTouchEnd={(e) => {
+                  // Remettre la position normale après le touch
+                  e.currentTarget.style.transform = '';
+                }}
               >
                 {link.label}
               </Link>

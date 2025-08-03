@@ -94,6 +94,32 @@
     min-width: 48px;
     // Meilleure visibilité sur mobile
     border-width: 3px;
+    
+    // Améliorer la réactivité tactile
+    &:active {
+      transform: scale(0.95);
+      background: rgba($dark-accent, 0.25);
+      border-color: rgba($dark-accent, 0.6);
+    }
+    
+    // Éviter les problèmes de hover sur mobile
+    &:hover:not(:active) {
+      transform: none;
+    }
+  }
+  
+  .toggleTrack {
+    width: 44px;
+    height: 22px;
+  }
+  
+  .toggleThumb {
+    width: 18px;
+    height: 18px;
+    
+    .dark & {
+      transform: translateX(20px);
+    }
   }
 }
 

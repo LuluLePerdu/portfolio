@@ -106,6 +106,18 @@
     min-height: 48px;
     // Meilleure visibilité sur mobile
     border-width: 3px;
+    
+    // Améliorer la réactivité tactile
+    &:active {
+      transform: scale(0.95);
+      background: rgba($dark-accent, 0.25);
+      border-color: rgba($dark-accent, 0.6);
+    }
+    
+    // Éviter les problèmes de hover sur mobile
+    &:hover:not(:active) {
+      transform: none;
+    }
   }
   
   .currentLanguage {
@@ -131,6 +143,12 @@
         background: rgba($marble, 0.3);
         border-color: $marble;
         box-shadow: 0 4px 16px rgba($marble, 0.4), 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba($marble, 0.5);
+      }
+      
+      &:active {
+        background: rgba($marble, 0.4);
+        border-color: $marble;
+        transform: scale(0.95);
       }
     }
     

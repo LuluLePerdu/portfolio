@@ -27,10 +27,15 @@
     backdrop-filter: blur(25px) saturate(200%);
     border-bottom: 1px solid rgba(168, 155, 140, 0.3);
     
-    // Au lieu de désactiver complètement, réduire l'interactivité
-    .mobileMenuBtn, .themeToggle, .languageToggle, .ctaButton {
+    // Réduire l'interactivité sans la désactiver complètement
+    .themeToggle, .languageToggle, .ctaButton {
       opacity: 0.5;
-      pointer-events: none;
+    }
+    
+    // Le bouton menu mobile doit rester fonctionnel
+    .mobileMenuBtn {
+      opacity: 1;
+      filter: none;
     }
 
     // Mode sombre quand modal ouvert
@@ -319,7 +324,7 @@
   transition: background-color 0.2s ease, border-color 0.2s ease;
   // Améliorer les interactions tactiles
   touch-action: manipulation;
-  -webkit-tap-highlight-color: rgba(139, 58, 58, 0.3);
+  -webkit-tap-highlight-color: rgba(139, 125, 107, 0.3);
   min-height: 44px; // Taille minimale recommandée pour les éléments tactiles
   min-width: 44px;
   
@@ -333,13 +338,27 @@
   &:hover,
   &:focus,
   &:active {
-    background: rgba(#8B3A3A, 0.1);
-    border-color: rgba(#8B3A3A, 0.3);
+    background: rgba(139, 125, 107, 0.1);
+    border-color: rgba(139, 125, 107, 0.3);
     outline: none;
     
     [data-theme="dark"] & {
       background: rgba($dark-accent, 0.1);
       border-color: rgba($dark-accent, 0.3);
+    }
+  }
+  
+  // Spécifiquement pour mobile, améliorer la réactivité
+  @media (max-width: 768px) {
+    &:active {
+      background: rgba(139, 125, 107, 0.2);
+      border-color: rgba(139, 125, 107, 0.5);
+      transform: scale(0.98);
+      
+      [data-theme="dark"] & {
+        background: rgba($dark-accent, 0.2);
+        border-color: rgba($dark-accent, 0.5);
+      }
     }
   }
   
@@ -349,6 +368,29 @@
     padding: 1rem;
     min-height: 48px;
     min-width: 48px;
+    
+    // Animation plus visible pour mobile
+    &:active {
+      background: rgba(139, 125, 107, 0.2);
+      border-color: rgba(139, 125, 107, 0.5);
+      transform: scale(0.95);
+      transition: all 0.1s ease;
+      
+      [data-theme="dark"] & {
+        background: rgba($dark-accent, 0.2);
+        border-color: rgba($dark-accent, 0.5);
+      }
+    }
+    
+    // Feedback visuel plus fort pour mobile
+    &:focus {
+      outline: 3px solid rgba(139, 125, 107, 0.5);
+      outline-offset: 2px;
+      
+      [data-theme="dark"] & {
+        outline-color: rgba($dark-accent, 0.5);
+      }
+    }
   }
 }
 
