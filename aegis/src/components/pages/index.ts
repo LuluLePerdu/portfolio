@@ -7,8 +7,8 @@ export { default as About } from './about/About';
 export { default as Portfolio } from './work/Portfolio';
 export { default as WorkSimple } from './work/WorkSimple';
 
-// Photography page components
-export { default as Photography } from './photography/Photography';
+// Odyssey page components
+export { default as Odyssey } from './odyssey/Odyssey';
 
 // Experience page components
 export { default as Experience } from './experience/Experience';

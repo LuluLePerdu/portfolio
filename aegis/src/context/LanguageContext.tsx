@@ -15,7 +15,7 @@ const translations = {
     // Header
     'header.work': 'Work',
     'header.about': 'About',
-    'header.photography': 'Photography',
+    'header.odyssey': 'Odyssey',
     'header.experience': 'Experience',
     'header.contact': 'Contact',
     'header.cta': "Let's Talk",
@@ -23,9 +23,13 @@ const translations = {
     // Common
     'common.backToHome': 'Back to Home',
     
+    // Pages
+    'pages.odyssey.title': 'My Odyssey',
+    'pages.odyssey.comingSoon': 'My travel odyssey is currently under development. Come back soon to discover my adventures, stories, and journey planning insights from around the world.',
+    
     // Unavailable Pages
     'unavailable.photography.title': 'Page Unavailable',
-    'unavailable.photography.message': 'The photography section is currently under development. Please check back later to discover my photographic work.',
+    'unavailable.photography.message': 'My travel odyssey is currently under development. Come back soon to discover my adventures, stories, and journey planning insights from around the world.',
     'unavailable.about.title': 'Page Unavailable',
     'unavailable.about.message': 'The about section is currently under development. Please check back later to learn more about my journey and background.',
     
@@ -147,7 +151,7 @@ const translations = {
     'about.techStack.favorites': 'My Favorites',
     'about.techStack.exploring': 'Currently Exploring',
     'about.personal.title': 'Personal Side',
-    'about.personal.photography': 'Photography',
+    'about.personal.photography': 'Travel & Backpacking',
     'about.personal.climbing': 'Rock Climbing',
     'about.personal.motorcycle': 'Motorcycle',
     'about.current.title': 'What I\'m Working On',
@@ -168,7 +172,7 @@ const translations = {
     'about.interests.tech.deployment': 'CI/CD and automation',
     'about.interests.tech.cloud': 'Cloud and network infrastructure',
     'about.interests.creative.title': 'Creative Pursuits',
-    'about.interests.creative.photography': 'Photography and visual arts',
+    'about.interests.creative.photography': 'Travel photography and adventures',
     'about.interests.creative.art': 'Digital art and design',
     'about.interests.creative.design': 'UI/UX and creative solutions',
     'about.interests.outdoor.title': 'Outdoor Activities',
@@ -243,16 +247,49 @@ const translations = {
     'about.contactButton': 'Start a project',
     'about.cvButton': 'Download Resume',
     
-    // Photography
-    'photography.title': 'Photography',
-    'photography.subtitle': 'A visual journey through my lens, capturing moments and stories in light and shadow.',
-    'photography.description': 'Capturing moments through the lens of creativity',
-    'photography.all': 'All',
-    'photography.nature': 'Nature',
-    'photography.portrait': 'Portrait',
-    'photography.street': 'Street',
-    'photography.architecture': 'Architecture',
-    'photography.viewGallery': 'View Full Gallery',
+    // Odyssey & Travel Blog
+    'odyssey.title': 'My Odyssey',
+    'odyssey.subtitle': 'Travel stories, adventures, and journey planning - exploring the world one destination at a time.',
+    'odyssey.description': 'Adventures, stories & planning for the wandering soul',
+    'odyssey.all': 'All Adventures',
+    'odyssey.nature': 'Nature',
+    'odyssey.portrait': 'People & Culture',
+    'odyssey.street': 'Urban Life',
+    'odyssey.architecture': 'Architecture',
+    'odyssey.viewGallery': 'Explore My Complete Journey',
+
+    'odyssey.comingSoon': 'My travel odyssey is currently under development. Come back soon to discover my adventures, stories, and journey planning insights from around the world.',
+    'odyssey.unavailableTitle': 'Page Unavailable',
+    // Blog sections
+    'odyssey.stories.title': 'Travel Stories',
+    'odyssey.stories.subtitle': 'Adventures and experiences from around the world',
+    'odyssey.planning.title': 'Journey Planning',
+    'odyssey.planning.subtitle': 'Tips, guides, and resources for your next adventure',
+    'odyssey.upcoming.title': 'Upcoming Adventures',
+    'odyssey.upcoming.subtitle': 'Dreams and plans for future journeys',
+    'odyssey.gallery.title': 'Visual Stories',
+    'odyssey.gallery.subtitle': 'Photos and videos from my travels',
+    
+    // Journey entries
+    'odyssey.readMore': 'Read More',
+    'odyssey.readLess': 'Read Less',
+    'odyssey.viewPhotos': 'View Photos',
+    'odyssey.watchVideo': 'Watch Video',
+    'odyssey.planningTips': 'Planning Tips',
+    'odyssey.duration': 'Duration',
+    'odyssey.budget': 'Budget',
+    'odyssey.highlights': 'Highlights',
+    'odyssey.lessons': 'Lessons Learned',
+    'odyssey.status.completed': 'Completed',
+    'odyssey.status.upcoming': 'Upcoming',
+    'odyssey.status.planning': 'Planning',
+    'odyssey.status.dreaming': 'Dreaming',
+    
+    // Planning tools
+    'odyssey.planning.budgetCalculator': 'Budget Calculator',
+    'odyssey.planning.packingList': 'Packing Lists',
+    'odyssey.planning.resources': 'Travel Resources',
+    'odyssey.planning.tips': 'Pro Tips',
     
     // Experience
     'experience.title': 'Experience',
@@ -262,6 +299,44 @@ const translations = {
     'experience.years': 'years',
     'experience.achievements': 'Key Achievements',
     'experience.technologies': 'Technologies',
+    
+    // Individual Jobs
+    'experience.jobs.cooptel.position': 'Tech support',
+    'experience.jobs.cooptel.company': 'Cooptel',
+    'experience.jobs.cooptel.location': 'Valcourt, QC',
+    'experience.jobs.cooptel.period': '2024 - Present',
+    'experience.jobs.cooptel.type': 'Part-time',
+    'experience.jobs.cooptel.description': 'Providing technical support and troubleshooting for residential and business customers. Assisting with internet, phone, and TV services, ensuring high customer satisfaction.',
+    
+    'experience.jobs.css.position': 'Full-Stack Developer',
+    'experience.jobs.css.company': 'Centre de service scolaire des Samares',
+    'experience.jobs.css.location': 'St-Félix-de-Valois, QC',
+    'experience.jobs.css.period': 'March 2024 - July 2024',
+    'experience.jobs.css.type': 'Full-time internship',
+    'experience.jobs.css.description': 'Developed and maintained web applications for administrative purposes.',
+    'experience.jobs.css.achievement1': 'Created an internal tool for management of student data',
+    'experience.jobs.css.achievement2': 'Participated in code reviews and contributed to team knowledge sharing',
+    'experience.jobs.css.achievement3': 'Developed and maintained RESTful APIs for data exchange between front-end and back-end systems',
+    
+    'experience.jobs.blanko.position': 'Backend Developer',
+    'experience.jobs.blanko.company': 'Blanko création numérique',
+    'experience.jobs.blanko.location': 'Joliette, QC',
+    'experience.jobs.blanko.period': 'summer 2023',
+    'experience.jobs.blanko.type': 'Full-time internship',
+    'experience.jobs.blanko.description': 'Worked on backend development for various city web applications and implemented dynamic features.',
+    'experience.jobs.blanko.achievement1': 'Implemented a dynamic form builder for city applications',
+    'experience.jobs.blanko.achievement2': 'Developed RESTful APIs for data management',
+    'experience.jobs.blanko.achievement3': 'Collaborated with front-end developers to integrate APIs with user interfaces',
+    
+    'experience.jobs.cgi.position': 'Developer',
+    'experience.jobs.cgi.company': 'CGI',
+    'experience.jobs.cgi.location': 'Sherbrooke, QC',
+    'experience.jobs.cgi.period': 'Summer 2025',
+    'experience.jobs.cgi.type': 'Full-time internship',
+    'experience.jobs.cgi.description': 'Developed and maintained web applications and created/maintained pipelines for CI/CD processes.',
+    'experience.jobs.cgi.achievement1': 'Developed a web application for internal use',
+    'experience.jobs.cgi.achievement2': 'Created CI/CD pipelines using GitLab CI',
+    'experience.jobs.cgi.achievement3': 'Collaborated with international cross-functional teams to deliver high-quality software solutions',
     
     // Contact
     'contact.title': 'Get In Touch',
@@ -309,7 +384,7 @@ const translations = {
     // Header
     'header.work': 'Travaux',
     'header.about': 'À propos',
-    'header.photography': 'Photographie',
+    'header.odyssey': 'Odyssée',
     'header.experience': 'Expérience',
     'header.contact': 'Contact',
     'header.cta': 'Discutons',
@@ -317,9 +392,13 @@ const translations = {
     // Common
     'common.backToHome': 'Retour à l\'Accueil',
     
+    // Pages
+    'pages.odyssey.title': 'Mon Odyssée',
+    'pages.odyssey.comingSoon': 'Mon odyssée de voyage est actuellement en développement. Revenez bientôt pour découvrir mes aventures, histoires et conseils de planification de voyage à travers le monde.',
+    
     // Unavailable Pages
     'unavailable.photography.title': 'Page Non Disponible',
-    'unavailable.photography.message': 'La section photographie est actuellement en cours de développement. Veuillez revenir plus tard pour découvrir mon travail photographique.',
+    'unavailable.photography.message': 'Mon odyssée de voyage est actuellement en développement. Revenez bientôt pour découvrir mes aventures, histoires et conseils de planification de voyage à travers le monde.',
     'unavailable.about.title': 'Page Non Disponible',
     'unavailable.about.message': 'La section à propos est actuellement en cours de développement. Veuillez revenir plus tard pour en savoir plus sur mon parcours et mon background.',
     
@@ -441,7 +520,7 @@ const translations = {
     'about.techStack.favorites': 'Mes préférées',
     'about.techStack.exploring': 'J\'explore actuellement',
     'about.personal.title': 'Côté personnel',
-    'about.personal.photography': 'Photographie',
+    'about.personal.photography': 'Voyage & Aventure',
     'about.personal.climbing': 'Escalade',
     'about.personal.motorcycle': 'Moto',
     'about.current.title': 'Ce sur quoi je travaille',
@@ -462,7 +541,7 @@ const translations = {
     'about.interests.tech.deployment': 'CI/CD et automatisation',
     'about.interests.tech.cloud': 'Infrastructure cloud et réseau',
     'about.interests.creative.title': 'Pursuits Créatifs',
-    'about.interests.creative.photography': 'Photographie et arts visuels',
+    'about.interests.creative.photography': 'Photographie de voyage et aventures',
     'about.interests.creative.art': 'Art numérique et design',
     'about.interests.creative.design': 'UI/UX et solutions créatives',
     'about.interests.outdoor.title': 'Activités Extérieures',
@@ -537,16 +616,50 @@ const translations = {
     'about.contactButton': 'Démarrer un projet',
     'about.cvButton': 'Télécharger CV',
     
-    // Photography
-    'photography.title': 'Photographie',
-    'photography.subtitle': 'Un voyage visuel à travers mon objectif, capturant des moments et des histoires en lumière et ombre.',
-    'photography.description': 'Capturer des moments à travers l\'objectif de la créativité',
-    'photography.all': 'Tout',
-    'photography.nature': 'Nature',
-    'photography.portrait': 'Portrait',
-    'photography.street': 'Rue',
-    'photography.architecture': 'Architecture',
-    'photography.viewGallery': 'Voir la Galerie Complète',
+    // Odyssée & Blog de Voyage
+    'odyssey.title': 'Mon Odyssée',
+    'odyssey.subtitle': 'Histoires de voyage, aventures et planification - explorer le monde une destination à la fois.',
+    'odyssey.description': 'Aventures, histoires & planification pour l\'âme voyageuse',
+    'odyssey.all': 'Toutes les Aventures',
+    'odyssey.nature': 'Nature',
+    'odyssey.portrait': 'Gens & Culture',
+    'odyssey.street': 'Vie Urbaine',
+    'odyssey.architecture': 'Architecture',
+    'odyssey.viewGallery': 'Explorer Mon Parcours Complet',
+
+    // Sections du blog
+    'odyssey.stories.title': 'Récits de Voyage',
+    'odyssey.stories.subtitle': 'Aventures et expériences aux quatre coins du monde',
+    'odyssey.planning.title': 'Planification de Voyage',
+    'odyssey.planning.subtitle': 'Conseils, guides et ressources pour votre prochaine aventure',
+    'odyssey.upcoming.title': 'Aventures à Venir',
+    'odyssey.upcoming.subtitle': 'Rêves et projets pour les futurs voyages',
+    'odyssey.gallery.title': 'Histoires Visuelles',
+    'odyssey.gallery.subtitle': 'Photos et vidéos de mes voyages',
+
+    'odyssey.comingSoon': 'Mon odyssée de voyage est actuellement en développement. Revenez bientôt pour découvrir mes aventures, histoires et conseils de planification de voyage à travers le monde.',
+    'odyssey.unavailableTitle': 'Page Non Disponible',
+    
+    // Entrées de voyage
+    'odyssey.readMore': 'Lire Plus',
+    'odyssey.readLess': 'Lire Moins',
+    'odyssey.viewPhotos': 'Voir Photos',
+    'odyssey.watchVideo': 'Regarder Vidéo',
+    'odyssey.planningTips': 'Conseils de Planification',
+    'odyssey.duration': 'Durée',
+    'odyssey.budget': 'Budget',
+    'odyssey.highlights': 'Points Forts',
+    'odyssey.lessons': 'Leçons Apprises',
+    'odyssey.status.completed': 'Terminé',
+    'odyssey.status.upcoming': 'À Venir',
+    'odyssey.status.planning': 'En Planification',
+    'odyssey.status.dreaming': 'En Rêve',
+    
+    // Outils de planification
+    'odyssey.planning.budgetCalculator': 'Calculateur de Budget',
+    'odyssey.planning.packingList': 'Listes de Bagages',
+    'odyssey.planning.resources': 'Ressources de Voyage',
+    'odyssey.planning.tips': 'Conseils Pro',
     
     // Experience
     'experience.title': 'Expérience',
@@ -556,6 +669,44 @@ const translations = {
     'experience.years': 'ans',
     'experience.achievements': 'Réalisations Clés',
     'experience.technologies': 'Technologies',
+    
+    // Individual Jobs
+    'experience.jobs.cooptel.position': 'Support technique',
+    'experience.jobs.cooptel.company': 'Cooptel',
+    'experience.jobs.cooptel.location': 'Valcourt, QC',
+    'experience.jobs.cooptel.period': '2024 - Présent',
+    'experience.jobs.cooptel.type': 'Temps partiel',
+    'experience.jobs.cooptel.description': 'Service de support technique et dépannage pour les clients résidentiels et commerciaux. Assistance avec les services internet, téléphone et télévision, assurant une satisfaction client.',
+    
+    'experience.jobs.css.position': 'Développeur Full-Stack',
+    'experience.jobs.css.company': 'Centre de service scolaire des Samares',
+    'experience.jobs.css.location': 'St-Félix-de-Valois, QC',
+    'experience.jobs.css.period': 'Mars 2024 - Juillet 2024',
+    'experience.jobs.css.type': 'Stage temps plein',
+    'experience.jobs.css.description': 'Développement et maintenance d\'applications web à des fins administratives.',
+    'experience.jobs.css.achievement1': 'Création d\'un outil interne pour la gestion des données étudiantes',
+    'experience.jobs.css.achievement2': 'Participation aux révisions de code et contribution au partage de connaissances d\'équipe',
+    'experience.jobs.css.achievement3': 'Développement et maintenance d\'APIs RESTful pour l\'échange de données entre systèmes front-end et back-end',
+    
+    'experience.jobs.blanko.position': 'Développeur Backend',
+    'experience.jobs.blanko.company': 'Blanko création numérique',
+    'experience.jobs.blanko.location': 'Joliette, QC',
+    'experience.jobs.blanko.period': 'été 2023',
+    'experience.jobs.blanko.type': 'Stage temps plein',
+    'experience.jobs.blanko.description': 'Travail sur le développement backend pour diverses applications web municipales et implémentation de fonctionnalités dynamiques.',
+    'experience.jobs.blanko.achievement1': 'Implémentation d\'un générateur de formulaires dynamiques pour les applications municipales',
+    'experience.jobs.blanko.achievement2': 'Développement d\'APIs RESTful pour la gestion de données',
+    'experience.jobs.blanko.achievement3': 'Collaboration avec les développeurs front-end pour intégrer les APIs avec les interfaces utilisateur',
+    
+    'experience.jobs.cgi.position': 'Développeur',
+    'experience.jobs.cgi.company': 'CGI',
+    'experience.jobs.cgi.location': 'Sherbrooke, QC',
+    'experience.jobs.cgi.period': 'Été 2025',
+    'experience.jobs.cgi.type': 'Stage temps plein',
+    'experience.jobs.cgi.description': 'Développement et maintenance d\'applications web et création/maintenance de pipelines pour les processus CI/CD.',
+    'experience.jobs.cgi.achievement1': 'Développement d\'une application web pour usage interne',
+    'experience.jobs.cgi.achievement2': 'Création de pipelines CI/CD utilisant GitLab CI',
+    'experience.jobs.cgi.achievement3': 'Collaboration avec des équipes interfonctionnelles internationales pour livrer des solutions logicielles de haute qualité',
     
     // Contact
     'contact.title': 'Contactez-moi',
