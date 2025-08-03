@@ -421,7 +421,11 @@ $bordeaux-hover: #c49660;
     outline: none;
     border-color: $bordeaux;
     box-shadow: 0 0 0 3px rgba($bordeaux, 0.1);
-    background: white;
+    background: rgba($dark-text, 0.05);
+    
+    [data-theme="light"] & {
+      background: rgba(white, 0.85);
+    }
   }
   
   &::placeholder {
