@@ -21,9 +21,7 @@ export default function LanguageToggle() {
         <span className={styles.currentLanguage}>
           {language.toUpperCase()}
         </span>
-        <span className={styles.languageIcon}>
-          {language === 'en' ? '🇫🇷' : 'en'}
-        </span>
+      
       </div>
     </button>
   );

@@ -2,31 +2,17 @@ import { useEffect } from 'react';
 
 export const useLeafEcosystem = () => {
   useEffect(() => {
+    const leafClusters = Array.from(document.querySelectorAll('.leafCluster')) as HTMLElement[];
+    if (!leafClusters.length) return;
 
+    const STAGGER = 300; // ms between clusters
+    const RANDOM_RANGE = 1500; // ms random additional delay
 
-    
-    const updateSubtleAnimation = () => {
-      const leafClusters = document.querySelectorAll('.leafCluster');
-      leafClusters.forEach((cluster, index) => {
-        const element = cluster as HTMLElement;
-        if (element) {
+    leafClusters.forEach((element, index) => {
+      const delay = index * STAGGER + Math.floor(Math.random() * RANDOM_RANGE);
+      element.style.animationDelay = `${delay}ms`;
+    });
 
-          const baseDelay = index * 1000;
-          const randomDelay = Math.random() * 2000;
-          
-          setTimeout(() => {
-            element.style.animationDelay = `${randomDelay}ms`;
-          }, baseDelay);
-        }
-      });
-    };
-
-
-    updateSubtleAnimation();
-
-
-    return () => {
-
-    };
+    // no timers to clear; keep effect lightweight
   }, []);
 };

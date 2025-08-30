@@ -57,16 +57,16 @@ export function useStaggeredAnimation(itemCount: number, delay: number = 100) {
   useEffect(() => {
     const element = elementRef.current;
     if (!element) return;
-
+    const timers: number[] = [];
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-
-          Array.from({ length: itemCount }, (_, index) => {
-            setTimeout(() => {
-              setVisibleItems(prev => new Set([...prev, index]));
+          for (let index = 0; index < itemCount; index++) {
+            const t = window.setTimeout(() => {
+              setVisibleItems(prev => new Set(prev).add(index));
             }, index * delay);
-          });
+            timers.push(t);
+          }
           observer.unobserve(element);
         }
       },
@@ -74,7 +74,10 @@ export function useStaggeredAnimation(itemCount: number, delay: number = 100) {
     );
 
     observer.observe(element);
-    return () => observer.unobserve(element);
+    return () => {
+      observer.unobserve(element);
+      timers.forEach(t => clearTimeout(t));
+    };
   }, [itemCount, delay]);
 
   return { elementRef, visibleItems };
