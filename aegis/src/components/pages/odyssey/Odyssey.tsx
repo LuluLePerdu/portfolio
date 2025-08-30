@@ -28,11 +28,13 @@ export default function Odyssey() {
   const open = (i: number) => setIndex(i);
   const close = () => setIndex(null);
   const next = (e?: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
-    if (e && typeof (e as any).stopPropagation === 'function') (e as any).stopPropagation();
+    const evt = e as { stopPropagation?: () => void } | undefined;
+    if (evt && typeof evt.stopPropagation === 'function') evt.stopPropagation();
     setIndex((prev) => (prev === null ? null : (prev + 1) % IMAGES.length));
   };
   const prev = (e?: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
-    if (e && typeof (e as any).stopPropagation === 'function') (e as any).stopPropagation();
+    const evt = e as { stopPropagation?: () => void } | undefined;
+    if (evt && typeof evt.stopPropagation === 'function') evt.stopPropagation();
     setIndex((prev) => (prev === null ? null : (prev - 1 + IMAGES.length) % IMAGES.length));
   };
 
