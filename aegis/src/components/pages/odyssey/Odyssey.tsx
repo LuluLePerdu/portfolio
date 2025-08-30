@@ -27,15 +27,13 @@ export default function Odyssey() {
 
   const open = (i: number) => setIndex(i);
   const close = () => setIndex(null);
-  const next = (e?: any) => {
-    if (e?.stopPropagation) e.stopPropagation();
-    if (index === null) return;
-    setIndex((index + 1) % IMAGES.length);
+  const next = (e?: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
+    if (e && typeof (e as any).stopPropagation === 'function') (e as any).stopPropagation();
+    setIndex((prev) => (prev === null ? null : (prev + 1) % IMAGES.length));
   };
-  const prev = (e?: any) => {
-    if (e?.stopPropagation) e.stopPropagation();
-    if (index === null) return;
-    setIndex((index - 1 + IMAGES.length) % IMAGES.length);
+  const prev = (e?: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
+    if (e && typeof (e as any).stopPropagation === 'function') (e as any).stopPropagation();
+    setIndex((prev) => (prev === null ? null : (prev - 1 + IMAGES.length) % IMAGES.length));
   };
 
   useEffect(() => {
@@ -49,10 +47,16 @@ export default function Odyssey() {
     }
 
     const onKey = (ev: KeyboardEvent) => {
-      if (index === null) return;
-      if (ev.key === 'Escape') close();
-      if (ev.key === 'ArrowRight') next(ev);
-      if (ev.key === 'ArrowLeft') prev(ev);
+      if (ev.key === 'Escape') {
+        close();
+        return;
+      }
+      if (ev.key === 'ArrowRight') {
+        setIndex((prev) => (prev === null ? prev : (prev + 1) % IMAGES.length));
+      }
+      if (ev.key === 'ArrowLeft') {
+        setIndex((prev) => (prev === null ? prev : (prev - 1 + IMAGES.length) % IMAGES.length));
+      }
     };
 
     window.addEventListener('keydown', onKey);
