@@ -2,7 +2,7 @@
 @use 'sass:color';
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
 
-// Page About - Design Moderne avec Écosystème de Feuilles Interactif
+
 .about {
   background: linear-gradient(135deg, 
     #F7F5F3 0%, 
@@ -22,7 +22,7 @@
     );
   }
   
-  // Créer des zones de feuilles flottantes
+
   &::before,
   &::after {
     content: '';
@@ -31,7 +31,7 @@
     z-index: 1;
   }
   
-  // Zone gauche - rivière de feuilles
+
   &::before {
     top: 0;
     left: -5%;
@@ -47,7 +47,7 @@
     transform: skew(-2deg);
   }
   
-  // Zone droite - cascade de feuilles
+
   &::after {
     top: 0;
     right: -3%;
@@ -64,7 +64,7 @@
   }
 }
 
-// Système d'Arrière-plan Subtil de Feuilles
+
 .leafEcosystem {
   position: absolute;
   top: 0;
@@ -108,7 +108,7 @@
   pointer-events: none;
   z-index: 5; // Au-dessus de tout
   
-  // Cluster 1 - Coin supérieur gauche (statique)
+
   &.cornerTopLeft {
     top: 5%;
     left: 1%;
@@ -128,7 +128,7 @@
     }
   }
   
-  // Cluster 2 - Coin supérieur droit (statique)
+
   &.cornerTopRight {
     top: 8%;
     right: 2%;
@@ -149,7 +149,7 @@
     }
   }
   
-  // Cluster 3 - Coin inférieur gauche (statique)
+
   &.cornerBottomLeft {
     bottom: 8%;
     left: 3%;
@@ -169,7 +169,7 @@
     }
   }
   
-  // Cluster 4 - Coin inférieur droit (statique)
+
   &.cornerBottomRight {
     bottom: 5%;
     right: 1%;
@@ -217,7 +217,7 @@
       inset 0 1px 2px rgba(255, 255, 255, 0.1);
   }
   
-  // Variantes de tailles
+
   &.small {
     width: 12px;
     height: 18px;
@@ -237,7 +237,7 @@
   }
 }
 
-// Animations Subtiles et Dynamiques
+
 @keyframes subtleFloat {
   0%, 100% { 
     opacity: 0.5;
@@ -291,7 +291,7 @@
   }
 }
 
-// Card de base - Design Moderne
+
 .card {
   background: rgba(253, 252, 250, 0.85);
   border-radius: 20px;
@@ -354,7 +354,7 @@
   }
 }
 
-// Layout en Bento Box - Plus Large
+
 .bentoGrid {
   display: grid;
   grid-template-columns: 1.2fr 2fr 2fr;
@@ -392,7 +392,7 @@
   }
 }
 
-// Intro principale - Plus de contenu
+
 .intro {
   grid-area: intro;
   padding: 3.5rem;
@@ -463,7 +463,7 @@
       color: #ADB5BD;
     }
     
-    // Highlights colorés dans la description
+
     :global(.highlight-cloud) {
       color: #6B8B3A;
       font-weight: 600;
@@ -653,7 +653,7 @@
   }
 }
 
-// Profile card
+
 .profile {
   grid-area: profile;
   padding: 2rem;
@@ -874,7 +874,7 @@
   }
 }
 
-// Skills card - Design moderne et équilibré
+
 .skills {
   grid-area: skills;
   padding: 2rem;
@@ -960,7 +960,7 @@
   }
 }
 
-// Technologies card - Style cohérent avec les passions
+
 .technologies {
   grid-area: technologies;
   padding: 2rem;
@@ -1046,7 +1046,7 @@
   }
 }
 
-// Journey card
+
 .journey {
   grid-area: journey;
   padding: 2.5rem;
@@ -1111,7 +1111,7 @@
   }
 }
 
-// Interests card
+
 .interests {
   grid-area: interests;
   padding: 2rem;
@@ -1197,7 +1197,7 @@
   }
 }
 
-// Contact card
+
 .contact {
   grid-area: contact;
   padding: 2.5rem;
@@ -1295,7 +1295,7 @@
   50% { opacity: 0.5; }
 }
 
-// Responsive adjustments
+
 @media (max-width: 768px) {
   .about {
     padding: 80px 0 40px;

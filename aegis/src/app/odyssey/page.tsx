@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Portfolio } from "@/components/pages";
+import { Odyssey, Portfolio } from "@/components/pages";
 import { PageLayout } from "@/components/layout";
 import { UnavailablePage } from "@/components";
 
@@ -18,7 +18,7 @@ export default function WorkPage() {
       titleKey="odyssey.title"
       descriptionKey="odyssey.subtitle"
     >
-      <UnavailablePage titleKey="odyssey.unavailableTitle" messageKey="odyssey.comingSoon" />
+      <Odyssey />
     </PageLayout>
   );
 }

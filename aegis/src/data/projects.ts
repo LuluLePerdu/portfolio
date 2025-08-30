@@ -30,14 +30,14 @@ export interface Technology {
 }
 
 export const technologies: Record<string, Technology> = {
-  // Languages
+
   typescript: { name: 'TypeScript', category: 'language', color: '#3178C6' },
   javascript: { name: 'JavaScript', category: 'language', color: '#F7DF1E' },
   dart: { name: 'Dart', category: 'language', color: '#0175C2' },
   go: { name: 'Go', category: 'language', color: '#00ADD8' },
   python: { name: 'Python', category: 'language', color: '#3776AB' },
   
-  // Frontend
+
   react: { name: 'React', category: 'frontend', color: '#61DAFB' },
   nextjs: { name: 'Next.js', category: 'frontend', color: '#000000' },
   flutter: { name: 'Flutter', category: 'mobile', color: '#02569B' },
@@ -45,13 +45,13 @@ export const technologies: Record<string, Technology> = {
   html5: { name: 'HTML5', category: 'frontend', color: '#E34F26' },
   css3: { name: 'CSS3', category: 'frontend', color: '#1572B6' },
   
-  // Backend & APIs
+
   nodejs: { name: 'Node.js', category: 'backend', color: '#339933' },
   express: { name: 'Express.js', category: 'backend', color: '#000000' },
   restapi: { name: 'REST API', category: 'backend', color: '#FF6B35' },
   websockets: { name: 'WebSockets', category: 'backend', color: '#010101' },
   
-  // Infrastructure & DevOps
+
   proxmox: { name: 'Proxmox', category: 'devops', color: '#E57000' },
   docker: { name: 'Docker', category: 'devops', color: '#2496ED' },
   kubernetes: { name: 'Kubernetes', category: 'devops', color: '#326CE5' },
@@ -59,16 +59,16 @@ export const technologies: Record<string, Technology> = {
   nginx: { name: 'Nginx', category: 'devops', color: '#009639' },
   git: { name: 'Git', category: 'tool', color: '#F05032' },
   
-  // Cloud & Hosting
+
   vercel: { name: 'Vercel', category: 'devops', color: '#000000' },
   digitalocean: { name: 'DigitalOcean', category: 'devops', color: '#0080FF' },
   
-  // Databases
+
   postgresql: { name: 'PostgreSQL', category: 'database', color: '#336791' },
   mongodb: { name: 'MongoDB', category: 'database', color: '#47A248' },
   redis: { name: 'Redis', category: 'database', color: '#DC382D' },
   
-  // Tools
+
   vscode: { name: 'VS Code', category: 'tool', color: '#007ACC' },
   figma: { name: 'Figma', category: 'tool', color: '#F24E1E' },
   postman: { name: 'Postman', category: 'tool', color: '#FF6C37' },

@@ -19,7 +19,7 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: background-color, border-color, box-shadow;
 
-  // Styles pour quand un modal est ouvert
+
   &.modalOpen {
     z-index: 100 !important; // Bien plus bas que le modal (z-index: 2000)
     opacity: 0.3; // Grise le header pour attirer l'attention sur le modal
@@ -27,13 +27,13 @@
     backdrop-filter: blur(25px) saturate(200%);
     border-bottom: 1px solid rgba(168, 155, 140, 0.3);
     
-    // Réduire visuellement l'interactivité mais garder la fonctionnalité
+
     .themeToggle, .languageToggle, .ctaButton {
       opacity: 0.5;
-      // IMPORTANT: Ne jamais utiliser pointer-events: none ici
+
     }
     
-    // Le bouton menu mobile reste prioritaire 
+
     .mobileMenuBtn {
       opacity: 1 !important;
       filter: none !important;
@@ -41,7 +41,7 @@
       z-index: 1002; // Au-dessus de tout dans le header
     }
 
-    // Mode sombre quand modal ouvert
+
     [data-theme="dark"] & {
       background: linear-gradient(135deg,
         rgba($dark-bg, 0.98) 0%,
@@ -325,7 +325,7 @@
   cursor: pointer;
   color: #2F3E46;
   transition: background-color 0.2s ease, border-color 0.2s ease;
-  // Améliorer les interactions tactiles
+
   touch-action: manipulation;
   -webkit-tap-highlight-color: rgba(139, 125, 107, 0.3);
   min-height: 44px; // Taille minimale recommandée pour les éléments tactiles
@@ -353,7 +353,7 @@
     }
   }
   
-  // Spécifiquement pour mobile, améliorer la réactivité
+
   @media (max-width: 768px) {
     &:active {
       background: rgba(139, 125, 107, 0.2);
@@ -367,14 +367,14 @@
     }
   }
   
-  // Améliorer la zone tactile sur mobile
+
   @media (max-width: 768px) {
     display: block;
     padding: 1rem;
     min-height: 48px;
     min-width: 48px;
     
-    // Animation plus visible pour mobile
+
     &:active {
       background: rgba(139, 125, 107, 0.2);
       border-color: rgba(139, 125, 107, 0.5);
@@ -387,7 +387,7 @@
       }
     }
     
-    // Feedback visuel plus fort pour mobile
+
     &:focus {
       outline: 3px solid rgba(139, 125, 107, 0.5);
       outline-offset: 2px;
@@ -397,7 +397,7 @@
       }
     }
     
-    // Forcer l'affichage sur mobile même en cas de conflits
+
     display: block !important;
     pointer-events: auto !important;
   }
@@ -480,7 +480,7 @@
   border: 1px solid rgba(168, 155, 140, 0.3);
   text-align: center;
   will-change: transform;
-  // Améliorer les interactions tactiles
+
   touch-action: manipulation;
   -webkit-tap-highlight-color: rgba(139, 125, 107, 0.3);
   min-height: 48px;
@@ -550,7 +550,7 @@
   }
 }
 
-/* Responsive */
+
 @media (max-width: 1024px) {
   .headerContainer {
     padding: 0 1.5rem;

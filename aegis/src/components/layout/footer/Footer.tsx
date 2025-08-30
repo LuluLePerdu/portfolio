@@ -15,7 +15,7 @@ export default function Footer() {
       <div className={styles.footerContainer}>
         <div className={styles.footerContent}>
           
-          {/* Section principale avec citation mythologique */}
+          {}
           <div className={styles.footerMain}>
             <div className={styles.brand}>
               <h3 className={styles.brandTitle}>Aegis</h3>
@@ -27,7 +27,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Liens sociaux avec style naturel */}
+          {}
           <div className={styles.socialSection}>
             <span className={styles.socialLabel}>{t('footer.connect')}</span>
             <div className={styles.socialLinks}>
@@ -59,7 +59,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Copyright avec style grec */}
+          {}
           <div className={styles.footerBottom}>
             <div className={styles.divider}></div>
             <p className={styles.copyright}>

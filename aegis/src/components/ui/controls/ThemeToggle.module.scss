@@ -16,7 +16,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 4px rgba($dark-accent, 0.1);
-  // Améliorer les interactions tactiles
+
   touch-action: manipulation;
   -webkit-tap-highlight-color: rgba($dark-accent, 0.3);
   min-height: 44px;
@@ -42,7 +42,7 @@
     box-shadow: 0 1px 2px rgba($dark-accent, 0.2);
   }
   
-  // Forcer l'interactivité sur mobile
+
   @media (max-width: 768px) {
     pointer-events: auto !important;
     opacity: 1 !important;
@@ -93,24 +93,24 @@
   }
 }
 
-// Mobile styles
+
 @media (max-width: 768px) {
   .themeToggle {
     height: 44px;
     padding: 0.6rem;
     min-height: 48px;
     min-width: 48px;
-    // Meilleure visibilité sur mobile
+
     border-width: 3px;
     
-    // Améliorer la réactivité tactile
+
     &:active {
       transform: scale(0.95);
       background: rgba($dark-accent, 0.25);
       border-color: rgba($dark-accent, 0.6);
     }
     
-    // Éviter les problèmes de hover sur mobile
+
     &:hover:not(:active) {
       transform: none;
     }
@@ -131,7 +131,7 @@
   }
 }
 
-// Dark mode support
+
 [data-theme="dark"] {
   .themeToggle {
     background: rgba($dark-accent, 0.15);

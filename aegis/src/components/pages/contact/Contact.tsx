@@ -32,7 +32,7 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Afficher le modal d'information au lieu d'envoyer
+
     setIsModalOpen(true);
   };
 
@@ -42,7 +42,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className={styles.contact}>
-      {/* Couches de texture décorative */}
+      {}
       <div className={styles.textureLayer}></div>
       <div className={styles.accentLayer}></div>
       

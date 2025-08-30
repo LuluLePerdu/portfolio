@@ -1,4 +1,4 @@
-// Animations réutilisables
+
 
 @keyframes fadeInUp {
   from {
@@ -60,7 +60,7 @@
   }
 }
 
-// Utilitaires d'animation
+
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out;
 }
@@ -81,7 +81,7 @@
   animation: float 3s ease-in-out infinite;
 }
 
-// Animation au scroll
+
 .scroll-animate {
   opacity: 0;
   transform: translateY(20px);

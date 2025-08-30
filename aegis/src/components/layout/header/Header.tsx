@@ -32,7 +32,7 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Surveiller l'ouverture/fermeture des modals
+
   useEffect(() => {
     const checkModalState = () => {
       const hasModalOpen = document.body.classList.contains('modal-open');
@@ -40,7 +40,7 @@ export default function Header() {
       setIsModalOpen(hasModalOpen);
     };
 
-    // Nettoyage initial forcé au cas où
+
     if (!document.body.classList.contains('modal-open')) {
       document.body.style.overflow = 'unset';
       setIsModalOpen(false);
@@ -53,7 +53,7 @@ export default function Header() {
       attributeFilter: ['class'] 
     });
 
-    // Vérification initiale avec un délai pour s'assurer que la page est chargée
+
     setTimeout(() => {
       checkModalState();
     }, 100);
@@ -75,7 +75,7 @@ export default function Header() {
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''} ${isModalOpen ? styles.modalOpen : ''}`}>      
       <div className={styles.headerContainer}>
         <div className={styles.headerContent}>
-          {/* Logo portfolio professionnel */}
+          {}
           <div className={styles.logo}>
             <div className={styles.logoIcon}>
               <span className={styles.initials}>LD</span>
@@ -88,7 +88,7 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Navigation portfolio */}
+          {}
           <nav className={styles.nav}>
             {navLinks.map((link) => (
               <Link
@@ -102,7 +102,7 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Call to action */}
+          {}
           <div className={styles.headerActions}>
             <LanguageToggle />
             <ThemeToggle />
@@ -111,7 +111,7 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Mobile menu button */}
+          {}
           <button 
             className={styles.mobileMenuBtn}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -128,7 +128,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Menu mobile overlay */}
+      {}
       {isMobileMenuOpen && (
         <div className={styles.mobileMenu}>
           <nav className={styles.mobileNav}>
@@ -144,7 +144,7 @@ export default function Header() {
             ))}
           </nav>
           
-          {/* Contrôles mobiles pour langue et thème */}
+          {}
           <div className={styles.mobileControls}>
             <LanguageToggle />
             <ThemeToggle />

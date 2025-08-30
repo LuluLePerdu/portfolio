@@ -7,10 +7,10 @@ import styles from './About.module.scss';
 const About = () => {
   const { language, t } = useLanguage();
   
-  // Hook pour l'écosystème de feuilles interactives
+
   useLeafEcosystem();
 
-  // Données dynamiques basées sur les traductions
+
   const skills = [
     { name: t('about.skills.webdev.name'), level: t('about.skills.webdev.level') },
     { name: t('about.skills.architecture.name'), level: t('about.skills.architecture.level') },
@@ -18,7 +18,7 @@ const About = () => {
     { name: t('about.skills.networking.name'), level: t('about.skills.networking.level') }
   ];
 
-  // Technologies organisées par type
+
   const techByType = [
     {
       type: t('about.tech.frontend.title'),
@@ -95,27 +95,27 @@ const About = () => {
 
   return (
     <div className={styles.about}>
-      {/* Feuilles d'arrière-plan subtiles dans les coins */}
+      {}
       <div className={styles.leafEcosystem}>
-        {/* Coin supérieur gauche */}
+        {}
         <div className={`${styles.leafCluster} ${styles.cornerTopLeft}`}>
           <div className={`${styles.leafMicro} ${styles.small}`}></div>
           <div className={`${styles.leafMicro} ${styles.medium}`}></div>
         </div>
         
-        {/* Coin supérieur droit */}
+        {}
         <div className={`${styles.leafCluster} ${styles.cornerTopRight}`}>
           <div className={`${styles.leafMicro} ${styles.medium}`}></div>
           <div className={`${styles.leafMicro} ${styles.small}`}></div>
         </div>
         
-        {/* Coin inférieur gauche */}
+        {}
         <div className={`${styles.leafCluster} ${styles.cornerBottomLeft}`}>
           <div className={`${styles.leafMicro} ${styles.large}`}></div>
           <div className={`${styles.leafMicro} ${styles.medium}`}></div>
         </div>
         
-        {/* Coin inférieur droit */}
+        {}
         <div className={`${styles.leafCluster} ${styles.cornerBottomRight}`}>
           <div className={`${styles.leafMicro} ${styles.medium}`}></div>
           <div className={`${styles.leafMicro} ${styles.small}`}></div>
@@ -125,7 +125,7 @@ const About = () => {
       <div className={styles.container}>
         <div className={styles.bentoGrid}>
           
-          {/* Introduction principale */}
+          {}
           <div className={`${styles.card} ${styles.intro}`}>
             <div className={styles.greeting}>{t('about.greeting')}</div>
             <h1 className={styles.name}>
@@ -157,7 +157,7 @@ const About = () => {
             </a>
           </div>
 
-          {/* Profile */}
+          {}
           <div className={`${styles.card} ${styles.profile}`}>
             <div className={styles.avatar}>
               <img 
@@ -198,7 +198,7 @@ const About = () => {
             </div>
           </div>
 
-          {/* Compétences principales */}
+          {}
           <div className={`${styles.card} ${styles.skills}`}>
             <h3>{t('about.skillsTitle')}</h3>
             <div className={styles.skillsList}>
@@ -211,7 +211,7 @@ const About = () => {
             </div>
           </div>
 
-          {/* Technologies organisées par type */}
+          {}
           <div className={`${styles.card} ${styles.technologies}`}>
             <h3>{language === 'fr' ? 'Technologies' : 'Technologies'}</h3>
             <div className={styles.techFlow}>
@@ -228,7 +228,7 @@ const About = () => {
             </div>
           </div>
 
-          {/* Parcours - Redirection vers Expérience */}
+          {}
           <div className={`${styles.card} ${styles.journey}`}>
             <h3>{t('about.journeyTitle')}</h3>
             <div className={styles.redirectMessage}>
@@ -239,7 +239,7 @@ const About = () => {
             </div>
           </div>
 
-          {/* Passions */}
+          {}
           <div className={`${styles.card} ${styles.interests}`}>
             <h3>{t('about.interests.title')}</h3>
             <div className={styles.interestsList}>
@@ -256,7 +256,7 @@ const About = () => {
             </div>
           </div>
 
-          {/* Contact */}
+          {}
           <div className={`${styles.card} ${styles.contact}`}>
             <h3>{t('about.contactTitle')}</h3>
             <p className={styles.message}>{t('about.contactMessage')}</p>

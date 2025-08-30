@@ -12,7 +12,7 @@ interface LanguageContextType {
 
 const translations = {
   en: {
-    // Header
+
     'header.work': 'Work',
     'header.about': 'About',
     'header.odyssey': 'Odyssey',
@@ -20,27 +20,27 @@ const translations = {
     'header.contact': 'Contact',
     'header.cta': "Let's Talk",
     
-    // Common
+
     'common.backToHome': 'Back to Home',
     
-    // Pages
+
     'pages.odyssey.title': 'My Odyssey',
     'pages.odyssey.comingSoon': 'My travel odyssey is currently under development. Come back soon to discover my adventures, stories, and journey planning insights from around the world.',
     
-    // Unavailable Pages
+
     'unavailable.photography.title': 'Page Unavailable',
     'unavailable.photography.message': 'My travel odyssey is currently under development. Come back soon to discover my adventures, stories, and journey planning insights from around the world.',
     'unavailable.about.title': 'Page Unavailable',
     'unavailable.about.message': 'The about section is currently under development. Please check back later to learn more about my journey and background.',
     
-    // Home
+
     'home.welcome': 'Welcome to',
     'home.project': 'Project',
-    'home.subtitle': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    'home.subtitle': 'My personal project in development',
     'home.viewWork': 'View My Work',
     'home.learnMore': 'Learn More About Me',
     
-    // Work
+
     'work.title': 'My Projects',
     'work.subtitle': 'A curated selection of academic and personal projects showcasing innovation, problem-solving, and technical excellence.',
     'work.construction': 'Portfolio Under Construction',
@@ -49,7 +49,7 @@ const translations = {
     'work.technologiesUsed': 'Technologies Used',
     'work.yearsExperience': 'Years Experience',
     
-    // Project Categories
+
     'work.categories.all': 'All Projects',
     'work.categories.academic': 'Academic',
     'work.categories.personal': 'Personal',
@@ -58,12 +58,12 @@ const translations = {
     'work.categories.mobile': 'Mobile',
     'work.categories.backend': 'Backend',
     
-    // Project Status
+
     'work.status.completed': 'Completed',
     'work.status.inProgress': 'In Progress',
     'work.status.planned': 'Planned',
     
-    // Project Actions
+
     'work.viewProject': 'View Project',
     'work.viewCode': 'View Code',
     'work.viewDemo': 'Live Demo',
@@ -74,7 +74,7 @@ const translations = {
     'work.showMore': 'Show More',
     'work.showLess': 'Show Less',
     
-    // Project Details
+
     'work.challenge': 'Challenge',
     'work.solution': 'Solution',
     'work.technologies': 'Technologies',
@@ -83,7 +83,7 @@ const translations = {
     'work.role': 'My Role',
     'work.highlights': 'Key Highlights',
     
-    // Project Details for existing structure
+
     'work.project.viewDetails': 'View Details',
     'work.project.viewCode': 'View Code',
     'work.project.liveDemo': 'Live Demo',
@@ -101,7 +101,7 @@ const translations = {
     'work.project.architecture': 'Architecture',
     'work.project.features': 'Key Features',
     
-    // Specific Projects
+
     'work.projects.robotDrawing.title': 'Robot Drawing App',
     'work.projects.robotDrawing.description': 'Mobile application in Flutter allowing users to create drawings and transfer them to a robot for physical reproduction.',
     'work.projects.robotDrawing.challenge': 'Integrating mobile UI with robotic hardware communication',
@@ -122,12 +122,12 @@ const translations = {
     'work.projects.homelab.challenge': 'Managing complex virtualized infrastructure and service orchestration',
     'work.projects.homelab.achievement': 'Built scalable home infrastructure supporting multiple concurrent projects',
     
-    // Work in Progress
+
     'work.wip.title': 'Work in Progress',
     'work.wip.subtitle': 'Current projects and exciting developments',
     'work.wip.description': 'Always working on something new and exciting!',
     
-    // About
+
     'about.title': 'About',
     'about.subtitle': 'Learn more about my journey, skills, and passion for creating digital experiences.',
     'about.greeting': 'Hi! I\'m',
@@ -187,7 +187,7 @@ const translations = {
     'about.cta.contact': 'Get In Touch',
     'about.cta.downloadCV': 'Download CV',
     
-    // About - Extended translations for About page
+
     'about.name': 'Ludwig-Emmanuel',
     'about.surname': 'Dufour',
     'about.role': 'Computer Engineering Student & Full Stack Developer',
@@ -223,20 +223,20 @@ const translations = {
     'about.achievements.network.text': 'Continuous Learning',
     'about.achievements.network.desc': 'Exploring new technologies',
     'about.skills.webdev.name': 'Web Development',
-    'about.skills.webdev.level': 'Expert',
+    'about.skills.webdev.level': '4 years',
     'about.skills.architecture.name': 'System Architecture',
-    'about.skills.architecture.level': 'Advanced',
+    'about.skills.architecture.level': '3 years',
     'about.skills.devops.name': 'DevOps & Automation',
-    'about.skills.devops.level': 'Advanced',
+    'about.skills.devops.level': '1 year',
     'about.skills.networking.name': 'Network Engineering',
-    'about.skills.networking.level': 'Intermediate',
+    'about.skills.networking.level': '2 years',
     'about.categories.cloud.name': 'Cloud & Infrastructure',
     'about.categories.frontend.name': 'Frontend',
     'about.categories.backend.name': 'Backend & Networks',
     'about.categories.database.name': 'Databases',
     'about.categories.mobile.name': 'Mobile & Others',
     
-    // Technology categories for About page
+
     'about.tech.frontend.title': 'Frontend Development',
     'about.tech.backend.title': 'Backend Languages', 
     'about.tech.frameworks.title': 'Web Frameworks',
@@ -247,7 +247,7 @@ const translations = {
     'about.contactButton': 'Start a project',
     'about.cvButton': 'Download Resume',
     
-    // Odyssey & Travel Blog
+
     'odyssey.title': 'My Odyssey',
     'odyssey.subtitle': 'Travel stories, adventures, and journey planning - exploring the world one destination at a time.',
     'odyssey.description': 'Adventures, stories & planning for the wandering soul',
@@ -260,7 +260,7 @@ const translations = {
 
     'odyssey.comingSoon': 'My travel odyssey is currently under development. Come back soon to discover my adventures, stories, and journey planning insights from around the world.',
     'odyssey.unavailableTitle': 'Page Unavailable',
-    // Blog sections
+
     'odyssey.stories.title': 'Travel Stories',
     'odyssey.stories.subtitle': 'Adventures and experiences from around the world',
     'odyssey.planning.title': 'Journey Planning',
@@ -270,7 +270,7 @@ const translations = {
     'odyssey.gallery.title': 'Visual Stories',
     'odyssey.gallery.subtitle': 'Photos and videos from my travels',
     
-    // Journey entries
+
     'odyssey.readMore': 'Read More',
     'odyssey.readLess': 'Read Less',
     'odyssey.viewPhotos': 'View Photos',
@@ -285,13 +285,13 @@ const translations = {
     'odyssey.status.planning': 'Planning',
     'odyssey.status.dreaming': 'Dreaming',
     
-    // Planning tools
+
     'odyssey.planning.budgetCalculator': 'Budget Calculator',
     'odyssey.planning.packingList': 'Packing Lists',
     'odyssey.planning.resources': 'Travel Resources',
     'odyssey.planning.tips': 'Pro Tips',
     
-    // Experience
+
     'experience.title': 'Experience',
     'experience.subtitle': 'My professional journey and milestones in technology, development, and creative projects.',
     'experience.description': 'My professional journey and achievements',
@@ -300,11 +300,11 @@ const translations = {
     'experience.achievements': 'Key Achievements',
     'experience.technologies': 'Technologies',
     
-    // Individual Jobs
+
     'experience.jobs.cooptel.position': 'Tech support',
     'experience.jobs.cooptel.company': 'Cooptel',
     'experience.jobs.cooptel.location': 'Valcourt, QC',
-    'experience.jobs.cooptel.period': '2024 - Present',
+    'experience.jobs.cooptel.period': 'July 2024 - August 2025',
     'experience.jobs.cooptel.type': 'Part-time',
     'experience.jobs.cooptel.description': 'Providing technical support and troubleshooting for residential and business customers. Assisting with internet, phone, and TV services, ensuring high customer satisfaction.',
     
@@ -331,14 +331,14 @@ const translations = {
     'experience.jobs.cgi.position': 'Developer',
     'experience.jobs.cgi.company': 'CGI',
     'experience.jobs.cgi.location': 'Sherbrooke, QC',
-    'experience.jobs.cgi.period': 'Summer 2025',
-    'experience.jobs.cgi.type': 'Full-time internship',
+    'experience.jobs.cgi.period': 'Summer 2025 - Present',
+    'experience.jobs.cgi.type': 'Full-time internship & part-time job',
     'experience.jobs.cgi.description': 'Developed and maintained web applications and created/maintained pipelines for CI/CD processes.',
     'experience.jobs.cgi.achievement1': 'Developed a web application for internal use',
     'experience.jobs.cgi.achievement2': 'Created CI/CD pipelines using GitLab CI',
     'experience.jobs.cgi.achievement3': 'Collaborated with international cross-functional teams to deliver high-quality software solutions',
     
-    // Contact
+
     'contact.title': 'Get In Touch',
     'contact.subtitle': 'Let\'s collaborate and bring your ideas to life. I\'m always excited to work on new projects.',
     'contact.description': 'Let\'s create something amazing together',
@@ -360,16 +360,16 @@ const translations = {
     'contact.downloadCV': 'Download my current CV',
     'contact.cv': 'Curriculum Vitae',
     
-    // Email Modal
+
     'email.modal.title': 'Email Not Available',
     'email.modal.message': 'The email functionality is currently not implemented. However, you can reach me directly at:',
     'email.modal.directEmail': 'ludwig-emmanuel@hotmail.com',
     
-    // Page Layout
+
     'page.loading': 'Loading...',
     'page.backToTop': 'Back to Top',
     
-    // Footer
+
     'footer.rights': 'All rights reserved',
     'footer.madeWith': 'Made with',
     'footer.heart': '♥',
@@ -381,7 +381,7 @@ const translations = {
     'footer.scrollTop': 'Scroll to top',
   },
   fr: {
-    // Header
+
     'header.work': 'Travaux',
     'header.about': 'À propos',
     'header.odyssey': 'Odyssée',
@@ -389,27 +389,27 @@ const translations = {
     'header.contact': 'Contact',
     'header.cta': 'Discutons',
     
-    // Common
+
     'common.backToHome': 'Retour à l\'Accueil',
     
-    // Pages
+
     'pages.odyssey.title': 'Mon Odyssée',
     'pages.odyssey.comingSoon': 'Mon odyssée de voyage est actuellement en développement. Revenez bientôt pour découvrir mes aventures, histoires et conseils de planification de voyage à travers le monde.',
     
-    // Unavailable Pages
+
     'unavailable.photography.title': 'Page Non Disponible',
     'unavailable.photography.message': 'Mon odyssée de voyage est actuellement en développement. Revenez bientôt pour découvrir mes aventures, histoires et conseils de planification de voyage à travers le monde.',
     'unavailable.about.title': 'Page Non Disponible',
     'unavailable.about.message': 'La section à propos est actuellement en cours de développement. Veuillez revenir plus tard pour en savoir plus sur mon parcours et mon background.',
     
-    // Home
+
     'home.welcome': 'Bienvenue sur',
     'home.project': 'Projet',
-    'home.subtitle': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    'home.subtitle': 'Mon projet personnel en cours de développement',
     'home.viewWork': 'Voir Mes Projets',
     'home.learnMore': 'En Savoir Plus Sur Moi',
     
-    // Work
+
     'work.title': 'Mes Projets',
     'work.subtitle': 'Une sélection soignée de projets académiques et personnels démontrant innovation, résolution de problèmes et excellence technique.',
     'work.construction': 'Portfolio En Construction',
@@ -418,7 +418,7 @@ const translations = {
     'work.technologiesUsed': 'Technologies Utilisées',
     'work.yearsExperience': 'Années d\'Expérience',
     
-    // Project Categories
+
     'work.categories.all': 'Tous les Projets',
     'work.categories.academic': 'Académique',
     'work.categories.personal': 'Personnel',
@@ -427,12 +427,12 @@ const translations = {
     'work.categories.mobile': 'Mobile',
     'work.categories.backend': 'Backend',
     
-    // Project Status
+
     'work.status.completed': 'Terminé',
     'work.status.inProgress': 'En Cours',
     'work.status.planned': 'Planifié',
     
-    // Project Actions
+
     'work.viewProject': 'Voir le Projet',
     'work.viewCode': 'Voir le Code',
     'work.viewDemo': 'Démo Live',
@@ -443,7 +443,7 @@ const translations = {
     'work.showMore': 'Voir Plus',
     'work.showLess': 'Voir Moins',
     
-    // Project Details
+
     'work.challenge': 'Défi',
     'work.solution': 'Solution',
     'work.technologies': 'Technologies',
@@ -452,7 +452,7 @@ const translations = {
     'work.role': 'Mon Rôle',
     'work.highlights': 'Points Clés',
     
-    // Project Details for existing structure
+
     'work.project.viewDetails': 'Voir Détails',
     'work.project.viewCode': 'Voir le Code',
     'work.project.liveDemo': 'Démo Live',
@@ -470,7 +470,7 @@ const translations = {
     'work.project.architecture': 'Architecture',
     'work.project.features': 'Fonctionnalités Clés',
     
-    // Specific Projects
+
     'work.projects.robotDrawing.title': 'App de Dessin Robotique',
     'work.projects.robotDrawing.description': 'Application mobile en Flutter permettant aux utilisateurs de créer des dessins et de les transférer à un robot pour reproduction physique.',
     'work.projects.robotDrawing.challenge': 'Intégration de l\'interface mobile avec la communication matérielle robotique',
@@ -491,12 +491,12 @@ const translations = {
     'work.projects.homelab.challenge': 'Gestion d\'infrastructure virtualisée complexe et orchestration de services',
     'work.projects.homelab.achievement': 'Infrastructure domestique évolutive supportant multiples projets simultanés',
     
-    // Work in Progress
+
     'work.wip.title': 'Projets en Cours',
     'work.wip.subtitle': 'Projets actuels et développements passionnants',
     'work.wip.description': 'Toujours en train de travailler sur quelque chose de nouveau et excitant !',
     
-    // About - Version française plus humaine
+
     'about.title': 'À Propos',
     'about.subtitle': 'Apprenez-en plus sur mon parcours, mes compétences et ma passion pour la création d\'expériences numériques.',
     'about.greeting': 'Joyeux matin! Moi c\'est',
@@ -556,7 +556,7 @@ const translations = {
     'about.cta.contact': 'Prendre Contact',
     'about.cta.downloadCV': 'Télécharger CV',
     
-    // About - Extended translations for About page
+
     'about.name': 'Ludwig-Emmanuel',
     'about.surname': 'Dufour',
     'about.role': 'Étudiant en Génie Informatique & Développeur Full Stack',
@@ -592,20 +592,20 @@ const translations = {
     'about.achievements.network.text': 'Apprentissage Continu',
     'about.achievements.network.desc': 'Exploration des nouvelles technologies',
     'about.skills.webdev.name': 'Développement Web',
-    'about.skills.webdev.level': 'Expert',
+    'about.skills.webdev.level': '4 ans',
     'about.skills.architecture.name': 'Architecture Système',
-    'about.skills.architecture.level': 'Avancé',
+    'about.skills.architecture.level': '3 ans',
     'about.skills.devops.name': 'DevOps & Automatisation',
-    'about.skills.devops.level': 'Avancé',
+    'about.skills.devops.level': '1 an',
     'about.skills.networking.name': 'Ingénierie Réseau',
-    'about.skills.networking.level': 'Intermédiaire',
+    'about.skills.networking.level': '2 ans',
     'about.categories.cloud.name': 'Cloud & Infrastructure',
     'about.categories.frontend.name': 'Frontend',
     'about.categories.backend.name': 'Backend & Réseaux',
     'about.categories.database.name': 'Bases de Données',
     'about.categories.mobile.name': 'Mobile & Autres',
     
-    // Technology categories for About page
+
     'about.tech.frontend.title': 'Développement Frontend',
     'about.tech.backend.title': 'Langages Backend', 
     'about.tech.frameworks.title': 'Frameworks Web',
@@ -616,7 +616,7 @@ const translations = {
     'about.contactButton': 'Démarrer un projet',
     'about.cvButton': 'Télécharger CV',
     
-    // Odyssée & Blog de Voyage
+
     'odyssey.title': 'Mon Odyssée',
     'odyssey.subtitle': 'Histoires de voyage, aventures et planification - explorer le monde une destination à la fois.',
     'odyssey.description': 'Aventures, histoires & planification pour l\'âme voyageuse',
@@ -627,7 +627,7 @@ const translations = {
     'odyssey.architecture': 'Architecture',
     'odyssey.viewGallery': 'Explorer Mon Parcours Complet',
 
-    // Sections du blog
+
     'odyssey.stories.title': 'Récits de Voyage',
     'odyssey.stories.subtitle': 'Aventures et expériences aux quatre coins du monde',
     'odyssey.planning.title': 'Planification de Voyage',
@@ -640,7 +640,7 @@ const translations = {
     'odyssey.comingSoon': 'Mon odyssée de voyage est actuellement en développement. Revenez bientôt pour découvrir mes aventures, histoires et conseils de planification de voyage à travers le monde.',
     'odyssey.unavailableTitle': 'Page Non Disponible',
     
-    // Entrées de voyage
+
     'odyssey.readMore': 'Lire Plus',
     'odyssey.readLess': 'Lire Moins',
     'odyssey.viewPhotos': 'Voir Photos',
@@ -655,13 +655,13 @@ const translations = {
     'odyssey.status.planning': 'En Planification',
     'odyssey.status.dreaming': 'En Rêve',
     
-    // Outils de planification
+
     'odyssey.planning.budgetCalculator': 'Calculateur de Budget',
     'odyssey.planning.packingList': 'Listes de Bagages',
     'odyssey.planning.resources': 'Ressources de Voyage',
     'odyssey.planning.tips': 'Conseils Pro',
     
-    // Experience
+
     'experience.title': 'Expérience',
     'experience.subtitle': 'Mon parcours professionnel et mes étapes importantes en technologie, développement et projets créatifs.',
     'experience.description': 'Mon parcours professionnel et mes réalisations',
@@ -670,11 +670,11 @@ const translations = {
     'experience.achievements': 'Réalisations Clés',
     'experience.technologies': 'Technologies',
     
-    // Individual Jobs
+
     'experience.jobs.cooptel.position': 'Support technique',
     'experience.jobs.cooptel.company': 'Cooptel',
     'experience.jobs.cooptel.location': 'Valcourt, QC',
-    'experience.jobs.cooptel.period': '2024 - Présent',
+    'experience.jobs.cooptel.period': 'Juillet 2024 - Août 2025',
     'experience.jobs.cooptel.type': 'Temps partiel',
     'experience.jobs.cooptel.description': 'Service de support technique et dépannage pour les clients résidentiels et commerciaux. Assistance avec les services internet, téléphone et télévision, assurant une satisfaction client.',
     
@@ -701,14 +701,14 @@ const translations = {
     'experience.jobs.cgi.position': 'Développeur',
     'experience.jobs.cgi.company': 'CGI',
     'experience.jobs.cgi.location': 'Sherbrooke, QC',
-    'experience.jobs.cgi.period': 'Été 2025',
-    'experience.jobs.cgi.type': 'Stage temps plein',
+    'experience.jobs.cgi.period': 'Été 2025 - Présent',
+    'experience.jobs.cgi.type': 'Stage temps plein & emploi à temps partiel',
     'experience.jobs.cgi.description': 'Développement et maintenance d\'applications web et création/maintenance de pipelines pour les processus CI/CD.',
     'experience.jobs.cgi.achievement1': 'Développement d\'une application web pour usage interne',
     'experience.jobs.cgi.achievement2': 'Création de pipelines CI/CD utilisant GitLab CI',
     'experience.jobs.cgi.achievement3': 'Collaboration avec des équipes interfonctionnelles internationales pour livrer des solutions logicielles de haute qualité',
     
-    // Contact
+
     'contact.title': 'Contactez-moi',
     'contact.subtitle': 'Collaborons et donnons vie à vos idées. Je suis toujours enthousiaste à l\'idée de travailler sur de nouveaux projets.',
     'contact.description': 'Créons quelque chose d\'extraordinaire ensemble',
@@ -730,16 +730,16 @@ const translations = {
     'contact.downloadCV': 'Télécharger mon CV',
     'contact.cv': 'Curriculum Vitae',
     
-    // Email Modal
+
     'email.modal.title': 'Email Non Disponible',
     'email.modal.message': 'La fonctionnalité d\'envoi d\'email n\'est actuellement pas implémentée. Cependant, vous pouvez me contacter directement à :',
     'email.modal.directEmail': 'ludwig-emmanuel@hotmail.com',
     
-    // Page Layout
+
     'page.loading': 'Chargement...',
     'page.backToTop': 'Retour en Haut',
     
-    // Footer
+
     'footer.rights': 'Tous droits réservés',
     'footer.madeWith': 'Fait avec',
     'footer.heart': '♥',

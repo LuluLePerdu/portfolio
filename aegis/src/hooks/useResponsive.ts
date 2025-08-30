@@ -21,7 +21,7 @@ export function useResponsive(): UseResponsiveReturn {
       setWindowWidth(window.innerWidth);
     }
 
-    // Set initial width
+
     setWindowWidth(window.innerWidth);
     
     window.addEventListener('resize', handleResize);

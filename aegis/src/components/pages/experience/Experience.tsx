@@ -3,12 +3,12 @@
 import styles from './Experience.module.scss';
 import { useLanguage } from '@/context/LanguageContext';
 
-// Structure de base des emplois avec seulement les informations qui ne changent pas
+
 const jobsConfig = [
   {
     id: 1,
     key: 'cooptel',
-    startDate: '2024-01-01',
+    startDate: '2024-07-12',
     technologies: ['Customer Service', 'Troubleshooting', 'Networking', 'VoIP'],
     technologiesFr: ['Service Client', 'Dépannage', 'Réseautique', 'VoIP'],
     hasAchievements: false,
@@ -60,7 +60,7 @@ export default function Experience() {
   
   return (
     <section id="experience" className={styles.experience}>
-      {/* Couches de texture décorative */}
+      {}
       <div className={styles.textureLayer}></div>
       <div className={styles.accentLayer}></div>
       

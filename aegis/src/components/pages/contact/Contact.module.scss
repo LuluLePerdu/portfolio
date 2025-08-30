@@ -6,7 +6,7 @@ $bordeaux-hover: #c49660;
   padding: 6rem 0;
   position: relative;
   
-  // Texture de base - plusieurs couches organiques
+
   &::before {
     content: '';
     position: absolute;
@@ -33,7 +33,7 @@ $bordeaux-hover: #c49660;
     }
   }
   
-  // Deuxième couche - texture centrale
+
   &::after {
     content: '';
     position: absolute;
@@ -60,7 +60,7 @@ $bordeaux-hover: #c49660;
     }
   }
   
-  // Troisième couche - accent décoratif
+
   .textureLayer {
     position: absolute;
     top: 20%;
@@ -85,7 +85,7 @@ $bordeaux-hover: #c49660;
       );
     }
     
-    // Effet de texture supplémentaire
+
     &::before {
       content: '';
       position: absolute;
@@ -117,7 +117,7 @@ $bordeaux-hover: #c49660;
     }
   }
   
-  // Quatrième couche - petits accents
+
   .accentLayer {
     position: absolute;
     bottom: 15%;
@@ -141,7 +141,7 @@ $bordeaux-hover: #c49660;
       );
     }
     
-    // Micro-textures pour plus de détail
+
     &::before {
       content: '';
       position: absolute;
@@ -290,7 +290,7 @@ $bordeaux-hover: #c49660;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    // Améliorer les interactions tactiles
+
     touch-action: manipulation;
     -webkit-tap-highlight-color: rgba(139, 125, 107, 0.3);
     padding: 0.5rem 0.25rem;
@@ -323,7 +323,7 @@ $bordeaux-hover: #c49660;
       opacity: 0.7;
     }
     
-    // Mobile styles
+
     @media (max-width: 768px) {
       font-size: 1.1rem;
       padding: 0.75rem 0.5rem;
@@ -391,7 +391,7 @@ $bordeaux-hover: #c49660;
   border: 1px solid rgba($bordeaux, 0.1);
   box-shadow: 0 15px 40px rgba($dark-text, 0.1);
   
-  // Mode clair - formulaire plus clair
+
   [data-theme="light"] & {
     background: rgba(white, 0.7);
     border: 1px solid rgba($bordeaux, 0.15);
@@ -426,7 +426,7 @@ $bordeaux-hover: #c49660;
   background: rgba($dark-text, 0.15);
   color: $dark-text;
   
-  // Mode clair - inputs plus clairs
+
   [data-theme="light"] & {
     background: rgba(white, 0.65);
     color: $dark-bg;
@@ -525,7 +525,7 @@ $bordeaux-hover: #c49660;
   border: 1px solid rgba(#F44336, 0.3);
 }
 
-/* Responsive */
+
 @media (max-width: 1024px) {
   .contactContent {
     gap: 3rem;
@@ -608,7 +608,7 @@ $bordeaux-hover: #c49660;
   }
 }
 
-// Styles pour le modal d'email
+
 .emailInfo {
   background: rgba($gold-leaf, 0.05);
   border: 1px solid rgba($gold-leaf, 0.2);

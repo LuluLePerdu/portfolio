@@ -3,7 +3,7 @@
 import styles from './page.module.scss'
 import { useLanguage } from '@/context/LanguageContext';
 
-//export const runtime = 'edge';
+
 
 export default function Home() {
   const { t } = useLanguage();

@@ -126,7 +126,7 @@ export default function Portfolio() {
         <div className={styles.projectsGrid}>
           {filteredProjects.map((project) => (
               <div key={project.id} className={styles.projectCard}>
-                {/* Badges en coin */}
+                {}
                 {project.featured && (
                   <div className={styles.featuredBadge}>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
@@ -135,7 +135,7 @@ export default function Portfolio() {
                   </div>
                 )}
                 
-                {/* Header compact */}
+                {}
                 <div className={styles.cardHeader}>
                   <div className={styles.titleSection}>
                     <h3 className={styles.projectTitle}>{t(project.titleKey)}</h3>
@@ -151,12 +151,12 @@ export default function Portfolio() {
                   </div>
                 </div>
 
-                {/* Description */}
+                {}
                 <p className={styles.description}>
                   {t(project.descriptionKey)}
                 </p>
 
-                {/* Categories inline */}
+                {}
                 <div className={styles.categories}>
                   {project.categories.slice(0, 3).map((category, catIndex) => (
                     <span key={catIndex} className={styles.categoryTag}>
@@ -169,7 +169,7 @@ export default function Portfolio() {
                   )}
                 </div>
 
-                {/* Tech stack compact */}
+                {}
                 <div className={styles.techStack}>
                   {project.technologies.slice(0, 6).map((tech, techIndex) => (
                     <span 
@@ -185,7 +185,7 @@ export default function Portfolio() {
                   )}
                 </div>
 
-                {/* Actions en bas */}
+                {}
                 <div className={styles.cardActions}>
                   {project.githubUrl && (
                     <a 

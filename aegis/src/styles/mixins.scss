@@ -1,7 +1,7 @@
 @use './constants' as *;
 @forward './constants';
 
-// Mixin pour les transitions fluides
+
 @mixin smooth-transition($properties...) {
   transition: $transition-base;
   @if length($properties) > 0 {
@@ -9,7 +9,7 @@
   }
 }
 
-// Mixin pour les effets de hover
+
 @mixin hover-lift($distance: 5px) {
   transition: transform $transition-base, box-shadow $transition-base;
   
@@ -19,7 +19,7 @@
   }
 }
 
-// Mixin pour les cartes avec backdrop
+
 @mixin glass-card($opacity: 0.8) {
   background: rgba(white, $opacity);
   backdrop-filter: blur(15px);
@@ -32,7 +32,7 @@
   }
 }
 
-// Mixin pour le responsive
+
 @mixin respond-to($breakpoint) {
   @if $breakpoint == mobile {
     @media (max-width: $breakpoint-mobile) { @content; }
@@ -45,7 +45,7 @@
   }
 }
 
-// Mixin pour le texte élégant
+
 @mixin elegant-text($size: 1rem, $weight: 400) {
   font-family: 'Inter', sans-serif;
   font-size: $size;
@@ -54,7 +54,7 @@
   letter-spacing: 0.01em;
 }
 
-// Mixin pour les titres avec Cinzel
+
 @mixin title-text($size: 2rem, $weight: 600) {
   font-family: 'Cinzel', serif;
   font-size: $size;

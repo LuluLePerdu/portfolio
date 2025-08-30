@@ -7,14 +7,14 @@
   position: relative;
   overflow: hidden;
   
-  // Background unifié avec nouvelles couleurs chaudes
+
   background: linear-gradient(135deg, 
     #F7F5F3 0%, 
     #F0EDE9 50%,
     #E8E3DD 100%
   );
   
-  // Overlay subtil pour adoucir encore plus
+
   &::before {
     content: '';
     position: absolute;
@@ -31,7 +31,7 @@
     z-index: 1;
   }
   
-  // Background mode sombre - utilise les variables centralisées
+
   [data-theme="dark"] & {
     background: $gradient-page-dark;
     
@@ -44,7 +44,7 @@
     }
   }
 
-  // Effets décoratifs doux et subtils
+
   &::after {
     content: '';
     position: absolute;
@@ -62,7 +62,7 @@
     z-index: 1;
     pointer-events: none;
     
-    // Mode sombre - effets plus visibles mais toujours subtils
+
     [data-theme="dark"] & {
       background: radial-gradient(ellipse, 
         rgba($dark-accent, 0.08) 0%, 
@@ -96,7 +96,7 @@
   text-align: center;
   position: relative;
   
-  // Effet dégradé terre plus neutre pour le titre de page
+
   background: linear-gradient(135deg, 
     #8B7D6B 0%, 
     #A89B8C 50%,
@@ -109,7 +109,7 @@
   animation: gradientShift 4s ease-in-out infinite;
   
   [data-theme="light"] & {
-    // En mode clair, couleurs terre chaudes pour les titres de page
+
     background: linear-gradient(135deg, 
       #8B7D6B 0%, 
       #A89B8C 50%, 
@@ -121,7 +121,7 @@
   }
   
   [data-theme="dark"] & {
-    // En mode sombre, on utilise le dégradé complet
+
     background: linear-gradient(135deg, 
       $dark-accent 0%, 
       $dark-accent-hover 50%, 
@@ -217,7 +217,7 @@
   }
 }
 
-// Animation pour le dégradé des titres (cohérence avec page.module.scss)
+
 @keyframes gradientShift {
   0%, 100% {
     background-position: 0% 50%;

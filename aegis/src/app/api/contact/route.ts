@@ -6,7 +6,7 @@ export async function POST(request: NextRequest) {
   try {
     const { name, email, subject, message } = await request.json();
 
-    // Validation des données
+
     if (!name || !email || !subject || !message) {
       return NextResponse.json(
         { error: 'Tous les champs sont requis' },
@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Log du message reçu (temporaire, sans envoi d'email)
+
     console.log('Message de contact reçu:', {
       name,
       email,
