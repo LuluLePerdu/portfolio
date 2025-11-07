@@ -35,13 +35,6 @@ export default function Odyssey() {
     <div className={styles.odysseyContainer}>
       <div className={styles.textureLayer}></div>
       <div className={styles.parchmentWrapper}>
-        <header className={styles.header}>
-          <h1 className={styles.title}>{t('odyssey.page.title')}</h1>
-          <p className={styles.subtitle}>
-            {t('odyssey.page.subtitle')}
-          </p>
-        </header>
-
         <main className={styles.content}>
           <div className={styles.travelsGrid}>
             {TRAVELS.map((travel) => (
