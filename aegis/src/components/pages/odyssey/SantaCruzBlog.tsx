@@ -95,6 +95,11 @@ const PHOTO_STORIES: PhotoStory[] = [
 export default function SantaCruzBlog() {
   const { t } = useLanguage();
   const [index, setIndex] = useState<number | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const open = (i: number) => setIndex(i);
   const close = () => setIndex(null);
@@ -110,6 +115,8 @@ export default function SantaCruzBlog() {
   };
 
   useEffect(() => {
+    if (!mounted) return;
+    
     const prevOverflow = document.body.style.overflow;
     if (index !== null) {
       document.body.style.overflow = 'hidden';
@@ -245,7 +252,7 @@ export default function SantaCruzBlog() {
         ))}
       </div>
 
-      {typeof document !== 'undefined' && index !== null ? createPortal(modal, document.body) : null}
+      {mounted && index !== null ? createPortal(modal, document.body) : null}
     </div>
   );
 }
