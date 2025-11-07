@@ -297,6 +297,69 @@ const translations = {
     'odyssey.planning.resources': 'Travel Resources',
     'odyssey.planning.tips': 'Pro Tips',
     
+    // Santa Cruz Blog
+    'blog.santacruz.backToOdyssey': 'Back to Odyssey',
+    'blog.santacruz.title': 'Santa Cruz Trek',
+    'blog.santacruz.subtitle': 'Cordillera Blanca, Peru',
+    'blog.santacruz.location': 'Huaraz, Peru',
+    'blog.santacruz.date': 'March 2024',
+    'blog.santacruz.photos': 'photos',
+    'blog.santacruz.intro': 'An unforgettable 4-day trek through the Cordillera Blanca, one of the most spectacular mountain ranges in South America. Between turquoise lakes, snow-capped peaks reaching over 6000m, and starry nights at altitude, this journey was a true communion with the Andean nature.',
+    
+    'blog.santacruz.photo1.title': 'New friends',
+    'blog.santacruz.photo1.description': 'New friends made along the trek.',
+    
+    'blog.santacruz.photo2.title': 'Towards the Summits',
+    'blog.santacruz.photo2.description': 'Progressive ascent towards the high plateaus.',
+    
+    'blog.santacruz.photo3.title': 'Arhuaycocha Lake',
+    'blog.santacruz.photo3.description': '',
+    
+    'blog.santacruz.photo4.title': 'Night Life',
+    'blog.santacruz.photo4.description': 'First night in Huaraz before the trek.',
+    
+    'blog.santacruz.photo5.title': 'Pit stop',
+    'blog.santacruz.photo5.description': 'Quick break during the trek.',
+    
+    'blog.santacruz.photo6.title': 'High Altitude',
+    'blog.santacruz.photo6.description': 'Progressing towards the pass at over 4750m altitude.',
+    
+    'blog.santacruz.photo7.title': 'High Altitude Camp',
+    'blog.santacruz.photo7.description': 'Our shelter under the Andean stars.',
+    
+    'blog.santacruz.photo8.title': 'Evening Lights',
+    'blog.santacruz.photo8.description': 'The magical colors of sunsets at altitude.',
+    
+    'blog.santacruz.photo9.title': 'Alpine Landscape',
+    'blog.santacruz.photo9.description': 'The raw beauty of high-altitude lands.',
+    
+    'blog.santacruz.photo10.title': 'Rock Formation',
+    'blog.santacruz.photo10.description': 'Spectacular geology sculpted by glaciers.',
+    
+    'blog.santacruz.photo11.title': 'Deep Valley',
+    'blog.santacruz.photo11.description': 'Plunging view of the valleys below.',
+    
+    'blog.santacruz.photo12.title': 'Nearby Glacier',
+    'blog.santacruz.photo12.description': 'Impressive proximity to the ice giants.',
+    
+    'blog.santacruz.photo13.title': 'Natural Palette',
+    'blog.santacruz.photo13.description': 'The infinite hues of the Peruvian mountains.',
+    
+    'blog.santacruz.photo14.title': 'Infinite Horizons',
+    'blog.santacruz.photo14.description': 'Where the sky embraces the earth.',
+    
+    // Odyssey Page
+    'odyssey.page.title': 'Odyssey',
+    'odyssey.page.subtitle': 'Travel stories and adventure photography from around the world',
+    'odyssey.card.photos': 'photos',
+    'odyssey.card.readMore': 'Discover the journey →',
+    
+    // Santa Cruz Page (for PageLayout)
+    'odyssey.santaCruz.title': 'Santa Cruz Trek',
+    'odyssey.santaCruz.subtitle': 'Cordillera Blanca, Peru',
+    'odyssey.santaCruz.location': 'Cordillera Blanca, Peru',
+    'odyssey.santaCruz.date': 'Summer 2024',
+    'odyssey.santaCruz.description': 'An unforgettable adventure through the Cordillera Blanca, one of the most beautiful mountain ranges in the world. Four days of trekking between turquoise lakes, majestic glaciers, and snow-capped peaks over 6000m altitude.',
 
     'experience.title': 'Experience',
     'experience.subtitle': 'My professional journey and milestones in technology, development, and creative projects.',
@@ -673,6 +736,69 @@ const translations = {
     'odyssey.planning.resources': 'Ressources de Voyage',
     'odyssey.planning.tips': 'Conseils Pro',
     
+    // Santa Cruz Blog
+    'blog.santacruz.backToOdyssey': 'Retour à Odyssey',
+    'blog.santacruz.title': 'Trek Santa Cruz',
+    'blog.santacruz.subtitle': 'Cordillère Blanche, Pérou',
+    'blog.santacruz.location': 'Huaraz, Pérou',
+    'blog.santacruz.date': 'Mars 2024',
+    'blog.santacruz.photos': 'photos',
+    'blog.santacruz.intro': 'Un trek inoubliable de 4 jours à travers la Cordillère Blanche, l\'une des chaînes de montagnes les plus spectaculaires d\'Amérique du Sud. Entre lacs turquoise, sommets enneigés dépassant les 6000m et nuits étoilées en altitude, ce voyage fut une véritable communion avec la nature andine.',
+    
+    'blog.santacruz.photo1.title': 'Nouveaux Amis',
+    'blog.santacruz.photo1.description': 'Nouveaux amis rencontrés lors du trek.',
+    
+    'blog.santacruz.photo2.title': 'Vers les Sommets',
+    'blog.santacruz.photo2.description': 'La montée progressive vers les hauts plateaux.',
+    
+    'blog.santacruz.photo3.title': 'Majesté Andine',
+    'blog.santacruz.photo3.description': 'Sommets enneigés de la Cordillère Blanche dominant les vallées.',
+    
+    'blog.santacruz.photo4.title': 'Sentier de Trek',
+    'blog.santacruz.photo4.description': 'Le chemin serpentant à travers les paysages alpins.',
+    
+    'blog.santacruz.photo5.title': 'Pause Rafraîchissante',
+    'blog.santacruz.photo5.description': 'Pause durant le trek.',
+    
+    'blog.santacruz.photo6.title': 'Haute Altitude',
+    'blog.santacruz.photo6.description': 'Progression vers le col à plus de 4750m d\'altitude.',
+    
+    'blog.santacruz.photo7.title': 'Campement d\'Altitude',
+    'blog.santacruz.photo7.description': 'Notre refuge sous les étoiles andines.',
+    
+    'blog.santacruz.photo8.title': 'Lumières du Soir',
+    'blog.santacruz.photo8.description': 'Les couleurs magiques des crépuscules en altitude.',
+    
+    'blog.santacruz.photo9.title': 'Paysage Alpin',
+    'blog.santacruz.photo9.description': 'La beauté brute des terres d\'altitude.',
+    
+    'blog.santacruz.photo10.title': 'Formation Rocheuse',
+    'blog.santacruz.photo10.description': 'Géologie spectaculaire sculptée par les glaciers.',
+    
+    'blog.santacruz.photo11.title': 'Vallée Profonde',
+    'blog.santacruz.photo11.description': 'Vue plongeante sur les vallées en contrebas.',
+    
+    'blog.santacruz.photo12.title': 'Glacier Proche',
+    'blog.santacruz.photo12.description': 'Proximité impressionnante avec les géants de glace.',
+    
+    'blog.santacruz.photo13.title': 'Palette Naturelle',
+    'blog.santacruz.photo13.description': 'Les teintes infinies des montagnes péruviennes.',
+    
+    'blog.santacruz.photo14.title': 'Horizons Infinis',
+    'blog.santacruz.photo14.description': 'Là où le ciel embrasse la terre.',
+    
+    // Odyssey Page
+    'odyssey.page.title': 'Odyssey',
+    'odyssey.page.subtitle': 'Récits de voyage et photographies d\'aventures autour du monde',
+    'odyssey.card.photos': 'photos',
+    'odyssey.card.readMore': 'Découvrir le voyage →',
+    
+    // Santa Cruz Page (for PageLayout)
+    'odyssey.santaCruz.title': 'Trek Santa Cruz',
+    'odyssey.santaCruz.subtitle': 'Cordillère Blanche, Pérou',
+    'odyssey.santaCruz.location': 'Cordillère Blanche, Pérou',
+    'odyssey.santaCruz.date': 'Été 2024',
+    'odyssey.santaCruz.description': 'Une aventure inoubliable à travers la Cordillère Blanche, l\'une des plus belles chaînes de montagnes du monde. Quatre jours de trek entre lacs turquoise, glaciers majestueux et sommets enneigés à plus de 6000m d\'altitude.',
 
     'experience.title': 'Expérience',
     'experience.subtitle': 'Mon parcours professionnel et mes étapes importantes en technologie, développement et projets créatifs.',

@@ -1,148 +1,90 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
+import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
+import { useLanguage } from '@/context/LanguageContext';
 import styles from './Odyssey.module.scss';
 
-const IMAGES = [
-  '/images/odyssey/peru/_DSF0812.JPG',
-  '/images/odyssey/peru/FAUE4532.JPG',
-  '/images/odyssey/peru/GNYB7522.JPG',
-  '/images/odyssey/peru/IMG_9416.JPG',
-  '/images/odyssey/peru/IMG_9519.JPG',
-  '/images/odyssey/peru/IMG_9522.JPG',
-  '/images/odyssey/peru/IMG_9565.JPG',
-  '/images/odyssey/peru/IMG_E9432.JPG',
-  '/images/odyssey/peru/IMG_E9433.JPG',
-  '/images/odyssey/peru/IMG_E9454.JPG',
-  '/images/odyssey/peru/IMG_E9458.JPG',
-  '/images/odyssey/peru/IMG_E9462.JPG',
-  '/images/odyssey/peru/IMG_E9554.JPG',
-  '/images/odyssey/peru/KDCR2599.JPG',
+interface TravelDestination {
+  id: string;
+  titleKey: string;
+  locationKey: string;
+  dateKey: string;
+  descriptionKey: string;
+  coverImage: string;
+  photoCount: number;
+}
+
+const TRAVELS: TravelDestination[] = [
+  {
+    id: 'santa-cruz-peru',
+    titleKey: 'odyssey.santaCruz.title',
+    locationKey: 'odyssey.santaCruz.location',
+    dateKey: 'odyssey.santaCruz.date',
+    descriptionKey: 'odyssey.santaCruz.description',
+    coverImage: '/images/odyssey/peru/GNYB7522.JPG',
+    photoCount: 14
+  }
 ];
 
 export default function Odyssey() {
-  const [index, setIndex] = useState<number | null>(null);
-
-  const open = (i: number) => setIndex(i);
-  const close = () => setIndex(null);
-  const next = (e?: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
-    const evt = e as { stopPropagation?: () => void } | undefined;
-    if (evt && typeof evt.stopPropagation === 'function') evt.stopPropagation();
-    setIndex((prev) => (prev === null ? null : (prev + 1) % IMAGES.length));
-  };
-  const prev = (e?: React.MouseEvent<HTMLButtonElement> | KeyboardEvent) => {
-    const evt = e as { stopPropagation?: () => void } | undefined;
-    if (evt && typeof evt.stopPropagation === 'function') evt.stopPropagation();
-    setIndex((prev) => (prev === null ? null : (prev - 1 + IMAGES.length) % IMAGES.length));
-  };
-
-  useEffect(() => {
-    const prevOverflow = document.body.style.overflow;
-    if (index !== null) {
-      document.body.style.overflow = 'hidden';
-      document.body.classList.add('modal-open');
-    } else {
-      document.body.style.overflow = prevOverflow || 'unset';
-      document.body.classList.remove('modal-open');
-    }
-
-    const onKey = (ev: KeyboardEvent) => {
-      if (ev.key === 'Escape') {
-        close();
-        return;
-      }
-      if (ev.key === 'ArrowRight') {
-        setIndex((prev) => (prev === null ? prev : (prev + 1) % IMAGES.length));
-      }
-      if (ev.key === 'ArrowLeft') {
-        setIndex((prev) => (prev === null ? prev : (prev - 1 + IMAGES.length) % IMAGES.length));
-      }
-    };
-
-    window.addEventListener('keydown', onKey);
-    return () => {
-      window.removeEventListener('keydown', onKey);
-      document.body.style.overflow = prevOverflow;
-      document.body.classList.remove('modal-open');
-    };
-  }, [index]);
-
-  const modal = index !== null ? (
-    <div className={styles.modal} onClick={close} role="dialog" aria-modal="true">
-      <button
-        className={styles.modalClose}
-        onClick={(e) => {
-          e.stopPropagation();
-          close();
-        }}
-        aria-label="Fermer la fenêtre"
-      >
-        ✕
-      </button>
-
-      <button
-        className={`${styles.modalNav} ${styles.navLeft}`}
-        onClick={(e) => prev(e)}
-        aria-label="Image précédente"
-      >
-        ‹
-      </button>
-
-      <div className={styles.modalImage} onClick={(e) => e.stopPropagation()}>
-        <div className={styles.modalImageInner}>
-          <Image
-            src={IMAGES[index]}
-            alt={`Peru ${index + 1}`}
-            fill
-            sizes="90vw"
-            style={{ objectFit: 'contain' }}
-          />
-        </div>
-      </div>
-
-      <button
-        className={`${styles.modalNav} ${styles.navRight}`}
-        onClick={(e) => next(e)}
-        aria-label="Image suivante"
-      >
-        ›
-      </button>
-    </div>
-  ) : null;
-
+  const { t } = useLanguage();
+  
   return (
     <div className={styles.odysseyContainer}>
-      <div className={`${styles.parchmentWrapper} ${index !== null ? styles.modalOpen : ''}`}>
-
-        <div className={styles.navigation} />
+      <div className={styles.textureLayer}></div>
+      <div className={styles.parchmentWrapper}>
+        <header className={styles.header}>
+          <h1 className={styles.title}>{t('odyssey.page.title')}</h1>
+          <p className={styles.subtitle}>
+            {t('odyssey.page.subtitle')}
+          </p>
+        </header>
 
         <main className={styles.content}>
-          <div className={styles.galleryGrid}>
-            {IMAGES.map((src, i) => (
-              <button
-                key={src}
-                className={styles.thumb}
-                onClick={() => open(i)}
-                aria-label={`Ouvrir image ${i + 1}`}
+          <div className={styles.travelsGrid}>
+            {TRAVELS.map((travel) => (
+              <Link 
+                key={travel.id} 
+                href={`/odyssey/${travel.id}`}
+                className={styles.travelCard}
               >
-                <div className={styles.thumbInner}>
+                <div className={styles.travelImageWrapper}>
                   <Image
-                    src={src}
-                    alt={`Peru ${i + 1}`}
+                    src={travel.coverImage}
+                    alt={t(travel.titleKey)}
                     fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    sizes="(max-width: 768px) 100vw, 600px"
                     style={{ objectFit: 'cover' }}
+                    className={styles.travelImage}
                   />
+                  <div className={styles.travelOverlay}>
+                    <span className={styles.photoCount}>{travel.photoCount} {t('odyssey.card.photos')}</span>
+                  </div>
                 </div>
-              </button>
+                
+                <div className={styles.travelInfo}>
+                  <div className={styles.travelMeta}>
+                    <span className={styles.travelLocation}>{t(travel.locationKey)}</span>
+                    <span className={styles.travelDate}>{t(travel.dateKey)}</span>
+                  </div>
+                  
+                  <h2 className={styles.travelTitle}>{t(travel.titleKey)}</h2>
+                  
+                  <p className={styles.travelDescription}>
+                    {t(travel.descriptionKey)}
+                  </p>
+                  
+                  <div className={styles.readMore}>
+                    {t('odyssey.card.readMore')}
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </main>
-  </div>
-
-  {typeof document !== 'undefined' && index !== null ? createPortal(modal, document.body) : null}
+      </div>
     </div>
   );
 }

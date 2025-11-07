@@ -83,9 +83,8 @@ export const projects: Project[] = [
     status: 'completed',
     type: 'academic',
     technologies: [
-      technologies.html5,
-      technologies.css3,
-      technologies.javascript,
+      technologies.react,
+      technologies.go,
     ],
     duration: '48 hours',
     team: 'Hackathon Team',

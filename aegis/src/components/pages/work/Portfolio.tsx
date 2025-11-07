@@ -110,6 +110,7 @@ export default function Portfolio() {
 
   return (
     <section id="work" className={styles.portfolio}>
+      <div className={styles.textureLayer}></div>
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.headerContent}>

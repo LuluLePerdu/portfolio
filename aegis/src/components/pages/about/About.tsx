@@ -96,6 +96,7 @@ const About = () => {
   return (
     <div className={styles.about}>
       {}
+      <div className={styles.textureLayer}></div>
       <div className={styles.leafEcosystem}>
         {}
         <div className={`${styles.leafCluster} ${styles.cornerTopLeft}`}>

@@ -82,11 +82,11 @@ body {
   
   [data-theme="light"] & {
     background: linear-gradient(135deg, 
-      #f6f4f0 0%, 
-      #efe9de 25%, 
-      #e7ddd0 50%, 
-      #ddd1c0 75%, 
-      #d3c5b0 100%
+      #faf8f3 0%, 
+      #f5f1ea 25%, 
+      #f0ebe2 50%, 
+      #ebe6dd 75%, 
+      #e6e1d8 100%
     );
   }
   
