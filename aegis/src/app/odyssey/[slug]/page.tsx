@@ -1,8 +1,12 @@
 import { Metadata } from "next";
 import { PageLayout } from "@/components/layout";
-import SantaCruzBlog from "@/components/pages/odyssey/SantaCruzBlog";
+import { SantaCruzBlog } from "@/components/pages/odyssey";
 
-export const runtime = 'edge';
+export async function generateStaticParams() {
+  return [
+    { slug: 'santa-cruz-peru' }
+  ];
+}
 
 export const metadata: Metadata = {
   title: "Trek Santa Cruz | Ludwig-E. Dufour",
