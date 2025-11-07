@@ -2,7 +2,7 @@ export interface Project {
   id: string;
   titleKey: string;
   descriptionKey: string;
-  categories: ProjectCategory[]; // Changé de category à categories (array)
+  categories: ProjectCategory[];
   status: ProjectStatus;
   type: ProjectType;
   technologies: Technology[];
@@ -76,10 +76,38 @@ export const technologies: Record<string, Technology> = {
 
 export const projects: Project[] = [
   {
-    id: 'robot-drawing-app',
+    id: 'shackododo',
+    titleKey: 'work.projects.shackododo.title',
+    descriptionKey: 'work.projects.shackododo.description',
+    categories: ['web', 'academic'],
+    status: 'completed',
+    type: 'academic',
+    technologies: [
+      technologies.html5,
+      technologies.css3,
+      technologies.javascript,
+    ],
+    duration: '48 hours',
+    team: 'Hackathon Team',
+    role: 'Full-Stack Developer',
+    challengeKey: 'work.projects.shackododo.challenge',
+    achievementKey: 'work.projects.shackododo.achievement',
+    features: [
+      'Hackathon project A2025',
+      'Rapid prototyping',
+      'Team collaboration',
+      'Creative problem solving'
+    ],
+    githubUrl: 'https://github.com/LuluLePerdu/ShackoDodo',
+    year: 2025,
+    complexity: 'intermediate',
+    featured: true
+  },
+  {
+    id: 'robosketch',
     titleKey: 'work.projects.robotDrawing.title',
     descriptionKey: 'work.projects.robotDrawing.description',
-    categories: ['mobile', 'academic'], // Peut être mobile ET académique
+    categories: ['mobile', 'academic'],
     status: 'completed',
     type: 'academic',
     technologies: [
@@ -101,47 +129,44 @@ export const projects: Project[] = [
       'Real-time drawing preview',
       'Multi-platform compatibility'
     ],
+    githubUrl: 'https://github.com/LuluLePerdu/RoboSketch',
     year: 2024,
     complexity: 'advanced',
     featured: true
   },
   {
-    id: 'blackjack-api-game',
-    titleKey: 'work.projects.blackjack.title',
-    descriptionKey: 'work.projects.blackjack.description',
-    categories: ['backend', 'academic'], // Backend ET académique
+    id: 'mennette',
+    titleKey: 'work.projects.mennette.title',
+    descriptionKey: 'work.projects.mennette.description',
+    categories: ['backend', 'academic'],
     status: 'completed',
     type: 'academic',
     technologies: [
-      technologies.go,
-      technologies.restapi,
-      technologies.postgresql,
-      technologies.docker,
-      technologies.linux
+      { name: 'C++', category: 'language', color: '#00599C' },
+      technologies.linux,
+      technologies.git
     ],
     duration: '3 months',
     team: '2 students',
-    role: 'Backend Developer & API Architect',
-    challengeKey: 'work.projects.blackjack.challenge',
-    achievementKey: 'work.projects.blackjack.achievement',
+    role: 'Software Engineer',
+    challengeKey: 'work.projects.mennette.challenge',
+    achievementKey: 'work.projects.mennette.achievement',
     features: [
-      'Complete Blackjack game logic',
-      'RESTful API design',
-      'Player session management',
-      'Card deck management',
-      'Game state persistence',
-      'API documentation'
+      'Session 2 engineering project',
+      'Low-level programming',
+      'System optimization',
+      'Algorithm implementation'
     ],
-    githubUrl: 'https://github.com/LuluLePerdu/blackjack-go',
-    year: 2023,
-    complexity: 'intermediate',
+    githubUrl: 'https://github.com/LuluLePerdu/P11_MENnette',
+    year: 2024,
+    complexity: 'advanced',
     featured: true
   },
   {
     id: 'portfolio-website',
     titleKey: 'work.projects.portfolio.title',
     descriptionKey: 'work.projects.portfolio.description',
-    categories: ['web', 'personal'], // Web ET personnel
+    categories: ['web', 'personal'],
     status: 'completed',
     type: 'personal',
     technologies: [
@@ -165,8 +190,8 @@ export const projects: Project[] = [
       'Accessibility compliance'
     ],
     githubUrl: 'https://github.com/LuluLePerdu/portfolio',
-    liveUrl: 'https://ludwig-dufour.dev',
-    year: 2025,
+    liveUrl: 'https://ludwig-emmanuel.dev',
+    year: 2024,
     complexity: 'intermediate',
     featured: true
   },
@@ -174,7 +199,7 @@ export const projects: Project[] = [
     id: 'homelab-infrastructure',
     titleKey: 'work.projects.homelab.title',
     descriptionKey: 'work.projects.homelab.description',
-    categories: ['infrastructure', 'personal'], // Infrastructure ET personnel
+    categories: ['infrastructure', 'personal'],
     status: 'in-progress',
     type: 'personal',
     technologies: [
@@ -191,18 +216,18 @@ export const projects: Project[] = [
     challengeKey: 'work.projects.homelab.challenge',
     achievementKey: 'work.projects.homelab.achievement',
     features: [
-      'Proxmox virtualization cluster',
+      'Home server configuration',
       'Container orchestration',
-      'Network segmentation',
-      'Automated backups',
-      'Monitoring & logging',
-      'CI/CD pipelines',
-      'Multiple environment hosting'
+      'Network automation',
+      'Monitoring setup',
+      'Backup strategies',
+      'Self-hosted services'
     ],
-    year: 2024,
+    githubUrl: 'https://github.com/LuluLePerdu/Homelab',
+    year: 2023,
     complexity: 'advanced',
     featured: true
-  }
+  },
 ];
 
 export const getProjectsByCategory = (category: ProjectCategory | 'all'): Project[] => {

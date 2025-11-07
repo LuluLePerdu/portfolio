@@ -1,7 +1,6 @@
 import { Metadata } from "next";
-import { Odyssey, Portfolio } from "@/components/pages";
+import { Odyssey } from "@/components/pages";
 import { PageLayout } from "@/components/layout";
-import { UnavailablePage } from "@/components";
 
 export const metadata: Metadata = {
     title: "My Odyssey - Work in Progress",

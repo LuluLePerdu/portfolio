@@ -111,6 +111,15 @@ export default function Portfolio() {
   return (
     <section id="work" className={styles.portfolio}>
       <div className={styles.container}>
+        <div className={styles.header}>
+          <div className={styles.headerContent}>
+            <h2 className={styles.sectionTitle}>{t('work.title')}</h2>
+            <p className={styles.projectCount}>
+              {filteredProjects.length} {filteredProjects.length === 1 ? t('work.project') : t('work.projects')}
+            </p>
+          </div>
+        </div>
+
         <div className={styles.filters}>
           {categories.map((category) => (
             <button

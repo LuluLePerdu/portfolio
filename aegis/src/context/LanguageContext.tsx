@@ -42,6 +42,8 @@ const translations = {
     
 
     'work.title': 'My Projects',
+    'work.project': 'project',
+    'work.projects': 'projects',
     'work.subtitle': 'A curated selection of academic and personal projects showcasing innovation, problem-solving, and technical excellence.',
     'work.construction': 'Portfolio Under Construction',
     'work.constructionText': "I'm currently crafting an exceptional showcase of my best work. Each project will tell a story of innovation, problem-solving, and technical excellence.",
@@ -102,26 +104,30 @@ const translations = {
     'work.project.features': 'Key Features',
     
 
-    'work.projects.robotDrawing.title': 'Robot Drawing App',
+    'work.projects.shackododo.title': 'ShackoDodo',
+    'work.projects.shackododo.description': 'Hackathon project developed in 48 hours during A2025, showcasing rapid prototyping and creative problem-solving skills.',
+    'work.projects.shackododo.challenge': 'Building a functional product under extreme time constraints',
+    'work.projects.shackododo.achievement': 'Completed working prototype within hackathon deadline with team collaboration',
+    
+    'work.projects.robotDrawing.title': 'RoboSketch',
     'work.projects.robotDrawing.description': 'Mobile application in Flutter allowing users to create drawings and transfer them to a robot for physical reproduction.',
     'work.projects.robotDrawing.challenge': 'Integrating mobile UI with robotic hardware communication',
     'work.projects.robotDrawing.achievement': 'Successfully bridged digital art creation with physical robot execution',
     
-    'work.projects.blackjack.title': 'Blackjack API Game',
-    'work.projects.blackjack.description': 'Complete Blackjack game implementation in Go with RESTful API architecture for card management and game logic.',
-    'work.projects.blackjack.challenge': 'Designing scalable API architecture for real-time game state management',
-    'work.projects.blackjack.achievement': 'Built robust game engine with proper API design patterns',
+    'work.projects.mennette.title': 'P11 MENnette',
+    'work.projects.mennette.description': 'Session 2 engineering project developed in C++ focusing on low-level programming and system optimization.',
+    'work.projects.mennette.challenge': 'Implementing efficient algorithms in C++ with memory management',
+    'work.projects.mennette.achievement': 'Successfully completed engineering project with optimized performance',
     
     'work.projects.portfolio.title': 'Portfolio Website',
     'work.projects.portfolio.description': 'Modern, responsive portfolio website built with Next.js, TypeScript, and SCSS featuring dark/light themes and internationalization.',
     'work.projects.portfolio.challenge': 'Creating a unique design system while maintaining performance and accessibility',
     'work.projects.portfolio.achievement': 'Achieved perfect performance scores and responsive design across all devices',
-    
+   
     'work.projects.homelab.title': 'Homelab Infrastructure',
-    'work.projects.homelab.description': 'Personal server setup with Proxmox virtualization hosting multiple services and ongoing development projects.',
+    'work.projects.homelab.description': 'Personal server infrastructure with container orchestration, network automation, and self-hosted services.',
     'work.projects.homelab.challenge': 'Managing complex virtualized infrastructure and service orchestration',
     'work.projects.homelab.achievement': 'Built scalable home infrastructure supporting multiple concurrent projects',
-    
 
     'work.wip.title': 'Work in Progress',
     'work.wip.subtitle': 'Current projects and exciting developments',
@@ -411,6 +417,8 @@ const translations = {
     
 
     'work.title': 'Mes Projets',
+    'work.project': 'projet',
+    'work.projects': 'projets',
     'work.subtitle': 'Une sélection soignée de projets académiques et personnels démontrant innovation, résolution de problèmes et excellence technique.',
     'work.construction': 'Portfolio En Construction',
     'work.constructionText': 'Je suis actuellement en train de créer une vitrine exceptionnelle de mes meilleurs travaux. Chaque projet racontera une histoire d\'innovation, de résolution de problèmes et d\'excellence technique.',
@@ -471,26 +479,30 @@ const translations = {
     'work.project.features': 'Fonctionnalités Clés',
     
 
-    'work.projects.robotDrawing.title': 'App de Dessin Robotique',
+    'work.projects.shackododo.title': 'ShackoDodo',
+    'work.projects.shackododo.description': 'Projet de hackathon développé en 48 heures durant l\'A2025, démontrant le prototypage rapide et la résolution créative de problèmes.',
+    'work.projects.shackododo.challenge': 'Construire un produit fonctionnel sous des contraintes de temps extrêmes',
+    'work.projects.shackododo.achievement': 'Prototype fonctionnel complété dans les délais du hackathon avec collaboration d\'équipe',
+    
+    'work.projects.robotDrawing.title': 'RoboSketch',
     'work.projects.robotDrawing.description': 'Application mobile en Flutter permettant aux utilisateurs de créer des dessins et de les transférer à un robot pour reproduction physique.',
     'work.projects.robotDrawing.challenge': 'Intégration de l\'interface mobile avec la communication matérielle robotique',
     'work.projects.robotDrawing.achievement': 'Pont réussi entre création artistique numérique et exécution robotique physique',
     
-    'work.projects.blackjack.title': 'Jeu Blackjack API',
-    'work.projects.blackjack.description': 'Implémentation complète du jeu Blackjack en Go avec architecture API RESTful pour la gestion des cartes et logique de jeu.',
-    'work.projects.blackjack.challenge': 'Conception d\'architecture API évolutive pour gestion d\'état de jeu en temps réel',
-    'work.projects.blackjack.achievement': 'Moteur de jeu robuste avec patterns de conception API appropriés',
+    'work.projects.mennette.title': 'P11 MENnette',
+    'work.projects.mennette.description': 'Projet d\'ingénierie de session 2 développé en C++ avec focus sur la programmation bas-niveau et l\'optimisation système.',
+    'work.projects.mennette.challenge': 'Implémentation d\'algorithmes efficaces en C++ avec gestion de mémoire',
+    'work.projects.mennette.achievement': 'Projet d\'ingénierie complété avec succès et performance optimisée',
     
     'work.projects.portfolio.title': 'Site Portfolio',
     'work.projects.portfolio.description': 'Site portfolio moderne et responsive construit avec Next.js, TypeScript et SCSS avec thèmes sombre/clair et internationalisation.',
     'work.projects.portfolio.challenge': 'Créer un système de design unique tout en maintenant performance et accessibilité',
     'work.projects.portfolio.achievement': 'Scores de performance parfaits et design responsive sur tous appareils',
-    
+  
     'work.projects.homelab.title': 'Infrastructure Homelab',
-    'work.projects.homelab.description': 'Configuration serveur personnel avec virtualisation Proxmox hébergeant multiples services et projets de développement en cours.',
+    'work.projects.homelab.description': 'Infrastructure serveur personnelle avec orchestration de conteneurs, automatisation réseau et services auto-hébergés.',
     'work.projects.homelab.challenge': 'Gestion d\'infrastructure virtualisée complexe et orchestration de services',
     'work.projects.homelab.achievement': 'Infrastructure domestique évolutive supportant multiples projets simultanés',
-    
 
     'work.wip.title': 'Projets en Cours',
     'work.wip.subtitle': 'Projets actuels et développements passionnants',
