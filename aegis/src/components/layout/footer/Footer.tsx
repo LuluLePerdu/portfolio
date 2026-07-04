@@ -10,6 +10,8 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContainer}>
@@ -63,7 +65,7 @@ export default function Footer() {
           <div className={styles.footerBottom}>
             <div className={styles.divider}></div>
             <p className={styles.copyright}>
-              © 2025 Ludwig-E. Dufour • {t('footer.copyright')}
+              © {currentYear} Ludwig-E. Dufour • {t('footer.copyright')}
             </p>
             <button onClick={scrollToTop} className={styles.scrollTop} aria-label={t('footer.scrollTop')}>
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -444,6 +444,10 @@
   }
 }
 
+.cardHeader.hasFeaturedBadge .statusBadge {
+  margin-right: 2.5rem;
+}
+
 .statusBadge {
   display: flex;
   align-items: center;

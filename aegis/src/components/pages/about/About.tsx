@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 import { useLeafEcosystem } from '@/hooks/useLeafEcosystem';
 import styles from './About.module.scss';
@@ -161,9 +162,11 @@ const About = () => {
           {}
           <div className={`${styles.card} ${styles.profile}`}>
             <div className={styles.avatar}>
-              <img 
-                src="/images/profile.jpg" 
+              <Image
+                src="/images/profile.jpg"
                 alt={`${t('about.name')} ${t('about.surname')}`}
+                fill
+                sizes="120px"
                 className={styles.profileImage}
               />
             </div>

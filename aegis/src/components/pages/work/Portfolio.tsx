@@ -146,7 +146,7 @@ export default function Portfolio() {
                 )}
                 
                 {}
-                <div className={styles.cardHeader}>
+                <div className={`${styles.cardHeader} ${project.featured ? styles.hasFeaturedBadge : ''}`}>
                   <div className={styles.titleSection}>
                     <h3 className={styles.projectTitle}>{t(project.titleKey)}</h3>
                     <div className={styles.projectMeta}>

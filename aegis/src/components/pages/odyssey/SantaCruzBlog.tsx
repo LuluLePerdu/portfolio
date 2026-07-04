@@ -145,7 +145,7 @@ export default function SantaCruzBlog() {
       document.body.style.overflow = prevOverflow;
       document.body.classList.remove('modal-open');
     };
-  }, [index]);
+  }, [index, mounted]);
 
   const currentPhoto = index !== null ? PHOTO_STORIES[index] : null;
 

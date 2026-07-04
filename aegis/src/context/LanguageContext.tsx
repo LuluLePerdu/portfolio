@@ -400,13 +400,20 @@ const translations = {
     'experience.jobs.cgi.position': 'Developer',
     'experience.jobs.cgi.company': 'CGI',
     'experience.jobs.cgi.location': 'Sherbrooke, QC',
-    'experience.jobs.cgi.period': 'Summer 2025 - Present',
+    'experience.jobs.cgi.period': 'Summer 2025 - December 2025',
     'experience.jobs.cgi.type': 'Full-time internship & part-time job',
     'experience.jobs.cgi.description': 'Developed and maintained web applications and created/maintained pipelines for CI/CD processes.',
     'experience.jobs.cgi.achievement1': 'Developed a web application for internal use',
     'experience.jobs.cgi.achievement2': 'Created CI/CD pipelines using GitLab CI',
     'experience.jobs.cgi.achievement3': 'Collaborated with international cross-functional teams to deliver high-quality software solutions',
-    
+
+    'experience.jobs.ibm.position': 'Full-Stack Developer',
+    'experience.jobs.ibm.company': 'IBM',
+    'experience.jobs.ibm.location': 'Bromont, QC',
+    'experience.jobs.ibm.period': 'January 2026 - Present',
+    'experience.jobs.ibm.type': 'Full-time',
+    'experience.jobs.ibm.description': 'Developing applications within the FABI development team, using Next.js and Java.',
+
 
     'contact.title': 'Get In Touch',
     'contact.subtitle': 'Let\'s collaborate and bring your ideas to life. I\'m always excited to work on new projects.',
@@ -469,7 +476,7 @@ const translations = {
     'unavailable.photography.title': 'Page Non Disponible',
     'unavailable.photography.message': 'Mon odyssée de voyage est actuellement en développement. Revenez bientôt pour découvrir mes aventures, histoires et conseils de planification de voyage à travers le monde.',
     'unavailable.about.title': 'Page Non Disponible',
-    'unavailable.about.message': 'La section à propos est actuellement en cours de développement. Veuillez revenir plus tard pour en savoir plus sur mon parcours et mon background.',
+    'unavailable.about.message': 'La section à propos est actuellement en cours de développement. Veuillez revenir plus tard pour en savoir plus sur mon parcours.',
     
 
     'home.welcome': 'Bienvenue sur',
@@ -615,7 +622,7 @@ const translations = {
     'about.interests.tech.architecture': 'Design d\'architecture logicielle',
     'about.interests.tech.deployment': 'CI/CD et automatisation',
     'about.interests.tech.cloud': 'Infrastructure cloud et réseau',
-    'about.interests.creative.title': 'Pursuits Créatifs',
+    'about.interests.creative.title': 'Loisirs Créatifs',
     'about.interests.creative.photography': 'Photographie de voyage et aventures',
     'about.interests.creative.art': 'Art numérique et design',
     'about.interests.creative.design': 'UI/UX et solutions créatives',
@@ -624,7 +631,7 @@ const translations = {
     'about.interests.outdoor.motorcycle': 'Moto',
     'about.interests.outdoor.nature': 'Exploration de la nature',
     'about.stats.internships': 'Stages',
-    'about.stats.graduated': 'Gradué',
+    'about.stats.graduated': 'Diplômé',
     'about.stats.technologies': 'Technologies',
     'about.cta.title': 'Construisons Quelque Chose d\'Incroyable',
     'about.cta.description': 'Je suis toujours enthousiaste à l\'idée de travailler sur de nouveaux projets et d\'explorer des solutions innovantes. Que ce soit du développement full-stack, de l\'automatisation DevOps, ou des expériences numériques créatives.',
@@ -737,7 +744,7 @@ const translations = {
     'odyssey.planning.tips': 'Conseils Pro',
     
     // Santa Cruz Blog
-    'blog.santacruz.backToOdyssey': 'Retour à Odyssey',
+    'blog.santacruz.backToOdyssey': 'Retour à l\'Odyssée',
     'blog.santacruz.title': 'Trek Santa Cruz',
     'blog.santacruz.subtitle': 'Cordillère Blanche, Pérou',
     'blog.santacruz.location': 'Huaraz, Pérou',
@@ -788,7 +795,7 @@ const translations = {
     'blog.santacruz.photo14.description': 'Là où le ciel embrasse la terre.',
     
     // Odyssey Page
-    'odyssey.page.title': 'Odyssey',
+    'odyssey.page.title': 'Odyssée',
     'odyssey.page.subtitle': 'Récits de voyage et photographies d\'aventures autour du monde',
     'odyssey.card.photos': 'photos',
     'odyssey.card.readMore': 'Découvrir le voyage →',
@@ -839,13 +846,20 @@ const translations = {
     'experience.jobs.cgi.position': 'Développeur',
     'experience.jobs.cgi.company': 'CGI',
     'experience.jobs.cgi.location': 'Sherbrooke, QC',
-    'experience.jobs.cgi.period': 'Été 2025 - Présent',
+    'experience.jobs.cgi.period': 'Été 2025 - Décembre 2025',
     'experience.jobs.cgi.type': 'Stage temps plein & emploi à temps partiel',
     'experience.jobs.cgi.description': 'Développement et maintenance d\'applications web et création/maintenance de pipelines pour les processus CI/CD.',
     'experience.jobs.cgi.achievement1': 'Développement d\'une application web pour usage interne',
     'experience.jobs.cgi.achievement2': 'Création de pipelines CI/CD utilisant GitLab CI',
     'experience.jobs.cgi.achievement3': 'Collaboration avec des équipes interfonctionnelles internationales pour livrer des solutions logicielles de haute qualité',
-    
+
+    'experience.jobs.ibm.position': 'Développeur Full-Stack',
+    'experience.jobs.ibm.company': 'IBM',
+    'experience.jobs.ibm.location': 'Bromont, QC',
+    'experience.jobs.ibm.period': 'Janvier 2026 - Présent',
+    'experience.jobs.ibm.type': 'Temps plein',
+    'experience.jobs.ibm.description': 'Développement d\'applications au sein de l\'équipe de développement FABI, avec Next.js et Java.',
+
 
     'contact.title': 'Contactez-moi',
     'contact.subtitle': 'Collaborons et donnons vie à vos idées. Je suis toujours enthousiaste à l\'idée de travailler sur de nouveaux projets.',
@@ -883,8 +897,8 @@ const translations = {
     'footer.heart': '♥',
     'footer.by': 'par',
     'footer.brand.subtitle': 'Sanctuaire Numérique',
-    'footer.quote': '"Joyeux matin | C\'est surement le matin quelques part dans le monde"',
-    'footer.connect': 'Connecter',
+    'footer.quote': '"Joyeux matin | C\'est sûrement le matin quelque part dans le monde"',
+    'footer.connect': 'Réseaux Sociaux',
     'footer.copyright': 'Construit avec Joyeux Matin !',
     'footer.scrollTop': 'Retour en haut',
   }

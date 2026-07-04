@@ -40,6 +40,14 @@ const jobsConfig = [
     hasAchievements: true,
     achievements: ['achievement1', 'achievement2', 'achievement3'],
   },
+  {
+    id: 5,
+    key: 'ibm',
+    startDate: '2026-01-01',
+    technologies: ['Next.js', 'Java'],
+    technologiesFr: ['Next.js', 'Java'],
+    hasAchievements: false,
+  },
 ];
 
 export default function Experience() {

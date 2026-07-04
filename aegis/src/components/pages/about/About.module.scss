@@ -728,6 +728,7 @@
   text-align: center;
   
   .avatar {
+    position: relative;
     width: 120px;
     height: 120px;
     border-radius: 50%;
@@ -824,17 +825,12 @@
   
   .metrics {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 0.2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem 0.2rem;
     margin-bottom: 1.5rem;
     padding: 0;
     width: 100%;
-    
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr 1fr;
-      gap: 0.4rem;
-    }
-    
+
     .metric {
       text-align: center;
       padding: 0.2rem 0.05rem;
