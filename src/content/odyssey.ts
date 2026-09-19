@@ -89,7 +89,7 @@ export const stories: Story[] = [
         rows: [
           [
             p("peru/passeport", "Deux cartes d'embarquement et un passeport, à Montréal", "Two boarding passes and a passport, in Montreal"),
-            p("peru/rue-village", "Le bus arrive au village, au bout de la route", "The bus pulls into the village, at the end of the road"),
+            p("peru/huaraz-arrivee", "Arrivée à Huaraz, à la tombée du jour", "Arriving in Huaraz as the day ends"),
           ],
         ],
       },
@@ -110,16 +110,17 @@ export const stories: Story[] = [
       {
         title: { fr: "La vallée s'ouvre", en: "The valley opens" },
         text: {
-          fr: "Le sentier remonte le long d'une rivière, à travers les buissons et les pâturages. Les derniers hameaux s'accrochent au fond de la vallée, et on croise vite plus de moutons et de vaches que de randonneurs.",
-          en: "The trail climbs along a river, through brush and pasture. The last hamlets cling to the valley floor, and soon you pass more sheep and cows than hikers.",
+          fr: "Tout commence dans un village au bout d'une route de terre, là où le bus dépose les marcheurs. Le sentier remonte ensuite le long d'une rivière, à travers les buissons et les pâturages. Les derniers hameaux s'accrochent au fond de la vallée, et on croise vite plus de moutons et de vaches que de randonneurs.",
+          en: "It starts in a village at the end of a dirt road, where the bus drops off the walkers. The trail then climbs along a river, through brush and pasture. The last hamlets cling to the valley floor, and soon you pass more sheep and cows than hikers.",
         },
         rows: [
           [
+            p("peru/rue-village", "Le village où commence le sentier", "The village where the trail begins"),
             p("peru/vallee-village", "Les derniers champs avant les hauteurs", "The last fields before the high country"),
             p("peru/img_e9454", "Le sentier serpente au fond de la vallée", "The trail winds along the valley floor"),
-            p("peru/img_9519", "Pause au bord du ruisseau", "A break by the stream"),
           ],
           [
+            p("peru/img_9519", "Pause au bord du ruisseau", "A break by the stream"),
             p("peru/dsf0812", "Voisins de sentier", "Trail neighbours"),
             p("peru/img_e9458", "Pâturage sous les glaciers", "Grazing below the glaciers"),
           ],
