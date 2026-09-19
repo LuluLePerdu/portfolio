@@ -1,8 +1,25 @@
 {
   "name": "portfolio",
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "private": true,
   "scripts": {
-    "build": "cd aegis && npm install && npm run build",
-    "dev": "cd aegis && npm run dev"
+    "dev": "next dev",
+    "build": "next build && node -e \"require('fs').copyFileSync('static/404.html','out/404.html')\"",
+    "images": "node scripts/optimize-images.mjs",
+    "preview": "npx wrangler pages dev out",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "^16.3.5",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250901.0",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "sharp": "^0.34.0",
+    "typescript": "^5"
   }
 }
