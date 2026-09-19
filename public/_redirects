@@ -1,0 +1,17 @@
+# The site now lives under /fr/ and /en/. Send the bare domain to French;
+# 302 because the choice of language is not permanent.
+/  /fr/  302
+
+# Paths from the previous version of the site, kept alive for anyone
+# (or any search engine) still holding the old links.
+/about      /fr/  301
+/about/*    /fr/  301
+/work       /fr/  301
+/work/*     /fr/  301
+/experience /fr/  301
+/experience/*  /fr/  301
+/contact    /fr/  301
+/contact/*  /fr/  301
+/odyssey    /fr/odyssey/  301
+/odyssey/santa-cruz  /fr/odyssey/santa-cruz/  301
+/odyssey/*  /fr/odyssey/  301

@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     description: story.summary[locale],
     alternates: {
       canonical: `/${lang}/odyssey/${slug}/`,
-      languages: { "fr-CA": `/fr/odyssey/${slug}/`, "en-CA": `/en/odyssey/${slug}/` },
+      languages: { "fr-CA": `/fr/odyssey/${slug}/`, "en-CA": `/en/odyssey/${slug}/`, "x-default": `/fr/odyssey/${slug}/` },
     },
   };
 }

@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     description: project.summary[locale],
     alternates: {
       canonical: `/${lang}/work/${slug}/`,
-      languages: { "fr-CA": `/fr/work/${slug}/`, "en-CA": `/en/work/${slug}/` },
+      languages: { "fr-CA": `/fr/work/${slug}/`, "en-CA": `/en/work/${slug}/`, "x-default": `/fr/work/${slug}/` },
     },
   };
 }

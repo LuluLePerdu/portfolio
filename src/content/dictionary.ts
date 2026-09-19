@@ -2,7 +2,7 @@ import type { Locale } from "@/lib/i18n";
 
 const fr = {
   meta: {
-    title: "Ludwig-Emmanuel Dufour — Développeur full stack",
+    title: "Ludwig-Emmanuel Dufour — Développeur full stack à Sherbrooke",
     description:
       "Étudiant en génie informatique à l'Université de Sherbrooke et développeur chez IBM Bromont. Développement full stack, infrastructure et auto-hébergement.",
   },
@@ -117,7 +117,7 @@ export type Dictionary = typeof fr;
 
 const en: Dictionary = {
   meta: {
-    title: "Ludwig-Emmanuel Dufour — Full stack developer",
+    title: "Ludwig-Emmanuel Dufour — Full stack developer in Sherbrooke",
     description:
       "Computer engineering student at Université de Sherbrooke and developer at IBM Bromont. Full stack development, infrastructure and self-hosting.",
   },

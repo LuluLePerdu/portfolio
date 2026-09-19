@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     description: t.intro,
     alternates: {
       canonical: `/${lang}/odyssey/`,
-      languages: { "fr-CA": "/fr/odyssey/", "en-CA": "/en/odyssey/" },
+      languages: { "fr-CA": "/fr/odyssey/", "en-CA": "/en/odyssey/", "x-default": "/fr/odyssey/" },
     },
   };
 }
