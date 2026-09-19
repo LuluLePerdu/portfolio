@@ -45,7 +45,7 @@ const fr = {
     band: "Le sentier compte autant que le sommet.",
   },
   work: {
-    label: "Projets choisis",
+    label: "Travaux",
     intro: "Des projets d'école, de hackathon et de sous-sol. Chacun m'a appris quelque chose que je réutilise encore.",
     open: "Lire le projet",
     back: "Tous les projets",
@@ -158,7 +158,7 @@ const en: Dictionary = {
     band: "The trail matters as much as the summit.",
   },
   work: {
-    label: "Selected work",
+    label: "Work",
     intro: "School projects, hackathon builds and basement experiments. Each one taught me something I still use.",
     open: "Read the project",
     back: "All projects",
