@@ -93,7 +93,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       <figure className="band reveal" aria-label={me.ridge.caption[locale]}>
         <Photo photo={me.ridge} locale={locale} sizes="(max-width: 1600px) 100vw, 1600px" />
         <figcaption className="wrap band__caption">
-          <span className="serif">{t.about.band}</span>
+          <blockquote className="serif">{t.about.band}</blockquote>
+          <cite className="label band__source">{t.about.bandSource}</cite>
         </figcaption>
       </figure>
 

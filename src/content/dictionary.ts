@@ -42,7 +42,8 @@ const fr = {
       ["Terrain", "Full stack & DevOps"],
     ],
     portraitAlt: "Portrait de Ludwig-Emmanuel Dufour",
-    band: "Le sentier compte autant que le sommet.",
+    band: "Il prit goût à son vol audacieux.",
+    bandSource: "Ovide, Métamorphoses",
   },
   work: {
     label: "Travaux",
@@ -155,7 +156,8 @@ const en: Dictionary = {
       ["Ground", "Full stack & DevOps"],
     ],
     portraitAlt: "Portrait of Ludwig-Emmanuel Dufour",
-    band: "The trail matters as much as the summit.",
+    band: "He began to delight in his daring flight.",
+    bandSource: "Ovid, Metamorphoses",
   },
   work: {
     label: "Work",
