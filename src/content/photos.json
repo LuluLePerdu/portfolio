@@ -40,6 +40,14 @@
       1080
     ]
   },
+  "peru/glaciers-nuages": {
+    "w": 1080,
+    "h": 608,
+    "widths": [
+      960,
+      1080
+    ]
+  },
   "peru/gnyb7522": {
     "w": 1080,
     "h": 608,
@@ -140,6 +148,46 @@
   "peru/kdcr2599": {
     "w": 1080,
     "h": 608,
+    "widths": [
+      960,
+      1080
+    ]
+  },
+  "peru/passeport": {
+    "w": 1500,
+    "h": 2000,
+    "widths": [
+      960,
+      1500
+    ]
+  },
+  "peru/rue-village": {
+    "w": 1500,
+    "h": 2000,
+    "widths": [
+      960,
+      1500
+    ]
+  },
+  "peru/vallee-crepuscule": {
+    "w": 1240,
+    "h": 1653,
+    "widths": [
+      960,
+      1240
+    ]
+  },
+  "peru/vallee-village": {
+    "w": 1500,
+    "h": 2000,
+    "widths": [
+      960,
+      1500
+    ]
+  },
+  "peru/voie-lactee": {
+    "w": 1080,
+    "h": 810,
     "widths": [
       960,
       1080
