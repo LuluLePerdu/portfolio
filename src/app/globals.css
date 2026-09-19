@@ -1867,9 +1867,18 @@ ol {
   margin: 0;
 }
 
+/* The original, half a step behind the translation */
+.band__latin {
+  margin-top: 10px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+  color: rgba(236, 233, 225, 0.62);
+}
+
 .band__source {
   display: block;
-  margin-top: 10px;
+  margin-top: 8px;
   font-style: normal;
   color: rgba(236, 233, 225, 0.6);
 }

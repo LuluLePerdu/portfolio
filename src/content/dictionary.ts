@@ -42,7 +42,8 @@ const fr = {
       ["Terrain", "Full stack & DevOps"],
     ],
     portraitAlt: "Portrait de Ludwig-Emmanuel Dufour",
-    band: "Il prit goût à son vol audacieux.",
+    band: "Qu'il ferme la terre et les eaux : le ciel, lui, reste ouvert.",
+    bandLatin: "Terras licet et undas obstruat, at caelum certe patet.",
     bandSource: "Ovide, Métamorphoses",
   },
   work: {
@@ -156,7 +157,8 @@ const en: Dictionary = {
       ["Ground", "Full stack & DevOps"],
     ],
     portraitAlt: "Portrait of Ludwig-Emmanuel Dufour",
-    band: "He began to delight in his daring flight.",
+    band: "Let him block the lands and the waves: the sky, at least, lies open.",
+    bandLatin: "Terras licet et undas obstruat, at caelum certe patet.",
     bandSource: "Ovid, Metamorphoses",
   },
   work: {

@@ -94,6 +94,9 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <Photo photo={me.ridge} locale={locale} sizes="(max-width: 1600px) 100vw, 1600px" />
         <figcaption className="wrap band__caption">
           <blockquote className="serif">{t.about.band}</blockquote>
+          <p className="band__latin" lang="la">
+            {t.about.bandLatin}
+          </p>
           <cite className="label band__source">{t.about.bandSource}</cite>
         </figcaption>
       </figure>
