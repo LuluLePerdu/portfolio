@@ -94,7 +94,7 @@ export const projects: Project[] = [
   {
     slug: "le-cerf-blanc",
     title: "Le Cerf Blanc",
-    year: "2025",
+    year: "2026",
     status: "done",
     kind: { fr: "Contrat web — refonte", en: "Web contract — redesign" },
     summary: {

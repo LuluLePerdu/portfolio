@@ -16,26 +16,30 @@ export const jobs: Job[] = [
   {
     org: "IBM",
     place: "Bromont, QC",
-    role: { fr: "Développeur — stage", en: "Developer — internship" },
+    role: { fr: "Développeur full stack — stage", en: "Full stack developer — internship" },
     period: { fr: "Janv. 2026 — présent", en: "Jan. 2026 — present" },
     current: true,
     points: [
       {
-        fr: "Développement d'applications au sein de l'équipe FABI, en Next.js et Java, dans un contexte industriel d'envergure internationale.",
-        en: "Building applications with the FABI team, in Next.js and Java, in a large-scale international manufacturing context.",
+        fr: "Modernisation de l'architecture d'une application dépréciée : refonte complète en Java Spring Boot.",
+        en: "Modernizing the architecture of a deprecated application: a full rewrite in Java Spring Boot.",
       },
       {
-        fr: "Équipes agiles, pratiques DevOps et pipelines CI/CD sur l'outillage IBM.",
-        en: "Agile teams, DevOps practices and CI/CD pipelines on IBM tooling.",
+        fr: "Développement frontend et backend, avec l'implémentation d'API REST.",
+        en: "Front-end and back-end development, including REST API implementation.",
+      },
+      {
+        fr: "Amélioration marquée de la qualité du code, dans un contexte industriel d'envergure internationale.",
+        en: "A marked improvement in code quality, in a large-scale international manufacturing context.",
       },
     ],
-    stack: ["Next.js", "Java", "CI/CD"],
+    stack: ["Java", "Spring Boot", "REST"],
   },
   {
     org: "Fjelkore",
     place: "Sherbrooke, QC",
     role: { fr: "Fondateur — développeur web indépendant", en: "Founder — freelance web developer" },
-    period: { fr: "2025 — présent", en: "2025 — present" },
+    period: { fr: "2026 — présent", en: "2026 — present" },
     current: true,
     studio: true,
     points: [
@@ -44,10 +48,15 @@ export const jobs: Job[] = [
         en: "Custom websites for local and regional clients, from quote to launch and follow-up.",
       },
       {
-        fr: "Refonte complète du site du Cerf Blanc, et une offre qui inclut identité visuelle, hébergement et maintenance.",
-        en: "Full redesign of Le Cerf Blanc's website, and an offer that covers visual identity, hosting and maintenance.",
+        fr: "Un CMS modulaire maison, en Next.js, PostgreSQL et Payload, où le client monte et modifie ses pages par blocs, dans une interface visuelle.",
+        en: "An in-house modular CMS, in Next.js, PostgreSQL and Payload, where clients build and edit their own pages block by block, in a visual interface.",
+      },
+      {
+        fr: "Une offre complète : identité visuelle, hébergement et maintenance.",
+        en: "A complete offer: visual identity, hosting and maintenance.",
       },
     ],
+    stack: ["Next.js", "PostgreSQL", "Payload CMS"],
   },
   {
     org: "CGI",
@@ -60,8 +69,8 @@ export const jobs: Job[] = [
         en: "Internal application in Angular, Java Spring Boot, TypeScript and MySQL.",
       },
       {
-        fr: "Pipeline CI/CD sur GitLab avec génération automatisée de métriques de qualité via CAST.",
-        en: "GitLab CI/CD pipeline with automated quality metrics through CAST.",
+        fr: "Pipeline CI/CD avec génération automatisée de métriques de qualité via CAST, et révision de code.",
+        en: "A CI/CD pipeline with automated quality metrics through CAST, plus code review.",
       },
     ],
     stack: ["Angular", "Spring Boot", "MySQL", "GitLab CI"],
@@ -73,12 +82,12 @@ export const jobs: Job[] = [
     period: { fr: "2024 — 2025", en: "2024 — 2025" },
     points: [
       {
-        fr: "Diagnostic et résolution de problèmes internet, téléphonie et télévision pour une clientèle résidentielle et commerciale.",
-        en: "Diagnosing and fixing internet, phone and TV issues for residential and business customers.",
+        fr: "Support téléphonique : diagnostic et résolution de problèmes de réseau, de VoIP et de télévision.",
+        en: "Phone support: diagnosing and fixing network, VoIP and TV problems.",
       },
       {
-        fr: "Configuration et dépannage réseau.",
-        en: "Network configuration and troubleshooting.",
+        fr: "Configuration et dépannage de routeurs, de modems et d'équipements résidentiels.",
+        en: "Configuring and troubleshooting routers, modems and home equipment.",
       },
     ],
   },
@@ -89,15 +98,19 @@ export const jobs: Job[] = [
     period: { fr: "Mars — juil. 2024", en: "Mar. — Jul. 2024" },
     points: [
       {
-        fr: "Applications web internes en C# : un outil de gestion des données étudiantes et des API REST entre systèmes.",
-        en: "Internal web apps in C#: a student data management tool and REST APIs between systems.",
+        fr: "Applications web internes en C# (ASP.NET) pour le personnel scolaire et la direction.",
+        en: "Internal web apps in C# (ASP.NET) for school staff and administration.",
       },
       {
-        fr: "Revues de code, gestion de projets web et mise en ligne de correctifs.",
-        en: "Code reviews, web project management and shipping fixes.",
+        fr: "Déploiement de correctifs en production et mise en ligne des améliorations.",
+        en: "Shipping fixes to production and releasing improvements.",
+      },
+      {
+        fr: "Travail direct avec les utilisateurs internes pour cerner les besoins et les prioriser.",
+        en: "Working directly with internal users to pin down needs and prioritize them.",
       },
     ],
-    stack: ["C#", "REST", "MSSQL"],
+    stack: ["C#", "ASP.NET", "MSSQL"],
   },
   {
     org: "Blanko Créativité numérique",
@@ -106,12 +119,12 @@ export const jobs: Job[] = [
     period: { fr: "Été 2023", en: "Summer 2023" },
     points: [
       {
-        fr: "Générateur de formulaires dynamiques pour des applications municipales, en Laravel.",
-        en: "Dynamic form builder for municipal applications, in Laravel.",
+        fr: "Développement backend de sites web pour des municipalités québécoises, en PHP avec Laravel.",
+        en: "Back-end development of websites for Quebec municipalities, in PHP with Laravel.",
       },
       {
-        fr: "API REST, tests, débogage et documentation, main dans la main avec l'équipe front-end.",
-        en: "REST APIs, testing, debugging and documentation, hand in hand with the front-end team.",
+        fr: "Fonctionnalités dynamiques côté client, et adaptation des gabarits aux chartes graphiques de chaque municipalité.",
+        en: "Dynamic client-side features, and fitting templates to each municipality's visual identity.",
       },
     ],
     stack: ["PHP", "Laravel", "JavaScript"],
@@ -137,10 +150,10 @@ export const education: { school: string; title: T; period: T; note?: T }[] = [
 
 export const skills: { group: T; items: string[] }[] = [
   { group: { fr: "Langages", en: "Languages" }, items: ["TypeScript", "Java", "C#", "C / C++", "Go", "Python", "PHP", "Kotlin", "Swift"] },
-  { group: { fr: "Web", en: "Web" }, items: ["Next.js", "React", "Angular", "Spring Boot", "Laravel"] },
+  { group: { fr: "Web", en: "Web" }, items: ["Next.js", "React", "Angular", "Vue.js", "Spring Boot", "Laravel", "ASP.NET"] },
   { group: { fr: "Données", en: "Data" }, items: ["PostgreSQL", "MySQL", "MSSQL", "Redis"] },
   { group: { fr: "Infra & DevOps", en: "Infra & DevOps" }, items: ["Docker", "Kubernetes", "Proxmox", "Linux", "CI/CD", "Cloudflare", "Bash", "PowerShell"] },
-  { group: { fr: "Méthodes", en: "Practices" }, items: ["Git", "Scrum", "Agile", "CAST"] },
+  { group: { fr: "Méthodes", en: "Practices" }, items: ["Git", "Scrum", "Agile", "CAST", "SonarQube"] },
 ];
 
 export const certifications: { name: T; year: string }[] = [
