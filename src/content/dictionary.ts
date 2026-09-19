@@ -41,6 +41,7 @@ const fr = {
       ["Terrain", "Full stack & DevOps"],
     ],
     portraitAlt: "Portrait de Ludwig-Emmanuel Dufour",
+    band: "Le sentier compte autant que le sommet.",
   },
   work: {
     label: "Projets choisis",
@@ -73,18 +74,14 @@ const fr = {
   },
   odyssey: {
     label: "Odyssée",
-    teaserTitle: "Santa Cruz",
-    teaserPlace: "Cordillère Blanche, Pérou",
-    teaserBody:
-      "Quatre jours à pied dans les Andes péruviennes, un col à 4 750 m, et des nuits sous la tente à regarder les glaciers. Le carnet photo du voyage.",
+    title: "Odyssée",
+    intro:
+      "Des carnets de route, en photos. Là où je vais quand je ferme l'ordinateur, et d'où je reviens avec les idées plus claires.",
     open: "Ouvrir le carnet",
-    back: "Retour à l'accueil",
-    stats: [
-      ["Distance", "≈ 50 km"],
-      ["Point culminant", "4 750 m"],
-      ["Durée", "4 jours"],
-      ["Année", "2024"],
-    ],
+    all: "Tous les carnets",
+    back: "Tous les carnets",
+    photos: "photos",
+    home: "Retour à l'accueil",
   },
   contact: {
     label: "Contact",
@@ -156,6 +153,7 @@ const en: Dictionary = {
       ["Ground", "Full stack & DevOps"],
     ],
     portraitAlt: "Portrait of Ludwig-Emmanuel Dufour",
+    band: "The trail matters as much as the summit.",
   },
   work: {
     label: "Selected work",
@@ -188,18 +186,14 @@ const en: Dictionary = {
   },
   odyssey: {
     label: "Odyssey",
-    teaserTitle: "Santa Cruz",
-    teaserPlace: "Cordillera Blanca, Peru",
-    teaserBody:
-      "Four days on foot through the Peruvian Andes, a pass at 4,750 m, and nights in a tent watching the glaciers. The photo journal of the trip.",
+    title: "Odyssey",
+    intro:
+      "Travel journals, in photos. Where I go when I close the laptop, and where I come back from with a clearer head.",
     open: "Open the journal",
-    back: "Back home",
-    stats: [
-      ["Distance", "≈ 50 km"],
-      ["High point", "4,750 m"],
-      ["Duration", "4 days"],
-      ["Year", "2024"],
-    ],
+    all: "All journals",
+    back: "All journals",
+    photos: "photos",
+    home: "Back home",
   },
   contact: {
     label: "Contact",

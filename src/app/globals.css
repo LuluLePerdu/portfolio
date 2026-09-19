@@ -13,15 +13,15 @@
   --ink-3: #74766f;
   --line: rgba(232, 229, 220, 0.12);
   --line-strong: rgba(232, 229, 220, 0.28);
-  --forest: #17241e;
-  --forest-2: #1f3128;
+  --forest: #152a20;
+  --forest-2: #1d3a2c;
   --on-forest: #e8e5dc;
-  --on-forest-2: #a9b3a8;
+  --on-forest-2: #a7b9ab;
   --ember: #c98b4f;
   --rust: #a8583a;
-  --photo-tint: #16291f;
-  --photo-filter: grayscale(1) contrast(1.08) brightness(0.72);
-  --grain-opacity: 0.06;
+  /* Monochrome with a faint fir-green cast, done as a filter so no blend layer has to repaint on scroll */
+  --photo-filter: grayscale(1) sepia(0.22) hue-rotate(62deg) saturate(0.85) contrast(1.06) brightness(0.8);
+  --grain-opacity: 0.035;
 }
 
 :root[data-theme="brume"] {
@@ -34,15 +34,14 @@
   --ink-3: #797c75;
   --line: rgba(17, 21, 19, 0.13);
   --line-strong: rgba(17, 21, 19, 0.3);
-  --forest: #1b2b23;
-  --forest-2: #24382e;
+  --forest: #193326;
+  --forest-2: #224534;
   --on-forest: #ebe9e2;
-  --on-forest-2: #aab5aa;
+  --on-forest-2: #a9bcae;
   --ember: #9a5a2a;
   --rust: #8f4526;
-  --photo-tint: #2b4436;
-  --photo-filter: grayscale(1) contrast(1.02) brightness(1.02);
-  --grain-opacity: 0.08;
+  --photo-filter: grayscale(1) sepia(0.2) hue-rotate(62deg) saturate(0.8) contrast(1.02) brightness(1);
+  --grain-opacity: 0.05;
 }
 
 :root {
@@ -102,8 +101,14 @@ body::after {
   pointer-events: none;
   z-index: 100;
   opacity: var(--grain-opacity);
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* Touch screens: no grain. A full-screen fixed layer costs frames while scrolling. */
+@media (hover: none), (max-width: 900px) {
+  body::after {
+    display: none;
+  }
 }
 
 img,
@@ -296,7 +301,9 @@ ol {
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 50;
-  height: var(--header-h);
+  /* The notch / status bar area belongs to the header, so nothing peeks above it */
+  height: calc(var(--header-h) + env(safe-area-inset-top, 0px));
+  padding-top: env(safe-area-inset-top, 0px);
   transition: background-color 0.4s var(--ease), border-color 0.4s var(--ease), color 0.4s;
   border-bottom: 1px solid transparent;
 }
@@ -396,7 +403,8 @@ ol {
   background: linear-gradient(90deg, currentColor 50%, transparent 50%);
 }
 
-.menu-btn {
+.menu-btn,
+.nav__lang {
   display: none;
 }
 
@@ -408,6 +416,29 @@ ol {
   .nav__links,
   .nav__tools {
     display: none;
+  }
+
+  .nav {
+    gap: 22px;
+  }
+
+  .nav__lang {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  /* Blur behind a fixed bar is the costliest thing to scroll on phones: use a plain fill instead */
+  .header,
+  .header[data-solid="true"] {
+    transition: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .header[data-solid="true"] {
+    background: var(--bg);
   }
 
   .menu-btn {
@@ -446,6 +477,10 @@ ol {
     transform: none;
     visibility: visible;
     transition: transform 0.6s var(--ease), visibility 0s;
+  }
+
+  .drawer {
+    padding-top: env(safe-area-inset-top, 0px);
   }
 
   .drawer__top {
@@ -506,15 +541,7 @@ ol {
   filter: var(--photo-filter);
 }
 
-.photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--photo-tint);
-  mix-blend-mode: color;
-  opacity: 0.55;
-  pointer-events: none;
-}
+
 
 /* ==========================================================================
    Hero
@@ -543,7 +570,7 @@ ol {
 }
 
 :root[data-theme="brume"] .hero__photo img {
-  filter: grayscale(1) contrast(1.05) brightness(0.8);
+  filter: grayscale(1) sepia(0.2) hue-rotate(62deg) saturate(0.8) contrast(1.05) brightness(0.8);
 }
 
 .hero__veil {
@@ -1108,12 +1135,8 @@ ol {
 }
 
 .teaser:hover .photo img {
-  filter: grayscale(0.35) sepia(0.2) contrast(1.05) brightness(0.8);
+  filter: grayscale(0.3) sepia(0.2) contrast(1.05) brightness(0.8);
   transform: scale(1.03);
-}
-
-.teaser:hover .photo::after {
-  opacity: 0.2;
 }
 
 .teaser__veil {
@@ -1723,18 +1746,9 @@ ol {
   filter: grayscale(0.55) sepia(0.18) contrast(1.04) brightness(0.92);
 }
 
-.shot .photo::after {
-  opacity: 0.25;
-  transition: opacity 1.2s var(--ease);
-}
-
 .shot:hover .photo img {
   filter: none;
   transform: scale(1.02);
-}
-
-.shot:hover .photo::after {
-  opacity: 0;
 }
 
 .shot figcaption {
@@ -1811,9 +1825,156 @@ ol {
 }
 
 .about__portrait img {
-  filter: grayscale(1) contrast(1.06) brightness(0.98);
+  filter: grayscale(0.6) sepia(0.15) contrast(1.04);
 }
 
-.about__portrait::after {
-  opacity: 0.35;
+
+
+/* ==========================================================================
+   Interlude band
+   ========================================================================== */
+
+.band {
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto clamp(88px, 13vw, 176px);
+  aspect-ratio: 16 / 7;
+  isolation: isolate;
+}
+
+.band .photo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.band .photo img {
+  object-position: 50% 45%;
+}
+
+.band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent 45%, rgba(8, 10, 9, 0.6) 100%);
+}
+
+.band__caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding-bottom: clamp(20px, 3vw, 40px);
+  color: #ece9e1;
+  font-size: clamp(1.3rem, 2.6vw, 2.2rem);
+  line-height: 1.2;
+}
+
+@media (max-width: 640px) {
+  .band {
+    aspect-ratio: 4 / 5;
+  }
+  .band .photo img {
+    object-position: 48% 50%;
+  }
+}
+
+/* ==========================================================================
+   Odyssey index & story extras
+   ========================================================================== */
+
+.teaser__actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.teaser__actions .label {
+  color: rgba(236, 233, 225, 0.8);
+}
+
+.o-hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: rgba(236, 233, 225, 0.75);
+}
+
+.o-foot {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: clamp(80px, 12vw, 160px);
+}
+
+.stories {
+  display: grid;
+  gap: clamp(48px, 7vw, 96px);
+}
+
+.story-card {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(24px, 4vw, 64px);
+  align-items: center;
+}
+
+.story-card .photo {
+  aspect-ratio: 4 / 3;
+}
+
+.story-card .photo img {
+  transition: filter 1.2s var(--ease), transform 1.4s var(--ease);
+}
+
+.story-card:hover .photo img {
+  filter: grayscale(0.3) sepia(0.2) contrast(1.04);
+  transform: scale(1.02);
+}
+
+.story-card__body {
+  display: grid;
+  gap: 10px;
+  align-content: center;
+}
+
+.story-card__title {
+  font-weight: 300;
+  font-size: clamp(2.2rem, 5.6vw, 5rem);
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.story-card .teaser__place {
+  color: var(--ink-2);
+}
+
+.story-card__summary {
+  color: var(--ink-2);
+  max-width: 42ch;
+  margin-top: 8px;
+}
+
+.story-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  color: var(--ink);
+}
+
+.story-card:nth-child(even) .photo {
+  order: 2;
+}
+
+@media (max-width: 820px) {
+  .story-card {
+    grid-template-columns: 1fr;
+  }
+  .story-card:nth-child(even) .photo {
+    order: 0;
+  }
 }

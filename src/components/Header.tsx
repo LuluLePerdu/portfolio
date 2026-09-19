@@ -93,6 +93,15 @@ export function Header({ locale, nav }: { locale: Locale; nav: Dictionary["nav"]
               ))}
             </ul>
             <div className="nav__tools">{tools}</div>
+            <Link
+              className="tool nav__lang"
+              href={altPath}
+              hrefLang={altLocale}
+              lang={altLocale}
+              aria-label={nav.lang}
+            >
+              {altLocale.toUpperCase()}
+            </Link>
             <button
               type="button"
               className="menu-btn"

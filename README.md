@@ -21,8 +21,20 @@ Tout le texte est dans `src/content/` :
 - `path.ts` — expérience, formation, compétences, liens
 - `odyssey.ts` — carnet du trek Santa Cruz
 
-Photos : mettre les originaux dans un dossier puis `npm run images -- <dossier>` ;
-les WebP (900 px et 2000 px) sortent dans `public/images/peru/`.
+Photos : mettre les originaux dans un dossier, puis
+
+```bash
+node scripts/optimize-images.mjs <dossier> <collection>
+```
+
+Les WebP (960 / 1600 / 2800 px) sortent dans `public/images/<collection>/` et
+`src/content/photos.json` enregistre leurs dimensions. On les référence ensuite
+par `<collection>/<nom>`.
+
+**Ajouter une histoire à l'Odyssée** : exporter ses photos dans une nouvelle
+collection, puis ajouter une entrée dans `stories` (`src/content/odyssey.ts`).
+La plus récente se place en premier : c'est celle que l'accueil met en vedette,
+et la page `/odyssey/` les liste toutes.
 
 ## Cloudflare Pages
 

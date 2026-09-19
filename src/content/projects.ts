@@ -92,6 +92,100 @@ export const projects: Project[] = [
     source: "https://github.com/LuluLePerdu/Homelab",
   },
   {
+    slug: "le-cerf-blanc",
+    title: "Le Cerf Blanc",
+    year: "2025",
+    status: "done",
+    kind: { fr: "Contrat web — refonte", en: "Web contract — redesign" },
+    summary: {
+      fr: "La refonte complète du site d'une entreprise de la région : cinq pages, une nouvelle présentation des salles et des réservations, et un client autonome pour la suite.",
+      en: "A full website redesign for a regional business: five pages, a new take on its rooms and bookings, and a client who can run it on their own afterwards.",
+    },
+    role: { fr: "Devis, design, développement, livraison", en: "Quote, design, development, delivery" },
+    team: { fr: "Solo, pour un client", en: "Solo, for a client" },
+    duration: { fr: "Un contrat", en: "One contract" },
+    stack: ["Design web", "Responsive", "Rédaction web", "Formation client"],
+    context: {
+      fr: "Un de mes premiers contrats en indépendant, arrivé par référence. Le Cerf Blanc voulait un site plus clair et plus actuel, qui lui ressemble, et qu'il pourrait faire vivre lui-même.",
+      en: "One of my first freelance contracts, which came through a referral. Le Cerf Blanc wanted a clearer, more current site that looked like them, and that they could keep alive on their own.",
+    },
+    approach: [
+      {
+        fr: "Tout le cycle, de la première rencontre au devis, puis maquettes, développement, mise en ligne et suivi.",
+        en: "The whole cycle, from the first meeting to the quote, then mock-ups, development, launch and follow-up.",
+      },
+      {
+        fr: "Une structure en cinq pages centrée sur ce que les visiteurs viennent chercher : les salles, les réservations et les informations pratiques.",
+        en: "A five-page structure built around what visitors come for: the rooms, the bookings and the practical information.",
+      },
+      {
+        fr: "Une présentation pensée d'abord pour le téléphone, puis élargie pour l'ordinateur.",
+        en: "A layout designed for the phone first, then widened for the desktop.",
+      },
+      {
+        fr: "Des guides d'entretien et de gestion rédigés sur mesure, pour que le client modifie ses textes et ses photos sans dépendre de moi.",
+        en: "Custom maintenance and management guides, so the client edits their own text and photos without depending on me.",
+      },
+    ],
+    outcome: {
+      fr: "Un site en ligne, un client autonome, et le premier projet de mon activité de création web.",
+      en: "A live site, a self-sufficient client, and the first project of my web design business.",
+    },
+    live: "https://www.lecerfblanc.ca/",
+  },
+  {
+    slug: "fpga-retro",
+    title: "Les Bleuets",
+    year: "2026",
+    status: "done",
+    kind: { fr: "Génie — jeu rétro sur FPGA", en: "Engineering — retro game on FPGA" },
+    summary: {
+      fr: "Un jeu rétro dont la carte graphique est écrite de zéro en VHDL : une PPU à tuiles et à sprites, dans le FPGA d'un Zynq, jusqu'à la sortie HDMI.",
+      en: "A retro game whose graphics card is written from scratch in VHDL: a tile-and-sprite PPU in a Zynq's FPGA, all the way to the HDMI output.",
+    },
+    role: { fr: "Architecture matérielle, VHDL", en: "Hardware architecture, VHDL" },
+    team: { fr: "Équipe de session", en: "Semester team" },
+    duration: { fr: "Une session (S4)", en: "One semester (S4)" },
+    stack: ["VHDL", "Zynq", "Vivado", "Vitis", "C", "AXI", "BRAM", "HDMI", "SPI"],
+    context: {
+      fr: "Projet de quatrième session en génie informatique à l'UdeS. Le défi : concevoir l'architecture d'un moteur de jeu à la façon des consoles 8 bits, où le rendu n'est pas fait par un logiciel mais par du matériel décrit en VHDL.",
+      en: "Fourth-semester computer engineering project at UdeS. The challenge: design the architecture of a game engine the way 8-bit consoles did it, where rendering isn't done by software but by hardware described in VHDL.",
+    },
+    approach: [
+      {
+        fr: "Le processeur ARM du Zynq fait tourner la logique du jeu et la position des objets. Il écrit la caméra et huit acteurs dans des registres, à travers un bus AXI.",
+        en: "The Zynq's ARM core runs the game logic and object positions. It writes the camera and eight actors into registers, over an AXI bus.",
+      },
+      {
+        fr: "Pour chaque pixel, la PPU descend une chaîne de mémoires BRAM : la carte donne la tuile et la position dans la tuile, la tuile donne l'indice de couleur, la palette donne le RGB.",
+        en: "For every pixel, the PPU walks a chain of BRAM memories: the map gives the tile and the position inside it, the tile gives a colour index, the palette gives the RGB.",
+      },
+      {
+        fr: "Un module de premier plan vérifie si un acteur recouvre ce pixel et remplace alors l'arrière-plan : c'est le système de sprites.",
+        en: "A foreground module checks whether an actor covers that pixel and, if so, replaces the background: that's the sprite system.",
+      },
+      {
+        fr: "Le contrôle passe par un joystick Pmod lu en SPI, et l'image sort en HDMI.",
+        en: "Input comes from a Pmod joystick read over SPI, and the picture goes out over HDMI.",
+      },
+    ],
+    outcome: {
+      fr: "Un moteur graphique entièrement matériel, et une compréhension concrète de ce qui se passe sous chaque image : horloges, mémoires, bus et bits.",
+      en: "A fully hardware graphics engine, and a hands-on understanding of what happens under every frame: clocks, memories, buses and bits.",
+    },
+    table: {
+      caption: { fr: "Le chemin d'un pixel", en: "A pixel's journey" },
+      rows: [
+        [{ fr: "Étape", en: "Step" }, "Module", { fr: "Rôle", en: "Role" }],
+        ["01", "mapBram", { fr: "(x, y) → tuile (6 bits) + ligne et colonne dans la tuile 8 × 8", en: "(x, y) → tile (6 bits) + row and column in the 8 × 8 tile" }],
+        ["02", "tileBram", { fr: "Tuile + position → indice de couleur (4 bits, 16 couleurs)", en: "Tile + position → colour index (4 bits, 16 colours)" }],
+        ["03", "pixelBram", { fr: "Indice → couleur RGB sur 24 bits", en: "Index → 24-bit RGB colour" }],
+        ["04", "foregroundRender", { fr: "Un des 8 acteurs couvre-t-il ce pixel ? Si oui, sa couleur l'emporte", en: "Does one of the 8 actors cover this pixel? If so, its colour wins" }],
+        ["05", "HDMI", { fr: "Le pixel final part vers l'écran", en: "The final pixel goes out to the screen" }],
+      ],
+    },
+  },
+  {
     slug: "shackododo",
     title: "ShackoDodo",
     year: "2025",

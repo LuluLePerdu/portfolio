@@ -22,7 +22,8 @@ export function Reveal() {
           }
         }
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
+      // threshold 0: elements taller than the viewport must also fade in
+      { rootMargin: "0px 0px -6% 0px", threshold: 0 },
     );
     items.forEach((el) => io.observe(el));
     return () => io.disconnect();

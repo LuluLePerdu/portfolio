@@ -4,7 +4,7 @@ import { Arrow } from "@/components/Icons";
 import { Photo } from "@/components/Photo";
 import { Topo } from "@/components/Topo";
 import { getDictionary } from "@/content/dictionary";
-import { heroPhoto, teaserPhoto } from "@/content/odyssey";
+import { heroPhoto, me, stories } from "@/content/odyssey";
 import { certifications, education, jobs, languages, links, skills } from "@/content/path";
 import { projects } from "@/content/projects";
 import { type Locale } from "@/lib/i18n";
@@ -12,6 +12,7 @@ import { type Locale } from "@/lib/i18n";
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const locale = (await params).lang as Locale;
   const t = getDictionary(locale);
+  const story = stories[0];
 
   return (
     <>
@@ -50,10 +51,12 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       <section id="profil" className="section" aria-labelledby="profil-title">
         <div className="wrap about">
           <div className="about__aside reveal">
-            <div className="photo about__portrait">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/portrait.webp" alt={t.about.portraitAlt} width={800} height={1000} loading="lazy" />
-            </div>
+            <Photo
+              photo={me.portrait}
+              locale={locale}
+              sizes="(max-width: 820px) 320px, 420px"
+              className="about__portrait"
+            />
             <p className="about__caption label">
               <span>L—E. Dufour</span>
               <span>
@@ -82,6 +85,14 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
         </div>
       </section>
+
+      {/* ---------------------------------------------------------------- Interlude */}
+      <figure className="band reveal" aria-label={me.ridge.caption[locale]}>
+        <Photo photo={me.ridge} locale={locale} sizes="(max-width: 1600px) 100vw, 1600px" />
+        <figcaption className="wrap band__caption">
+          <span className="serif">{t.about.band}</span>
+        </figcaption>
+      </figure>
 
       {/* ---------------------------------------------------------------- Work */}
       <section id="projets" className="section" aria-labelledby="work-title" style={{ paddingTop: 0 }}>
@@ -236,7 +247,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
       {/* ---------------------------------------------------------------- Odyssey */}
       <section className="teaser" aria-labelledby="teaser-title">
-        <Photo photo={teaserPhoto} locale={locale} sizes="100vw" />
+        <Photo photo={story.cover} locale={locale} sizes="100vw" />
         <div className="teaser__veil" aria-hidden="true" />
         <div className="wrap teaser__inner">
           <div className="reveal">
@@ -244,21 +255,28 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               <b>04</b> / {t.odyssey.label}
             </p>
             <h2 id="teaser-title" className="teaser__title">
-              {t.odyssey.teaserTitle}
+              {story.title}
             </h2>
-            <p className="teaser__place">{t.odyssey.teaserPlace}</p>
+            <p className="teaser__place">{story.place[locale]}</p>
           </div>
           <div className="reveal" style={{ "--d": "0.15s" } as React.CSSProperties}>
-            <p className="teaser__body">{t.odyssey.teaserBody}</p>
-            <Link className="btn" href={`/${locale}/odyssey/`}>
-              {t.odyssey.open}
-              <Arrow className="arrow" />
-            </Link>
+            <p className="teaser__body">{story.summary[locale]}</p>
+            <div className="teaser__actions">
+              <Link className="btn" href={`/${locale}/odyssey/${story.slug}/`}>
+                {t.odyssey.open}
+                <Arrow className="arrow" />
+              </Link>
+              {stories.length > 1 && (
+                <Link className="label link" href={`/${locale}/odyssey/`}>
+                  {t.odyssey.all}
+                </Link>
+              )}
+            </div>
             <dl className="stats">
-              {t.odyssey.stats.map(([k, v]) => (
-                <div key={k}>
-                  <dt className="label">{k}</dt>
-                  <dd>{v}</dd>
+              {story.stats.map(([k, v]) => (
+                <div key={k.en}>
+                  <dt className="label">{k[locale]}</dt>
+                  <dd>{v[locale]}</dd>
                 </div>
               ))}
             </dl>
