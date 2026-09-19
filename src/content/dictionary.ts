@@ -28,10 +28,11 @@ const fr = {
   },
   about: {
     label: "Profil",
-    lead: "Je construis des systèmes comme on trace un sentier : patiemment, avec rigueur, et en gardant un œil sur le paysage.",
+    greeting: "Joyeux matin!",
+    lead: "J'apprends en cassant des choses chez moi, pour ne pas les casser ailleurs.",
     body: [
       "Je suis étudiant en génie informatique à l'Université de Sherbrooke et développeur en stage chez IBM Bromont. Mon terrain de jeu va de l'interface jusqu'au serveur : applications web full stack, pipelines CI/CD, et l'infrastructure qui fait tourner tout ça.",
-      "Chez moi, un seul serveur héberge un réseau segmenté en onze VLANs, un pare-feu virtualisé et une dizaine de services exposés derrière un tunnel Cloudflare. C'est là que j'apprends ce que les cours ne montrent pas : ce qui casse, et pourquoi.",
+      "Chez moi, un seul serveur héberge un réseau segmenté en onze VLANs, un pare-feu virtualisé et une dizaine de services exposés derrière un tunnel Cloudflare. C'est mon terrain d'essai : on y apprend vite ce que les cours ne montrent pas.",
       "Quand je ne suis pas devant un terminal, je suis probablement en montagne, sur une paroi d'escalade ou sur ma moto.",
     ],
     facts: [
@@ -140,10 +141,11 @@ const en: Dictionary = {
   },
   about: {
     label: "Profile",
-    lead: "I build systems the way you cut a trail: patiently, carefully, and with an eye on the landscape.",
+    greeting: "Joyeux matin!",
+    lead: "I learn by breaking things at home, so I don't break them anywhere else.",
     body: [
       "I study computer engineering at Université de Sherbrooke and I'm a developer intern at IBM Bromont. My ground runs from the interface down to the server: full stack web apps, CI/CD pipelines, and the infrastructure that keeps them running.",
-      "At home, a single server runs a network split into eleven VLANs, a virtualized firewall and about a dozen services exposed behind a Cloudflare tunnel. That's where I learn what classes don't cover: what breaks, and why.",
+      "At home, a single server runs a network split into eleven VLANs, a virtualized firewall and about a dozen services exposed behind a Cloudflare tunnel. It's my proving ground: you learn fast there what classes don't cover.",
       "When I'm not in a terminal, I'm probably in the mountains, on a climbing wall or on my motorcycle.",
     ],
     facts: [

@@ -49,7 +49,8 @@ const p = (id: Photo["id"], fr: string, en: string): Photo => ({ id, caption: { 
 
 /** Photos of me, used outside the journal. */
 export const me = {
-  portrait: p("me/portrait", "Ludwig-Emmanuel en montagne", "Ludwig-Emmanuel in the mountains"),
+  portrait: p("me/profile", "Ludwig-Emmanuel Dufour", "Ludwig-Emmanuel Dufour"),
+  silhouette: p("me/silhouette", "Ludwig-Emmanuel en montagne", "Ludwig-Emmanuel in the mountains"),
   ridge: p("me/ridge", "Sur une crête, au-dessus d'un cirque glaciaire", "On a ridge above a glacial cirque"),
 };
 

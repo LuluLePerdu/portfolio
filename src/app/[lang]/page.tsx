@@ -66,9 +66,12 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
 
           <div className="about__body">
-            <h2 id="profil-title" className="lead reveal">
-              {t.about.lead}
-            </h2>
+            <div className="reveal">
+              <p className="greeting">{t.about.greeting}</p>
+              <h2 id="profil-title" className="lead">
+                {t.about.lead}
+              </h2>
+            </div>
             <div className="about__text reveal">
               {t.about.body.map((p) => (
                 <p key={p.slice(0, 24)}>{p}</p>

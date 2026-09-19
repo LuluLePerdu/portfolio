@@ -789,7 +789,7 @@ ol {
 }
 
 .about__portrait img {
-  object-position: 50% 30%;
+  object-position: 50% 28%;
 }
 
 .about__caption {
@@ -1827,7 +1827,8 @@ ol {
 }
 
 .about__portrait img {
-  filter: grayscale(0.6) sepia(0.15) contrast(1.04);
+  /* Enough colour left for the shirt to read, not enough to fight the palette */
+  filter: grayscale(0.45) sepia(0.12) contrast(1.04);
 }
 
 
@@ -1979,4 +1980,13 @@ ol {
   .story-card:nth-child(even) .photo {
     order: 0;
   }
+}
+
+/* His line, in his own words — the one thing on the page that says good morning */
+.greeting {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  color: var(--ember);
+  margin-bottom: 0.5em;
 }
