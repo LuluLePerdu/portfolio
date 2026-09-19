@@ -76,19 +76,6 @@ export const projects: Project[] = [
       fr: "Nextcloud, Immich, Mealie, Home Assistant et mes propres applications tournent au quotidien, chacun dans sa zone. Tout est documenté (architecture, journal de construction, feuille de route) pour que le moi de l'an prochain comprenne les décisions du moi d'aujourd'hui.",
       en: "Nextcloud, Immich, Mealie, Home Assistant and my own apps run every day, each in its own zone. Everything is documented (architecture, build log, roadmap) so next year's me understands the decisions today's me made.",
     },
-    table: {
-      caption: { fr: "Segmentation réseau (extrait)", en: "Network segmentation (excerpt)" },
-      rows: [
-        ["VLAN", "Zone", { fr: "Contenu", en: "Runs" }],
-        ["10", "DMZ", "cloudflared, Traefik"],
-        ["20", { fr: "Public", en: "Public" }, "Nextcloud, Immich, Mealie"],
-        ["35", "IoT", "Home Assistant, Thread"],
-        ["40", "Infra", "Authelia, LLDAP, Uptime Kuma, DNS"],
-        ["45", { fr: "Stockage", en: "Storage" }, "TrueNAS, NFS"],
-        ["50", { fr: "Données", en: "Data" }, "PostgreSQL, MariaDB, Redis"],
-        ["99", { fr: "Gestion", en: "Mgmt" }, { fr: "Proxmox, accès de secours", en: "Proxmox, fallback access" }],
-      ],
-    },
     source: "https://github.com/LuluLePerdu/Homelab",
   },
   {
@@ -172,17 +159,6 @@ export const projects: Project[] = [
     outcome: {
       fr: "Un moteur graphique entièrement matériel, et une compréhension concrète de ce qui se passe sous chaque image : horloges, mémoires, bus et bits.",
       en: "A fully hardware graphics engine, and a hands-on understanding of what happens under every frame: clocks, memories, buses and bits.",
-    },
-    table: {
-      caption: { fr: "Le chemin d'un pixel", en: "A pixel's journey" },
-      rows: [
-        [{ fr: "Étape", en: "Step" }, "Module", { fr: "Rôle", en: "Role" }],
-        ["01", "mapBram", { fr: "(x, y) → tuile (6 bits) + ligne et colonne dans la tuile 8 × 8", en: "(x, y) → tile (6 bits) + row and column in the 8 × 8 tile" }],
-        ["02", "tileBram", { fr: "Tuile + position → indice de couleur (4 bits, 16 couleurs)", en: "Tile + position → colour index (4 bits, 16 colours)" }],
-        ["03", "pixelBram", { fr: "Indice → couleur RGB sur 24 bits", en: "Index → 24-bit RGB colour" }],
-        ["04", "foregroundRender", { fr: "Un des 8 acteurs couvre-t-il ce pixel ? Si oui, sa couleur l'emporte", en: "Does one of the 8 actors cover this pixel? If so, its colour wins" }],
-        ["05", "HDMI", { fr: "Le pixel final part vers l'écran", en: "The final pixel goes out to the screen" }],
-      ],
     },
   },
   {

@@ -1990,3 +1990,128 @@ ol {
   color: var(--ember);
   margin-bottom: 0.5em;
 }
+
+/* ==========================================================================
+   Diagrams
+   ========================================================================== */
+
+.diagram {
+  margin: 0 0 clamp(32px, 4vw, 56px);
+}
+
+/* Wide by nature: let a phone pan across instead of shrinking the text away */
+.diagram__scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding-bottom: 8px;
+}
+
+.diagram__svg {
+  width: 100%;
+  min-width: 720px;
+  height: auto;
+}
+
+.diagram__node rect {
+  fill: none;
+  stroke: var(--line-strong);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.diagram__node--solid rect {
+  fill: var(--bg-2);
+}
+
+.diagram__node--accent rect {
+  stroke: var(--ember);
+}
+
+.diagram__host rect {
+  fill: none;
+  stroke: var(--line);
+  stroke-dasharray: 2 5;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.diagram__line {
+  fill: none;
+  stroke: var(--line-strong);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.diagram__line--dashed {
+  stroke: var(--ember);
+  stroke-dasharray: 5 5;
+}
+
+.diagram__tip {
+  fill: var(--line-strong);
+  stroke: none;
+}
+
+.diagram__tip--accent {
+  fill: var(--ember);
+}
+
+.diagram text {
+  text-anchor: middle;
+  fill: var(--ink-2);
+}
+
+/* Presentation attributes lose to CSS, so alignment lives here */
+.diagram .at-start {
+  text-anchor: start;
+}
+
+.diagram .at-end {
+  text-anchor: end;
+}
+
+.diagram__label {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  fill: var(--ink);
+}
+
+/* Module names are written the way they appear in the code */
+.diagram__label--code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+
+.diagram__meta,
+.diagram__tag,
+.diagram__caption {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+}
+
+.diagram__tag {
+  fill: var(--ember);
+  font-size: 12px;
+}
+
+.diagram__caption {
+  text-transform: uppercase;
+  fill: var(--ink-3);
+}
+
+.diagram__note {
+  margin-top: 16px;
+  color: var(--ink-2);
+  font-size: 0.92rem;
+  max-width: 60ch;
+}
+
+/* A diagram explains more when it is not squeezed into the text column */
+.p-figure {
+  margin-bottom: clamp(56px, 8vw, 104px);
+}

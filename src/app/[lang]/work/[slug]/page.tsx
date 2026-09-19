@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ProjectDiagram } from "@/components/diagrams";
 import { Arrow } from "@/components/Icons";
 import { Topo } from "@/components/Topo";
 import { getDictionary } from "@/content/dictionary";
@@ -90,6 +91,10 @@ export default async function ProjectPage({ params }: { params: Params }) {
               </p>
             </div>
           </section>
+
+          <div className="p-figure reveal">
+            <ProjectDiagram slug={project.slug} locale={locale} />
+          </div>
 
           <section className="p-body reveal">
             <h2 className="label">{t.approach}</h2>
