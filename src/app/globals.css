@@ -856,7 +856,7 @@ ol {
 .work__item {
   position: relative;
   display: grid;
-  grid-template-columns: 64px minmax(0, 5fr) minmax(0, 4fr) 90px 40px;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) 90px 40px;
   gap: 24px;
   align-items: center;
   padding: clamp(26px, 3.4vw, 44px) 0;
@@ -885,12 +885,6 @@ ol {
   color: var(--on-forest);
   --ink-2: var(--on-forest-2);
   --ink-3: var(--on-forest-2);
-}
-
-.work__num {
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  color: var(--ember);
 }
 
 .work__title {
@@ -931,19 +925,19 @@ ol {
 
 @media (max-width: 900px) {
   .work__item {
-    grid-template-columns: 40px minmax(0, 1fr) 28px;
+    grid-template-columns: minmax(0, 1fr) 28px;
     gap: 12px 16px;
     align-items: start;
   }
   .work__summary {
-    grid-column: 2 / 3;
+    grid-column: 1 / 2;
   }
   .work__year {
     display: none;
   }
   .work__arrow {
     grid-row: 1;
-    grid-column: 3;
+    grid-column: 2;
     align-self: center;
   }
 }

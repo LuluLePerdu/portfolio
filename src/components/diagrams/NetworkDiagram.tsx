@@ -1,20 +1,22 @@
 import type { Locale } from "@/lib/i18n";
 
-/** What each VLAN holds, as actually built (see the homelab build log). */
-const vlans: { tag: string; zone: string; runs: Record<Locale, string>; note?: Record<Locale, string> }[] = [
-  { tag: "05", zone: "USERS", runs: { fr: "Postes et wifi", en: "Workstations and wifi" } },
-  { tag: "10", zone: "DMZ", runs: { fr: "cloudflared, Traefik", en: "cloudflared, Traefik" } },
-  { tag: "20", zone: "PUB", runs: { fr: "Nextcloud, Immich, Mealie", en: "Nextcloud, Immich, Mealie" } },
-  { tag: "35", zone: "IOT", runs: { fr: "Home Assistant, Thread", en: "Home Assistant, Thread" } },
-  { tag: "40", zone: "INFRA", runs: { fr: "Authelia, LLDAP, DNS, supervision", en: "Authelia, LLDAP, DNS, monitoring" } },
-  { tag: "45", zone: "STORAGE", runs: { fr: "TrueNAS, ZFS, NFS", en: "TrueNAS, ZFS, NFS" } },
+/**
+ * What each segment holds, as actually built (see the homelab build log).
+ * The VLAN tags themselves stay off the public page: they are a map of a live network.
+ */
+const vlans: { zone: string; runs: Record<Locale, string>; note?: Record<Locale, string> }[] = [
+  { zone: "USERS", runs: { fr: "Postes et wifi", en: "Workstations and wifi" } },
+  { zone: "DMZ", runs: { fr: "cloudflared, Traefik", en: "cloudflared, Traefik" } },
+  { zone: "PUB", runs: { fr: "Nextcloud, Immich, Mealie", en: "Nextcloud, Immich, Mealie" } },
+  { zone: "IOT", runs: { fr: "Home Assistant, Thread", en: "Home Assistant, Thread" } },
+  { zone: "INFRA", runs: { fr: "Authelia, LLDAP, DNS, supervision", en: "Authelia, LLDAP, DNS, monitoring" } },
+  { zone: "STORAGE", runs: { fr: "TrueNAS, ZFS, NFS", en: "TrueNAS, ZFS, NFS" } },
   {
-    tag: "50",
     zone: "DB",
     runs: { fr: "PostgreSQL, MariaDB, Redis", en: "PostgreSQL, MariaDB, Redis" },
     note: { fr: "scellée : aucune sortie", en: "sealed: no egress" },
   },
-  { tag: "99", zone: "MGMT", runs: { fr: "Proxmox, accès de secours", en: "Proxmox, fallback access" } },
+  { zone: "MGMT", runs: { fr: "Proxmox, accès de secours", en: "Proxmox, fallback access" } },
 ];
 
 const t = {
@@ -126,17 +128,14 @@ export function NetworkDiagram({ locale }: { locale: Locale }) {
             const y = top + i * (rowH + gap);
             const mid = y + rowH / 2;
             return (
-              <g key={v.tag}>
+              <g key={v.zone}>
                 <path className="diagram__line diagram__line--arrow" d={`M392 ${mid} H${rowX}`} markerEnd="url(#tip)" />
                 <g className="diagram__node">
                   <rect x={rowX} y={y} width={rowW} height={rowH} rx="2" />
-                  <text x={rowX + 18} y={mid - 4} className="diagram__tag at-start">
-                    {v.tag}
-                  </text>
-                  <text x={rowX + 58} y={mid - 4} className="diagram__label at-start">
+                  <text x={rowX + 20} y={mid - 4} className="diagram__label at-start">
                     {v.zone}
                   </text>
-                  <text x={rowX + 58} y={mid + 15} className="diagram__meta at-start">
+                  <text x={rowX + 20} y={mid + 15} className="diagram__meta at-start">
                     {v.runs[locale]}
                     {v.note ? ` — ${v.note[locale]}` : ""}
                   </text>
@@ -157,8 +156,8 @@ export function NetworkDiagram({ locale }: { locale: Locale }) {
       </div>
       <ul className="sr-only">
         {vlans.map((v) => (
-          <li key={v.tag}>
-            VLAN {v.tag} {v.zone}: {v.runs[locale]}
+          <li key={v.zone}>
+            {v.zone}: {v.runs[locale]}
             {v.note ? ` — ${v.note[locale]}` : ""}
           </li>
         ))}

@@ -52,9 +52,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
           <Link href={`/${locale}/#projets`} className="p-back label link">
             <Arrow dir="left" /> {t.back}
           </Link>
-          <p className="label">
-            <b>{String(index + 1).padStart(2, "0")}</b> / {project.kind[locale]}
-          </p>
+          <p className="label">{project.kind[locale]}</p>
           <h1 className="p-title">{project.title}</h1>
           <p className="p-summary">{project.summary[locale]}</p>
 

@@ -117,10 +117,9 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
 
           <ol className="work">
-            {projects.map((p, i) => (
+            {projects.map((p) => (
               <li key={p.slug} className="reveal">
                 <Link href={`/${locale}/work/${p.slug}/`} className="work__item" aria-label={`${p.title} — ${t.work.open}`}>
-                  <span className="work__num">{String(i + 1).padStart(2, "0")}</span>
                   <span>
                     <span className="work__title">{p.title}</span>
                     <span className="work__kind label">{p.kind[locale]}</span>
